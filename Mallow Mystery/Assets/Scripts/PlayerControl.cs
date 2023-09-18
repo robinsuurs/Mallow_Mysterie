@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -24,5 +25,19 @@ public class PlayerControl : MonoBehaviour
     void OnMove(InputValue inputValue)
     {
         _movement = inputValue.Get<Vector2>();
+    }
+
+    private void OnCollisionStay(Collision other)
+    {
+        if (other.gameObject.TryGetComponent(out IInteractable interactableObject))
+        {
+            interactableObject.Interact();
+        }
+        Debug.Log("collision");
+    }
+
+    void OnInteract()
+    {
+        Debug.Log("INETERACT PRESS");
     }
 }
