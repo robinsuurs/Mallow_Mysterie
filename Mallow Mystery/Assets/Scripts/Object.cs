@@ -16,7 +16,7 @@ public class Object : MonoBehaviour, IInteractable
         
     }
 
-    public void Interact()
+    public void Interactable()
     {
         Debug.Log("is intractable");
         
