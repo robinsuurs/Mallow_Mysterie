@@ -18,7 +18,7 @@ public class Object : MonoBehaviour, IInteractable
 
     public void Interactable()
     {
-        Debug.Log("is intractable");
+        Destroy(this.gameObject);
         
     }
 }
