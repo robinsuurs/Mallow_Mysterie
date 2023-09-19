@@ -10,6 +10,7 @@ public class PlayerControl : MonoBehaviour
     private Vector2 _movement;
     [SerializeField] private float speed = 10;
     private bool _canInteract = false;
+    private Object _interactable;
     
     // Start is called before the first frame update
     void Start()
@@ -30,15 +31,15 @@ public class PlayerControl : MonoBehaviour
 
     private void OnCollisionStay(Collision other)
     {
-        _canInteract = other.gameObject.TryGetComponent(out IInteractable interactableObject) ? true : false;
-
+//        _canInteract = other.gameObject.TryGetComponent(out IInteractable interactableObject) ? true : false;
+        _interactable = other.gameObject.TryGetComponent(out IInteractable interactableObject) ? other.collider.GetComponent<Object>() : null;
     }
 
     void OnInteract()
     {
         if (_canInteract)
         {
-            
+            _interactable.Interactable();
             Debug.Log("INETERACT PRESS");
         }
     }
