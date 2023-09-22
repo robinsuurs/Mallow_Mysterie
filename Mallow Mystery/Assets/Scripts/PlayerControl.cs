@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -8,7 +10,9 @@ public class PlayerControl : MonoBehaviour
     private Rigidbody _rigidbody;
     private Vector2 _movement;
     [SerializeField] private float speed = 10;
-    
+
+    private EventManager _eventManager;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,5 +28,9 @@ public class PlayerControl : MonoBehaviour
     void OnMove(InputValue inputValue)
     {
         _movement = inputValue.Get<Vector2>();
+    }
+    public void OnTriggerEnter(Collider other)
+    {
+        _eventManager.hit.Invoke();
     }
 }
