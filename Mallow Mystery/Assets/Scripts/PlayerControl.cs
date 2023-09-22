@@ -11,7 +11,7 @@ public class PlayerControl : MonoBehaviour
     private Vector2 _movement;
     [SerializeField] private float speed = 10;
 
-    private EventManager _eventManager;
+    // private EventManager _eventManager;
 
     // Start is called before the first frame update
     void Start()
@@ -31,6 +31,6 @@ public class PlayerControl : MonoBehaviour
     }
     public void OnTriggerEnter(Collider other)
     {
-        _eventManager.hit.Invoke();
+        // _eventManager.hit.Invoke();
     }
 }

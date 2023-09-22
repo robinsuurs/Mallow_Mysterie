@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class Object : MonoBehaviour
 {
-    public EventManager _eventManager;
+    // public EventManager _eventManager;
     public GameEvent hit;
 
     private void OnTriggerEnter(Collider other)
