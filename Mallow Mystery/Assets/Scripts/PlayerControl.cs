@@ -1,12 +1,14 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using ExampleEventScriptAble;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class PlayerControl : MonoBehaviour
 {
+    public VoidEventChannel voidEventChannel;
     private Rigidbody _rigidbody;
     private Vector2 _movement;
     [SerializeField] private float speed = 10;
@@ -32,5 +34,11 @@ public class PlayerControl : MonoBehaviour
     public void OnTriggerEnter(Collider other)
     {
         // _eventManager.hit.Invoke();
+    }
+
+    void OnInteract(InputValue inputValue)
+    {
+        Debug.Log("test");
+        voidEventChannel.Raise();
     }
 }

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using ExampleEventScriptAble;
 using UnityEngine;
 
-public class Interact : MonoBehaviour
+public class Deprecated_Interact : MonoBehaviour
 {
     public VoidEventChannel voidEventChannel;
     private void Update()
