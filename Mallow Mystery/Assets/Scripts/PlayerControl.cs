@@ -25,4 +25,5 @@ public class PlayerControl : MonoBehaviour
     {
         _movement = inputValue.Get<Vector2>();
     }
+    
 }
