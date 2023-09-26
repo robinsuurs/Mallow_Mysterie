@@ -9,7 +9,7 @@ using UnityEngine.Serialization;
 
 public class PlayerControl : MonoBehaviour
 {
-    [FormerlySerializedAs("voidEventChannel")] public GameEventChannel gameEventChannel;
+    
     private Rigidbody _rigidbody;
     private Vector2 _movement;
     [SerializeField] private float speed = 10;
@@ -32,8 +32,5 @@ public class PlayerControl : MonoBehaviour
         _movement = inputValue.Get<Vector2>();
     }
     
-    void OnInteract(InputValue inputValue)
-    {
-        gameEventChannel.Raise();
-    }
+    
 }
