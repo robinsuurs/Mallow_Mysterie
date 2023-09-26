@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using ScriptObjects;
 using UnityEngine;
 
 namespace ExampleEventScriptAble
