@@ -15,7 +15,7 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Ineract",
+                    "name": "Interact",
                     "type": "Button",
                     "id": "6885361b-9487-48ab-b0e4-3936d4ec8112",
                     "expectedControlType": "Button",
@@ -88,6 +88,17 @@
                     "processors": "",
                     "groups": "Keyboard+Mouse",
                     "action": "Ineract",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f4df35fd-cc9d-4dae-bad9-164b5684c570",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard+Mouse",
+                    "action": "Interact",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
