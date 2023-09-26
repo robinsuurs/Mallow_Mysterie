@@ -3,10 +3,10 @@ using UnityEngine;
 
 namespace ExampleEventScriptAble
 {
-    [CreateAssetMenu(menuName = "Events/Void Event Channel")]
-    public class VoidEventChannel : ScriptableObject
+    [CreateAssetMenu(menuName = "Events/GameEventChannel")]
+    public class GameEventChannel : ScriptableObject
     {
-        private List<VoidEventListener> _listeners = new List<VoidEventListener>();
+        private List<GameEventListeners> _listeners = new List<GameEventListeners>();
     
         public void Raise()
         {
@@ -15,11 +15,11 @@ namespace ExampleEventScriptAble
                 _listeners[i].OnEventTriggered();
             }
         }
-        public void AddListener(VoidEventListener listener)
+        public void AddListener(GameEventListeners listener)
         {
             _listeners.Add(listener);
         }
-        public void RemoveListener(VoidEventListener listener)
+        public void RemoveListener(GameEventListeners listener)
         {
             _listeners.Remove(listener);
         }

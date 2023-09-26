@@ -5,15 +5,15 @@ using ExampleEventScriptAble;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 
 public class PlayerControl : MonoBehaviour
 {
-    public VoidEventChannel voidEventChannel;
+    [FormerlySerializedAs("voidEventChannel")] public GameEventChannel gameEventChannel;
     private Rigidbody _rigidbody;
     private Vector2 _movement;
     [SerializeField] private float speed = 10;
-
-    // private EventManager _eventManager;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -31,14 +31,9 @@ public class PlayerControl : MonoBehaviour
     {
         _movement = inputValue.Get<Vector2>();
     }
-    public void OnTriggerEnter(Collider other)
-    {
-        // _eventManager.hit.Invoke();
-    }
-
+    
     void OnInteract(InputValue inputValue)
     {
-        Debug.Log("test");
-        voidEventChannel.Raise();
+        gameEventChannel.Raise();
     }
 }
