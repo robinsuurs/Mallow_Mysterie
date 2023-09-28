@@ -24,7 +24,6 @@ public class ListernerStandardAdd : MonoBehaviour
 
     public void OnEventTriggered()
     {
-        print("Invoked");
         response.Invoke();
     }
 }
