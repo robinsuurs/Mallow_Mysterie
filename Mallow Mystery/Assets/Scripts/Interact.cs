@@ -8,6 +8,7 @@ public class Interact : MonoBehaviour
    public GameEventChannel interact;
    void OnInteract()
    {
+       
        interact.Raise();
        print("Pressed E");
       
