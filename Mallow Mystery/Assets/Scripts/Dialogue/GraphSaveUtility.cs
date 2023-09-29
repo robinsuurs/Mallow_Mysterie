@@ -29,15 +29,15 @@ public class GraphSaveUtility
         if (!Edges.Any()) return;
         var dialogueContainer = ScriptableObject.CreateInstance<DialogueContainer>();
         var connectedPorts = Edges.Where(x => x.input.node != null).ToArray();
-        for (int i = 0; i < connectedPorts.Length; i++)
+        foreach (var t in connectedPorts)
         {
-            var outputNode = connectedPorts[i].output.node as DialogueNode;
-            var inputNode = connectedPorts[i].input.node as DialogueNode;
+            var outputNode = t.output.node as DialogueNode;
+            var inputNode = t.input.node as DialogueNode;
 
             dialogueContainer.NodeLinks.Add(new NodeLinkData
             {
                 BaseNodeGuid = outputNode.GUID,
-                PortName = connectedPorts[i].output.portName,
+                PortName = t.output.portName,
                 TargetNodeGuid = inputNode.GUID
             });
         }
@@ -89,7 +89,7 @@ public class GraphSaveUtility
 
                 targetNode.SetPosition(new Rect(
                     _containerCache.DialogueNodeData.First(x => x.Guid == targetNodeGUID).Position,
-                    _targetGraphView.defaultNodeSize));
+                    _targetGraphView.DefaultNodeSize));
             }
         }
     }
@@ -111,7 +111,7 @@ public class GraphSaveUtility
     {
         foreach (var nodeData in _containerCache.DialogueNodeData)
         {
-            var tempNode = _targetGraphView.CreateDialogueNode(nodeData.DialogueText);
+            var tempNode = _targetGraphView.CreateDialogueNode(nodeData.DialogueText, Vector2.zero);
             tempNode.GUID = nodeData.Guid;
             _targetGraphView.AddElement(tempNode);
 

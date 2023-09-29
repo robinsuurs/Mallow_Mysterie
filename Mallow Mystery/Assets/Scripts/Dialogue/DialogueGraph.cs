@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
+using UnityEditor.Experimental.GraphView;
 using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -22,7 +23,7 @@ public class DialogueGraph : EditorWindow
 
     private void ConstructGraphView()
     {
-        _graphView = new DialogGraphView
+        _graphView = new DialogGraphView (this)
         {
             name = "Dialogue Graph"
         };
@@ -40,13 +41,8 @@ public class DialogueGraph : EditorWindow
         fileNameTextField.RegisterValueChangedCallback(evt => _fileName = evt.newValue);
         toolbar.Add(fileNameTextField);
         
-        var nodeCreateButton = new Button(() => { _graphView.CreateNode("Dialogue Node"); });
-        nodeCreateButton.text = "Create Node";
-        toolbar.Add(nodeCreateButton);
-        
         toolbar.Add(new Button(() => RequestDataOperation(true)) {text = "Save Data"});
         toolbar.Add(new Button(() => RequestDataOperation(false)) {text = "Load Data"});
-        
         rootVisualElement.Add(toolbar);
     }
 
@@ -72,6 +68,28 @@ public class DialogueGraph : EditorWindow
     {
         ConstructGraphView();
         GenerateToolbar();
+        GenerateMiniMap();
+        GenerateBlackBoard();
+    }
+
+    private void GenerateBlackBoard()
+    {
+        var blackboard = new Blackboard(_graphView);
+        blackboard.Add(new BlackboardSection { title = "Exposed Properties" });
+        blackboard.addItemRequested = _blackboard => { _graphView.AddPropertyToBlackBoard(new ExposedProperty()); };
+        blackboard.SetPosition(new Rect(10,30,200,300));
+        _graphView.Blackboard = blackboard;
+        _graphView.Add(blackboard);
+        
+        
+    }
+
+    private void GenerateMiniMap()
+    {
+        var minimap = new MiniMap{anchored = true};
+        var cords = _graphView.contentViewContainer.WorldToLocal(new Vector2(10, 30));
+        minimap.SetPosition(new Rect(30, 30, 200, 140));
+        _graphView.Add(minimap);
     }
 
     private void OnDisable()

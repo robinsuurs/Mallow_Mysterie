@@ -2,15 +2,20 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEditor;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UIElements;
 
 public class DialogGraphView : GraphView
 {
-    public readonly Vector2 defaultNodeSize = new Vector2(200, 150);
+    public readonly Vector2 DefaultNodeSize = new Vector2(200, 150);
+
+    public List<ExposedProperty> ExposedProperties = new List<ExposedProperty>();
+    private NodeSearchWindow _searchWindow;
+    public Blackboard Blackboard;
     
-    public DialogGraphView()
+    public DialogGraphView(EditorWindow editorWindow)
     {
         styleSheets.Add(Resources.Load<StyleSheet>("DialogGraph"));
         SetupZoom(ContentZoomer.DefaultMinScale, ContentZoomer.DefaultMaxScale);
@@ -23,6 +28,15 @@ public class DialogGraphView : GraphView
         grid.StretchToParentSize();
         
         AddElement(GenerateEntryPointNode());
+        AddSearchWindow(editorWindow);
+    }
+
+    private void AddSearchWindow(EditorWindow editorWindow)
+    {
+        _searchWindow = ScriptableObject.CreateInstance<NodeSearchWindow>();
+        _searchWindow.Init(this, editorWindow);
+        nodeCreationRequest = context =>
+            SearchWindow.Open(new SearchWindowContext(context.screenMousePosition), _searchWindow);
     }
 
     public override List<Port> GetCompatiblePorts(Port startPort, NodeAdapter nodeAdapter)
@@ -59,6 +73,10 @@ public class DialogGraphView : GraphView
         generatePort.portName = "next";
         node.outputContainer.Add(generatePort);
         
+        node.capabilities &= ~Capabilities.Movable;
+        node.capabilities &= ~Capabilities.Deletable;
+        
+        
         node.RefreshExpandedState();
         node.RefreshPorts();
         
@@ -67,12 +85,12 @@ public class DialogGraphView : GraphView
         return node;
     }
 
-    public void CreateNode(string nodeName)
+    public void CreateNode(string nodeName, Vector2 mousePosition)
     {
-        AddElement(CreateDialogueNode(nodeName));
+        AddElement(CreateDialogueNode(nodeName, mousePosition));
     }
 
-    public DialogueNode CreateDialogueNode(string nodeName)
+    public DialogueNode CreateDialogueNode(string nodeName, Vector2 mousePosition)
     {
         var dialogueNode = new DialogueNode()
         {
@@ -81,60 +99,41 @@ public class DialogGraphView : GraphView
             GUID = Guid.NewGuid().ToString()
         };
 
+        dialogueNode.IsResizable();
+
         var inputPort = GeneratePort(dialogueNode, Direction.Input, Port.Capacity.Multi);
         inputPort.portName = "Input";
         dialogueNode.inputContainer.Add(inputPort);
+        
+        dialogueNode.styleSheets.Add(Resources.Load<StyleSheet>("Node"));
 
         var button = new Button(() => { AddChoicePort(dialogueNode); });
         button.text = "New Choice";
         dialogueNode.titleContainer.Add(button);
+
+        var textField = new TextField(String.Empty);
+        textField.RegisterValueChangedCallback(evt =>
+        {
+            dialogueNode.DialogueText = evt.newValue;
+            dialogueNode.title = evt.newValue;
+        });
+        textField.SetValueWithoutNotify(dialogueNode.title);
+        dialogueNode.mainContainer.Add(textField);
         
         dialogueNode.RefreshExpandedState();
         dialogueNode.RefreshPorts();
-        dialogueNode.SetPosition(new Rect(Vector2.zero, defaultNodeSize));
+        dialogueNode.SetPosition(new Rect(mousePosition, DefaultNodeSize));
         return dialogueNode;
     }
-
-    // public void AddChoicePort(DialogueNode dialogueNode, string overriddenPortName = "")
-    // {
-    //     var generatedPort = GeneratePort(dialogueNode, Direction.Output);
-    //
-    //     var oldLabel = generatedPort.contentContainer.Q<Label>("type");
-    //     generatedPort.contentContainer.Remove(oldLabel);
-    //
-    //     var outputPortCount = dialogueNode.outputContainer.Query("connector").ToList().Count;
-    //     generatedPort.portName = $"Choice {outputPortCount}";
-    //
-    //     var choicePortName = string.IsNullOrEmpty(overriddenPortName)
-    //         ? $"Choice {outputPortCount + 1}"
-    //         : overriddenPortName;
-    //
-    //     var textField = new TextField
-    //     {
-    //         name = string.Empty,
-    //         value = choicePortName
-    //     };
-    //     textField.RegisterValueChangedCallback(evt => generatedPort.portName = evt.newValue);
-    //     
-    //     generatedPort.contentContainer.Add(new Label(""));
-    //     generatedPort.contentContainer.Add(textField);
-    //     var deleteButton = new Button(() => RemovePort(dialogueNode, generatedPort))
-    //     {
-    //         text = "X"
-    //     };
-    //     generatedPort.contentContainer.Add(deleteButton);
-    //     
-    //     generatedPort.portName = choicePortName;
-    //     dialogueNode.outputContainer.Add(generatedPort);
-    //     dialogueNode.RefreshPorts();
-    //     dialogueNode.RefreshExpandedState();
-    // }
     
     public void AddChoicePort(DialogueNode nodeCache, string overriddenPortName = "")
     {
         var generatedPort = GeneratePort(nodeCache, Direction.Output);
+        
         var portLabel = generatedPort.contentContainer.Q<Label>("type");
         generatedPort.contentContainer.Remove(portLabel);
+        generatedPort.contentContainer.style.position = Position.Relative;
+        generatedPort.style.position = Position.Relative;
 
         var outputPortCount = nodeCache.outputContainer.Query("connector").ToList().Count();
         var outputPortName = string.IsNullOrEmpty(overriddenPortName)
@@ -145,15 +144,22 @@ public class DialogGraphView : GraphView
         var textField = new TextField()
         {
             name = string.Empty,
-            value = outputPortName
+            value = outputPortName,
+            multiline = true
         };
+        // textField.StretchToParentWidth();
+        
         textField.RegisterValueChangedCallback(evt => generatedPort.portName = evt.newValue);
-        generatedPort.contentContainer.Add(new Label("  "));
+        Label label = new Label("  ");
+        generatedPort.contentContainer.Add(label);
         generatedPort.contentContainer.Add(textField);
+        // generatedPort.contentContainer.
+        
         var deleteButton = new Button(() => RemovePort(nodeCache, generatedPort))
         {
             text = "X"
         };
+        textField.PlaceBehind(label);
         generatedPort.contentContainer.Add(deleteButton);
         generatedPort.portName = outputPortName;
         nodeCache.outputContainer.Add(generatedPort);
@@ -175,5 +181,32 @@ public class DialogGraphView : GraphView
         node.outputContainer.Remove(socket);
         node.RefreshPorts();
         node.RefreshExpandedState();
+    }
+
+    public void AddPropertyToBlackBoard(ExposedProperty exposedProperty)
+    {
+        var property = new ExposedProperty();
+        property.PropertyName = exposedProperty.PropertyName;
+        property.PropertyName = exposedProperty.PropertyValue;
+        ExposedProperties.Add(property);
+
+        var container = new VisualElement();
+        var blackboardField = new BlackboardField { text = property.PropertyName, typeText = "string"};
+        container.Add(blackboardField);
+
+        var propertyValueTextField = new TextField("Value:")
+        {
+            value = property.PropertyValue
+        };
+        propertyValueTextField.RegisterValueChangedCallback(evt =>
+        {
+            var changingPropertyIndex = ExposedProperties.FindIndex(x => x.PropertyName == property.PropertyName);
+            ExposedProperties[changingPropertyIndex].PropertyValue = evt.newValue;
+        });
+        var blackBoardValueRow = new BlackboardRow(blackboardField, propertyValueTextField);
+        container.Add(blackBoardValueRow);
+        
+        Blackboard.Add(container);
+        
     }
 }
