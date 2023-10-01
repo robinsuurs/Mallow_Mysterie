@@ -1,12 +1,14 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using System;
+using System.Linq;
 
-[Serializable]
-public class NodeLinkData
+namespace Subtegral.DialogueSystem.DataContainers
 {
-    public string BaseNodeGuid;
-    public string PortName;
-    public string TargetNodeGuid;
+    [Serializable]
+    public class NodeLinkData
+    {
+        public string BaseNodeGUID;
+        public string PortName;
+        public string TargetNodeGUID;
+        public string ItemIdRequired;
+    }
 }

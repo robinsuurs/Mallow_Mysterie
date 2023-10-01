@@ -1,12 +1,13 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System;
 using UnityEngine;
 
-[Serializable]
-public class DialogueNodeData
+namespace Subtegral.DialogueSystem.DataContainers
 {
-    public string Guid;
-    public string DialogueText;
-    public Vector2 Position;
+    [Serializable]
+    public class DialogueNodeData
+    {
+        public string NodeGUID;
+        public string DialogueText;
+        public Vector2 Position;
+    }
 }

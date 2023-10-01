@@ -9,26 +9,34 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc6d1cfe33292eb4bba671c896d76dd9, type: 3}
+  m_Script: {fileID: 11500000, guid: 78b3fd9154634ebdb8c8a48960b9a16a, type: 3}
   m_Name: New Narrative
   m_EditorClassIdentifier: 
   NodeLinks:
-  - BaseNodeGuid: db4e6681-242d-4ccd-99fc-7ea455469c72
-    PortName: next
-    TargetNodeGuid: 423c13ae-5ec9-43d3-8a26-7c31b9774c93
-  - BaseNodeGuid: 423c13ae-5ec9-43d3-8a26-7c31b9774c93
-    PortName: asdsad
-    TargetNodeGuid: 7260d7cb-2d3a-4398-830c-598971dd3df1
-  - BaseNodeGuid: 423c13ae-5ec9-43d3-8a26-7c31b9774c93
-    PortName: asdsad
-    TargetNodeGuid: 9318720b-418f-4ac4-9a7c-01ef2da4051f
+  - BaseNodeGUID: e53a17fc-13da-40e2-a06b-89f4c9d9175c
+    PortName: Next
+    TargetNodeGUID: fe14629d-e6cf-4c19-bf92-caa586ae907c
+  - BaseNodeGUID: fe14629d-e6cf-4c19-bf92-caa586ae907c
+    PortName: No choice
+    TargetNodeGUID: 8fee4d06-6d56-4298-a71b-09b37b0d6007
+  - BaseNodeGUID: 8fee4d06-6d56-4298-a71b-09b37b0d6007
+    PortName: Choice 1
+    TargetNodeGUID: 8b16b84b-c122-430a-b358-dbcffd9c43b1
+  - BaseNodeGUID: 8fee4d06-6d56-4298-a71b-09b37b0d6007
+    PortName: Choice 2
+    TargetNodeGUID: 8dff6053-985a-4454-96ef-0f27359f1335
   DialogueNodeData:
-  - Guid: 423c13ae-5ec9-43d3-8a26-7c31b9774c93
-    DialogueText: njansjkdnkjasndkj
-    Position: {x: 286.4, y: 152.8}
-  - Guid: 7260d7cb-2d3a-4398-830c-598971dd3df1
-    DialogueText: DialogNode
-    Position: {x: 616, y: 45.600002}
-  - Guid: 9318720b-418f-4ac4-9a7c-01ef2da4051f
-    DialogueText: DialogNode 2
-    Position: {x: 674.4, y: 251.2}
+  - NodeGUID: fe14629d-e6cf-4c19-bf92-caa586ae907c
+    DialogueText: Test 1
+    Position: {x: 341, y: 162}
+  - NodeGUID: 8fee4d06-6d56-4298-a71b-09b37b0d6007
+    DialogueText: Select a Choice
+    Position: {x: 696, y: 162}
+  - NodeGUID: 8b16b84b-c122-430a-b358-dbcffd9c43b1
+    DialogueText: Choice 1 selected
+    Position: {x: 1025, y: -60}
+  - NodeGUID: 8dff6053-985a-4454-96ef-0f27359f1335
+    DialogueText: Choice 2 selected
+    Position: {x: 1168, y: 258}
+  ExposedProperties: []
+  CommentBlockData: []
