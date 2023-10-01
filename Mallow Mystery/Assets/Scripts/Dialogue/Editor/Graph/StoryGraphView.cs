@@ -6,6 +6,7 @@ using Subtegral.DialogueSystem.DataContainers;
 using UnityEditor;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
+using UnityEngine.Android;
 using UnityEngine.UI;
 using UnityEngine.UIElements;
 using Button = UnityEngine.UIElements.Button;
@@ -132,8 +133,28 @@ namespace Subtegral.DialogueSystem.Editor
                 DialogueText = nodeName,
                 GUID = Guid.NewGuid().ToString()
             };
+
+            bool useDefaultValues = true;
+            
+            // TODO: Bram Mulders 01-10-2023, fix save for this
+            int defaultIndex = useDefaultValues
+                ? 0
+                : ExposedProperties.FindIndex(x => x.PropertyName == tempDialogueNode.SpeakerId);
+
+            defaultIndex = defaultIndex < 0 ? 0 : defaultIndex;
+
+            PopupField<string> speakerIdEnumField =
+                new PopupField<string>(ExposedProperties.Select(x => x.PropertyName).ToList(), defaultIndex);
+            tempDialogueNode.titleContainer.Add(speakerIdEnumField);
+            speakerIdEnumField.RegisterValueChangedCallback(evt =>
+            {
+                tempDialogueNode.SpeakerId = evt.newValue;
+            });
+            
+            speakerIdEnumField.SendToBack();
+            //
+            
             tempDialogueNode.styleSheets.Add(Resources.Load<StyleSheet>("Node"));
-            tempDialogueNode.styleSheets.Add(Resources.Load<StyleSheet>("NodeSizer"));
             var inputPort = GetPortInstance(tempDialogueNode, Direction.Input, Port.Capacity.Multi);
             inputPort.portName = "Input";
             tempDialogueNode.inputContainer.Add(inputPort);
@@ -142,6 +163,7 @@ namespace Subtegral.DialogueSystem.Editor
             tempDialogueNode.SetPosition(new Rect(position,
                 DefaultNodeSize));
 
+            // TODO: Bram Mulders 01-10-2023 if save is fixed with other remove this
             var textField = new TextField("");
             textField.RegisterValueChangedCallback(evt =>
             {
@@ -152,6 +174,28 @@ namespace Subtegral.DialogueSystem.Editor
             textField.multiline = true;
             textField.style.maxHeight = 200;
             tempDialogueNode.mainContainer.Add(textField);
+            //
+            
+            var dialogueTextLongField = new TextField(string.Empty)
+            {
+                label = "DialogueText",
+                style = { width = 300 },
+                multiline = true
+            };
+            dialogueTextLongField.RegisterValueChangedCallback((evt => { tempDialogueNode.DialogueText = evt.newValue; }));
+            dialogueTextLongField.SetValueWithoutNotify(tempDialogueNode.DialogueText);
+            tempDialogueNode.mainContainer.Add(dialogueTextLongField);
+            
+            //ItemId textbox
+            var inventoryItemId = new TextField(string.Empty)
+            {
+                label = "ItemId",
+                style = { width = 300 },
+                multiline = true
+            };
+            inventoryItemId.RegisterValueChangedCallback((evt => { tempDialogueNode.itemId = evt.newValue; }));
+            inventoryItemId.SetValueWithoutNotify(tempDialogueNode.DialogueText);
+            tempDialogueNode.mainContainer.Add(inventoryItemId);
 
             var button = new Button(() => { AddChoicePort(tempDialogueNode); })
             {
@@ -181,17 +225,6 @@ namespace Subtegral.DialogueSystem.Editor
             };
             textField.RegisterValueChangedCallback(evt => generatedPort.portName = evt.newValue);
             textField.StretchToParentWidth();
-            
-            // var ItemIdRequired = string.IsNullOrEmpty(OverridenItemIdRequired)
-            //     ? $"Option {""}"
-            //     : OverridenItemIdRequired;
-            //
-            // var itemIdRequiredTextField = new TextField()
-            // {
-            //     name = string.Empty,
-            //     value = ItemIdRequired
-            // };
-            // itemIdRequiredTextField.RegisterValueChangedCallback(evt => generatedPort.portName = evt.newValue);
             
             var deleteButton = new Button(() => RemovePort(nodeCache, generatedPort))
             {

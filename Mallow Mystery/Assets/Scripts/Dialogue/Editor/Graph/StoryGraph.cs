@@ -17,6 +17,7 @@ namespace Subtegral.DialogueSystem.Editor
 
         private StoryGraphView _graphView;
         private DialogueContainer _dialogueContainer;
+        private MiniMap miniMap;
 
         [MenuItem("Graph/Narrative Graph")]
         public static void CreateGraphViewWindow()
@@ -46,8 +47,12 @@ namespace Subtegral.DialogueSystem.Editor
             toolbar.Add(fileNameTextField);
 
             toolbar.Add(new Button(() => RequestDataOperation(true)) {text = "Save Data"});
-
             toolbar.Add(new Button(() => RequestDataOperation(false)) {text = "Load Data"});
+            
+            var refreshMinimapPositionButton = new Button(RefreshMinimapPosition);
+            refreshMinimapPositionButton.text = "Refresh Minimap";
+            toolbar.Add(refreshMinimapPositionButton);
+            
             rootVisualElement.Add(toolbar);
         }
 
@@ -71,16 +76,23 @@ namespace Subtegral.DialogueSystem.Editor
         {
             ConstructGraphView();
             GenerateToolbar();
-            GenerateMiniMap();
+            GenerateMinimap();
             GenerateBlackBoard();
         }
 
-        private void GenerateMiniMap()
+        private void GenerateMinimap()
         {
-            var miniMap = new MiniMap {anchored = true};
-            var cords = _graphView.contentViewContainer.WorldToLocal(new Vector2(this.maxSize.x - 10, 30));
-            miniMap.SetPosition(new Rect(cords.x, cords.y, 200, 140));
+            miniMap = new MiniMap
+            {
+                anchored = true
+            };
+            RefreshMinimapPosition();
             _graphView.Add(miniMap);
+        }
+
+        public void RefreshMinimapPosition()
+        {
+            miniMap.SetPosition(new Rect(position.width - 210, 30, 200, 140));
         }
 
         private void GenerateBlackBoard()

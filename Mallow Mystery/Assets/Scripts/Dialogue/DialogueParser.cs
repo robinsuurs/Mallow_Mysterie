@@ -43,7 +43,7 @@ namespace Subtegral.DialogueSystem.Runtime
         private void ProceedToNarrative(string narrativeDataGUID)
         {
             oneChoiceDialogue = false;
-            var text = dialogue.DialogueNodeData.Find(x => x.NodeGUID == narrativeDataGUID).DialogueText;
+            var text = dialogue.DialogueNodeData.Find(x => x.nodeGuid == narrativeDataGUID).dialogueText;
             choices = dialogue.NodeLinks.Where(x => x.BaseNodeGUID == narrativeDataGUID);
             dialogueText.text = ProcessProperties(text);
             var buttons = buttonContainer.GetComponentsInChildren<Button>();

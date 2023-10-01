@@ -60,7 +60,7 @@ public class DialogueHandler : MonoBehaviour
     
     private void ProceedToNarrative(string narrativeDataGUID)
     {
-        var text = dialogue.DialogueNodeData.Find(x => x.NodeGUID == narrativeDataGUID).DialogueText;
+        var text = dialogue.DialogueNodeData.Find(x => x.nodeGuid == narrativeDataGUID).dialogueText;
         choices = dialogue.NodeLinks.Where(x => x.BaseNodeGUID == narrativeDataGUID);
         currentDialogue = ProcessProperties(text);
         textMeshProUGUI.text = "";

@@ -81,9 +81,9 @@ namespace Subtegral.DialogueSystem.Editor
             {
                 dialogueContainerObject.DialogueNodeData.Add(new DialogueNodeData
                 {
-                    NodeGUID = node.GUID,
-                    DialogueText = node.DialogueText,
-                    Position = node.GetPosition().position
+                    nodeGuid = node.GUID,
+                    dialogueText = node.DialogueText,
+                    position = node.GetPosition().position
                 });
             }
 
@@ -144,11 +144,11 @@ namespace Subtegral.DialogueSystem.Editor
         {
             foreach (var perNode in _dialogueContainer.DialogueNodeData)
             {
-                var tempNode = _graphView.CreateNode(perNode.DialogueText, Vector2.zero);
-                tempNode.GUID = perNode.NodeGUID;
+                var tempNode = _graphView.CreateNode(perNode.dialogueText, Vector2.zero);
+                tempNode.GUID = perNode.nodeGuid;
                 _graphView.AddElement(tempNode);
 
-                var nodePorts = _dialogueContainer.NodeLinks.Where(x => x.BaseNodeGUID == perNode.NodeGUID).ToList();
+                var nodePorts = _dialogueContainer.NodeLinks.Where(x => x.BaseNodeGUID == perNode.nodeGuid).ToList();
                 nodePorts.ForEach(x => _graphView.AddChoicePort(tempNode, x.PortName, x.ItemIdRequired));
             }
         }
@@ -166,7 +166,7 @@ namespace Subtegral.DialogueSystem.Editor
                     LinkNodesTogether(Nodes[i].outputContainer[j].Q<Port>(), (Port) targetNode.inputContainer[0]);
 
                     targetNode.SetPosition(new Rect(
-                        _dialogueContainer.DialogueNodeData.First(x => x.NodeGUID == targetNodeGUID).Position,
+                        _dialogueContainer.DialogueNodeData.First(x => x.nodeGuid == targetNodeGUID).position,
                         _graphView.DefaultNodeSize));
                 }
             }
