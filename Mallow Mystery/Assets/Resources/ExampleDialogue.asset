@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78b3fd9154634ebdb8c8a48960b9a16a, type: 3}
+  m_Name: ExampleDialogue
+  m_EditorClassIdentifier: 
+  NodeLinks:
+  - BaseNodeGUID: 4dbf2034-b17c-4916-893f-0a92c1db282a
+    PortName: Next
+    TargetNodeGUID: e7281361-714b-4e4c-a85b-1348a9cce994
+    ItemIdRequired: 
+  - BaseNodeGUID: e7281361-714b-4e4c-a85b-1348a9cce994
+    PortName: Option 1
+    TargetNodeGUID: 27327b37-3bc8-4a74-8e75-a0dbf79ca2d7
+    ItemIdRequired: 
+  - BaseNodeGUID: 27327b37-3bc8-4a74-8e75-a0dbf79ca2d7
+    PortName: I would like option 1
+    TargetNodeGUID: fd055955-9718-4368-9dfd-3973b75fc112
+    ItemIdRequired: 
+  - BaseNodeGUID: 27327b37-3bc8-4a74-8e75-a0dbf79ca2d7
+    PortName: I would like option 2
+    TargetNodeGUID: 5b20ffd6-f90c-44fe-9f99-04b4ea68ed7d
+    ItemIdRequired: 
+  DialogueNodeData:
+  - NodeGUID: e7281361-714b-4e4c-a85b-1348a9cce994
+    DialogueText: 'Welcome to the example of our dialogue system.
+
+      Mind it
+      is still a work in process'
+    Position: {x: 218, y: 200}
+  - NodeGUID: 27327b37-3bc8-4a74-8e75-a0dbf79ca2d7
+    DialogueText: But we can make buttons to split dialogue conversations
+    Position: {x: 741, y: 200}
+  - NodeGUID: 5b20ffd6-f90c-44fe-9f99-04b4ea68ed7d
+    DialogueText: Option 2 is chosen
+    Position: {x: 1274, y: 291}
+  - NodeGUID: fd055955-9718-4368-9dfd-3973b75fc112
+    DialogueText: Option 1 is chosen
+    Position: {x: 1254, y: 104}
+  ExposedProperties: []
+  CommentBlockData: []
