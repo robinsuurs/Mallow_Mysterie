@@ -15,7 +15,7 @@ namespace Dialogue.Editor.Nodes
         public DialogueNode (DialogueNodeData data) {
             DialogueText = data.dialogueText;
             GUID = data.nodeGuid;
-            SpeakerName = data.SpeakerId;
+            SpeakerName = data.SpeakerName;
             SpeakerSpriteLeft = data.SpeakerSpriteLeft;
             SpeakerSpriteRight = data.SpeakerSpriteRight;
             ItemId = data.ItemId;

@@ -86,8 +86,8 @@ namespace Subtegral.DialogueSystem.Editor
             {
                 anchored = true
             };
-            RefreshMinimapPosition();
             _graphView.Add(miniMap);
+            RefreshMinimapPosition();
         }
 
         public void RefreshMinimapPosition()
@@ -120,6 +120,7 @@ namespace Subtegral.DialogueSystem.Editor
             blackboard.SetPosition(new Rect(10,30,200,300));
             _graphView.Add(blackboard);
             _graphView.Blackboard = blackboard;
+            _graphView.AddPropertyToBlackBoard(ExposedProperty.CreateInstancePlaceHolder(), false);
         }
 
         private void OnDisable()

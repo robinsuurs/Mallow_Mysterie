@@ -142,9 +142,7 @@ namespace Subtegral.DialogueSystem.Editor
             tempDialogueNode.titleButtonContainer.Add(button);
             
             // TODO: Bram Mulders 01-10-2023, fix save for this
-            int defaultIndex = useDefaultValues
-                ? 0
-                : ExposedProperties.FindIndex(x => x.PropertyName == tempDialogueNode.SpeakerName);
+            int defaultIndex = useDefaultValues ? 0 : ExposedProperties.FindIndex(x => x.PropertyName == tempDialogueNode.SpeakerName);
 
             defaultIndex = defaultIndex < 0 ? 0 : defaultIndex;
 

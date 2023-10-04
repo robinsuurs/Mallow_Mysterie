@@ -9,7 +9,7 @@ namespace Dialogue.Runtime
         public string nodeGuid;
         public string dialogueText;
         public Vector2 position;
-        public string SpeakerId;
+        [FormerlySerializedAs("SpeakerId")] public string SpeakerName;
         public string SpeakerSpriteLeft;
         public string SpeakerSpriteRight;
         public string ItemId;

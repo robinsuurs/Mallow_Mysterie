@@ -33,30 +33,36 @@ MonoBehaviour:
   - nodeGuid: fef4368c-466b-46e3-93ab-659491238cb1
     dialogueText: C2 is shown
     position: {x: 889, y: 47}
-    SpeakerId: 
+    SpeakerName: Plebonian
     SpeakerSpriteLeft: C1
     SpeakerSpriteRight: C2
     ItemId: 
   - nodeGuid: a824f735-2e60-437a-a89d-f469c69c7cd1
     dialogueText: Test for Sprites
     position: {x: 386, y: 177}
-    SpeakerId: 
+    SpeakerName: Overlord
     SpeakerSpriteLeft: C1
-    SpeakerSpriteRight: 
-    ItemId: 
-  - nodeGuid: 158cac69-b6a6-48e4-a672-9d08ceda8d0c
-    dialogueText: C3 is shown
-    position: {x: 889, y: 354}
-    SpeakerId: 
-    SpeakerSpriteLeft: C3
     SpeakerSpriteRight: 
     ItemId: 
   - nodeGuid: eda45d7d-b14f-4ae6-9111-476781d3ac1d
     dialogueText: C3 is shown
     position: {x: 889, y: 201}
-    SpeakerId: 
+    SpeakerName: Plebonian
     SpeakerSpriteLeft: C1
     SpeakerSpriteRight: C3
     ItemId: 
-  ExposedProperties: []
+  - nodeGuid: 158cac69-b6a6-48e4-a672-9d08ceda8d0c
+    dialogueText: C3 is shown
+    position: {x: 889, y: 354}
+    SpeakerName: Overlord
+    SpeakerSpriteLeft: C3
+    SpeakerSpriteRight: 
+    ItemId: 
+  ExposedProperties:
+  - PropertyName: Ignore
+    PropertyValue: New Value
+  - PropertyName: Plebonian
+    PropertyValue: New Value
+  - PropertyName: Overlord
+    PropertyValue: New Value
   CommentBlockData: []
