@@ -7,15 +7,17 @@ namespace Dialogue.Editor.Nodes
         public string DialogueText;
         public string GUID;
         public bool EntyPoint = false;
-        public string SpeakerId;
-        public string SpeakerSprite;
+        public string SpeakerName;
+        public string SpeakerSpriteLeft;
+        public string SpeakerSpriteRight;
         public string ItemId;
         
         public DialogueNode (DialogueNodeData data) {
             DialogueText = data.dialogueText;
             GUID = data.nodeGuid;
-            SpeakerId = data.SpeakerId;
-            SpeakerSprite = data.SpeakerSprite;
+            SpeakerName = data.SpeakerId;
+            SpeakerSpriteLeft = data.SpeakerSpriteLeft;
+            SpeakerSpriteRight = data.SpeakerSpriteRight;
             ItemId = data.ItemId;
         }
         

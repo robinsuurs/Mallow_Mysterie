@@ -33,26 +33,32 @@ MonoBehaviour:
   - nodeGuid: f3676f7e-ef10-4ed9-830a-faa781e60139
     dialogueText: Yeah a dog
     position: {x: 677, y: 200}
-    SpeakerId: 
-    SpeakerSprite: 
+    SpeakerId: C3
+    SpeakerSprite: 2
     ItemId: dog
   - nodeGuid: c7d91f04-a590-470e-825b-620d6ef6787f
     dialogueText: Do you have the items?
     position: {x: 243, y: 186}
-    SpeakerId: 
-    SpeakerSprite: 
+    SpeakerId: C1
+    SpeakerSprite: 1
     ItemId: 
   - nodeGuid: 5a1871a3-9aa2-4066-9f63-22427af8f4da
     dialogueText: Yeah a mug
     position: {x: 677, y: 334}
-    SpeakerId: 
-    SpeakerSprite: 
+    SpeakerId: C2
+    SpeakerSprite: 1
     ItemId: mug
   - nodeGuid: 5d141531-d766-4fd0-bd24-0120038659f3
     dialogueText: Yeah a keyboard
     position: {x: 677, y: 66}
-    SpeakerId: 
-    SpeakerSprite: 
+    SpeakerId: C2
+    SpeakerSprite: 2
     ItemId: keyboard
-  ExposedProperties: []
+  ExposedProperties:
+  - PropertyName: C1
+    PropertyValue: New Value
+  - PropertyName: C2
+    PropertyValue: New Value
+  - PropertyName: C3
+    PropertyValue: New Value
   CommentBlockData: []

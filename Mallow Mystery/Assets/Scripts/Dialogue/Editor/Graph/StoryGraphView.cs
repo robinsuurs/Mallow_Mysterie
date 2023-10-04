@@ -144,7 +144,7 @@ namespace Subtegral.DialogueSystem.Editor
             // TODO: Bram Mulders 01-10-2023, fix save for this
             int defaultIndex = useDefaultValues
                 ? 0
-                : ExposedProperties.FindIndex(x => x.PropertyName == tempDialogueNode.SpeakerId);
+                : ExposedProperties.FindIndex(x => x.PropertyName == tempDialogueNode.SpeakerName);
 
             defaultIndex = defaultIndex < 0 ? 0 : defaultIndex;
 
@@ -152,25 +152,10 @@ namespace Subtegral.DialogueSystem.Editor
                 new PopupField<string>(ExposedProperties.Select(x => x.PropertyName).ToList(), defaultIndex);
             tempDialogueNode.titleContainer.Add(speakerIdEnumField);
             speakerIdEnumField.RegisterValueChangedCallback(evt => {
-                tempDialogueNode.SpeakerId = evt.newValue;
+                tempDialogueNode.SpeakerName = evt.newValue;
             });
             
             speakerIdEnumField.SendToBack();
-            //
-            
-
-            // TODO: Bram Mulders 01-10-2023 if save is fixed with other remove this
-            // var textField = new TextField("");
-            // textField.RegisterValueChangedCallback(evt =>
-            // {
-            //     tempDialogueNode.DialogueText = evt.newValue;
-            //     tempDialogueNode.title = evt.newValue;
-            // });
-            // textField.SetValueWithoutNotify(tempDialogueNode.title);
-            // textField.multiline = true;
-            // textField.style.maxHeight = 200;
-            // tempDialogueNode.mainContainer.Add(textField);
-            //
             
             var dialogueTextLongField = new TextField(string.Empty)
             {
@@ -194,15 +179,26 @@ namespace Subtegral.DialogueSystem.Editor
             tempDialogueNode.mainContainer.Add(inventoryItemId);
             
             //SpeakerSprite, which sprite does there need to be shown
-            var speakerSprite = new TextField(string.Empty)
+            var speakerSpriteLeft = new TextField(string.Empty)
             {
-                label = "SpeakerSprite",
+                label = "SpeakerSpriteLeft",
                 style = { width = 300 },
                 multiline = true
             };
-            speakerSprite.RegisterValueChangedCallback((evt => { tempDialogueNode.SpeakerSprite = evt.newValue; }));
-            speakerSprite.SetValueWithoutNotify(tempDialogueNode.SpeakerSprite);
-            tempDialogueNode.mainContainer.Add(speakerSprite);
+            speakerSpriteLeft.RegisterValueChangedCallback((evt => { tempDialogueNode.SpeakerSpriteLeft = evt.newValue; }));
+            speakerSpriteLeft.SetValueWithoutNotify(tempDialogueNode.SpeakerSpriteLeft);
+            tempDialogueNode.mainContainer.Add(speakerSpriteLeft);
+            
+            //SpeakerSprite, which sprite does there need to be shown
+            var speakerSpriteRight = new TextField(string.Empty)
+            {
+                label = "SpeakerSpriteRight",
+                style = { width = 300 },
+                multiline = true
+            };
+            speakerSpriteRight.RegisterValueChangedCallback((evt => { tempDialogueNode.SpeakerSpriteRight = evt.newValue; }));
+            speakerSpriteRight.SetValueWithoutNotify(tempDialogueNode.SpeakerSpriteRight);
+            tempDialogueNode.mainContainer.Add(speakerSpriteRight);
             
             tempDialogueNode.RefreshExpandedState();
             tempDialogueNode.RefreshPorts();
@@ -245,7 +241,6 @@ namespace Subtegral.DialogueSystem.Editor
             generatedPort.contentContainer.style.alignItems = Align.FlexStart;
             
             generatedPort.contentContainer.Add(textField);
-            // generatedPort.contentContainer.Add(itemIdRequiredTextField);
             generatedPort.contentContainer.Add(deleteButton);
             generatedPort.portName = outputPortName;
             nodeCache.outputContainer.Add(generatedPort);

@@ -19,6 +19,7 @@ public class DialogueHandler : MonoBehaviour
     [SerializeField] private float textspeed;
     [SerializeField] private Inventory _inventory;
     [SerializeField] private GameObject DialogueCanvas;
+    [SerializeField] private SwitchSpriteEvent switchSpriteEvent;
 
     private IEnumerable<NodeLinkData> choices = new List<NodeLinkData>();
     public string currentDialogue;
@@ -56,9 +57,9 @@ public class DialogueHandler : MonoBehaviour
     }
     
     private void ProceedToNarrative(string narrativeDataGUID) {
-        var text = dialogue.DialogueNodeData.Find(x => x.nodeGuid == narrativeDataGUID).dialogueText;
+        var currentNode = dialogue.DialogueNodeData.Find(x => x.nodeGuid == narrativeDataGUID);
         choices = dialogue.NodeLinks.Where(x => x.BaseNodeGUID == narrativeDataGUID);
-        currentDialogue = ProcessProperties(text);
+        currentDialogue = ProcessProperties(currentNode.dialogueText);
         textMeshProUGUI.text = "";
         StartCoroutine(TypeLine());
         var buttons = buttonContainer.GetComponentsInChildren<Button>();
@@ -66,6 +67,8 @@ public class DialogueHandler : MonoBehaviour
         foreach (var t in buttons) {
             Destroy(t.gameObject);
         }
+        
+        switchSpriteEvent.Raise(currentNode.SpeakerSpriteLeft, currentNode.SpeakerSpriteRight);
 
         if (choices.Count() == 1) {
             singleOption = true;
@@ -74,7 +77,7 @@ public class DialogueHandler : MonoBehaviour
             singleOption = false;
             foreach (var choice in choices) {
                 bool createButton = true;
-                if (_inventory != null || dialogue.DialogueNodeData.Find(x => x.nodeGuid == choice.TargetNodeGUID).ItemId != "") {
+                if (_inventory != null && dialogue.DialogueNodeData.Find(x => x.nodeGuid == choice.TargetNodeGUID).ItemId != "") {
                     createButton = ItemNeededInInventory(choice.TargetNodeGUID);
                 }
                 if (createButton) {
@@ -95,10 +98,7 @@ public class DialogueHandler : MonoBehaviour
     }
     
     private string ProcessProperties(string text) {
-        foreach (var exposedProperty in dialogue.ExposedProperties) {
-            text = text.Replace($"[{exposedProperty.PropertyName}]", exposedProperty.PropertyValue);
-        }
-        return text;
+        return dialogue.ExposedProperties.Aggregate(text, (current, exposedProperty) => current.Replace($"[{exposedProperty.PropertyName}]", exposedProperty.PropertyValue));
     }
 
     IEnumerator TypeLine() {

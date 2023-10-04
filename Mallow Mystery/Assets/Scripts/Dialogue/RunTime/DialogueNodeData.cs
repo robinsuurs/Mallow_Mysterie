@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Dialogue.Runtime
 {
@@ -9,7 +10,8 @@ namespace Dialogue.Runtime
         public string dialogueText;
         public Vector2 position;
         public string SpeakerId;
-        public string SpeakerSprite;
+        public string SpeakerSpriteLeft;
+        public string SpeakerSpriteRight;
         public string ItemId;
     }
 }
