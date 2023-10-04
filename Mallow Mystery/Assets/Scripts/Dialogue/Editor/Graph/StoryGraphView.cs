@@ -2,6 +2,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Dialogue.Editor.Nodes;
+using Dialogue.Runtime;
 using Subtegral.DialogueSystem.DataContainers;
 using UnityEditor;
 using UnityEditor.Experimental.GraphView;
@@ -120,21 +122,24 @@ namespace Subtegral.DialogueSystem.Editor
             return compatiblePorts;
         }
 
-        public void CreateNewDialogueNode(string nodeName, Vector2 position)
-        {
-            AddElement(CreateNode(nodeName, position));
+        public void CreateNewDialogueNode(string nodeName, Vector2 position) {
+            DialogueNodeData tempNode = new DialogueNodeData() { nodeGuid = Guid.NewGuid().ToString() };
+            AddElement(CreateNode(tempNode, position));
         }
 
-        public DialogueNode CreateNode(string nodeName, Vector2 position)
-        {
-            var tempDialogueNode = new DialogueNode()
-            {
-                title = nodeName,
-                DialogueText = nodeName,
-                GUID = Guid.NewGuid().ToString()
+        public DialogueNode CreateNode(DialogueNodeData dialogueNodeData, Vector2 position, bool useDefaultValues = true) {
+            var tempDialogueNode = new DialogueNode(dialogueNodeData);
+            
+            tempDialogueNode.styleSheets.Add(Resources.Load<StyleSheet>("Node"));
+            
+            var inputPort = GetPortInstance(tempDialogueNode, Direction.Input, Port.Capacity.Multi);
+            inputPort.portName = "";
+            tempDialogueNode.inputContainer.Add(inputPort);
+            
+            var button = new Button(() => { AddChoicePort(tempDialogueNode); }) {
+                text = "Add Choice"
             };
-
-            bool useDefaultValues = true;
+            tempDialogueNode.titleButtonContainer.Add(button);
             
             // TODO: Bram Mulders 01-10-2023, fix save for this
             int defaultIndex = useDefaultValues
@@ -146,34 +151,25 @@ namespace Subtegral.DialogueSystem.Editor
             PopupField<string> speakerIdEnumField =
                 new PopupField<string>(ExposedProperties.Select(x => x.PropertyName).ToList(), defaultIndex);
             tempDialogueNode.titleContainer.Add(speakerIdEnumField);
-            speakerIdEnumField.RegisterValueChangedCallback(evt =>
-            {
+            speakerIdEnumField.RegisterValueChangedCallback(evt => {
                 tempDialogueNode.SpeakerId = evt.newValue;
             });
             
             speakerIdEnumField.SendToBack();
             //
             
-            tempDialogueNode.styleSheets.Add(Resources.Load<StyleSheet>("Node"));
-            var inputPort = GetPortInstance(tempDialogueNode, Direction.Input, Port.Capacity.Multi);
-            inputPort.portName = "Input";
-            tempDialogueNode.inputContainer.Add(inputPort);
-            tempDialogueNode.RefreshExpandedState();
-            tempDialogueNode.RefreshPorts();
-            tempDialogueNode.SetPosition(new Rect(position,
-                DefaultNodeSize));
 
             // TODO: Bram Mulders 01-10-2023 if save is fixed with other remove this
-            var textField = new TextField("");
-            textField.RegisterValueChangedCallback(evt =>
-            {
-                tempDialogueNode.DialogueText = evt.newValue;
-                tempDialogueNode.title = evt.newValue;
-            });
-            textField.SetValueWithoutNotify(tempDialogueNode.title);
-            textField.multiline = true;
-            textField.style.maxHeight = 200;
-            tempDialogueNode.mainContainer.Add(textField);
+            // var textField = new TextField("");
+            // textField.RegisterValueChangedCallback(evt =>
+            // {
+            //     tempDialogueNode.DialogueText = evt.newValue;
+            //     tempDialogueNode.title = evt.newValue;
+            // });
+            // textField.SetValueWithoutNotify(tempDialogueNode.title);
+            // textField.multiline = true;
+            // textField.style.maxHeight = 200;
+            // tempDialogueNode.mainContainer.Add(textField);
             //
             
             var dialogueTextLongField = new TextField(string.Empty)
@@ -193,15 +189,25 @@ namespace Subtegral.DialogueSystem.Editor
                 style = { width = 300 },
                 multiline = true
             };
-            inventoryItemId.RegisterValueChangedCallback((evt => { tempDialogueNode.itemId = evt.newValue; }));
-            inventoryItemId.SetValueWithoutNotify(tempDialogueNode.DialogueText);
+            inventoryItemId.RegisterValueChangedCallback((evt => { tempDialogueNode.ItemId = evt.newValue; }));
+            inventoryItemId.SetValueWithoutNotify(tempDialogueNode.ItemId);
             tempDialogueNode.mainContainer.Add(inventoryItemId);
-
-            var button = new Button(() => { AddChoicePort(tempDialogueNode); })
+            
+            //SpeakerSprite, which sprite does there need to be shown
+            var speakerSprite = new TextField(string.Empty)
             {
-                text = "Add Choice"
+                label = "SpeakerSprite",
+                style = { width = 300 },
+                multiline = true
             };
-            tempDialogueNode.titleButtonContainer.Add(button);
+            speakerSprite.RegisterValueChangedCallback((evt => { tempDialogueNode.SpeakerSprite = evt.newValue; }));
+            speakerSprite.SetValueWithoutNotify(tempDialogueNode.SpeakerSprite);
+            tempDialogueNode.mainContainer.Add(speakerSprite);
+            
+            tempDialogueNode.RefreshExpandedState();
+            tempDialogueNode.RefreshPorts();
+            tempDialogueNode.SetPosition(new Rect(position, DefaultNodeSize));
+            
             return tempDialogueNode;
         }
 

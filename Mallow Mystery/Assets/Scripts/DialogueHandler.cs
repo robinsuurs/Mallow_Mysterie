@@ -2,9 +2,12 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Dialogue.Runtime;
+using ScriptObjects;
 using Subtegral.DialogueSystem.DataContainers;
 using UnityEngine;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine.UI;
 
 public class DialogueHandler : MonoBehaviour
@@ -14,9 +17,8 @@ public class DialogueHandler : MonoBehaviour
     [SerializeField] private Button ChoicesButton;
     [SerializeField] private Transform buttonContainer;
     [SerializeField] private float textspeed;
-
-    [SerializeField] private GameEventStandardAdd showDialogueUi;
-    [SerializeField] private GameEventStandardAdd hideDialogueUi;
+    [SerializeField] private Inventory _inventory;
+    [SerializeField] private GameObject DialogueCanvas;
 
     private IEnumerable<NodeLinkData> choices = new List<NodeLinkData>();
     public string currentDialogue;
@@ -25,7 +27,7 @@ public class DialogueHandler : MonoBehaviour
     
     public void StartDialogue()
     {
-        showDialogueUi.Raise();
+        DialogueCanvas.SetActive(true);
         var narrativeData = dialogue.NodeLinks.First();
         ProceedToNarrative(narrativeData.TargetNodeGUID);
         inDialogue = true;
@@ -33,33 +35,27 @@ public class DialogueHandler : MonoBehaviour
     
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) && inDialogue)
-        {
-            if (textMeshProUGUI.text == currentDialogue)
-            {
-                if (!choices.Any())
-                {
+        if (Input.GetMouseButtonDown(0) && inDialogue) {
+            if (textMeshProUGUI.text == currentDialogue) {
+                if (!choices.Any()) {
                     currentDialogue = null;
                     singleOption = false;
                     textMeshProUGUI.text = "";
                     inDialogue = false;
-                    hideDialogueUi.Raise();
+                    DialogueCanvas.SetActive(false);
                 }
                 else if (singleOption)
                 {
                     ProceedToNarrative(choices.First().TargetNodeGUID);
                 }
-            }
-            else
-            {
+            } else {
                 StopAllCoroutines();
                 textMeshProUGUI.text = currentDialogue;
             }
         }
     }
     
-    private void ProceedToNarrative(string narrativeDataGUID)
-    {
+    private void ProceedToNarrative(string narrativeDataGUID) {
         var text = dialogue.DialogueNodeData.Find(x => x.nodeGuid == narrativeDataGUID).dialogueText;
         choices = dialogue.NodeLinks.Where(x => x.BaseNodeGUID == narrativeDataGUID);
         currentDialogue = ProcessProperties(text);
@@ -67,65 +63,48 @@ public class DialogueHandler : MonoBehaviour
         StartCoroutine(TypeLine());
         var buttons = buttonContainer.GetComponentsInChildren<Button>();
         
-        foreach (var t in buttons)
-        {
+        foreach (var t in buttons) {
             Destroy(t.gameObject);
         }
 
-        if (choices.Count() == 1)
-        {
+        if (choices.Count() == 1) {
             singleOption = true;
-        }
-        else
-        {
+        } else {
+            // TODO: BM 04-10-2023 What to do with multiple buttons but only one can be shown based on conditions
             singleOption = false;
-            foreach (var choice in choices)
-            {
-                var button = Instantiate(ChoicesButton, buttonContainer);
-                button.GetComponentInChildren<Text>().text = ProcessProperties(choice.PortName);
-                button.onClick.AddListener(() => ProceedToNarrative(choice.TargetNodeGUID));
+            foreach (var choice in choices) {
+                bool createButton = true;
+                if (_inventory != null || dialogue.DialogueNodeData.Find(x => x.nodeGuid == choice.TargetNodeGUID).ItemId != "") {
+                    createButton = ItemNeededInInventory(choice.TargetNodeGUID);
+                }
+                if (createButton) {
+                    var button = Instantiate(ChoicesButton, buttonContainer);
+                    button.GetComponentInChildren<Text>().text = ProcessProperties(choice.PortName);
+                    button.onClick.AddListener(() => ProceedToNarrative(choice.TargetNodeGUID));
+                }
             }
         }
     }
+
+    //TODO: BM 04-10-2023 what inventory do we grab? -> link to player?
+    //TODO: BM 04-10-2023 add boolean on pickup condition, now it always has a null value
+    private bool ItemNeededInInventory(string choiceTargetNodeGuid) {
+        var optionNode = dialogue.DialogueNodeData.Find(x => x.nodeGuid == choiceTargetNodeGuid).ItemId;
+        return _inventory.items.Any(item => optionNode == item.itemName);
+        // && item.hasBeenPickedUp
+    }
     
-    private string ProcessProperties(string text)
-    {
-        foreach (var exposedProperty in dialogue.ExposedProperties)
-        {
+    private string ProcessProperties(string text) {
+        foreach (var exposedProperty in dialogue.ExposedProperties) {
             text = text.Replace($"[{exposedProperty.PropertyName}]", exposedProperty.PropertyValue);
         }
         return text;
     }
 
-    // public void startDialogue()
-    // {
-    //     if (courotineRunning) return;
-    //     courotineRunning = true;
-    //     index = 0;
-    //     textMeshProUGUI.text = String.Empty;
-    //     StartCoroutine(TypeLine());
-    // }
-
-    IEnumerator TypeLine()
-    {
-        foreach (var c in currentDialogue.ToCharArray())
-        {
+    IEnumerator TypeLine() {
+        foreach (var c in currentDialogue.ToCharArray()) {
             textMeshProUGUI.text += c;
             yield return new WaitForSeconds(textspeed);
         }
     }
-
-    // void NextLine()
-    // {
-    //     if (index < text.Length - 1)
-    //     {
-    //         index++;
-    //         textMeshProUGUI.text = String.Empty;
-    //         StartCoroutine(TypeLine());
-    //     }
-    //     else
-    //     {
-    //         gameObject.SetActive(false);
-    //     }
-    // }
 }

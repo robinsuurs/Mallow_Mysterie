@@ -1,7 +1,6 @@
 ﻿using System;
-using System.Linq;
 
-namespace Subtegral.DialogueSystem.DataContainers
+namespace Dialogue.Runtime
 {
     [Serializable]
     public class NodeLinkData

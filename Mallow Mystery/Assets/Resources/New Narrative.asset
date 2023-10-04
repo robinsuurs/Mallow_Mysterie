@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78b3fd9154634ebdb8c8a48960b9a16a, type: 3}
+  m_Name: New Narrative
+  m_EditorClassIdentifier: 
+  NodeLinks:
+  - BaseNodeGUID: 513efbc5-1f43-499a-8679-7c4431ac3b85
+    PortName: Next
+    TargetNodeGUID: 51275cd8-89ba-4100-8770-a2dc5689249a
+    ItemIdRequired: 
+  - BaseNodeGUID: 51275cd8-89ba-4100-8770-a2dc5689249a
+    PortName: Option 1
+    TargetNodeGUID: 744f8fb9-eaef-4181-b177-73738e3e4dc0
+    ItemIdRequired: 
+  - BaseNodeGUID: 51275cd8-89ba-4100-8770-a2dc5689249a
+    PortName: Option 2
+    TargetNodeGUID: b9bcda26-7225-4ab7-9289-a271b74c8d42
+    ItemIdRequired: 
+  DialogueNodeData:
+  - nodeGuid: 51275cd8-89ba-4100-8770-a2dc5689249a
+    dialogueText: test 1
+    position: {x: 252, y: 200}
+    SpeakerId: 
+    SpeakerSprite: 
+    ItemId: 
+  - nodeGuid: 744f8fb9-eaef-4181-b177-73738e3e4dc0
+    dialogueText: test no item
+    position: {x: 691, y: 133}
+    SpeakerId: 
+    SpeakerSprite: 
+    ItemId: 
+  - nodeGuid: b9bcda26-7225-4ab7-9289-a271b74c8d42
+    dialogueText: test with item
+    position: {x: 703, y: 337}
+    SpeakerId: 
+    SpeakerSprite: 
+    ItemId: keyboard
+  ExposedProperties:
+  - PropertyName: New String
+    PropertyValue: New Value
+  CommentBlockData: []
