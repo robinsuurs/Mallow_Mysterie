@@ -11,6 +11,5 @@ public class Interact : MonoBehaviour
        
        interact.Raise();
        print("Pressed E");
-      
    }
 }

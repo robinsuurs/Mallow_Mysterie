@@ -31,7 +31,8 @@ namespace ScriptObjects
 
         public void OnEventTriggered()
         {
-           response.Invoke();
+            print("Invoked");
+            response.Invoke();
         }
     }
 }
