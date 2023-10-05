@@ -13,17 +13,40 @@ MonoBehaviour:
   m_Name: test123
   m_EditorClassIdentifier: 
   NodeLinks:
-  - BaseNodeGUID: 32853130-b982-42b1-91e3-0bcbfacea2ea
+  - BaseNodeGUID: 5b54da0d-2718-43ab-967c-23d42945e7d4
     PortName: Next
-    TargetNodeGUID: c83f4bec-874d-4955-9163-45b8feff5736
+    TargetNodeGUID: 12dd159c-97da-4c40-9610-83068e3be634
+    ItemIdRequired: 
+  - BaseNodeGUID: 12dd159c-97da-4c40-9610-83068e3be634
+    PortName: Option 1
+    TargetNodeGUID: 3484d44c-15ee-4d22-83b8-a7cdd2c259c7
+    ItemIdRequired: 
+  - BaseNodeGUID: 12dd159c-97da-4c40-9610-83068e3be634
+    PortName: Option 2
+    TargetNodeGUID: 505183ed-6c37-4f69-a225-d11a1a006554
     ItemIdRequired: 
   DialogueNodeData:
-  - nodeGuid: c83f4bec-874d-4955-9163-45b8feff5736
-    dialogueText: Dialogue Node
-    position: {x: 387, y: 246}
+  - nodeGuid: 3484d44c-15ee-4d22-83b8-a7cdd2c259c7
+    dialogueText: adfgdsfh
+    position: {x: 600, y: 19}
+    SpeakerId: test 2
+    SpeakerSprite: dfsghdfgjdf
+    ItemId: fghdh
+  - nodeGuid: 12dd159c-97da-4c40-9610-83068e3be634
+    dialogueText: asfdsf
+    position: {x: 248, y: 186}
+    SpeakerId: asfdsf
+    SpeakerSprite: asdasdasdgdfsg
+    ItemId: asdasda
+  - nodeGuid: 505183ed-6c37-4f69-a225-d11a1a006554
+    dialogueText: 
+    position: {x: 735, y: 324}
+    SpeakerId: test 2
+    SpeakerSprite: 
+    ItemId: 
   ExposedProperties:
-  - PropertyName: Detective
-    PropertyValue: New Value
-  - PropertyName: drak
+  - PropertyName: Test
+    PropertyValue: jabsdghjb
+  - PropertyName: test 2
     PropertyValue: New Value
   CommentBlockData: []
