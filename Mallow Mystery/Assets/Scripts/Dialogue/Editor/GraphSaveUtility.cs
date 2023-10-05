@@ -5,6 +5,8 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Text;
+using Dialogue.Editor.Nodes;
+using Dialogue.Runtime;
 using UnityEditor;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
@@ -83,7 +85,11 @@ namespace Subtegral.DialogueSystem.Editor
                 {
                     nodeGuid = node.GUID,
                     dialogueText = node.DialogueText,
-                    position = node.GetPosition().position
+                    position = node.GetPosition().position,
+                    SpeakerName = node.SpeakerName,
+                    SpeakerSpriteLeft = node.SpeakerSpriteLeft,
+                    SpeakerSpriteRight = node.SpeakerSpriteRight,
+                    ItemId = node.ItemId
                 });
             }
 
@@ -122,9 +128,9 @@ namespace Subtegral.DialogueSystem.Editor
             }
 
             ClearGraph();
+            AddExposedProperties();
             GenerateDialogueNodes();
             ConnectDialogueNodes();
-            AddExposedProperties();
             GenerateCommentBlocks();
         }
         
@@ -144,7 +150,7 @@ namespace Subtegral.DialogueSystem.Editor
         {
             foreach (var perNode in _dialogueContainer.DialogueNodeData)
             {
-                var tempNode = _graphView.CreateNode(perNode.dialogueText, Vector2.zero);
+                var tempNode = _graphView.CreateNode(perNode, Vector2.zero, false);
                 tempNode.GUID = perNode.nodeGuid;
                 _graphView.AddElement(tempNode);
 

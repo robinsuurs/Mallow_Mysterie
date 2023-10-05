@@ -1,17 +1,28 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using Dialogue.Runtime;
 using UnityEditor.Experimental.GraphView;
-using UnityEngine;
 
-namespace Subtegral.DialogueSystem.Editor
+namespace Dialogue.Editor.Nodes
 {
-    public class DialogueNode : Node
-    {
+    public class DialogueNode : Node {
         public string DialogueText;
         public string GUID;
         public bool EntyPoint = false;
-        public string SpeakerId;
-        public string itemId;
+        public string SpeakerName;
+        public string SpeakerSpriteLeft;
+        public string SpeakerSpriteRight;
+        public string ItemId;
+        
+        public DialogueNode (DialogueNodeData data) {
+            DialogueText = data.dialogueText;
+            GUID = data.nodeGuid;
+            SpeakerName = data.SpeakerName;
+            SpeakerSpriteLeft = data.SpeakerSpriteLeft;
+            SpeakerSpriteRight = data.SpeakerSpriteRight;
+            ItemId = data.ItemId;
+        }
+        
+        public DialogueNode () {
+    
+        }
     }
 }
