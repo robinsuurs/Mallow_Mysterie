@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace ScriptObjects
 {
-    public abstract class ListOfStuff<T> : ScriptableObject, IDataPersistence
+    public abstract class ListOfStuff<T> : ScriptableObject
     {
         public List<T> items = new List<T>();
 
@@ -17,14 +17,6 @@ namespace ScriptObjects
         {
             if (items.Contains(thing))
                 items.Remove(thing);
-        }
-
-        public void LoadData(GameData data) {
-            throw new System.NotImplementedException();
-        }
-
-        public void SaveData(ref GameData data) {
-            throw new System.NotImplementedException();
         }
     }
 }
