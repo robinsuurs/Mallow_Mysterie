@@ -7,7 +7,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Serialization;
 
-public class PlayerControl : MonoBehaviour
+public class PlayerControl : MonoBehaviour, IDataPersistence
 {
     
     private Rigidbody _rigidbody;
@@ -31,6 +31,13 @@ public class PlayerControl : MonoBehaviour
     {
         _movement = inputValue.Get<Vector2>();
     }
-    
-    
+
+
+    public void LoadData(GameData data) {
+        this.transform.position = data.playerLocation;
+    }
+
+    public void SaveData(ref GameData data) {
+        data.playerLocation = this.transform.position;
+    }
 }
