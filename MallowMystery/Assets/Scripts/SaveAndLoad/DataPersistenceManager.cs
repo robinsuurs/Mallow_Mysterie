@@ -6,6 +6,8 @@ using System.Linq;
 using ScriptObjects;
 using UnityEngine.SceneManagement;
 
+//Youtube video used: https://www.youtube.com/watch?v=aUi9aijvpgs&t=538s
+
 public class DataPersistenceManager : MonoBehaviour {
     [Header("File Storage Config")] 
     [SerializeField] private string fileName;

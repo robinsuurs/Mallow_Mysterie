@@ -33,30 +33,38 @@ MonoBehaviour:
   - nodeGuid: 982e5092-3156-499c-8ad5-b3b934da2a12
     dialogueText: I want a Keyboard, dog and mug
     position: {x: 230, y: 177}
-    SpeakerId: 
-    SpeakerSpriteLeft: 
-    SpeakerSpriteRight: 
+    SpeakerName: Merchant
+    SpeakerSpriteLeft: MerchantSprite
+    SpeakerSpriteRight: PlayerSprite
     ItemId: 
   - nodeGuid: b1580689-5ceb-44df-9484-e20e3445a0c5
     dialogueText: Yess my keyboard
-    position: {x: 664, y: 47}
-    SpeakerId: 
+    position: {x: 664, y: 37}
+    SpeakerName: Player
     SpeakerSpriteLeft: 
-    SpeakerSpriteRight: 
+    SpeakerSpriteRight: PlayerSprite
     ItemId: keyboard
   - nodeGuid: d35ce305-d4d0-4e30-a5a6-41c35e260684
     dialogueText: Yess my doggo
-    position: {x: 664, y: 201}
-    SpeakerId: 
-    SpeakerSpriteLeft: 
-    SpeakerSpriteRight: 
+    position: {x: 664, y: 190}
+    SpeakerName: Player
+    SpeakerSpriteLeft: MerchantSprite
+    SpeakerSpriteRight: PlayerSprite
     ItemId: 'dog '
   - nodeGuid: 4c091e1b-477f-456f-b78e-c7e2778eaa91
     dialogueText: Yess my mug
-    position: {x: 664, y: 354}
-    SpeakerId: 
-    SpeakerSpriteLeft: 
-    SpeakerSpriteRight: 
+    position: {x: 664, y: 343}
+    SpeakerName: Player
+    SpeakerSpriteLeft: MerchantSprite
+    SpeakerSpriteRight: PlayerSprite
     ItemId: mug
-  ExposedProperties: []
+  ExposedProperties:
+  - PropertyName: Ignore
+    PropertyValue: New Value
+  - PropertyName: Merchant
+    PropertyValue: New Value
+  - PropertyName: Player
+    PropertyValue: New Value
+  - PropertyName: New String(1)
+    PropertyValue: New Value
   CommentBlockData: []

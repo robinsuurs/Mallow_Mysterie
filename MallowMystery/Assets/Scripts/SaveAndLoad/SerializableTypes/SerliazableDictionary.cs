@@ -1,31 +1,32 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 [System.Serializable]
 public class SerliazableDictionary<TKey, TValue> : Dictionary<TKey, TValue>, ISerializationCallbackReceiver {
 
-    [SerializeField] private List<TKey> Keys = new List<TKey>();
-    [SerializeField] private List<TValue> Values = new List<TValue>();
+    [SerializeField] private List<TKey> keys = new List<TKey>();
+    [SerializeField] private List<TValue> values = new List<TValue>();
     
     public void OnBeforeSerialize() {
-        Keys.Clear();
-        Values.Clear();
+        keys.Clear();
+        values.Clear();
         foreach (KeyValuePair<TKey, TValue> pair in this) {
-            Keys.Add(pair.Key);
-            Values.Add(pair.Value);
+            keys.Add(pair.Key);
+            values.Add(pair.Value);
         }
     }
 
     public void OnAfterDeserialize() {
         this.Clear();
 
-        if (Keys.Count != Values.Count) {
+        if (keys.Count != values.Count) {
             Debug.LogError("Serialization of key count does not match values count");
         }
 
-        for (int i = 0; i < Keys.Count; i++) {
-            this.Add(Keys[i], Values[i]);
+        for (int i = 0; i < keys.Count; i++) {
+            this.Add(keys[i], values[i]);
         }
     }
 }
