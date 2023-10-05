@@ -11,9 +11,14 @@ namespace ScriptObjects
         public Sprite icon;
         [Tooltip("Description of the item")] 
         public string description;
-        public bool hasBeenPickedUp;
+        public bool hasBeenPickedUp = false;
 
-       public void Pickup(bool set)
+        private void OnEnable()
+        {
+            hasBeenPickedUp = false;
+        }
+
+        public void Pickup(bool set)
         {
             hasBeenPickedUp = set;
         }
