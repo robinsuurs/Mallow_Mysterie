@@ -9,7 +9,7 @@ jobs:
     name: 'Generate UML'
     runs-on: ubuntu-latest
     env:
-      CODE_PATH: "./Mallow Mystery/Assets/Scripts/"
+      CODE_PATH: "./MallowMystery/Assets/Scripts/"
       UML_OUTPUT_PATH: "./UML/"
       UML_GENERATED_EXTENSION: ".svg"  # Define the extension of generated files
       UMP_GENERATION_PARAMETERS: -public -createAssociation -allInOne
