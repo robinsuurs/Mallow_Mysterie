@@ -16,6 +16,5 @@ public class ItemLoadScene : MonoBehaviour {
     public void PickUpObject() {
         ItemData.hasBeenPickedUp = true;
         this.GameObject().SetActive(false);
-        Debug.Log("test");
     }
 }

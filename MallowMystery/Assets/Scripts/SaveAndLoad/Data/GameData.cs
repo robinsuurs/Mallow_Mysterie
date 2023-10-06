@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using ScriptObjects;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -12,7 +13,10 @@ public class GameData {
     public int test;
     public SerliazableDictionary<string, bool> cluesPickedUp;
 
-    public GameData () {
+    public GameData(Inventory inventory) {
+        foreach (var item in inventory.items) {
+            item.hasBeenPickedUp = false;
+        }
         //Set start thing when you create a newGame
         cluesPickedUp = new SerliazableDictionary<string, bool>();
         //Scene = startscene

@@ -14,6 +14,8 @@ public class DataPersistenceManager : MonoBehaviour {
     [SerializeField] private bool startFresh;
     [SerializeField] private bool encryptData;
     [SerializeField] private GameEventStandardAdd gameEventStandardAdd;
+    //TODO: Change this shit:
+    [SerializeField] private Inventory _inventory;
     
     private GameData _gameData;
     private List<IDataPersistence> dataPersistences;
@@ -45,7 +47,7 @@ public class DataPersistenceManager : MonoBehaviour {
     }
 
     public void NewGame() {
-        this._gameData = new GameData();
+        this._gameData = new GameData(_inventory);
     }
 
     public void LoadGame() {
