@@ -13,6 +13,7 @@ public class DataPersistenceManager : MonoBehaviour {
     [SerializeField] private string fileName;
     [SerializeField] private bool startFresh;
     [SerializeField] private bool encryptData;
+    [SerializeField] private GameEventStandardAdd gameEventStandardAdd;
     
     private GameData _gameData;
     private List<IDataPersistence> dataPersistences;
@@ -57,8 +58,8 @@ public class DataPersistenceManager : MonoBehaviour {
             foreach (IDataPersistence dataPersistenceObj in dataPersistences) {
                 dataPersistenceObj.LoadData(_gameData);
             }
-
             SceneManager.SetActiveScene(_gameData.Scene);
+            gameEventStandardAdd.Raise();
         }
     }
 
