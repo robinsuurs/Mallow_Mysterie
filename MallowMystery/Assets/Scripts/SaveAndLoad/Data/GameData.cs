@@ -10,8 +10,7 @@ public class GameData {
     public List<ItemData> items;
     public Scene Scene;
     public Vector3 playerLocation;
-    public int test;
-    public SerliazableDictionary<string, bool> cluesPickedUp;
+    public SerliazableDictionary<string, bool> cluesPickedUp; //Perhaps not needed
 
     public GameData(Inventory inventory) {
         foreach (var item in inventory.items) {
@@ -20,5 +19,6 @@ public class GameData {
         //Set start thing when you create a newGame
         cluesPickedUp = new SerliazableDictionary<string, bool>();
         //Scene = startscene
+        //playerLocation = StartLocation of player
     }
 }
