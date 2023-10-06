@@ -9,6 +9,5 @@ public class Interact : MonoBehaviour
    void OnInteract()
    {
        interact.Raise();
-       print("Pressed E");
    }
 }

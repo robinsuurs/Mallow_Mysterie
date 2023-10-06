@@ -78,6 +78,7 @@ public class DialogueHandler : MonoBehaviour
         } else {
             // TODO: BM 04-10-2023 What to do with multiple buttons but only one can be shown based on conditions
             singleOption = false;
+            var IsThereAClickableButton = false;
             foreach (var choice in choices) {
                 
                 var button = Instantiate(ChoicesButton, buttonContainer);
@@ -86,17 +87,21 @@ public class DialogueHandler : MonoBehaviour
                 
                 if (_inventory != null && dialogue.DialogueNodeData.Find(x => x.nodeGuid == choice.TargetNodeGUID).ItemId != "") {
                     button.interactable = ItemNeededInInventory(choice.TargetNodeGUID);
+                    if (button.interactable) {
+                        IsThereAClickableButton = true;
+                    }
                 }
+            }
+
+            if (!IsThereAClickableButton) {
+                Debug.LogError("There are no Selectable buttons in this dialogue node: " + currentNode.dialogueText);
             }
         }
     }
-
-    //TODO: BM 04-10-2023 what inventory do we grab? -> link to player?
-    //TODO: BM 04-10-2023 add boolean on pickup condition, now it always has a null value
+    
     private bool ItemNeededInInventory(string choiceTargetNodeGuid) {
-        var optionNode = dialogue.DialogueNodeData.Find(x => x.nodeGuid == choiceTargetNodeGuid).ItemId;
-        return _inventory.items.Any(item => optionNode == item.itemName);
-        // && item.hasBeenPickedUp
+        var itemIdNeeded = dialogue.DialogueNodeData.Find(x => x.nodeGuid == choiceTargetNodeGuid).ItemId;
+        return _inventory.items.Any(item => itemIdNeeded == item.itemName && item.hasBeenPickedUp);
     }
     
     private string ProcessProperties(string text) {
