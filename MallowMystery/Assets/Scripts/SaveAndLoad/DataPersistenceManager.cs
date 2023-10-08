@@ -24,14 +24,25 @@ public class DataPersistenceManager : MonoBehaviour {
 
     private void Awake() {
         if (instance != null) {
-            Debug.LogError("More than one DataPersistenceManager found, Shit hits the fan!");
+            Debug.LogError("More than one DataPersistenceManager found, Shit hits the fan! Or Destroying the new one");
+            Destroy(this.gameObject);
+            return;
         }
 
         instance = this;
+        DontDestroyOnLoad(this.gameObject);
+        this.dataHandler = new FileDataHandler(Application.persistentDataPath, fileName, encryptData);
     }
 
-    private void Start() {
-        this.dataHandler = new FileDataHandler(Application.persistentDataPath, fileName, encryptData);
+    private void OnEnable() {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnDisable() {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    public void OnSceneLoaded (Scene scene, LoadSceneMode mode) {
         this.dataPersistences = FindAllDataPersistenceObjects();
         LoadGame();
     }
@@ -51,21 +62,29 @@ public class DataPersistenceManager : MonoBehaviour {
     }
 
     public void LoadGame() {
-        this._gameData = dataHandler.Load();
+        Debug.Log("test");
+        if (this._gameData == null) {
+            this._gameData = dataHandler.Load();
+        }
         if (this._gameData == null || startFresh) {
-            Debug.Log("No GameData found, creating new GameData");
-            NewGame();
+            Debug.Log("No GameData found. A new Game needs to be created");
+            return;
         }
         else {
             foreach (IDataPersistence dataPersistenceObj in dataPersistences) {
                 dataPersistenceObj.LoadData(_gameData);
             }
-            SceneManager.SetActiveScene(_gameData.Scene);
+            // SceneManager.SetActiveScene(_gameData.Scene);
             gameEventStandardAdd.Raise();
         }
     }
 
     public void SaveGame () {
+        if (this._gameData == null) {
+            Debug.Log("No GameData found. A new Game needs to be created before being saved");
+            return;
+        }
+        
         foreach (IDataPersistence dataPersistenceObj in dataPersistences) {
             dataPersistenceObj.SaveData(ref _gameData);
         }
@@ -73,5 +92,9 @@ public class DataPersistenceManager : MonoBehaviour {
         _gameData.Scene = SceneManager.GetActiveScene();
         
         dataHandler.Save(_gameData);
+    }
+
+    public bool hasGameData() {
+        return _gameData != null;
     }
 }

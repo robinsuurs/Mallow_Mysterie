@@ -13,10 +13,11 @@ public class GameData {
     public SerliazableDictionary<string, bool> cluesPickedUp; //Perhaps not needed
 
     public GameData(Inventory inventory) {
-        foreach (var item in inventory.items) {
-            item.hasBeenPickedUp = false;
-        }
+        // foreach (var item in inventory.items) {
+        //     item.hasBeenPickedUp = false;
+        // }
         //Set start thing when you create a newGame
+        
         cluesPickedUp = new SerliazableDictionary<string, bool>();
         //Scene = startscene
         //playerLocation = StartLocation of player

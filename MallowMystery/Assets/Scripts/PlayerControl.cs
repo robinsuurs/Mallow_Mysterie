@@ -31,8 +31,7 @@ public class PlayerControl : MonoBehaviour, IDataPersistence
     {
         _movement = inputValue.Get<Vector2>();
     }
-
-
+    
     public void LoadData(GameData data) {
         this.transform.position = data.playerLocation;
     }
