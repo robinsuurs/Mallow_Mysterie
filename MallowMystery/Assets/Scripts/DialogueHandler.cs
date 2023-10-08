@@ -7,6 +7,7 @@ using ScriptObjects;
 using Subtegral.DialogueSystem.DataContainers;
 using UnityEngine;
 using TMPro;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class DialogueHandler : MonoBehaviour
@@ -27,16 +28,18 @@ public class DialogueHandler : MonoBehaviour
     private bool inDialogue;
     
     public void StartDialogue(DialogueContainer dialogueContainer) {
-        dialogue = dialogueContainer;
-        DialogueCanvas.SetActive(true);
-        var narrativeData = dialogue.NodeLinks.First();
-        ProceedToNarrative(narrativeData.TargetNodeGUID);
-        inDialogue = true;
+        if (!inDialogue) {
+            dialogue = dialogueContainer;
+            DialogueCanvas.SetActive(true);
+            var narrativeData = dialogue.NodeLinks.First();
+            ProceedToNarrative(narrativeData.TargetNodeGUID);
+            inDialogue = true;
+        }
     }
     
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) && inDialogue) {
+        if ((Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.E)) && inDialogue) {
             if (DialogueBoxUI.text == currentDialogue) {
                 if (!choices.Any()) {
                     currentDialogue = null;
@@ -77,8 +80,8 @@ public class DialogueHandler : MonoBehaviour
             singleOption = true;
         } else {
             // TODO: BM 04-10-2023 What to do with multiple buttons but only one can be shown based on conditions
+            // TODO: BM 08-10-2023 Select Buttons without mouse?
             singleOption = false;
-            var IsThereAClickableButton = false;
             foreach (var choice in choices) {
                 
                 var button = Instantiate(ChoicesButton, buttonContainer);
@@ -87,14 +90,7 @@ public class DialogueHandler : MonoBehaviour
                 
                 if (_inventory != null && dialogue.DialogueNodeData.Find(x => x.nodeGuid == choice.TargetNodeGUID).ItemId != "") {
                     button.interactable = ItemNeededInInventory(choice.TargetNodeGUID);
-                    if (button.interactable) {
-                        IsThereAClickableButton = true;
-                    }
                 }
-            }
-
-            if (!IsThereAClickableButton) {
-                Debug.LogError("There are no Selectable buttons in this dialogue node: " + currentNode.dialogueText);
             }
         }
     }
