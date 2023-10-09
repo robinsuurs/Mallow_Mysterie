@@ -13,11 +13,6 @@ namespace ScriptObjects
         public string description;
         public bool hasBeenPickedUp = false;
 
-        private void OnEnable()
-        {
-            hasBeenPickedUp = false;
-        }
-
         public void Pickup(bool set)
         {
             hasBeenPickedUp = set;
