@@ -62,7 +62,6 @@ public class DataPersistenceManager : MonoBehaviour {
     }
 
     public void LoadGame() {
-        Debug.Log("test");
         if (this._gameData == null) {
             this._gameData = dataHandler.Load();
         }
@@ -74,7 +73,6 @@ public class DataPersistenceManager : MonoBehaviour {
             foreach (IDataPersistence dataPersistenceObj in dataPersistences) {
                 dataPersistenceObj.LoadData(_gameData);
             }
-            // SceneManager.SetActiveScene(_gameData.Scene);
             gameEventStandardAdd.Raise();
         }
     }

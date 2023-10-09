@@ -3,18 +3,19 @@ using System.Collections.Generic;
 using ScriptObjects;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class ItemLoadScene : MonoBehaviour {
-    [SerializeField] private ItemData ItemData;
+    [SerializeField] private ItemData itemData;
 
     public void ShowObjectOrNot() {
-        if (ItemData.hasBeenPickedUp) {
+        if (itemData.hasBeenPickedUp) {
             this.GameObject().SetActive(false);
         }
     }
 
     public void PickUpObject() {
-        ItemData.hasBeenPickedUp = true;
+        itemData.hasBeenPickedUp = true;
         this.GameObject().SetActive(false);
     }
 }
