@@ -7,6 +7,7 @@ using ScriptObjects;
 using Subtegral.DialogueSystem.DataContainers;
 using UnityEngine;
 using TMPro;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class DialogueHandler : MonoBehaviour
@@ -27,16 +28,18 @@ public class DialogueHandler : MonoBehaviour
     private bool inDialogue;
     
     public void StartDialogue(DialogueContainer dialogueContainer) {
-        dialogue = dialogueContainer;
-        DialogueCanvas.SetActive(true);
-        var narrativeData = dialogue.NodeLinks.First();
-        ProceedToNarrative(narrativeData.TargetNodeGUID);
-        inDialogue = true;
+        if (!inDialogue) {
+            dialogue = dialogueContainer;
+            DialogueCanvas.SetActive(true);
+            var narrativeData = dialogue.NodeLinks.First();
+            ProceedToNarrative(narrativeData.TargetNodeGUID);
+            inDialogue = true;
+        }
     }
     
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) && inDialogue) {
+        if ((Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.E)) && inDialogue) {
             if (DialogueBoxUI.text == currentDialogue) {
                 if (!choices.Any()) {
                     currentDialogue = null;
@@ -77,6 +80,7 @@ public class DialogueHandler : MonoBehaviour
             singleOption = true;
         } else {
             // TODO: BM 04-10-2023 What to do with multiple buttons but only one can be shown based on conditions
+            // TODO: BM 08-10-2023 Select Buttons without mouse?
             singleOption = false;
             foreach (var choice in choices) {
                 
@@ -90,13 +94,10 @@ public class DialogueHandler : MonoBehaviour
             }
         }
     }
-
-    //TODO: BM 04-10-2023 what inventory do we grab? -> link to player?
-    //TODO: BM 04-10-2023 add boolean on pickup condition, now it always has a null value
+    
     private bool ItemNeededInInventory(string choiceTargetNodeGuid) {
-        var optionNode = dialogue.DialogueNodeData.Find(x => x.nodeGuid == choiceTargetNodeGuid).ItemId;
-        return _inventory.items.Any(item => optionNode == item.itemName);
-        // && item.hasBeenPickedUp
+        var itemIdNeeded = dialogue.DialogueNodeData.Find(x => x.nodeGuid == choiceTargetNodeGuid).ItemId;
+        return _inventory.items.Any(item => itemIdNeeded == item.itemName && item.hasBeenPickedUp);
     }
     
     private string ProcessProperties(string text) {
