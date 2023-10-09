@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Text;
+using Dialogue.Editor.Graph;
 using Dialogue.Editor.Nodes;
 using Dialogue.Runtime;
 using UnityEditor;
