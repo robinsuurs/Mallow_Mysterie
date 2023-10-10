@@ -24,7 +24,7 @@ public class GameData {
         }
 
         this.Inventory = inventory;
-        Inventory.items = items;
+        // Inventory.items = items;
         //Set start thing when you create a newGame
         // Scene = startscene;
         //playerLocation = StartLocation of player
