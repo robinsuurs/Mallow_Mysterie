@@ -35,12 +35,13 @@ public class DialogueHandler : MonoBehaviour
             var narrativeData = dialogue.NodeLinks.First();
             ProceedToNarrative(narrativeData.TargetNodeGUID);
             inDialogue = true;
+            Time.timeScale = 0f;
         }
     }
     
     void Update()
     {
-        if ((Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.E)) && inDialogue) {
+        if ((Input.GetMouseButtonDown(0)) && inDialogue) {
             if (DialogueBoxUI.text == currentDialogue) {
                 if (!choices.Any()) {
                     currentDialogue = null;
@@ -49,6 +50,7 @@ public class DialogueHandler : MonoBehaviour
                     DialogueBoxUI.text = "";
                     SpeakerNameBox.text = "";
                     DialogueCanvas.SetActive(false);
+                    Time.timeScale = 1f;
                 }
                 else if (singleOption)
                 {
@@ -77,12 +79,14 @@ public class DialogueHandler : MonoBehaviour
         
         SpeakerNameBox.text = currentNode.SpeakerName;
     
-        if (choices.Count() == 1) {
+        if (choices.Count() == 1 || choices.Count() == 0) {
             singleOption = true;
+            buttonContainer.gameObject.SetActive(false);
         } else {
             // TODO: BM 04-10-2023 What to do with multiple buttons but only one can be shown based on conditions
             // TODO: BM 08-10-2023 Select Buttons without mouse?
             singleOption = false;
+            buttonContainer.gameObject.SetActive(true);
             foreach (var choice in choices) {
                 
                 var button = Instantiate(ChoicesButton, buttonContainer);
@@ -111,7 +115,7 @@ public class DialogueHandler : MonoBehaviour
     IEnumerator TypeLine() {
         foreach (var c in currentDialogue.ToCharArray()) {
             DialogueBoxUI.text += c;
-            yield return new WaitForSeconds(textspeed);
+            yield return new WaitForSecondsRealtime(textspeed);
         }
     }
 }
