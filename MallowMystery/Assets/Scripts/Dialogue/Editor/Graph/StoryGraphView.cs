@@ -1,31 +1,28 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Dialogue.Editor.Nodes;
 using Dialogue.Runtime;
 using Subtegral.DialogueSystem.DataContainers;
+using Subtegral.DialogueSystem.Editor;
 using UnityEditor;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
-using UnityEngine.Android;
-using UnityEngine.UI;
 using UnityEngine.UIElements;
 using Button = UnityEngine.UIElements.Button;
 
-namespace Subtegral.DialogueSystem.Editor
+namespace Dialogue.Editor.Graph
 {
-    public class StoryGraphView : GraphView
-    {
+    public class StoryGraphView : GraphView {
         public readonly Vector2 DefaultNodeSize = new Vector2(2000, 1500);
         public readonly Vector2 DefaultCommentBlockSize = new Vector2(3000, 2000);
         public DialogueNode EntryPointNode;
         public Blackboard Blackboard = new Blackboard();
         public List<ExposedProperty> ExposedProperties { get; private set; } = new List<ExposedProperty>();
         private NodeSearchWindow _searchWindow;
+        private ItemDataNamesRetriever itemDataNames = new ItemDataNamesRetriever();
 
-        public StoryGraphView(StoryGraph editorWindow)
-        {
+        public StoryGraphView(StoryGraph editorWindow) {
             styleSheets.Add(Resources.Load<StyleSheet>("NarrativeGraph"));
             // styleSheets.Add(Resources.Load<StyleSheet>("NarrativeGraph"));
             SetupZoom(ContentZoomer.DefaultMinScale, ContentZoomer.DefaultMaxScale);
@@ -121,6 +118,8 @@ namespace Subtegral.DialogueSystem.Editor
 
             return compatiblePorts;
         }
+        
+        
 
         public void CreateNewDialogueNode(string nodeName, Vector2 position) {
             DialogueNodeData tempNode = new DialogueNodeData() { nodeGuid = Guid.NewGuid().ToString() };
@@ -140,6 +139,11 @@ namespace Subtegral.DialogueSystem.Editor
                 text = "Add Choice"
             };
             tempDialogueNode.titleButtonContainer.Add(button);
+            
+            var buttonItem = new Button(() => { AddChoiceItemPort(tempDialogueNode); }) {
+                text = "Add Choice With Item"
+            };
+            tempDialogueNode.titleButtonContainer.Add(buttonItem);
             
             // TODO: Bram Mulders 01-10-2023, fix save for this
             int defaultIndex = useDefaultValues ? 0 : ExposedProperties.FindIndex(x => x.PropertyName == tempDialogueNode.SpeakerName);
@@ -216,13 +220,13 @@ namespace Subtegral.DialogueSystem.Editor
             var outputPortName = string.IsNullOrEmpty(overriddenPortName)
                 ? $"Option {outputPortCount + 1}"
                 : overriddenPortName;
-
-
+            
             var textField = new TextField()
             {
-                name = string.Empty,
+                name = String.Empty,
                 value = outputPortName
             };
+            
             textField.RegisterValueChangedCallback(evt => generatedPort.portName = evt.newValue);
             textField.StretchToParentWidth();
             
@@ -239,6 +243,53 @@ namespace Subtegral.DialogueSystem.Editor
             generatedPort.contentContainer.style.alignItems = Align.FlexStart;
             
             generatedPort.contentContainer.Add(textField);
+            generatedPort.contentContainer.Add(deleteButton);
+            generatedPort.portName = outputPortName;
+            nodeCache.outputContainer.Add(generatedPort);
+            nodeCache.RefreshPorts();
+            nodeCache.RefreshExpandedState();
+        }
+        
+        public void AddChoiceItemPort(DialogueNode nodeCache, string overriddenPortName = "", string OverridenItemIdRequired = "")
+        {
+            var generatedPort = GetPortInstance(nodeCache, Direction.Output);
+            var portLabel = generatedPort.contentContainer.Q<Label>("type");
+            generatedPort.contentContainer.Remove(portLabel);
+
+            var outputPortCount = nodeCache.outputContainer.Query("connector").ToList().Count();
+            var outputPortName = string.IsNullOrEmpty(overriddenPortName)
+                ? $"Option {outputPortCount + 1}"
+                : overriddenPortName;
+            
+            PopupField<string> itemNeeded =
+                new PopupField<string>(ExposedProperties.Select(x => x.PropertyName).ToList(), 0);
+            itemNeeded.RegisterValueChangedCallback(evt => {
+                nodeCache.ItemId = evt.newValue;
+            });
+            
+            var textField = new TextField()
+            {
+                name = string.Empty,
+                value = outputPortName
+            };
+            textField.RegisterValueChangedCallback(evt => generatedPort.portName = evt.newValue);
+            textField.StretchToParentWidth();
+            textField.style.width = 130;
+            textField.multiline = true;
+            textField.style.position = Position.Relative;
+
+            
+            var deleteButton = new Button(() => RemovePort(nodeCache, generatedPort))
+            {
+                text = "X"
+            };
+            
+            generatedPort.contentContainer.style.display = DisplayStyle.Flex;
+            generatedPort.contentContainer.style.position = Position.Relative;
+            generatedPort.contentContainer.style.alignItems = Align.FlexStart;
+            
+            generatedPort.contentContainer.Add(textField);
+            generatedPort.contentContainer.Add(itemNeeded);
             generatedPort.contentContainer.Add(deleteButton);
             generatedPort.portName = outputPortName;
             nodeCache.outputContainer.Add(generatedPort);
