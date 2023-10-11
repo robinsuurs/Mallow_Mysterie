@@ -1,4 +1,8 @@
-﻿using Dialogue.Runtime;
+﻿using System.Collections.Generic;
+using Dialogue.Editor.Graph;
+using Dialogue.Runtime;
+using Dialogue.RunTime;
+using Subtegral.DialogueSystem.Editor;
 using UnityEditor.Experimental.GraphView;
 
 namespace Dialogue.Editor.Nodes
@@ -10,7 +14,7 @@ namespace Dialogue.Editor.Nodes
         public string SpeakerName;
         public string SpeakerSpriteLeft;
         public string SpeakerSpriteRight;
-        public string ItemId;
+        public List<ItemPortCombi> ItemPortCombis;
         
         public DialogueNode (DialogueNodeData data) {
             DialogueText = data.dialogueText;
@@ -18,7 +22,7 @@ namespace Dialogue.Editor.Nodes
             SpeakerName = data.SpeakerName;
             SpeakerSpriteLeft = data.SpeakerSpriteLeft;
             SpeakerSpriteRight = data.SpeakerSpriteRight;
-            ItemId = data.ItemId;
+            ItemPortCombis = data.ItemPortCombis;
         }
         
         public DialogueNode () {
