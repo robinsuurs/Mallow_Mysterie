@@ -19,7 +19,6 @@ namespace Subtegral.DialogueSystem.Editor
         private StoryGraphView _graphView;
         private DialogueContainer _dialogueContainer;
         private MiniMap miniMap;
-        public TestScript _testScript;
 
         [MenuItem("Graph/Narrative Graph")]
         public static void CreateGraphViewWindow()
@@ -80,9 +79,6 @@ namespace Subtegral.DialogueSystem.Editor
             GenerateToolbar();
             GenerateMinimap();
             GenerateBlackBoard();
-            TestScript testScript = new TestScript();
-            this._testScript = testScript;
-            _testScript.TestingShite();
         }
 
         private void GenerateMinimap()

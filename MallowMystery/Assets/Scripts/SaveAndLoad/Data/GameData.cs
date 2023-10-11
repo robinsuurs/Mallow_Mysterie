@@ -13,13 +13,13 @@ public class GameData {
     public Vector3 playerLocation;
 
     public GameData(Inventory inventory) {
-        // this.Inventory = inventory;
         
         this.items = new List<ItemData>();
         var clueItems = Resources.FindObjectsOfTypeAll<ScriptableObject>().OfType<ItemData>();
         if (clueItems.Count() != 0) {
             foreach (var item in clueItems) {
                 items.Add(item);
+                item.hasBeenPickedUp = false;
             }
         }
 

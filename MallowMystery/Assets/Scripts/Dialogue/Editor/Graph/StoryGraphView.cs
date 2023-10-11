@@ -20,10 +20,9 @@ namespace Dialogue.Editor.Graph
         public Blackboard Blackboard = new Blackboard();
         public List<ExposedProperty> ExposedProperties { get; private set; } = new List<ExposedProperty>();
         private NodeSearchWindow _searchWindow;
-        private StoryGraph editorWindow;
+        private ItemDataNamesRetriever itemDataNames = new ItemDataNamesRetriever();
 
         public StoryGraphView(StoryGraph editorWindow) {
-            this.editorWindow = editorWindow;
             styleSheets.Add(Resources.Load<StyleSheet>("NarrativeGraph"));
             // styleSheets.Add(Resources.Load<StyleSheet>("NarrativeGraph"));
             SetupZoom(ContentZoomer.DefaultMinScale, ContentZoomer.DefaultMaxScale);
@@ -227,8 +226,6 @@ namespace Dialogue.Editor.Graph
                 name = String.Empty,
                 value = outputPortName
             };
-
-            // textField.name = editorWindow._testScript.itemDatasTest[0].itemName;
             
             textField.RegisterValueChangedCallback(evt => generatedPort.portName = evt.newValue);
             textField.StretchToParentWidth();
