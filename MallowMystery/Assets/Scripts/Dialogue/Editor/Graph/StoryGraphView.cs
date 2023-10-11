@@ -1,33 +1,30 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Dialogue.Editor.Nodes;
 using Dialogue.Runtime;
+using Dialogue.RunTime;
 using Subtegral.DialogueSystem.DataContainers;
+using Subtegral.DialogueSystem.Editor;
 using UnityEditor;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
-using UnityEngine.Android;
-using UnityEngine.UI;
 using UnityEngine.UIElements;
 using Button = UnityEngine.UIElements.Button;
 
-namespace Subtegral.DialogueSystem.Editor
+namespace Dialogue.Editor.Graph
 {
-    public class StoryGraphView : GraphView
-    {
+    public class StoryGraphView : GraphView {
         public readonly Vector2 DefaultNodeSize = new Vector2(2000, 1500);
         public readonly Vector2 DefaultCommentBlockSize = new Vector2(3000, 2000);
         public DialogueNode EntryPointNode;
         public Blackboard Blackboard = new Blackboard();
         public List<ExposedProperty> ExposedProperties { get; private set; } = new List<ExposedProperty>();
         private NodeSearchWindow _searchWindow;
+        private readonly ItemDataNamesRetriever itemDataNames = new ItemDataNamesRetriever();
 
-        public StoryGraphView(StoryGraph editorWindow)
-        {
+        public StoryGraphView(StoryGraph editorWindow) {
             styleSheets.Add(Resources.Load<StyleSheet>("NarrativeGraph"));
-            // styleSheets.Add(Resources.Load<StyleSheet>("NarrativeGraph"));
             SetupZoom(ContentZoomer.DefaultMinScale, ContentZoomer.DefaultMaxScale);
 
             this.AddManipulator(new ContentDragger());
@@ -121,9 +118,11 @@ namespace Subtegral.DialogueSystem.Editor
 
             return compatiblePorts;
         }
+        
+        
 
         public void CreateNewDialogueNode(string nodeName, Vector2 position) {
-            DialogueNodeData tempNode = new DialogueNodeData() { nodeGuid = Guid.NewGuid().ToString() };
+            DialogueNodeData tempNode = new DialogueNodeData() { nodeGuid = Guid.NewGuid().ToString(), ItemPortCombis = new List<ItemPortCombi>()};
             AddElement(CreateNode(tempNode, position));
         }
 
@@ -141,7 +140,11 @@ namespace Subtegral.DialogueSystem.Editor
             };
             tempDialogueNode.titleButtonContainer.Add(button);
             
-            // TODO: Bram Mulders 01-10-2023, fix save for this
+            var buttonItem = new Button(() => { AddChoiceItemPort(tempDialogueNode, useDefaultValues = true); }) {
+                text = "Add Choice With Item"
+            };
+            tempDialogueNode.titleButtonContainer.Add(buttonItem);
+            
             int defaultIndex = useDefaultValues ? 0 : ExposedProperties.FindIndex(x => x.PropertyName == tempDialogueNode.SpeakerName);
 
             defaultIndex = defaultIndex < 0 ? 0 : defaultIndex;
@@ -164,17 +167,6 @@ namespace Subtegral.DialogueSystem.Editor
             dialogueTextLongField.RegisterValueChangedCallback((evt => { tempDialogueNode.DialogueText = evt.newValue; }));
             dialogueTextLongField.SetValueWithoutNotify(tempDialogueNode.DialogueText);
             tempDialogueNode.mainContainer.Add(dialogueTextLongField);
-            
-            //ItemId textbox
-            var inventoryItemId = new TextField(string.Empty)
-            {
-                label = "ItemId",
-                style = { width = 300 },
-                multiline = true
-            };
-            inventoryItemId.RegisterValueChangedCallback((evt => { tempDialogueNode.ItemId = evt.newValue; }));
-            inventoryItemId.SetValueWithoutNotify(tempDialogueNode.ItemId);
-            tempDialogueNode.mainContainer.Add(inventoryItemId);
             
             //SpeakerSprite, which sprite does there need to be shown
             var speakerSpriteLeft = new TextField(string.Empty)
@@ -199,14 +191,14 @@ namespace Subtegral.DialogueSystem.Editor
             tempDialogueNode.mainContainer.Add(speakerSpriteRight);
             
             tempDialogueNode.RefreshExpandedState();
-            tempDialogueNode.RefreshPorts();
-            tempDialogueNode.SetPosition(new Rect(position, DefaultNodeSize));
+            tempDialogueNode.RefreshPorts(); 
+           tempDialogueNode.SetPosition(new Rect(position, DefaultNodeSize));
             
             return tempDialogueNode;
         }
 
 
-        public void AddChoicePort(DialogueNode nodeCache, string overriddenPortName = "", string OverridenItemIdRequired = "")
+        public void AddChoicePort(DialogueNode nodeCache, string overriddenPortName = "")
         {
             var generatedPort = GetPortInstance(nodeCache, Direction.Output);
             var portLabel = generatedPort.contentContainer.Q<Label>("type");
@@ -216,13 +208,13 @@ namespace Subtegral.DialogueSystem.Editor
             var outputPortName = string.IsNullOrEmpty(overriddenPortName)
                 ? $"Option {outputPortCount + 1}"
                 : overriddenPortName;
-
-
+            
             var textField = new TextField()
             {
-                name = string.Empty,
+                name = String.Empty,
                 value = outputPortName
             };
+            
             textField.RegisterValueChangedCallback(evt => generatedPort.portName = evt.newValue);
             textField.StretchToParentWidth();
             
@@ -245,8 +237,83 @@ namespace Subtegral.DialogueSystem.Editor
             nodeCache.RefreshPorts();
             nodeCache.RefreshExpandedState();
         }
+        
+        public void AddChoiceItemPort(DialogueNode nodeCache, bool useDefaultValues, string overriddenPortName = "")
+        {
+            var generatedPort = GetPortInstance(nodeCache, Direction.Output);
+            var portLabel = generatedPort.contentContainer.Q<Label>("type");
+            generatedPort.contentContainer.Remove(portLabel);
 
-        private void RemovePort(Node node, Port socket)
+            var outputPortCount = nodeCache.outputContainer.Query("connector").ToList().Count();
+            var outputPortName = string.IsNullOrEmpty(overriddenPortName)
+                ? $"Option {outputPortCount + 1}"
+                : overriddenPortName;
+
+            int defaultIndex = useDefaultValues ? 0 : getNumber(nodeCache, overriddenPortName);
+
+            defaultIndex = defaultIndex < 0 ? 0 : defaultIndex;
+            
+            var textField = new TextField()
+            {
+                name = string.Empty,
+                value = outputPortName
+            };
+            textField.RegisterValueChangedCallback(evt => {
+                foreach (var itemPortCombi in nodeCache.ItemPortCombis.Where(itemPortCombi => itemPortCombi.portname.Equals(generatedPort.portName))) {
+                    itemPortCombi.portname = evt.newValue;
+                    generatedPort.portName = evt.newValue;
+                    return;
+                }
+            });
+            textField.style.width = 130;
+            textField.multiline = true;
+            textField.style.position = Position.Relative;
+            
+            PopupField<string> itemNeeded = new PopupField<string>(itemDataNames.itemNames.Select(x => x).ToList(), defaultIndex);
+            
+            itemNeeded.RegisterValueChangedCallback(evt => {
+                foreach (var itemPortCombi in nodeCache.ItemPortCombis.Where(itemPortCombi => itemPortCombi.portname.Equals(generatedPort.portName))) {
+                    itemPortCombi.itemName = evt.newValue;
+                    return;
+                }
+            });
+            itemNeeded.style.width = 80;
+            
+            if (useDefaultValues) {
+                ItemPortCombi itemPortCombiTemp = new ItemPortCombi(outputPortName, itemNeeded.value);
+                nodeCache.ItemPortCombis.Add(itemPortCombiTemp);
+            }
+            
+            var deleteButton = new Button(() => RemovePort(nodeCache, generatedPort))
+            {
+                text = "X"
+            };
+            
+            generatedPort.contentContainer.style.display = DisplayStyle.Flex;
+            generatedPort.contentContainer.style.position = Position.Relative;
+            generatedPort.contentContainer.style.alignItems = Align.FlexStart;
+            
+            generatedPort.contentContainer.Add(textField);
+            generatedPort.contentContainer.Add(itemNeeded);
+            generatedPort.contentContainer.Add(deleteButton);
+            generatedPort.portName = outputPortName;
+            nodeCache.outputContainer.Add(generatedPort);
+            nodeCache.RefreshPorts();
+            nodeCache.RefreshExpandedState();
+        }
+
+        private int getNumber(DialogueNode dialogueNode, string overriddenPortName) {
+            foreach (var name in dialogueNode.ItemPortCombis.Where(name => name.portname.Equals(overriddenPortName))) {
+                for (int i = 0; i < itemDataNames.itemNames.Count; i++) {
+                    if (itemDataNames.itemNames[i] == name.itemName) {
+                        return i;
+                    }
+                }
+            }
+            return 0;
+        }
+
+        private void RemovePort(DialogueNode node, Port socket)
         {
             var targetEdge = edges.ToList()
                 .Where(x => x.output.portName == socket.portName && x.output.node == socket.node);
@@ -256,14 +323,19 @@ namespace Subtegral.DialogueSystem.Editor
                 edge.input.Disconnect(edge);
                 RemoveElement(targetEdge.First());
             }
+            
+            for (int i = node.ItemPortCombis.Count -1; i >=0; i-- ) {
+                if (node.ItemPortCombis[i].portname.Equals(socket.portName)) {
+                    node.ItemPortCombis.Remove(node.ItemPortCombis[i]);
+                }
+            }
 
             node.outputContainer.Remove(socket);
             node.RefreshPorts();
             node.RefreshExpandedState();
         }
 
-        private Port GetPortInstance(DialogueNode node, Direction nodeDirection,
-            Port.Capacity capacity = Port.Capacity.Single)
+        private Port GetPortInstance(DialogueNode node, Direction nodeDirection, Port.Capacity capacity = Port.Capacity.Single)
         {
             return node.InstantiatePort(Orientation.Horizontal, nodeDirection, capacity, typeof(float));
         }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Dialogue.Runtime
 {
@@ -8,6 +9,5 @@ namespace Dialogue.Runtime
         public string BaseNodeGUID;
         public string PortName;
         public string TargetNodeGUID;
-        public string ItemIdRequired;
     }
 }

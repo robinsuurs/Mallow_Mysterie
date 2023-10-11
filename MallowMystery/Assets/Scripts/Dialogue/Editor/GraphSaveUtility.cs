@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.IO;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Net;
-using System.Text;
+using Dialogue.Editor.Graph;
 using Dialogue.Editor.Nodes;
 using Dialogue.Runtime;
 using UnityEditor;
@@ -75,7 +71,7 @@ namespace Subtegral.DialogueSystem.Editor
                 {
                     BaseNodeGUID = outputNode.GUID,
                     PortName = connectedSockets[i].output.portName,
-                    TargetNodeGUID = inputNode.GUID
+                    TargetNodeGUID = inputNode.GUID,
                 });
             }
 
@@ -89,7 +85,7 @@ namespace Subtegral.DialogueSystem.Editor
                     SpeakerName = node.SpeakerName,
                     SpeakerSpriteLeft = node.SpeakerSpriteLeft,
                     SpeakerSpriteRight = node.SpeakerSpriteRight,
-                    ItemId = node.ItemId
+                    ItemPortCombis = node.ItemPortCombis,
                 });
             }
 
@@ -150,13 +146,31 @@ namespace Subtegral.DialogueSystem.Editor
         {
             foreach (var perNode in _dialogueContainer.DialogueNodeData)
             {
-                var tempNode = _graphView.CreateNode(perNode, Vector2.zero, false);
+                DialogueNode tempNode = _graphView.CreateNode(perNode, Vector2.zero, false);
                 tempNode.GUID = perNode.nodeGuid;
                 _graphView.AddElement(tempNode);
 
                 var nodePorts = _dialogueContainer.NodeLinks.Where(x => x.BaseNodeGUID == perNode.nodeGuid).ToList();
-                nodePorts.ForEach(x => _graphView.AddChoicePort(tempNode, x.PortName, x.ItemIdRequired));
+                var dialogueNode = _dialogueContainer.DialogueNodeData.Find(x => x.nodeGuid == perNode.nodeGuid);
+                
+                foreach (NodeLinkData node in nodePorts) {
+                    if (tempNode.ItemPortCombis == null || tempNode.ItemPortCombis.Count == 0 || !checkForNormalNode(tempNode, node.PortName)) {
+                        _graphView.AddChoicePort(tempNode, node.PortName);
+                    }
+                    else {
+                        _graphView.AddChoiceItemPort(tempNode, false, node.PortName);
+                    }
+                }
             }
+        }
+
+        private bool checkForNormalNode(DialogueNode tempnode, string portName) {
+            foreach (var itemPortCombi in tempnode.ItemPortCombis) {
+                if (itemPortCombi.portname.Equals(portName)) {
+                    return true;
+                }
+            }
+            return false;
         }
 
         private void ConnectDialogueNodes()

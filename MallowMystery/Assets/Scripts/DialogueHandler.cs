@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Dialogue.Runtime;
+using Dialogue.RunTime;
 using ScriptObjects;
 using Subtegral.DialogueSystem.DataContainers;
 using UnityEngine;
@@ -75,7 +76,7 @@ public class DialogueHandler : MonoBehaviour
         _listOfSprites.CharacterSetter(currentNode.SpeakerSpriteLeft, currentNode.SpeakerSpriteRight);
         
         SpeakerNameBox.text = currentNode.SpeakerName;
-
+    
         if (choices.Count() == 1) {
             singleOption = true;
         } else {
@@ -88,16 +89,19 @@ public class DialogueHandler : MonoBehaviour
                 button.GetComponentInChildren<Text>().text = ProcessProperties(choice.PortName);
                 button.onClick.AddListener(() => ProceedToNarrative(choice.TargetNodeGUID));
                 
-                if (_inventory != null && dialogue.DialogueNodeData.Find(x => x.nodeGuid == choice.TargetNodeGUID).ItemId != "") {
-                    button.interactable = ItemNeededInInventory(choice.TargetNodeGUID);
+                if (_inventory != null) {
+                    button.interactable = ItemNeededInInventory(currentNode, choice.PortName);
                 }
             }
         }
     }
     
-    private bool ItemNeededInInventory(string choiceTargetNodeGuid) {
-        var itemIdNeeded = dialogue.DialogueNodeData.Find(x => x.nodeGuid == choiceTargetNodeGuid).ItemId;
-        return _inventory.items.Any(item => itemIdNeeded == item.itemName && item.hasBeenPickedUp);
+    private bool ItemNeededInInventory(DialogueNodeData dialogueNodeData, string portName) {
+        var name = "";
+        foreach (var itemPortCombi in dialogueNodeData.ItemPortCombis.Where(itemPortCombi => itemPortCombi.portname.Equals(portName))) {
+            name = itemPortCombi.itemName;
+        }
+        return _inventory.items.Any(item => name == item.itemName && item.hasBeenPickedUp);
     }
     
     private string ProcessProperties(string text) {
