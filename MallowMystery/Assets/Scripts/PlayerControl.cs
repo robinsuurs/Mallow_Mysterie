@@ -31,7 +31,7 @@ public class PlayerControl : MonoBehaviour, IDataPersistence
     void OnMove(InputValue inputValue)
     {
         // _movement = inputValue.Get<Vector2>();
-        _movement = Rotate(inputValue.Get<Vector2>(), -45);
+        _movement = Rotate(inputValue.Get<Vector2>(), -90);
     }
 
     private static Vector2 Rotate(Vector2 v, float degrees) {
