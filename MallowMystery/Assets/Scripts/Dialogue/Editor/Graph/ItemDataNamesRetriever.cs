@@ -13,7 +13,7 @@ public class ItemDataNamesRetriever
 {
     public string ClueItems = "Clues/BramTest";
     public string[] itemDatasTest;
-    public List<string> itemDataNames;
+    public List<string> itemNames;
 
     public ItemDataNamesRetriever() {
         RetrieveItemDataNames();
@@ -38,7 +38,7 @@ public class ItemDataNamesRetriever
         }
 
         List<string> namesOfItems = new List<string>();
-        
+        namesOfItems.Add("Select an Item");
         for (int i = 0; i < newItemData.Length; i++) {
             var path = AssetDatabase.GUIDToAssetPath(guids[i]);
             newItemData[i] = AssetDatabase.LoadAssetAtPath<Object>(path);
@@ -46,11 +46,11 @@ public class ItemDataNamesRetriever
             namesOfItems.Add(itemName);
         }
 
-        this.itemDataNames = namesOfItems;
+        this.itemNames = namesOfItems;
     }
     
     //https://stackoverflow.com/questions/33684027/getting-property-and-field-values-from-an-object-using-reflection-and-using-a-st
-    public System.Object GetFieldValue( System.Object obj, String name)
+    public System.Object GetFieldValue(System.Object obj, String name)
     {
         foreach (String part in name.Split('.'))
         {
@@ -66,7 +66,7 @@ public class ItemDataNamesRetriever
     }
 
 // so we can use reflection to access the object properties
-    public T GetFieldValue<T>( Object obj, String name)
+    public T GetFieldValue<T>(Object obj, String name)
     {
         System.Object retval = GetFieldValue(obj, name);
         if (retval == null) { return default(T); }
