@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78b3fd9154634ebdb8c8a48960b9a16a, type: 3}
+  m_Name: ss
+  m_EditorClassIdentifier: 
+  NodeLinks:
+  - BaseNodeGUID: 7291cba9-33d9-486d-b90d-529f9d619179
+    PortName: Next
+    TargetNodeGUID: 8cf87e02-9a23-46ca-a656-689af4abfb5d
+  - BaseNodeGUID: 8cf87e02-9a23-46ca-a656-689af4abfb5d
+    PortName: Option 1
+    TargetNodeGUID: 8a341bd8-3d1f-4b21-813e-6422189082a9
+  DialogueNodeData:
+  - nodeGuid: 8cf87e02-9a23-46ca-a656-689af4abfb5d
+    dialogueText: 
+    position: {x: 333, y: 181}
+    SpeakerName: 
+    SpeakerNameLocation: Speaker Name Right
+    SpeakerSpriteLeft: 
+    SpeakerSpriteRight: 
+    ItemPortCombis:
+    - portname: Option 1
+      itemName: Select an Item
+    alreadyHadConversation: 0
+  - nodeGuid: 8a341bd8-3d1f-4b21-813e-6422189082a9
+    dialogueText: 
+    position: {x: 791, y: 200}
+    SpeakerName: 
+    SpeakerNameLocation: Speaker Name Left
+    SpeakerSpriteLeft: 
+    SpeakerSpriteRight: 
+    ItemPortCombis: []
+    alreadyHadConversation: 0
+  ExposedProperties:
+  - PropertyName: Ignore
+    PropertyValue: New Value
+  CommentBlockData: []

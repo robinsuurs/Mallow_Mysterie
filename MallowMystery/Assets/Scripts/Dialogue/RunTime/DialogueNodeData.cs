@@ -12,8 +12,10 @@ namespace Dialogue.Runtime
         public string dialogueText;
         public Vector2 position;
         public string SpeakerName;
+        public string SpeakerNameLocation;
         public string SpeakerSpriteLeft;
         public string SpeakerSpriteRight;
         public List<ItemPortCombi> ItemPortCombis;
+        public bool alreadyHadConversation;
     }
 }
