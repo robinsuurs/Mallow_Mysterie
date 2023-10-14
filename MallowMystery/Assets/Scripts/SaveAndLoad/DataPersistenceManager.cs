@@ -3,7 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using Dialogue.Editor.Nodes;
+using Dialogue.Runtime;
 using ScriptObjects;
+using Subtegral.DialogueSystem.DataContainers;
 using UnityEngine.SceneManagement;
 
 //Youtube video used: https://www.youtube.com/watch?v=aUi9aijvpgs&t=538s
@@ -73,6 +76,8 @@ public class DataPersistenceManager : MonoBehaviour {
             foreach (IDataPersistence dataPersistenceObj in dataPersistences) {
                 dataPersistenceObj.LoadData(_gameData);
             }
+
+            loadDialogueStates();
             gameEventStandardAdd.Raise();
         }
     }
@@ -86,6 +91,8 @@ public class DataPersistenceManager : MonoBehaviour {
         foreach (IDataPersistence dataPersistenceObj in dataPersistences) {
             dataPersistenceObj.SaveData(ref _gameData);
         }
+        
+        saveDialogueStates();
 
         _gameData.Scene = SceneManager.GetActiveScene();
         
@@ -94,5 +101,26 @@ public class DataPersistenceManager : MonoBehaviour {
 
     public bool hasGameData() {
         return _gameData != null;
+    }
+
+    private void saveDialogueStates() {
+        List<DialogueContainer> dialogueContainers = Resources.LoadAll<DialogueContainer>("").ToList();
+        _gameData.dialogues.Clear();
+        foreach (var dialogueNodeData in from dialogueContainer in dialogueContainers from dialogueNode in dialogueContainer.DialogueNodeData select new DialogueNodeData() {
+                     nodeGuid = dialogueNode.nodeGuid,
+                     alreadyHadConversation = dialogueNode.alreadyHadConversation
+                 }) {
+            _gameData.dialogues.Add(dialogueNodeData);
+        }
+    }
+    
+    private void loadDialogueStates() {
+        foreach (var dialogueContainer in Resources.LoadAll<DialogueContainer>("").ToList()) {
+            foreach (var dialogueNodeData in dialogueContainer.DialogueNodeData) {
+                foreach (var dialogueNode in _gameData.dialogues.Where(dialogueNode => dialogueNodeData.nodeGuid.Equals(dialogueNode.nodeGuid))) {
+                    dialogueNodeData.alreadyHadConversation = dialogueNode.alreadyHadConversation;
+                }
+            }
+        }
     }
 }

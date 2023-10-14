@@ -1,7 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Dialogue.Editor.Nodes;
+using Dialogue.Runtime;
 using ScriptObjects;
+using Subtegral.DialogueSystem.DataContainers;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -11,9 +14,10 @@ public class GameData {
     public Inventory Inventory;
     public Scene Scene;
     public Vector3 playerLocation;
+    public List<DialogueNodeData> dialogues;
 
+    //Set start thing when you create a newGame
     public GameData(Inventory inventory) {
-        
         this.items = new List<ItemData>();
         var clueItems = Resources.FindObjectsOfTypeAll<ScriptableObject>().OfType<ItemData>();
         if (clueItems.Count() != 0) {
@@ -24,8 +28,13 @@ public class GameData {
         }
 
         this.Inventory = inventory;
-        // Inventory.items = items;
-        //Set start thing when you create a newGame
+        
+        List<DialogueContainer>dialogues = Resources.LoadAll<DialogueContainer>("").ToList();
+
+        foreach (var dialogueNodeData in dialogues.SelectMany(dialogue => dialogue.DialogueNodeData)) {
+            dialogueNodeData.alreadyHadConversation = false;
+        }
+
         // Scene = startscene;
         //playerLocation = StartLocation of player
     }
