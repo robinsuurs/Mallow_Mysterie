@@ -1,20 +1,29 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using ExampleEventScriptAble;
+using ScriptObjects;
 using UnityEngine;
 
 public class ShowSpritePlayer : MonoBehaviour {
 
-    [SerializeField] public Transform lookat;
-    [SerializeField] public Vector3 offset;
-
+    [SerializeField] private GameObject playerCanvas;
     [SerializeField] private Camera camera;
+    [SerializeField] private GameEventChannel interactListener;
+    private bool showSprite = false;
 
-    private void LateUpdate() {
-        Vector3 pos = camera.WorldToScreenPoint(lookat.position + offset);
+    private void Start() {
+        playerCanvas.transform.rotation = Quaternion.LookRotation(playerCanvas.transform.position - camera.transform.position);
+    }
 
-        if (transform.position != pos) {
-            transform.position = pos;
+    private void showInteractableSprite() {
+        showSprite = !showSprite;
+        playerCanvas.SetActive(showSprite);
+    }
+
+    public void Update() {
+        if ((interactListener.GetListenersList().Count != 0 && !showSprite) || (interactListener.GetListenersList().Count == 0 && showSprite)) {
+            showInteractableSprite();
         }
     }
 }
