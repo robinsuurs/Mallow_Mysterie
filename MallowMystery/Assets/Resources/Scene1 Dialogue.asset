@@ -1,0 +1,164 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78b3fd9154634ebdb8c8a48960b9a16a, type: 3}
+  m_Name: Scene1 Dialogue
+  m_EditorClassIdentifier: 
+  NodeLinks:
+  - BaseNodeGUID: ca04f5a6-11d1-4c82-ba99-908467076def
+    PortName: Next
+    TargetNodeGUID: f58842fa-5715-40d8-81e2-4488196b4f16
+  - BaseNodeGUID: f58842fa-5715-40d8-81e2-4488196b4f16
+    PortName: Option 1
+    TargetNodeGUID: 3f6bbe2d-07dc-4ff2-aa7c-bad6f5f86783
+  - BaseNodeGUID: 3f6bbe2d-07dc-4ff2-aa7c-bad6f5f86783
+    PortName: Option 1
+    TargetNodeGUID: d4c434f1-6e8a-42f3-b285-340059589e51
+  - BaseNodeGUID: d4c434f1-6e8a-42f3-b285-340059589e51
+    PortName: Option 1
+    TargetNodeGUID: 27088bdb-8184-436d-98f2-5e89e3582cb3
+  - BaseNodeGUID: 27b4369c-db6b-42ff-91b0-67b0b6923d8a
+    PortName: Option 1
+    TargetNodeGUID: 98c7f1b3-89ef-4b90-b110-e6578f640cd0
+  - BaseNodeGUID: 98c7f1b3-89ef-4b90-b110-e6578f640cd0
+    PortName: Option 1
+    TargetNodeGUID: ac097e3e-5428-45c3-83dd-469c20897420
+  - BaseNodeGUID: 27088bdb-8184-436d-98f2-5e89e3582cb3
+    PortName: Option 1
+    TargetNodeGUID: 27b4369c-db6b-42ff-91b0-67b0b6923d8a
+  - BaseNodeGUID: ac097e3e-5428-45c3-83dd-469c20897420
+    PortName: Option 1
+    TargetNodeGUID: 2029d7b3-3836-43a4-807a-2e2a0eab02c0
+  - BaseNodeGUID: 2029d7b3-3836-43a4-807a-2e2a0eab02c0
+    PortName: Option 1
+    TargetNodeGUID: 343d71e8-decf-45ba-ad58-24aa05af8d08
+  - BaseNodeGUID: 343d71e8-decf-45ba-ad58-24aa05af8d08
+    PortName: Option 1
+    TargetNodeGUID: 4a2dc2e1-49dc-4aaf-9a65-a8788e2f43e5
+  - BaseNodeGUID: 4a2dc2e1-49dc-4aaf-9a65-a8788e2f43e5
+    PortName: Option 1
+    TargetNodeGUID: 896ffbb7-bf44-4c54-b32b-3567052ca5a2
+  - BaseNodeGUID: 896ffbb7-bf44-4c54-b32b-3567052ca5a2
+    PortName: Option 1
+    TargetNodeGUID: c03ffe77-5852-4d4f-af79-b43a506eacad
+  - BaseNodeGUID: c03ffe77-5852-4d4f-af79-b43a506eacad
+    PortName: Option 1
+    TargetNodeGUID: 4351bcde-fae6-4422-930c-bcd8b1c23f54
+  DialogueNodeData:
+  - nodeGuid: f58842fa-5715-40d8-81e2-4488196b4f16
+    dialogueText: Alright, let's set the facts straight.
+    position: {x: 100, y: -84.8}
+    SpeakerName: Tyrone
+    SpeakerSpriteLeft: M1
+    SpeakerSpriteRight: D1
+    ItemPortCombis: []
+  - nodeGuid: 3f6bbe2d-07dc-4ff2-aa7c-bad6f5f86783
+    dialogueText: "So you went to meet up with Cornelia and when she didn\u2019t
+      show up you went to look for her."
+    position: {x: 264, y: 103.2}
+    SpeakerName: Tyrone
+    SpeakerSpriteLeft: M1
+    SpeakerSpriteRight: D1
+    ItemPortCombis: []
+  - nodeGuid: d4c434f1-6e8a-42f3-b285-340059589e51
+    dialogueText: When you walked by the alleyway next to her house you saw her body
+      surrounded by the police.
+    position: {x: 494.4, y: -84.8}
+    SpeakerName: Tyrone
+    SpeakerSpriteLeft: M1
+    SpeakerSpriteRight: D1
+    ItemPortCombis: []
+  - nodeGuid: 27b4369c-db6b-42ff-91b0-67b0b6923d8a
+    dialogueText: Yes, and her hand had a new melt scar that I had never seen before.
+    position: {x: 864, y: -84.8}
+    SpeakerName: Milton
+    SpeakerSpriteLeft: M1
+    SpeakerSpriteRight: D1
+    ItemPortCombis: []
+  - nodeGuid: 98c7f1b3-89ef-4b90-b110-e6578f640cd0
+    dialogueText: A melt scar? Curious. The police were saying it was just a common
+      mugging, but how would a street crook get their hands on water or fire?
+    position: {x: 1028, y: 103.2}
+    SpeakerName: Tyrone
+    SpeakerSpriteLeft: M1
+    SpeakerSpriteRight: D1
+    ItemPortCombis: []
+  - nodeGuid: 27088bdb-8184-436d-98f2-5e89e3582cb3
+    dialogueText: With a tarp covering all but her head and a little part of her
+      hand.
+    position: {x: 658.4, y: 103.2}
+    SpeakerName: Tyrone
+    SpeakerSpriteLeft: M1
+    SpeakerSpriteRight: D1
+    ItemPortCombis: []
+  - nodeGuid: ac097e3e-5428-45c3-83dd-469c20897420
+    dialogueText: "Also, why would they be that confident in it being a simple robbery
+      in the first place? Their evidence cart was mostly empty and I didn\u2019t
+      even see a murder weapon."
+    position: {x: 1240.8, y: -84.8}
+    SpeakerName: Tyrone
+    SpeakerSpriteLeft: M1
+    SpeakerSpriteRight: D1
+    ItemPortCombis: []
+  - nodeGuid: 2029d7b3-3836-43a4-807a-2e2a0eab02c0
+    dialogueText: "I wonder where the evidence could\u2019ve gone. Did you see anyone
+      investigating Cornelia\u2019s house by any chance?"
+    position: {x: 1404.8, y: 103.2}
+    SpeakerName: Milton
+    SpeakerSpriteLeft: M1
+    SpeakerSpriteRight: D1
+    ItemPortCombis: []
+  - nodeGuid: 343d71e8-decf-45ba-ad58-24aa05af8d08
+    dialogueText: "No, I did not. Weird. Maybe they haven\u2019t received a search
+      warrant yet?"
+    position: {x: 1588.8, y: -84.8}
+    SpeakerName: Tyrone
+    SpeakerSpriteLeft: M1
+    SpeakerSpriteRight: D1
+    ItemPortCombis: []
+  - nodeGuid: 4a2dc2e1-49dc-4aaf-9a65-a8788e2f43e5
+    dialogueText: "Something tells me we could find something in there. Cornelia
+      was a careful and suspicious woman, she might\u2019ve left some hints behind."
+    position: {x: 1752.8, y: 103.2}
+    SpeakerName: Milton
+    SpeakerSpriteLeft: M1
+    SpeakerSpriteRight: D1
+    ItemPortCombis: []
+  - nodeGuid: 896ffbb7-bf44-4c54-b32b-3567052ca5a2
+    dialogueText: We?! Are you suggesting that we break into her house?
+    position: {x: 1940, y: -84.8}
+    SpeakerName: Tyrone
+    SpeakerSpriteLeft: M1
+    SpeakerSpriteRight: D1
+    ItemPortCombis: []
+  - nodeGuid: c03ffe77-5852-4d4f-af79-b43a506eacad
+    dialogueText: Exactly. I even know where she keeps her spare key.
+    position: {x: 2104, y: 103.2}
+    SpeakerName: Milton
+    SpeakerSpriteLeft: M1
+    SpeakerSpriteRight: D1
+    ItemPortCombis: []
+  - nodeGuid: 4351bcde-fae6-4422-930c-bcd8b1c23f54
+    dialogueText: "I suppose it could be helpful. But I\u2019m not going in without
+      a proper warrant! I\u2019ll just leave this to you, I have my own work to do."
+    position: {x: 2268, y: -84.8}
+    SpeakerName: Tyrone
+    SpeakerSpriteLeft: M1
+    SpeakerSpriteRight: D1
+    ItemPortCombis: []
+  ExposedProperties:
+  - PropertyName: Ignore
+    PropertyValue: New Value
+  - PropertyName: Milton
+    PropertyValue: New Value
+  - PropertyName: Tyrone
+    PropertyValue: New Value
+  CommentBlockData: []
