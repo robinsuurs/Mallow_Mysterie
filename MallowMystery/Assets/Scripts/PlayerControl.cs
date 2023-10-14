@@ -23,7 +23,7 @@ public class PlayerControl : MonoBehaviour, IDataPersistence
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         transform.Translate(new Vector3(_movement.x,0,_movement.y)* (speed*Time.deltaTime));
     }
