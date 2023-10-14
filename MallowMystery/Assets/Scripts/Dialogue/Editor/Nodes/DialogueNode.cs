@@ -12,17 +12,21 @@ namespace Dialogue.Editor.Nodes
         public string GUID;
         public bool EntyPoint = false;
         public string SpeakerName;
+        public string SpeakerNameLocation;
         public string SpeakerSpriteLeft;
         public string SpeakerSpriteRight;
         public List<ItemPortCombi> ItemPortCombis;
+        public bool alreadyHadConversation;
         
         public DialogueNode (DialogueNodeData data) {
             DialogueText = data.dialogueText;
             GUID = data.nodeGuid;
             SpeakerName = data.SpeakerName;
+            SpeakerNameLocation = data.SpeakerNameLocation;
             SpeakerSpriteLeft = data.SpeakerSpriteLeft;
             SpeakerSpriteRight = data.SpeakerSpriteRight;
             ItemPortCombis = data.ItemPortCombis;
+            alreadyHadConversation = data.alreadyHadConversation;
         }
         
         public DialogueNode () {

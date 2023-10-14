@@ -83,9 +83,11 @@ namespace Subtegral.DialogueSystem.Editor
                     dialogueText = node.DialogueText,
                     position = node.GetPosition().position,
                     SpeakerName = node.SpeakerName,
+                    SpeakerNameLocation = node.SpeakerNameLocation,
                     SpeakerSpriteLeft = node.SpeakerSpriteLeft,
                     SpeakerSpriteRight = node.SpeakerSpriteRight,
                     ItemPortCombis = node.ItemPortCombis,
+                    alreadyHadConversation = node.alreadyHadConversation
                 });
             }
 

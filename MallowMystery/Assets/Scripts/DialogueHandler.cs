@@ -14,7 +14,8 @@ using UnityEngine.UI;
 public class DialogueHandler : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI DialogueBoxUI;
-    [SerializeField] private TextMeshProUGUI SpeakerNameBox;
+    [SerializeField] private TextMeshProUGUI SpeakerNameBoxLeft;
+    [SerializeField] private TextMeshProUGUI SpeakerNameBoxRight;
     private DialogueContainer dialogue;
     [SerializeField] private Button ChoicesButton;
     [SerializeField] private Transform buttonContainer;
@@ -48,7 +49,8 @@ public class DialogueHandler : MonoBehaviour
                     singleOption = false;
                     inDialogue = false;
                     DialogueBoxUI.text = "";
-                    SpeakerNameBox.text = "";
+                    SpeakerNameBoxLeft.text = "";
+                    SpeakerNameBoxRight.text = "";
                     DialogueCanvas.SetActive(false);
                     Time.timeScale = 1f;
                 }
@@ -76,8 +78,14 @@ public class DialogueHandler : MonoBehaviour
         }
         
         _listOfSprites.CharacterSetter(currentNode.SpeakerSpriteLeft, currentNode.SpeakerSpriteRight);
-        
-        SpeakerNameBox.text = currentNode.SpeakerName;
+
+        if (currentNode.SpeakerNameLocation.Equals("Speaker Name Left")) {
+            SpeakerNameBoxLeft.text = currentNode.SpeakerName;
+            SpeakerNameBoxRight.text = "";
+        } else {
+            SpeakerNameBoxRight.text = currentNode.SpeakerName;
+            SpeakerNameBoxLeft.text = "";
+        }
     
         if (choices.Count() == 1 || choices.Count() == 0) {
             singleOption = true;

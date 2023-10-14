@@ -161,9 +161,9 @@ namespace Dialogue.Editor.Graph
             var dialogueTextLongField = new TextField(string.Empty)
             {
                 label = "DialogueText",
-                style = { width = 300 },
-                multiline = true
+                multiline = true,
             };
+            dialogueTextLongField.AddToClassList("textarea");
             dialogueTextLongField.RegisterValueChangedCallback((evt => { tempDialogueNode.DialogueText = evt.newValue; }));
             dialogueTextLongField.SetValueWithoutNotify(tempDialogueNode.DialogueText);
             tempDialogueNode.mainContainer.Add(dialogueTextLongField);
@@ -172,9 +172,9 @@ namespace Dialogue.Editor.Graph
             var speakerSpriteLeft = new TextField(string.Empty)
             {
                 label = "SpeakerSpriteLeft",
-                style = { width = 300 },
                 multiline = true
             };
+            speakerSpriteLeft.AddToClassList("textarea");
             speakerSpriteLeft.RegisterValueChangedCallback((evt => { tempDialogueNode.SpeakerSpriteLeft = evt.newValue; }));
             speakerSpriteLeft.SetValueWithoutNotify(tempDialogueNode.SpeakerSpriteLeft);
             tempDialogueNode.mainContainer.Add(speakerSpriteLeft);
@@ -183,12 +183,39 @@ namespace Dialogue.Editor.Graph
             var speakerSpriteRight = new TextField(string.Empty)
             {
                 label = "SpeakerSpriteRight",
-                style = { width = 300 },
                 multiline = true
             };
+            speakerSpriteRight.AddToClassList("textarea");
             speakerSpriteRight.RegisterValueChangedCallback((evt => { tempDialogueNode.SpeakerSpriteRight = evt.newValue; }));
             speakerSpriteRight.SetValueWithoutNotify(tempDialogueNode.SpeakerSpriteRight);
             tempDialogueNode.mainContainer.Add(speakerSpriteRight);
+            
+            int LeftorRight = useDefaultValues ? 0 : tempDialogueNode.SpeakerNameLocation.Equals("Speaker Name Left") ? 0 : 1;
+            
+            List<string> leftRight = new List<string>();
+            leftRight.Add("Speaker Name Left");
+            leftRight.Add("Speaker Name Right");
+            
+            //Where does the speakerName need to be
+            PopupField<string> LeftRightPopUp = new PopupField<string>(leftRight.Select(x => x).ToList(), LeftorRight);
+            LeftRightPopUp.RegisterValueChangedCallback(evt => {
+                tempDialogueNode.SpeakerNameLocation = evt.newValue;
+            });
+            tempDialogueNode.mainContainer.Add(LeftRightPopUp);
+
+            if (useDefaultValues) {
+                tempDialogueNode.SpeakerNameLocation = LeftRightPopUp.value;
+            }
+
+            //Check for if the player already had the conversation so it will become skip able 
+            BaseBoolField alreadyHadConversation = new Toggle() {
+                label = "Already had conversation"
+            };
+            alreadyHadConversation.SetValueWithoutNotify(tempDialogueNode.alreadyHadConversation);
+            tempDialogueNode.mainContainer.Add(alreadyHadConversation);
+            alreadyHadConversation.RegisterValueChangedCallback(evt => {
+                tempDialogueNode.alreadyHadConversation = evt.newValue;
+            });
             
             tempDialogueNode.RefreshExpandedState();
             tempDialogueNode.RefreshPorts(); 
@@ -212,23 +239,21 @@ namespace Dialogue.Editor.Graph
             var textField = new TextField()
             {
                 name = String.Empty,
-                value = outputPortName
+                value = outputPortName,
+                multiline = true
             };
-            
+            textField.style.width = 130;
+            textField.AddToClassList("textarea");
             textField.RegisterValueChangedCallback(evt => generatedPort.portName = evt.newValue);
-            textField.StretchToParentWidth();
             
             var deleteButton = new Button(() => RemovePort(nodeCache, generatedPort))
             {
                 text = "X"
             };
-            textField.style.width = 130;
-            textField.multiline = true;
-            textField.style.position = Position.Relative;
             
-            generatedPort.contentContainer.style.display = DisplayStyle.Flex;
-            generatedPort.contentContainer.style.position = Position.Relative;
-            generatedPort.contentContainer.style.alignItems = Align.FlexStart;
+            generatedPort.style.display = DisplayStyle.Flex;
+            generatedPort.contentContainer.style.minHeight = 40;
+            generatedPort.style.height = 40;
             
             generatedPort.contentContainer.Add(textField);
             generatedPort.contentContainer.Add(deleteButton);
@@ -256,8 +281,11 @@ namespace Dialogue.Editor.Graph
             var textField = new TextField()
             {
                 name = string.Empty,
-                value = outputPortName
+                value = outputPortName,
+                multiline = true
             };
+            textField.style.width = 130;
+            textField.AddToClassList("textarea");
             textField.RegisterValueChangedCallback(evt => {
                 foreach (var itemPortCombi in nodeCache.ItemPortCombis.Where(itemPortCombi => itemPortCombi.portname.Equals(generatedPort.portName))) {
                     itemPortCombi.portname = evt.newValue;
@@ -265,9 +293,6 @@ namespace Dialogue.Editor.Graph
                     return;
                 }
             });
-            textField.style.width = 130;
-            textField.multiline = true;
-            textField.style.position = Position.Relative;
             
             PopupField<string> itemNeeded = new PopupField<string>(itemDataNames.itemNames.Select(x => x).ToList(), defaultIndex);
             
@@ -289,9 +314,9 @@ namespace Dialogue.Editor.Graph
                 text = "X"
             };
             
-            generatedPort.contentContainer.style.display = DisplayStyle.Flex;
-            generatedPort.contentContainer.style.position = Position.Relative;
-            generatedPort.contentContainer.style.alignItems = Align.FlexStart;
+            generatedPort.style.display = DisplayStyle.Flex;
+            generatedPort.contentContainer.style.minHeight = 40;
+            generatedPort.style.height = 40;
             
             generatedPort.contentContainer.Add(textField);
             generatedPort.contentContainer.Add(itemNeeded);
