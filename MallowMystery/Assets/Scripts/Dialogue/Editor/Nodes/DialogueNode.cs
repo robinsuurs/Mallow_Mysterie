@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Dialogue.Editor.Graph;
 using Dialogue.Runtime;
 using Dialogue.RunTime;
@@ -16,7 +17,8 @@ namespace Dialogue.Editor.Nodes
         public string SpeakerSpriteLeft;
         public string SpeakerSpriteRight;
         public List<ItemPortCombi> ItemPortCombis;
-        public bool alreadyHadConversation;
+        public List<string> SkipPorts;
+        public bool CanSkipFromThisPoint = false;
         
         public DialogueNode (DialogueNodeData data) {
             DialogueText = data.dialogueText;
@@ -26,7 +28,8 @@ namespace Dialogue.Editor.Nodes
             SpeakerSpriteLeft = data.SpeakerSpriteLeft;
             SpeakerSpriteRight = data.SpeakerSpriteRight;
             ItemPortCombis = data.ItemPortCombis;
-            alreadyHadConversation = data.alreadyHadConversation;
+            SkipPorts = data.SkipPorts;
+            CanSkipFromThisPoint = data.canSkipFromThisPoint;
         }
         
         public DialogueNode () {

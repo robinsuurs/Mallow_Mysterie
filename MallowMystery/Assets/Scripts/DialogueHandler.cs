@@ -33,8 +33,8 @@ public class DialogueHandler : MonoBehaviour
         if (!inDialogue) {
             dialogue = dialogueContainer;
             DialogueCanvas.SetActive(true);
-            var narrativeData = dialogue.NodeLinks.First();
-            ProceedToNarrative(narrativeData.TargetNodeGUID);
+            var narrativeData = dialogueContainer.NodeLinks.Where(x => x.PortName.Equals("Next")).ToList()[0].TargetNodeGUID;
+            ProceedToNarrative(narrativeData);
             inDialogue = true;
             Time.timeScale = 0f;
         }
@@ -45,6 +45,7 @@ public class DialogueHandler : MonoBehaviour
         if ((Input.GetMouseButtonDown(0)) && inDialogue) {
             if (DialogueBoxUI.text == currentDialogue) {
                 if (!choices.Any()) {
+                    dialogue.alreadyHadConversation = true;
                     currentDialogue = null;
                     singleOption = false;
                     inDialogue = false;
@@ -53,9 +54,7 @@ public class DialogueHandler : MonoBehaviour
                     SpeakerNameBoxRight.text = "";
                     DialogueCanvas.SetActive(false);
                     Time.timeScale = 1f;
-                }
-                else if (singleOption)
-                {
+                } else if (singleOption) {
                     ProceedToNarrative(choices.First().TargetNodeGUID);
                 }
             } else {
@@ -67,7 +66,7 @@ public class DialogueHandler : MonoBehaviour
     
     private void ProceedToNarrative(string narrativeDataGUID) {
         var currentNode = dialogue.DialogueNodeData.Find(x => x.nodeGuid == narrativeDataGUID);
-        choices = dialogue.NodeLinks.Where(x => x.BaseNodeGUID == narrativeDataGUID);
+        choices = dialogue.NodeLinks.Where(x => x.BaseNodeGUID == narrativeDataGUID).ToList();
         currentDialogue = ProcessProperties(currentNode.dialogueText);
         DialogueBoxUI.text = "";
         StartCoroutine(TypeLine());
@@ -87,33 +86,31 @@ public class DialogueHandler : MonoBehaviour
             SpeakerNameBoxLeft.text = "";
         }
     
-        if (choices.Count() == 1 || choices.Count() == 0) {
+        if (choices.Count() is 1 or 0 || (choices.Count() == 2 && !CanSkip(currentNode))) {
             singleOption = true;
             buttonContainer.gameObject.SetActive(false);
         } else {
-            // TODO: BM 04-10-2023 What to do with multiple buttons but only one can be shown based on conditions
             // TODO: BM 08-10-2023 Select Buttons without mouse?
             singleOption = false;
             buttonContainer.gameObject.SetActive(true);
             foreach (var choice in choices) {
-                
+                if (_inventory != null && ItemNeededInInventory(currentNode, choice.PortName)) continue;
                 var button = Instantiate(ChoicesButton, buttonContainer);
                 button.GetComponentInChildren<Text>().text = ProcessProperties(choice.PortName);
                 button.onClick.AddListener(() => ProceedToNarrative(choice.TargetNodeGUID));
-                
-                if (_inventory != null) {
-                    button.interactable = ItemNeededInInventory(currentNode, choice.PortName);
-                }
             }
         }
     }
+
+    private bool CanSkip(DialogueNodeData dialogueNodeData) {
+        return dialogue.alreadyHadConversation && choices.Any(choice => dialogueNodeData.SkipPorts.Any(x => x.Equals(choice.PortName)));
+    }
     
     private bool ItemNeededInInventory(DialogueNodeData dialogueNodeData, string portName) {
-        var name = "";
-        foreach (var itemPortCombi in dialogueNodeData.ItemPortCombis.Where(itemPortCombi => itemPortCombi.portname.Equals(portName))) {
-            name = itemPortCombi.itemName;
-        }
-        return _inventory.items.Any(item => name == item.itemName && item.hasBeenPickedUp);
+        //TODO: BM 15-10-2023 add check for seperate if equipping
+        if (dialogueNodeData.ItemPortCombis.Count == 0) return false;
+        var itemForChoice = dialogueNodeData.ItemPortCombis.Where(itemPortCombi => itemPortCombi.portname.Equals(portName)).ToList()[0].itemName;
+        return _inventory.items.Any(item => itemForChoice.Equals(item.itemName) && item.hasBeenPickedUp);
     }
     
     private string ProcessProperties(string text) {

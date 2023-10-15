@@ -15,6 +15,7 @@ public class GameData {
     public Scene Scene;
     public Vector3 playerLocation;
     public List<DialogueNodeData> dialogues;
+    public List<string> alreadyHadConversations = new List<string>();
 
     //Set start thing when you create a newGame
     public GameData(Inventory inventory) {
@@ -28,12 +29,6 @@ public class GameData {
         }
 
         this.Inventory = inventory;
-        
-        List<DialogueContainer>dialogues = Resources.LoadAll<DialogueContainer>("").ToList();
-
-        foreach (var dialogueNodeData in dialogues.SelectMany(dialogue => dialogue.DialogueNodeData)) {
-            dialogueNodeData.alreadyHadConversation = false;
-        }
 
         // Scene = startscene;
         //playerLocation = StartLocation of player

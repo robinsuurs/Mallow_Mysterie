@@ -70,6 +70,7 @@ public class DataPersistenceManager : MonoBehaviour {
         }
         if (this._gameData == null || startFresh) {
             Debug.Log("No GameData found. A new Game needs to be created");
+            NewGame();
             return;
         }
         else {
@@ -77,7 +78,7 @@ public class DataPersistenceManager : MonoBehaviour {
                 dataPersistenceObj.LoadData(_gameData);
             }
 
-            loadDialogueStates();
+            LoadDialogueStates();
             gameEventStandardAdd.Raise();
         }
     }
@@ -92,7 +93,7 @@ public class DataPersistenceManager : MonoBehaviour {
             dataPersistenceObj.SaveData(ref _gameData);
         }
         
-        saveDialogueStates();
+        SaveDialogueStates();
 
         _gameData.Scene = SceneManager.GetActiveScene();
         
@@ -103,24 +104,19 @@ public class DataPersistenceManager : MonoBehaviour {
         return _gameData != null;
     }
 
-    private void saveDialogueStates() {
+    private void SaveDialogueStates() {
         List<DialogueContainer> dialogueContainers = Resources.LoadAll<DialogueContainer>("").ToList();
-        _gameData.dialogues.Clear();
-        foreach (var dialogueNodeData in from dialogueContainer in dialogueContainers from dialogueNode in dialogueContainer.DialogueNodeData select new DialogueNodeData() {
-                     nodeGuid = dialogueNode.nodeGuid,
-                     alreadyHadConversation = dialogueNode.alreadyHadConversation
-                 }) {
-            _gameData.dialogues.Add(dialogueNodeData);
+        _gameData.alreadyHadConversations.Clear();
+
+        foreach (var dialogueContainer in dialogueContainers.Where(dialogueContainer => dialogueContainer.alreadyHadConversation)) {
+            _gameData.alreadyHadConversations.Add(dialogueContainer.name);
         }
     }
     
-    private void loadDialogueStates() {
-        foreach (var dialogueContainer in Resources.LoadAll<DialogueContainer>("").ToList()) {
-            foreach (var dialogueNodeData in dialogueContainer.DialogueNodeData) {
-                foreach (var dialogueNode in _gameData.dialogues.Where(dialogueNode => dialogueNodeData.nodeGuid.Equals(dialogueNode.nodeGuid))) {
-                    dialogueNodeData.alreadyHadConversation = dialogueNode.alreadyHadConversation;
-                }
-            }
+    private void LoadDialogueStates() {
+        List<DialogueContainer> dialogueContainers = Resources.LoadAll<DialogueContainer>("").ToList();
+        foreach (var dialogueContainer in from dialogueContainer in dialogueContainers from name in _gameData.alreadyHadConversations where dialogueContainer.name.Equals(name) select dialogueContainer) {
+            dialogueContainer.alreadyHadConversation = true;
         }
     }
 }

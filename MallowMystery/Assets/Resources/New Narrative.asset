@@ -12,51 +12,49 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78b3fd9154634ebdb8c8a48960b9a16a, type: 3}
   m_Name: New Narrative
   m_EditorClassIdentifier: 
+  alreadyHadConversation: 0
   NodeLinks:
-  - BaseNodeGUID: 3b72519a-1aae-4867-b775-cdb120a39ff3
+  - BaseNodeGUID: 0121c02d-e5f4-4c02-81a0-e05d38c787ae
+    PortName: Testing 1
+    TargetNodeGUID: efdae12f-5c5d-46b6-9bd0-89e4c63d6ff7
+  - BaseNodeGUID: bd4841ad-c88c-4087-b1b2-f84cb704e267
     PortName: Next
-    TargetNodeGUID: a824f735-2e60-437a-a89d-f469c69c7cd1
-    ItemIdRequired: 
-  - BaseNodeGUID: a824f735-2e60-437a-a89d-f469c69c7cd1
-    PortName: Show C2 right
-    TargetNodeGUID: fef4368c-466b-46e3-93ab-659491238cb1
-    ItemIdRequired: 
-  - BaseNodeGUID: a824f735-2e60-437a-a89d-f469c69c7cd1
-    PortName: Show C3 right
-    TargetNodeGUID: eda45d7d-b14f-4ae6-9111-476781d3ac1d
-    ItemIdRequired: 
-  - BaseNodeGUID: a824f735-2e60-437a-a89d-f469c69c7cd1
-    PortName: Show C3 Left
-    TargetNodeGUID: 158cac69-b6a6-48e4-a672-9d08ceda8d0c
-    ItemIdRequired: 
+    TargetNodeGUID: 80b24b6c-949f-4110-8e79-e39cb4599d9b
+  - BaseNodeGUID: 80b24b6c-949f-4110-8e79-e39cb4599d9b
+    PortName: Testings 3
+    TargetNodeGUID: 0121c02d-e5f4-4c02-81a0-e05d38c787ae
   DialogueNodeData:
-  - nodeGuid: fef4368c-466b-46e3-93ab-659491238cb1
-    dialogueText: C2 is shown
-    position: {x: 889, y: 47}
-    SpeakerId: 
-    SpeakerSpriteLeft: C1
-    SpeakerSpriteRight: C2
-    ItemId: 
-  - nodeGuid: a824f735-2e60-437a-a89d-f469c69c7cd1
-    dialogueText: Test for Sprites
-    position: {x: 386, y: 177}
-    SpeakerId: 
-    SpeakerSpriteLeft: C1
+  - nodeGuid: efdae12f-5c5d-46b6-9bd0-89e4c63d6ff7
+    dialogueText: Testing 2
+    position: {x: 787, y: 168}
+    SpeakerName: 
+    SpeakerNameLocation: Speaker Name Left
+    SpeakerSpriteLeft: 
     SpeakerSpriteRight: 
-    ItemId: 
-  - nodeGuid: 158cac69-b6a6-48e4-a672-9d08ceda8d0c
-    dialogueText: C3 is shown
-    position: {x: 889, y: 354}
-    SpeakerId: 
-    SpeakerSpriteLeft: C3
+    ItemPortCombis: []
+    SkipPorts: []
+    canSkipFromThisPoint: 0
+  - nodeGuid: 0121c02d-e5f4-4c02-81a0-e05d38c787ae
+    dialogueText: Testing 1
+    position: {x: 336, y: -17}
+    SpeakerName: 
+    SpeakerNameLocation: Speaker Name Left
+    SpeakerSpriteLeft: 
     SpeakerSpriteRight: 
-    ItemId: 
-  - nodeGuid: eda45d7d-b14f-4ae6-9111-476781d3ac1d
-    dialogueText: C3 is shown
-    position: {x: 889, y: 201}
-    SpeakerId: 
-    SpeakerSpriteLeft: C1
-    SpeakerSpriteRight: C3
-    ItemId: 
-  ExposedProperties: []
+    ItemPortCombis: []
+    SkipPorts: []
+    canSkipFromThisPoint: 0
+  - nodeGuid: 80b24b6c-949f-4110-8e79-e39cb4599d9b
+    dialogueText: Testings 3
+    position: {x: 278, y: 303}
+    SpeakerName: 
+    SpeakerNameLocation: Speaker Name Left
+    SpeakerSpriteLeft: 
+    SpeakerSpriteRight: 
+    ItemPortCombis: []
+    SkipPorts: []
+    canSkipFromThisPoint: 0
+  ExposedProperties:
+  - PropertyName: Ignore
+    PropertyValue: New Value
   CommentBlockData: []
