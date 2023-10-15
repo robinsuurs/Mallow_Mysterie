@@ -3,7 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using Dialogue.Editor.Nodes;
+using Dialogue.Runtime;
 using ScriptObjects;
+using Subtegral.DialogueSystem.DataContainers;
 using UnityEngine.SceneManagement;
 
 //Youtube video used: https://www.youtube.com/watch?v=aUi9aijvpgs&t=538s
@@ -67,12 +70,15 @@ public class DataPersistenceManager : MonoBehaviour {
         }
         if (this._gameData == null || startFresh) {
             Debug.Log("No GameData found. A new Game needs to be created");
+            NewGame();
             return;
         }
         else {
             foreach (IDataPersistence dataPersistenceObj in dataPersistences) {
                 dataPersistenceObj.LoadData(_gameData);
             }
+
+            LoadDialogueStates();
             gameEventStandardAdd.Raise();
         }
     }
@@ -86,6 +92,8 @@ public class DataPersistenceManager : MonoBehaviour {
         foreach (IDataPersistence dataPersistenceObj in dataPersistences) {
             dataPersistenceObj.SaveData(ref _gameData);
         }
+        
+        SaveDialogueStates();
 
         _gameData.Scene = SceneManager.GetActiveScene();
         
@@ -94,5 +102,21 @@ public class DataPersistenceManager : MonoBehaviour {
 
     public bool hasGameData() {
         return _gameData != null;
+    }
+
+    private void SaveDialogueStates() {
+        List<DialogueContainer> dialogueContainers = Resources.LoadAll<DialogueContainer>("").ToList();
+        _gameData.alreadyHadConversations.Clear();
+
+        foreach (var dialogueContainer in dialogueContainers.Where(dialogueContainer => dialogueContainer.alreadyHadConversation)) {
+            _gameData.alreadyHadConversations.Add(dialogueContainer.name);
+        }
+    }
+    
+    private void LoadDialogueStates() {
+        List<DialogueContainer> dialogueContainers = Resources.LoadAll<DialogueContainer>("").ToList();
+        foreach (var dialogueContainer in from dialogueContainer in dialogueContainers from name in _gameData.alreadyHadConversations where dialogueContainer.name.Equals(name) select dialogueContainer) {
+            dialogueContainer.alreadyHadConversation = true;
+        }
     }
 }

@@ -135,15 +135,20 @@ namespace Dialogue.Editor.Graph
             inputPort.portName = "";
             tempDialogueNode.inputContainer.Add(inputPort);
             
-            var button = new Button(() => { AddChoicePort(tempDialogueNode); }) {
+            var button = new Button(() => { CreateChoicePort(tempDialogueNode, "", useDefaultValues); }) {
                 text = "Add Choice"
             };
             tempDialogueNode.titleButtonContainer.Add(button);
             
-            var buttonItem = new Button(() => { AddChoiceItemPort(tempDialogueNode, useDefaultValues = true); }) {
+            var buttonItem = new Button(() => { CreateChoicePort(tempDialogueNode, "item", useDefaultValues); }) {
                 text = "Add Choice With Item"
             };
             tempDialogueNode.titleButtonContainer.Add(buttonItem);
+            
+            var buttonSkip = new Button(() => { CreateChoicePort(tempDialogueNode, "skip", useDefaultValues); }) {
+                text = "Skip Dialogue"
+            };
+            tempDialogueNode.titleButtonContainer.Add(buttonSkip);
             
             int defaultIndex = useDefaultValues ? 0 : ExposedProperties.FindIndex(x => x.PropertyName == tempDialogueNode.SpeakerName);
 
@@ -158,37 +163,7 @@ namespace Dialogue.Editor.Graph
             
             speakerIdEnumField.SendToBack();
             
-            var dialogueTextLongField = new TextField(string.Empty)
-            {
-                label = "DialogueText",
-                style = { width = 300 },
-                multiline = true
-            };
-            dialogueTextLongField.RegisterValueChangedCallback((evt => { tempDialogueNode.DialogueText = evt.newValue; }));
-            dialogueTextLongField.SetValueWithoutNotify(tempDialogueNode.DialogueText);
-            tempDialogueNode.mainContainer.Add(dialogueTextLongField);
-            
-            //SpeakerSprite, which sprite does there need to be shown
-            var speakerSpriteLeft = new TextField(string.Empty)
-            {
-                label = "SpeakerSpriteLeft",
-                style = { width = 300 },
-                multiline = true
-            };
-            speakerSpriteLeft.RegisterValueChangedCallback((evt => { tempDialogueNode.SpeakerSpriteLeft = evt.newValue; }));
-            speakerSpriteLeft.SetValueWithoutNotify(tempDialogueNode.SpeakerSpriteLeft);
-            tempDialogueNode.mainContainer.Add(speakerSpriteLeft);
-            
-            //SpeakerSprite, which sprite does there need to be shown
-            var speakerSpriteRight = new TextField(string.Empty)
-            {
-                label = "SpeakerSpriteRight",
-                style = { width = 300 },
-                multiline = true
-            };
-            speakerSpriteRight.RegisterValueChangedCallback((evt => { tempDialogueNode.SpeakerSpriteRight = evt.newValue; }));
-            speakerSpriteRight.SetValueWithoutNotify(tempDialogueNode.SpeakerSpriteRight);
-            tempDialogueNode.mainContainer.Add(speakerSpriteRight);
+            fillMainContainer(tempDialogueNode, useDefaultValues);
             
             tempDialogueNode.RefreshExpandedState();
             tempDialogueNode.RefreshPorts(); 
@@ -197,9 +172,7 @@ namespace Dialogue.Editor.Graph
             return tempDialogueNode;
         }
 
-
-        public void AddChoicePort(DialogueNode nodeCache, string overriddenPortName = "")
-        {
+        public void CreateChoicePort(DialogueNode nodeCache, string typeChoice, bool useDefaultValues, string overriddenPortName = "") {
             var generatedPort = GetPortInstance(nodeCache, Direction.Output);
             var portLabel = generatedPort.contentContainer.Q<Label>("type");
             generatedPort.contentContainer.Remove(portLabel);
@@ -212,23 +185,31 @@ namespace Dialogue.Editor.Graph
             var textField = new TextField()
             {
                 name = String.Empty,
-                value = outputPortName
+                value = outputPortName,
+                multiline = true
             };
-            
+            textField.style.width = 130;
+            textField.AddToClassList("textarea");
             textField.RegisterValueChangedCallback(evt => generatedPort.portName = evt.newValue);
-            textField.StretchToParentWidth();
             
             var deleteButton = new Button(() => RemovePort(nodeCache, generatedPort))
             {
                 text = "X"
             };
-            textField.style.width = 130;
-            textField.multiline = true;
-            textField.style.position = Position.Relative;
+
+            switch (typeChoice) {
+                case "item" :
+                    ItemPort(nodeCache, useDefaultValues, generatedPort, outputPortName);
+                    break;
+                case "skip" :
+                    SkipPort(nodeCache, generatedPort, outputPortName);
+                    break;
+            }
             
-            generatedPort.contentContainer.style.display = DisplayStyle.Flex;
-            generatedPort.contentContainer.style.position = Position.Relative;
-            generatedPort.contentContainer.style.alignItems = Align.FlexStart;
+            
+            generatedPort.style.display = DisplayStyle.Flex;
+            generatedPort.contentContainer.style.minHeight = 40;
+            generatedPort.style.height = 40;
             
             generatedPort.contentContainer.Add(textField);
             generatedPort.contentContainer.Add(deleteButton);
@@ -237,69 +218,33 @@ namespace Dialogue.Editor.Graph
             nodeCache.RefreshPorts();
             nodeCache.RefreshExpandedState();
         }
-        
-        public void AddChoiceItemPort(DialogueNode nodeCache, bool useDefaultValues, string overriddenPortName = "")
-        {
-            var generatedPort = GetPortInstance(nodeCache, Direction.Output);
-            var portLabel = generatedPort.contentContainer.Q<Label>("type");
-            generatedPort.contentContainer.Remove(portLabel);
 
-            var outputPortCount = nodeCache.outputContainer.Query("connector").ToList().Count();
-            var outputPortName = string.IsNullOrEmpty(overriddenPortName)
-                ? $"Option {outputPortCount + 1}"
-                : overriddenPortName;
-
+        private void ItemPort (DialogueNode nodeCache, bool useDefaultValues, Port generatedPort, string overriddenPortName) {
             int defaultIndex = useDefaultValues ? 0 : getNumber(nodeCache, overriddenPortName);
 
             defaultIndex = defaultIndex < 0 ? 0 : defaultIndex;
             
-            var textField = new TextField()
-            {
-                name = string.Empty,
-                value = outputPortName
-            };
-            textField.RegisterValueChangedCallback(evt => {
-                foreach (var itemPortCombi in nodeCache.ItemPortCombis.Where(itemPortCombi => itemPortCombi.portname.Equals(generatedPort.portName))) {
-                    itemPortCombi.portname = evt.newValue;
-                    generatedPort.portName = evt.newValue;
-                    return;
-                }
-            });
-            textField.style.width = 130;
-            textField.multiline = true;
-            textField.style.position = Position.Relative;
-            
             PopupField<string> itemNeeded = new PopupField<string>(itemDataNames.itemNames.Select(x => x).ToList(), defaultIndex);
             
             itemNeeded.RegisterValueChangedCallback(evt => {
-                foreach (var itemPortCombi in nodeCache.ItemPortCombis.Where(itemPortCombi => itemPortCombi.portname.Equals(generatedPort.portName))) {
+                foreach (var itemPortCombi in nodeCache.ItemPortCombis.Where(itemPortCombi => itemPortCombi.portname.Equals(overriddenPortName))) {
                     itemPortCombi.itemName = evt.newValue;
                     return;
                 }
             });
             itemNeeded.style.width = 80;
             
-            if (useDefaultValues) {
-                ItemPortCombi itemPortCombiTemp = new ItemPortCombi(outputPortName, itemNeeded.value);
-                nodeCache.ItemPortCombis.Add(itemPortCombiTemp);
-            }
+            ItemPortCombi itemPortCombiTemp = new ItemPortCombi(overriddenPortName, itemNeeded.value);
+            nodeCache.ItemPortCombis.Add(itemPortCombiTemp);
             
-            var deleteButton = new Button(() => RemovePort(nodeCache, generatedPort))
-            {
-                text = "X"
-            };
-            
-            generatedPort.contentContainer.style.display = DisplayStyle.Flex;
-            generatedPort.contentContainer.style.position = Position.Relative;
-            generatedPort.contentContainer.style.alignItems = Align.FlexStart;
-            
-            generatedPort.contentContainer.Add(textField);
             generatedPort.contentContainer.Add(itemNeeded);
-            generatedPort.contentContainer.Add(deleteButton);
-            generatedPort.portName = outputPortName;
-            nodeCache.outputContainer.Add(generatedPort);
-            nodeCache.RefreshPorts();
-            nodeCache.RefreshExpandedState();
+        }
+
+        private void SkipPort(DialogueNode nodeCache, Port generatedPort, string overriddenPortName) {
+            Label label = new Label("Skip option tekst");
+            label.style.width = 86;
+            generatedPort.Add(label);
+            nodeCache.SkipPorts.Add(overriddenPortName);
         }
 
         private int getNumber(DialogueNode dialogueNode, string overriddenPortName) {
@@ -329,10 +274,77 @@ namespace Dialogue.Editor.Graph
                     node.ItemPortCombis.Remove(node.ItemPortCombis[i]);
                 }
             }
+            
+            for (int i = node.SkipPorts.Count -1; i >=0; i-- ) {
+                if (node.SkipPorts[i].Equals(socket.portName)) {
+                    node.SkipPorts.Remove(node.SkipPorts[i]);
+                }
+            }
 
             node.outputContainer.Remove(socket);
             node.RefreshPorts();
             node.RefreshExpandedState();
+        }
+        
+        private void fillMainContainer(DialogueNode tempDialogueNode, bool useDefaultValues) {
+            var dialogueTextLongField = new TextField(string.Empty)
+            {
+                label = "DialogueText",
+                multiline = true,
+            };
+            dialogueTextLongField.AddToClassList("textarea");
+            dialogueTextLongField.RegisterValueChangedCallback(evt => { tempDialogueNode.DialogueText = evt.newValue; });
+            dialogueTextLongField.SetValueWithoutNotify(tempDialogueNode.DialogueText);
+            tempDialogueNode.mainContainer.Add(dialogueTextLongField);
+            
+            //SpeakerSprite, which sprite does there need to be shown
+            var speakerSpriteLeft = new TextField(string.Empty)
+            {
+                label = "SpeakerSpriteLeft",
+                multiline = true
+            };
+            speakerSpriteLeft.AddToClassList("textarea");
+            speakerSpriteLeft.RegisterValueChangedCallback(evt => { tempDialogueNode.SpeakerSpriteLeft = evt.newValue; });
+            speakerSpriteLeft.SetValueWithoutNotify(tempDialogueNode.SpeakerSpriteLeft);
+            tempDialogueNode.mainContainer.Add(speakerSpriteLeft);
+            
+            //SpeakerSprite, which sprite does there need to be shown
+            var speakerSpriteRight = new TextField(string.Empty)
+            {
+                label = "SpeakerSpriteRight",
+                multiline = true
+            };
+            speakerSpriteRight.AddToClassList("textarea");
+            speakerSpriteRight.RegisterValueChangedCallback(evt => { tempDialogueNode.SpeakerSpriteRight = evt.newValue; });
+            speakerSpriteRight.SetValueWithoutNotify(tempDialogueNode.SpeakerSpriteRight);
+            tempDialogueNode.mainContainer.Add(speakerSpriteRight);
+            
+            int LeftorRight = useDefaultValues ? 0 : tempDialogueNode.SpeakerNameLocation.Equals("Speaker Name Left") ? 0 : 1;
+            
+            List<string> leftRight = new List<string>();
+            leftRight.Add("Speaker Name Left");
+            leftRight.Add("Speaker Name Right");
+            
+            //Where does the speakerName need to be
+            PopupField<string> LeftRightPopUp = new PopupField<string>(leftRight.Select(x => x).ToList(), LeftorRight);
+            LeftRightPopUp.RegisterValueChangedCallback(evt => {
+                tempDialogueNode.SpeakerNameLocation = evt.newValue;
+            });
+            tempDialogueNode.mainContainer.Add(LeftRightPopUp);
+
+            if (useDefaultValues) {
+                tempDialogueNode.SpeakerNameLocation = LeftRightPopUp.value;
+            }
+
+            //Check for if the player already had the conversation so it will become skip able 
+            BaseBoolField CanSkipFromThisPoint = new Toggle() {
+                label = "Already had conversation"
+            };
+            CanSkipFromThisPoint.SetValueWithoutNotify(tempDialogueNode.CanSkipFromThisPoint);
+            tempDialogueNode.mainContainer.Add(CanSkipFromThisPoint);
+            CanSkipFromThisPoint.RegisterValueChangedCallback(evt => {
+                tempDialogueNode.CanSkipFromThisPoint = evt.newValue;
+            });
         }
 
         private Port GetPortInstance(DialogueNode node, Direction nodeDirection, Port.Capacity capacity = Port.Capacity.Single)

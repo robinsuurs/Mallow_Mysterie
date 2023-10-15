@@ -83,9 +83,12 @@ namespace Subtegral.DialogueSystem.Editor
                     dialogueText = node.DialogueText,
                     position = node.GetPosition().position,
                     SpeakerName = node.SpeakerName,
+                    SpeakerNameLocation = node.SpeakerNameLocation,
                     SpeakerSpriteLeft = node.SpeakerSpriteLeft,
                     SpeakerSpriteRight = node.SpeakerSpriteRight,
                     ItemPortCombis = node.ItemPortCombis,
+                    SkipPorts = node.SkipPorts,
+                    canSkipFromThisPoint = node.CanSkipFromThisPoint
                 });
             }
 
@@ -130,9 +133,9 @@ namespace Subtegral.DialogueSystem.Editor
             GenerateCommentBlocks();
         }
         
-        private void ClearGraph()
-        {
-            Nodes.Find(x => x.EntyPoint).GUID = _dialogueContainer.NodeLinks[0].BaseNodeGUID;
+        private void ClearGraph() {
+            var entyPoint = _dialogueContainer.NodeLinks.Where(x => x.PortName.Equals("Next")).ToList();
+            Nodes.Find(x => x.EntyPoint).GUID = entyPoint[0].BaseNodeGUID;
             foreach (var perNode in Nodes)
             {
                 if (perNode.EntyPoint) continue;
@@ -151,39 +154,31 @@ namespace Subtegral.DialogueSystem.Editor
                 _graphView.AddElement(tempNode);
 
                 var nodePorts = _dialogueContainer.NodeLinks.Where(x => x.BaseNodeGUID == perNode.nodeGuid).ToList();
-                var dialogueNode = _dialogueContainer.DialogueNodeData.Find(x => x.nodeGuid == perNode.nodeGuid);
                 
                 foreach (NodeLinkData node in nodePorts) {
-                    if (tempNode.ItemPortCombis == null || tempNode.ItemPortCombis.Count == 0 || !checkForNormalNode(tempNode, node.PortName)) {
-                        _graphView.AddChoicePort(tempNode, node.PortName);
+                    if (tempNode.ItemPortCombis.Any(itemPortCombi => itemPortCombi.portname.Equals(node.PortName))) {
+                        _graphView.CreateChoicePort(tempNode, "item", false, node.PortName);
+                    } else if (tempNode.SkipPorts.Any(skipPort => skipPort.Equals(node.PortName))) {
+                        _graphView.CreateChoicePort(tempNode, "skip", false, node.PortName);
                     }
                     else {
-                        _graphView.AddChoiceItemPort(tempNode, false, node.PortName);
+                        _graphView.CreateChoicePort(tempNode, "",false, node.PortName);
                     }
                 }
             }
-        }
-
-        private bool checkForNormalNode(DialogueNode tempnode, string portName) {
-            foreach (var itemPortCombi in tempnode.ItemPortCombis) {
-                if (itemPortCombi.portname.Equals(portName)) {
-                    return true;
-                }
-            }
-            return false;
         }
 
         private void ConnectDialogueNodes()
         {
             for (var i = 0; i < Nodes.Count; i++)
             {
-                var k = i;
-                var connections = _dialogueContainer.NodeLinks.Where(x => x.BaseNodeGUID == Nodes[k].GUID).ToList();
+                
+                var connections = _dialogueContainer.NodeLinks.Where(x => x.BaseNodeGUID == Nodes[i].GUID).ToList();
                 for (var j = 0; j < connections.Count(); j++)
                 {
                     var targetNodeGUID = connections[j].TargetNodeGUID;
                     var targetNode = Nodes.First(x => x.GUID == targetNodeGUID);
-                    LinkNodesTogether(Nodes[i].outputContainer[j].Q<Port>(), (Port) targetNode.inputContainer[0]);
+                    LinkNodesTogether(Nodes[i].outputContainer[j].Q<Port>(), (Port)targetNode.inputContainer[0]);
 
                     targetNode.SetPosition(new Rect(
                         _dialogueContainer.DialogueNodeData.First(x => x.nodeGuid == targetNodeGUID).position,
