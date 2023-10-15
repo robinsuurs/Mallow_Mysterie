@@ -22,13 +22,13 @@ public class MainMenu : MonoBehaviour {
         Debug.Log("Opening scene");
         DisableMenuButtons();
         DataPersistenceManager.instance.NewGame();
-        SceneManager.LoadSceneAsync("EventManagerTest");
+        SceneManager.LoadSceneAsync("DetectiveRoom");
     }
     
     public void OnContinueClicked() {
         DisableMenuButtons();
         DataPersistenceManager.instance.SaveGame();
-        SceneManager.LoadSceneAsync("EventManagerTest");
+        SceneManager.LoadSceneAsync("DetectiveRoom");
     }
 
     private void DisableMenuButtons() {

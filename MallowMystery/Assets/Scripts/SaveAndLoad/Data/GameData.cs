@@ -27,6 +27,11 @@ public class GameData {
                 item.hasBeenPickedUp = false;
             }
         }
+        
+        List<DialogueContainer> dialogueContainers = Resources.LoadAll<DialogueContainer>("").ToList();
+        foreach (var dialogue in dialogueContainers) {
+            dialogue.alreadyHadConversation = false;
+        }
 
         this.Inventory = inventory;
 
