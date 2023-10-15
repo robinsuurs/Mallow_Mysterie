@@ -15,7 +15,8 @@ public class PlayerControl : MonoBehaviour, IDataPersistence
     private Vector2 _movement;
     [SerializeField] private float speed = 10;
     [SerializeField] private Inventory _inventory;
-
+    [SerializeField] private bool use45Degrees = false;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -28,10 +29,10 @@ public class PlayerControl : MonoBehaviour, IDataPersistence
         transform.Translate(new Vector3(_movement.x,0,_movement.y)* (speed*Time.deltaTime));
     }
 
-    void OnMove(InputValue inputValue)
-    {
+    void OnMove(InputValue inputValue) {
+        _movement = use45Degrees ? Rotate(inputValue.Get<Vector2>(), -45) : inputValue.Get<Vector2>();
         // _movement = inputValue.Get<Vector2>();
-        _movement = Rotate(inputValue.Get<Vector2>(), -45);
+        // _movement = Rotate(inputValue.Get<Vector2>(), -45);
     }
 
     private static Vector2 Rotate(Vector2 v, float degrees) {
