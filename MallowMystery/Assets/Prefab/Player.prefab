@@ -35,7 +35,7 @@ Transform:
   m_GameObject: {fileID: 4579995105151368285}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.7912211, y: 0.76, z: 5.486726}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2569,7 +2569,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerCanvas: {fileID: 6235238581636981498}
-  camera: {fileID: 0}
+  cameraSprite: {fileID: 0}
   interactListener: {fileID: 11400000, guid: 4ed36360354325242838f9c14d5a3500, type: 2}
 --- !u!1 &6235238581636981498
 GameObject:
