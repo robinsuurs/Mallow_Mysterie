@@ -39,21 +39,25 @@ public class DialogueHandler : MonoBehaviour
             Time.timeScale = 0f;
         }
     }
+
+    private void EndDialogue() {
+        dialogue.alreadyHadConversation = true;
+        currentDialogue = null;
+        singleOption = false;
+        inDialogue = false;
+        DialogueBoxUI.text = "";
+        SpeakerNameBoxLeft.text = "";
+        SpeakerNameBoxRight.text = "";
+        DialogueCanvas.SetActive(false);
+        Time.timeScale = 1f;
+    }
     
     void Update()
     {
         if ((Input.GetMouseButtonDown(0)) && inDialogue) {
             if (DialogueBoxUI.text == currentDialogue) {
                 if (!choices.Any()) {
-                    dialogue.alreadyHadConversation = true;
-                    currentDialogue = null;
-                    singleOption = false;
-                    inDialogue = false;
-                    DialogueBoxUI.text = "";
-                    SpeakerNameBoxLeft.text = "";
-                    SpeakerNameBoxRight.text = "";
-                    DialogueCanvas.SetActive(false);
-                    Time.timeScale = 1f;
+                    EndDialogue();
                 } else if (singleOption) {
                     ProceedToNarrative(choices.First().TargetNodeGUID);
                 }
@@ -66,44 +70,53 @@ public class DialogueHandler : MonoBehaviour
     
     private void ProceedToNarrative(string narrativeDataGUID) {
         var currentNode = dialogue.DialogueNodeData.Find(x => x.nodeGuid == narrativeDataGUID);
-        choices = dialogue.NodeLinks.Where(x => x.BaseNodeGUID == narrativeDataGUID).ToList();
-        currentDialogue = ProcessProperties(currentNode.dialogueText);
-        DialogueBoxUI.text = "";
-        StartCoroutine(TypeLine());
-        var buttons = buttonContainer.GetComponentsInChildren<Button>();
-        
-        foreach (var t in buttons) {
-            Destroy(t.gameObject);
-        }
-        
-        _listOfSprites.CharacterSetter(currentNode.SpeakerSpriteLeft, currentNode.SpeakerSpriteRight);
-
-        if (currentNode.SpeakerNameLocation.Equals("Speaker Name Left")) {
-            SpeakerNameBoxLeft.text = currentNode.SpeakerName;
-            SpeakerNameBoxRight.text = "";
+        if (currentNode.dialogueText.Equals("") && currentNode.SpeakerSpriteLeft.Equals("") && currentNode.SpeakerSpriteRight.Equals("")) { //TODO BM: 15-10-2023 change this
+            EndDialogue();
         } else {
-            SpeakerNameBoxRight.text = currentNode.SpeakerName;
-            SpeakerNameBoxLeft.text = "";
-        }
-    
-        if (choices.Count() is 1 or 0 || (choices.Count() == 2 && !CanSkip(currentNode))) {
-            singleOption = true;
-            buttonContainer.gameObject.SetActive(false);
-        } else {
-            // TODO: BM 08-10-2023 Select Buttons without mouse?
-            singleOption = false;
-            buttonContainer.gameObject.SetActive(true);
-            foreach (var choice in choices) {
-                if (_inventory != null && ItemNeededInInventory(currentNode, choice.PortName)) continue;
-                var button = Instantiate(ChoicesButton, buttonContainer);
-                button.GetComponentInChildren<Text>().text = ProcessProperties(choice.PortName);
-                button.onClick.AddListener(() => ProceedToNarrative(choice.TargetNodeGUID));
+            choices = dialogue.NodeLinks.Where(x => x.BaseNodeGUID == narrativeDataGUID).ToList();
+            currentDialogue = ProcessProperties(currentNode.dialogueText);
+            DialogueBoxUI.text = "";
+            StartCoroutine(TypeLine());
+            var buttons = buttonContainer.GetComponentsInChildren<Button>();
+        
+            foreach (var t in buttons) {
+                Destroy(t.gameObject);
             }
+        
+            _listOfSprites.CharacterSetter(currentNode.SpeakerSpriteLeft, currentNode.SpeakerSpriteRight);
+
+            if (currentNode.SpeakerNameLocation.Equals("Speaker Name Left")) {
+                SpeakerNameBoxLeft.text = currentNode.SpeakerName;
+                SpeakerNameBoxRight.text = "";
+            } else {
+                SpeakerNameBoxRight.text = currentNode.SpeakerName;
+                SpeakerNameBoxLeft.text = "";
+            }
+    
+            if (choices.Count() is 1 or 0 || (choices.Count() == 2 && !CanSkip(currentNode))) {
+                singleOption = true;
+                buttonContainer.gameObject.SetActive(false);
+            } else {
+                // TODO: BM 08-10-2023 Select Buttons without mouse?
+                singleOption = false;
+                buttonContainer.gameObject.SetActive(true);
+                foreach (var choice in choices) {
+                    if (_inventory != null && ItemNeededInInventory(currentNode, choice.PortName)) continue;
+                    var button = Instantiate(ChoicesButton, buttonContainer);
+                    button.GetComponentInChildren<Text>().text = ProcessProperties(choice.PortName);
+                    button.onClick.AddListener(() => ProceedToNarrative(choice.TargetNodeGUID));
+                }
+            }   
         }
     }
 
     private bool CanSkip(DialogueNodeData dialogueNodeData) {
-        return dialogue.alreadyHadConversation && choices.Any(choice => dialogueNodeData.SkipPorts.Any(x => x.Equals(choice.PortName)));
+        if (dialogueNodeData.SkipPorts.Count() != 0) {
+            return dialogue.alreadyHadConversation && choices.Any(choice => dialogueNodeData.SkipPorts.Any(x => x.Equals(choice.PortName)));
+        } else {
+            return true;
+        }
+        
     }
     
     private bool ItemNeededInInventory(DialogueNodeData dialogueNodeData, string portName) {
