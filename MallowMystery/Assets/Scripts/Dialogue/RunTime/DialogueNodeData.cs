@@ -15,7 +15,9 @@ namespace Dialogue.Runtime
         public string SpeakerNameLocation;
         public string SpeakerSpriteLeft;
         public string SpeakerSpriteRight;
-        public List<ItemPortCombi> ItemPortCombis;
-        public bool alreadyHadConversation;
+        public List<ItemPortCombi> ItemPortCombis = new List<ItemPortCombi>();
+        public List<string> SkipPorts = new List<string>();
+        public bool canSkipFromThisPoint;
+        
     }
 }

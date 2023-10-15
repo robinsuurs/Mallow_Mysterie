@@ -10,23 +10,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 78b3fd9154634ebdb8c8a48960b9a16a, type: 3}
-  m_Name: New Narrative
+  m_Name: ttt
   m_EditorClassIdentifier: 
-  alreadyHadConversation: 0
+  alreadyHadConversation: 1
   NodeLinks:
-  - BaseNodeGUID: 0121c02d-e5f4-4c02-81a0-e05d38c787ae
-    PortName: Testing 1
-    TargetNodeGUID: efdae12f-5c5d-46b6-9bd0-89e4c63d6ff7
-  - BaseNodeGUID: bd4841ad-c88c-4087-b1b2-f84cb704e267
+  - BaseNodeGUID: 75c89cef-481d-48bd-833a-802c9b24324d
     PortName: Next
-    TargetNodeGUID: 80b24b6c-949f-4110-8e79-e39cb4599d9b
-  - BaseNodeGUID: 80b24b6c-949f-4110-8e79-e39cb4599d9b
-    PortName: Testings 3
-    TargetNodeGUID: 0121c02d-e5f4-4c02-81a0-e05d38c787ae
+    TargetNodeGUID: f987c680-e9e9-47b5-a53a-1a0152de31b2
+  - BaseNodeGUID: f987c680-e9e9-47b5-a53a-1a0152de31b2
+    PortName: test1
+    TargetNodeGUID: 53b3c36d-6a25-4199-9881-9da8f67aa1ed
+  - BaseNodeGUID: f987c680-e9e9-47b5-a53a-1a0152de31b2
+    PortName: Option 2
+    TargetNodeGUID: 97a13b9f-c0c4-44af-a48c-b21c41f52895
   DialogueNodeData:
-  - nodeGuid: efdae12f-5c5d-46b6-9bd0-89e4c63d6ff7
-    dialogueText: Testing 2
-    position: {x: 787, y: 168}
+  - nodeGuid: 53b3c36d-6a25-4199-9881-9da8f67aa1ed
+    dialogueText: asdfasdf
+    position: {x: 691, y: 176}
     SpeakerName: 
     SpeakerNameLocation: Speaker Name Left
     SpeakerSpriteLeft: 
@@ -34,9 +34,9 @@ MonoBehaviour:
     ItemPortCombis: []
     SkipPorts: []
     canSkipFromThisPoint: 0
-  - nodeGuid: 0121c02d-e5f4-4c02-81a0-e05d38c787ae
-    dialogueText: Testing 1
-    position: {x: 336, y: -17}
+  - nodeGuid: 97a13b9f-c0c4-44af-a48c-b21c41f52895
+    dialogueText: 
+    position: {x: 691, y: 433}
     SpeakerName: 
     SpeakerNameLocation: Speaker Name Left
     SpeakerSpriteLeft: 
@@ -44,9 +44,9 @@ MonoBehaviour:
     ItemPortCombis: []
     SkipPorts: []
     canSkipFromThisPoint: 0
-  - nodeGuid: 80b24b6c-949f-4110-8e79-e39cb4599d9b
-    dialogueText: Testings 3
-    position: {x: 278, y: 303}
+  - nodeGuid: f987c680-e9e9-47b5-a53a-1a0152de31b2
+    dialogueText: adgdfgdsg
+    position: {x: 215, y: 176}
     SpeakerName: 
     SpeakerNameLocation: Speaker Name Left
     SpeakerSpriteLeft: 
