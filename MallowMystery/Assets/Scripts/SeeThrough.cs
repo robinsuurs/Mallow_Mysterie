@@ -1,37 +1,38 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class SeeThrough : MonoBehaviour
 {
     [SerializeField] private Transform targetObject;
-    [SerializeField] private LayerMask _layerMask;
+    [SerializeField] private LayerMask layerMask;
     
-    private Camera mainCamera;
+    private Camera _mainCamera;
 
-    void Awake()
+    private void Awake()
     {
-        mainCamera = GetComponent<Camera>();
+        _mainCamera = GetComponent<Camera>();
     }
     
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        Vector2 cutoutPos = mainCamera.WorldToVieuwportPoint(targetObject.position);
+        Vector2 cutoutPos = _mainCamera.WorldToViewportPoint(targetObject.position);
         cutoutPos.y /= (Screen.width / Screen.height);
 
         Vector3 offset = targetObject.position - transform.position;
-        RaycastHit[] hits = Physics.RaycastAll(transform.position, offset, offset.magnitude, _layerMask);
+        RaycastHit[] hits = Physics.RaycastAll(transform.position, offset, offset.magnitude, layerMask);
 
-        for (int i = 0; i < hits.Length; i++)
+        foreach (var t in hits)
         {
-            Material[] materials = hits[i].transform.GetComponent<Renderer>()materials;
+            var materials = t.transform.GetComponent<Renderer>().materials;
 
-            for (int j = 0; j < materials.Length; j++)
+            for(int j = 0; j < materials.Length; j++)
             {
-                materials[m].SetVector("_CutoutPos");
-                materials[m].SetFloat("_CutoutSize", 0.1f);
-                materials[m].SetFloat("_FalloffSize", 0.05f);
+                materials[j].SetVector("_CutoutPos", cutoutPos);
+                materials[j].SetFloat("_CutoutSize", 0.1f);
+                materials[j].SetFloat("_FalloffSize", 0.05f);
             }
         }
     }
