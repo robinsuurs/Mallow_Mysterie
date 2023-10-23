@@ -36,6 +36,6 @@ public class GameData {
         this.Inventory = inventory;
 
         // Scene = startscene;
-        //playerLocation = StartLocation of player
+        playerLocation = new Vector3(-0.5f, 0.5f, 0.2f);
     }
 }
