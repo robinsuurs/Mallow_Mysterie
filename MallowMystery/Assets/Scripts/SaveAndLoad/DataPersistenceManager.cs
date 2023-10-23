@@ -17,6 +17,9 @@ public class DataPersistenceManager : MonoBehaviour {
     [SerializeField] private bool startFresh;
     [SerializeField] private bool encryptData;
     [SerializeField] private GameEventStandardAdd gameEventStandardAdd;
+    [SerializeField] private LevelManager _levelManager;
+    [SerializeField] private PlayerSpawnLocation startState;
+    public PlayerSpawnLocation playerSpawnLocation;
     
     //TODO: Change this shit:
     [SerializeField] private Inventory _inventory;
@@ -33,9 +36,13 @@ public class DataPersistenceManager : MonoBehaviour {
             return;
         }
 
+        
         instance = this;
         DontDestroyOnLoad(this.gameObject);
         this.dataHandler = new FileDataHandler(Application.persistentDataPath, fileName, encryptData);
+        _levelManager.sceneSwitchData = null;
+        playerSpawnLocation = Instantiate(startState);
+        _levelManager.playerSpawnLocation = playerSpawnLocation;
     }
 
     private void OnEnable() {
@@ -72,11 +79,18 @@ public class DataPersistenceManager : MonoBehaviour {
         if (this._gameData == null || startFresh) {
             Debug.Log("No GameData found. A new Game needs to be created");
             NewGame();
+            _levelManager.SpawnPlayer();
+            GameObject.FindWithTag("Player").transform.position = _gameData.playerLocation;
             return;
         }
         else {
             foreach (IDataPersistence dataPersistenceObj in dataPersistences) {
                 dataPersistenceObj.LoadData(_gameData);
+            }
+            
+            _levelManager.SpawnPlayer();
+            if (_gameData.Scene.Equals(SceneManager.GetActiveScene())) {
+                GameObject.FindWithTag("Player").transform.position = _gameData.playerLocation;
             }
 
             LoadDialogueStates();
@@ -97,6 +111,8 @@ public class DataPersistenceManager : MonoBehaviour {
         SaveDialogueStates();
 
         _gameData.Scene = SceneManager.GetActiveScene();
+
+        _gameData.playerLocation = GameObject.FindWithTag("Player").transform.position;
         
         dataHandler.Save(_gameData);
     }
