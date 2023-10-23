@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.IO;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Net;
-using System.Text;
+using Dialogue.Editor.Graph;
 using Dialogue.Editor.Nodes;
 using Dialogue.Runtime;
 using UnityEditor;
@@ -75,7 +71,7 @@ namespace Subtegral.DialogueSystem.Editor
                 {
                     BaseNodeGUID = outputNode.GUID,
                     PortName = connectedSockets[i].output.portName,
-                    TargetNodeGUID = inputNode.GUID
+                    TargetNodeGUID = inputNode.GUID,
                 });
             }
 
@@ -87,9 +83,12 @@ namespace Subtegral.DialogueSystem.Editor
                     dialogueText = node.DialogueText,
                     position = node.GetPosition().position,
                     SpeakerName = node.SpeakerName,
+                    SpeakerNameLocation = node.SpeakerNameLocation,
                     SpeakerSpriteLeft = node.SpeakerSpriteLeft,
                     SpeakerSpriteRight = node.SpeakerSpriteRight,
-                    ItemId = node.ItemId
+                    ItemPortCombis = node.ItemPortCombis,
+                    SkipPorts = node.SkipPorts,
+                    canSkipFromThisPoint = node.CanSkipFromThisPoint
                 });
             }
 
@@ -134,9 +133,9 @@ namespace Subtegral.DialogueSystem.Editor
             GenerateCommentBlocks();
         }
         
-        private void ClearGraph()
-        {
-            Nodes.Find(x => x.EntyPoint).GUID = _dialogueContainer.NodeLinks[0].BaseNodeGUID;
+        private void ClearGraph() {
+            var entyPoint = _dialogueContainer.NodeLinks.Where(x => x.PortName.Equals("Next")).ToList();
+            Nodes.Find(x => x.EntyPoint).GUID = entyPoint[0].BaseNodeGUID;
             foreach (var perNode in Nodes)
             {
                 if (perNode.EntyPoint) continue;
@@ -150,12 +149,22 @@ namespace Subtegral.DialogueSystem.Editor
         {
             foreach (var perNode in _dialogueContainer.DialogueNodeData)
             {
-                var tempNode = _graphView.CreateNode(perNode, Vector2.zero, false);
+                DialogueNode tempNode = _graphView.CreateNode(perNode, Vector2.zero, false);
                 tempNode.GUID = perNode.nodeGuid;
                 _graphView.AddElement(tempNode);
 
                 var nodePorts = _dialogueContainer.NodeLinks.Where(x => x.BaseNodeGUID == perNode.nodeGuid).ToList();
-                nodePorts.ForEach(x => _graphView.AddChoicePort(tempNode, x.PortName, x.ItemIdRequired));
+                
+                foreach (NodeLinkData node in nodePorts) {
+                    if (tempNode.ItemPortCombis.Any(itemPortCombi => itemPortCombi.portname.Equals(node.PortName))) {
+                        _graphView.CreateChoicePort(tempNode, "item", false, node.PortName);
+                    } else if (tempNode.SkipPorts.Any(skipPort => skipPort.Equals(node.PortName))) {
+                        _graphView.CreateChoicePort(tempNode, "skip", false, node.PortName);
+                    }
+                    else {
+                        _graphView.CreateChoicePort(tempNode, "",false, node.PortName);
+                    }
+                }
             }
         }
 
@@ -163,13 +172,13 @@ namespace Subtegral.DialogueSystem.Editor
         {
             for (var i = 0; i < Nodes.Count; i++)
             {
-                var k = i;
-                var connections = _dialogueContainer.NodeLinks.Where(x => x.BaseNodeGUID == Nodes[k].GUID).ToList();
+                
+                var connections = _dialogueContainer.NodeLinks.Where(x => x.BaseNodeGUID == Nodes[i].GUID).ToList();
                 for (var j = 0; j < connections.Count(); j++)
                 {
                     var targetNodeGUID = connections[j].TargetNodeGUID;
                     var targetNode = Nodes.First(x => x.GUID == targetNodeGUID);
-                    LinkNodesTogether(Nodes[i].outputContainer[j].Q<Port>(), (Port) targetNode.inputContainer[0]);
+                    LinkNodesTogether(Nodes[i].outputContainer[j].Q<Port>(), (Port)targetNode.inputContainer[0]);
 
                     targetNode.SetPosition(new Rect(
                         _dialogueContainer.DialogueNodeData.First(x => x.nodeGuid == targetNodeGUID).position,

@@ -7,7 +7,7 @@ namespace ExampleEventScriptAble
     [CreateAssetMenu(menuName = "Events/GameEventChannel")]
     public class GameEventChannel : ScriptableObject
     {
-        private List<GameEventListeners> _listeners = new List<GameEventListeners>();
+        private readonly List<GameEventListeners> _listeners = new List<GameEventListeners>();
     
         public void Raise()
         {
@@ -24,5 +24,9 @@ namespace ExampleEventScriptAble
         {
             _listeners.Remove(listener);
         }
+
+        public List<GameEventListeners> GetListenersList() {
+            return _listeners;
+        } 
     }
 }

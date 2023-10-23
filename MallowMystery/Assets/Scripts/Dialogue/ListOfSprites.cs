@@ -1,3 +1,4 @@
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
@@ -48,25 +49,20 @@ public class ListOfSprites : MonoBehaviour
     [SerializeField] private Image rightImage;
     
     public void CharacterSetter(string speakerLeft, string speakerRight) {
-        if (speakerLeft != "") {
+        var spriteToSetLeft = characterSprites.FirstOrDefault(sprite => sprite.name.Equals(speakerLeft));
+        if (spriteToSetLeft != null) {
             leftImage.gameObject.SetActive(true);
-            foreach (var sprite in characterSprites) {
-                if (!sprite.name.Equals(speakerLeft)) continue;
-                leftImage.sprite = sprite;
-                break;
-            }
+            leftImage.sprite = spriteToSetLeft;
         } else {
             leftImage.gameObject.SetActive(false);
         }
-        if (speakerRight != "") {
+        
+        var spriteToSetRight = characterSprites.FirstOrDefault(sprite => sprite.name.Equals(speakerRight));
+        if (spriteToSetRight != null) {
             rightImage.gameObject.SetActive(true);
-            foreach (var sprite in characterSprites) {
-                if (!sprite.name.Equals(speakerRight)) continue;
-                rightImage.sprite = sprite;
-                break;
-            }
+            rightImage.sprite = spriteToSetRight;
         } else {
             rightImage.gameObject.SetActive(false);
-        }
+        }  
     }
 }

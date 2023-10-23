@@ -3,16 +3,19 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Dialogue.Runtime;
+using Dialogue.RunTime;
 using ScriptObjects;
 using Subtegral.DialogueSystem.DataContainers;
 using UnityEngine;
 using TMPro;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class DialogueHandler : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI DialogueBoxUI;
-    [SerializeField] private TextMeshProUGUI SpeakerNameBox;
+    [SerializeField] private TextMeshProUGUI SpeakerNameBoxLeft;
+    [SerializeField] private TextMeshProUGUI SpeakerNameBoxRight;
     private DialogueContainer dialogue;
     [SerializeField] private Button ChoicesButton;
     [SerializeField] private Transform buttonContainer;
@@ -27,27 +30,35 @@ public class DialogueHandler : MonoBehaviour
     private bool inDialogue;
     
     public void StartDialogue(DialogueContainer dialogueContainer) {
-        dialogue = dialogueContainer;
-        DialogueCanvas.SetActive(true);
-        var narrativeData = dialogue.NodeLinks.First();
-        ProceedToNarrative(narrativeData.TargetNodeGUID);
-        inDialogue = true;
+        if (!inDialogue) {
+            dialogue = dialogueContainer;
+            DialogueCanvas.SetActive(true);
+            var narrativeData = dialogueContainer.NodeLinks.Where(x => x.PortName.Equals("Next")).ToList()[0].TargetNodeGUID;
+            ProceedToNarrative(narrativeData);
+            inDialogue = true;
+            Time.timeScale = 0f;
+        }
+    }
+
+    private void EndDialogue() {
+        dialogue.alreadyHadConversation = true;
+        currentDialogue = null;
+        singleOption = false;
+        inDialogue = false;
+        DialogueBoxUI.text = "";
+        SpeakerNameBoxLeft.text = "";
+        SpeakerNameBoxRight.text = "";
+        DialogueCanvas.SetActive(false);
+        Time.timeScale = 1f;
     }
     
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) && inDialogue) {
+        if ((Input.GetMouseButtonDown(0)) && inDialogue) {
             if (DialogueBoxUI.text == currentDialogue) {
                 if (!choices.Any()) {
-                    currentDialogue = null;
-                    singleOption = false;
-                    inDialogue = false;
-                    DialogueBoxUI.text = "";
-                    SpeakerNameBox.text = "";
-                    DialogueCanvas.SetActive(false);
-                }
-                else if (singleOption)
-                {
+                    EndDialogue();
+                } else if (singleOption) {
                     ProceedToNarrative(choices.First().TargetNodeGUID);
                 }
             } else {
@@ -59,44 +70,61 @@ public class DialogueHandler : MonoBehaviour
     
     private void ProceedToNarrative(string narrativeDataGUID) {
         var currentNode = dialogue.DialogueNodeData.Find(x => x.nodeGuid == narrativeDataGUID);
-        choices = dialogue.NodeLinks.Where(x => x.BaseNodeGUID == narrativeDataGUID);
-        currentDialogue = ProcessProperties(currentNode.dialogueText);
-        DialogueBoxUI.text = "";
-        StartCoroutine(TypeLine());
-        var buttons = buttonContainer.GetComponentsInChildren<Button>();
-        
-        foreach (var t in buttons) {
-            Destroy(t.gameObject);
-        }
-        
-        _listOfSprites.CharacterSetter(currentNode.SpeakerSpriteLeft, currentNode.SpeakerSpriteRight);
-        
-        SpeakerNameBox.text = currentNode.SpeakerName;
-
-        if (choices.Count() == 1) {
-            singleOption = true;
+        if (currentNode.dialogueText.Equals("") && currentNode.SpeakerSpriteLeft.Equals("") && currentNode.SpeakerSpriteRight.Equals("")) { //TODO BM: 15-10-2023 change this
+            EndDialogue();
         } else {
-            // TODO: BM 04-10-2023 What to do with multiple buttons but only one can be shown based on conditions
-            singleOption = false;
-            foreach (var choice in choices) {
-                
-                var button = Instantiate(ChoicesButton, buttonContainer);
-                button.GetComponentInChildren<Text>().text = ProcessProperties(choice.PortName);
-                button.onClick.AddListener(() => ProceedToNarrative(choice.TargetNodeGUID));
-                
-                if (_inventory != null && dialogue.DialogueNodeData.Find(x => x.nodeGuid == choice.TargetNodeGUID).ItemId != "") {
-                    button.interactable = ItemNeededInInventory(choice.TargetNodeGUID);
-                }
+            choices = dialogue.NodeLinks.Where(x => x.BaseNodeGUID == narrativeDataGUID).ToList();
+            currentDialogue = ProcessProperties(currentNode.dialogueText);
+            DialogueBoxUI.text = "";
+            StartCoroutine(TypeLine());
+            var buttons = buttonContainer.GetComponentsInChildren<Button>();
+        
+            foreach (var t in buttons) {
+                Destroy(t.gameObject);
             }
+        
+            _listOfSprites.CharacterSetter(currentNode.SpeakerSpriteLeft, currentNode.SpeakerSpriteRight);
+
+            if (currentNode.SpeakerNameLocation.Equals("Speaker Name Left")) {
+                SpeakerNameBoxLeft.text = currentNode.SpeakerName;
+                SpeakerNameBoxRight.text = "";
+            } else {
+                SpeakerNameBoxRight.text = currentNode.SpeakerName;
+                SpeakerNameBoxLeft.text = "";
+            }
+    
+            if (choices.Count() is 1 or 0 || (choices.Count() >= 2 && !CanSkip(currentNode, choices))) {
+                singleOption = true;
+                buttonContainer.gameObject.SetActive(false);
+            } else {
+                // TODO: BM 08-10-2023 Select Buttons without mouse?
+                singleOption = false;
+                buttonContainer.gameObject.SetActive(true);
+                foreach (var choice in choices) {
+                    if (_inventory != null && ItemNeededInInventory(currentNode, choice.PortName)) continue;
+                    var button = Instantiate(ChoicesButton, buttonContainer);
+                    button.GetComponentInChildren<Text>().text = ProcessProperties(choice.PortName);
+                    button.onClick.AddListener(() => ProceedToNarrative(choice.TargetNodeGUID));
+                }
+            }   
         }
     }
 
-    //TODO: BM 04-10-2023 what inventory do we grab? -> link to player?
-    //TODO: BM 04-10-2023 add boolean on pickup condition, now it always has a null value
-    private bool ItemNeededInInventory(string choiceTargetNodeGuid) {
-        var optionNode = dialogue.DialogueNodeData.Find(x => x.nodeGuid == choiceTargetNodeGuid).ItemId;
-        return _inventory.items.Any(item => optionNode == item.itemName);
-        // && item.hasBeenPickedUp
+    private bool CanSkip(DialogueNodeData dialogueNodeData, IEnumerable<NodeLinkData> nodeLinkDatas) {
+        if (dialogueNodeData.SkipPorts.Count() != 0) {
+            bool test = nodeLinkDatas.Any(choice => dialogueNodeData.SkipPorts.Any(x => x.Equals(choice.PortName)));
+            return dialogue.alreadyHadConversation && test;
+        } else {
+            return false;
+        }
+        
+    }
+    
+    private bool ItemNeededInInventory(DialogueNodeData dialogueNodeData, string portName) {
+        //TODO: BM 15-10-2023 add check for seperate if equipping
+        if (dialogueNodeData.ItemPortCombis.Count == 0) return false;
+        var itemForChoice = dialogueNodeData.ItemPortCombis.Where(itemPortCombi => itemPortCombi.portname.Equals(portName)).ToList()[0].itemName;
+        return _inventory.items.Any(item => itemForChoice.Equals(item.itemName) && item.hasBeenPickedUp);
     }
     
     private string ProcessProperties(string text) {
@@ -106,7 +134,7 @@ public class DialogueHandler : MonoBehaviour
     IEnumerator TypeLine() {
         foreach (var c in currentDialogue.ToCharArray()) {
             DialogueBoxUI.text += c;
-            yield return new WaitForSeconds(textspeed);
+            yield return new WaitForSecondsRealtime(textspeed);
         }
     }
 }
