@@ -202,7 +202,7 @@ namespace Dialogue.Editor.Graph
                     ItemPort(nodeCache, useDefaultValues, generatedPort, outputPortName);
                     break;
                 case "skip" :
-                    SkipPort(nodeCache, generatedPort, outputPortName);
+                    SkipPort(nodeCache, generatedPort, outputPortName, textField);
                     break;
             }
             
@@ -240,11 +240,17 @@ namespace Dialogue.Editor.Graph
             generatedPort.contentContainer.Add(itemNeeded);
         }
 
-        private void SkipPort(DialogueNode nodeCache, Port generatedPort, string overriddenPortName) {
+        private void SkipPort(DialogueNode nodeCache, Port generatedPort, string overriddenPortName,
+            TextField textField) {
             Label label = new Label("Skip option tekst");
             label.style.width = 86;
             generatedPort.Add(label);
             nodeCache.SkipPorts.Add(overriddenPortName);
+            textField.RegisterValueChangedCallback(evt => {
+                generatedPort.portName = evt.newValue;
+                nodeCache.SkipPorts.Remove(evt.previousValue);
+                nodeCache.SkipPorts.Add(evt.newValue);
+            });
         }
 
         private int getNumber(DialogueNode dialogueNode, string overriddenPortName) {
