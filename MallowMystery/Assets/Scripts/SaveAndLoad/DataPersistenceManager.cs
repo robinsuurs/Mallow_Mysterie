@@ -17,6 +17,8 @@ public class DataPersistenceManager : MonoBehaviour {
     [SerializeField] private bool startFresh;
     [SerializeField] private bool encryptData;
     [SerializeField] private GameEventStandardAdd gameEventStandardAdd;
+
+    [SerializeField] private LevelManager _levelManager;
     //TODO: Change this shit:
     [SerializeField] private Inventory _inventory;
     
@@ -45,15 +47,15 @@ public class DataPersistenceManager : MonoBehaviour {
         SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 
-    public void OnSceneLoaded (Scene scene, LoadSceneMode mode) {
+    private void OnSceneLoaded (Scene scene, LoadSceneMode mode) {
         this.dataPersistences = FindAllDataPersistenceObjects();
         LoadGame();
     }
 
     private List<IDataPersistence> FindAllDataPersistenceObjects() {
-        IEnumerable<IDataPersistence> dataPersistences = Resources.FindObjectsOfTypeAll<MonoBehaviour>().OfType<IDataPersistence>();
-        IEnumerable<IDataPersistence> dataPersistences2 = Resources.FindObjectsOfTypeAll<ScriptableObject>().OfType<IDataPersistence>();
-        return new List<IDataPersistence>(dataPersistences.Concat(dataPersistences2));
+        IEnumerable<IDataPersistence> dataPersistenceMon = Resources.FindObjectsOfTypeAll<MonoBehaviour>().OfType<IDataPersistence>();
+        IEnumerable<IDataPersistence> dataPersistenceScript = Resources.FindObjectsOfTypeAll<ScriptableObject>().OfType<IDataPersistence>();
+        return new List<IDataPersistence>(dataPersistenceMon.Concat(dataPersistenceScript));
     }
 
     private void OnApplicationQuit() {
@@ -64,7 +66,7 @@ public class DataPersistenceManager : MonoBehaviour {
         this._gameData = new GameData(_inventory);
     }
 
-    public void LoadGame() {
+    private void LoadGame() {
         if (this._gameData == null) {
             this._gameData = dataHandler.Load();
         }
