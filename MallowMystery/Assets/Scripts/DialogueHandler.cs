@@ -93,7 +93,7 @@ public class DialogueHandler : MonoBehaviour
                 SpeakerNameBoxLeft.text = "";
             }
     
-            if (choices.Count() is 1 or 0 || (choices.Count() == 2 && !CanSkip(currentNode))) {
+            if (choices.Count() is 1 or 0 || (choices.Count() >= 2 && !CanSkip(currentNode, choices))) {
                 singleOption = true;
                 buttonContainer.gameObject.SetActive(false);
             } else {
@@ -110,11 +110,12 @@ public class DialogueHandler : MonoBehaviour
         }
     }
 
-    private bool CanSkip(DialogueNodeData dialogueNodeData) {
+    private bool CanSkip(DialogueNodeData dialogueNodeData, IEnumerable<NodeLinkData> nodeLinkDatas) {
         if (dialogueNodeData.SkipPorts.Count() != 0) {
-            return dialogue.alreadyHadConversation && choices.Any(choice => dialogueNodeData.SkipPorts.Any(x => x.Equals(choice.PortName)));
+            bool test = nodeLinkDatas.Any(choice => dialogueNodeData.SkipPorts.Any(x => x.Equals(choice.PortName)));
+            return dialogue.alreadyHadConversation && test;
         } else {
-            return true;
+            return false;
         }
         
     }
