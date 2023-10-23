@@ -17,8 +17,7 @@ public class DataPersistenceManager : MonoBehaviour {
     [SerializeField] private bool startFresh;
     [SerializeField] private bool encryptData;
     [SerializeField] private GameEventStandardAdd gameEventStandardAdd;
-
-    [SerializeField] private LevelManager _levelManager;
+    
     //TODO: Change this shit:
     [SerializeField] private Inventory _inventory;
     

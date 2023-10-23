@@ -13,7 +13,7 @@ public class ShowSpritePlayer : MonoBehaviour {
     private bool showSprite = false;
 
     private void Start() {
-        playerCanvas.transform.rotation = Quaternion.LookRotation(playerCanvas.transform.position - cameraSprite.transform.position);
+       playerCanvas.transform.rotation = Quaternion.LookRotation(playerCanvas.transform.position - cameraSprite.transform.position);
     }
 
     private void showInteractableSprite() {
