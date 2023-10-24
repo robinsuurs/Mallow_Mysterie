@@ -19,7 +19,7 @@ public class SceneSwitching : MonoBehaviour {
     IEnumerator LoadNextSceneAfterSeconds(int seconds)
     {
         yield return new WaitForSecondsRealtime(seconds);
-        SceneManager.LoadScene(sceneSwitchData.getSceneName());
+        // SceneManager.LoadScene(sceneSwitchData.getSceneName());
         Time.timeScale = 1;
     }
 }

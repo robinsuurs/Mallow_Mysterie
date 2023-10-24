@@ -102,8 +102,9 @@ public class DialogueHandler : MonoBehaviour
                 buttonContainer.gameObject.SetActive(true);
                 foreach (var choice in choices) {
                     if (_inventory != null && ItemNeededInInventory(currentNode, choice.PortName)) continue;
-                    var button = Instantiate(ChoicesButton, buttonContainer);
+                    Button button = Instantiate(ChoicesButton, buttonContainer);
                     button.GetComponentInChildren<Text>().text = ProcessProperties(choice.PortName);
+                    button.GetComponentInChildren<Text>().fontSize = 24;
                     button.onClick.AddListener(() => ProceedToNarrative(choice.TargetNodeGUID));
                 }
             }   
