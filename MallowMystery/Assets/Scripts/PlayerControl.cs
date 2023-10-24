@@ -29,12 +29,6 @@ public class PlayerControl : MonoBehaviour
     void OnResetLocation() {
         transform.position = new Vector3(0, 1, 0);
     }
-
-    void OnCheckInv() {
-        foreach (var item in _inventory.items) {
-            Debug.Log(item.itemName + " " + item.hasBeenPickedUp);
-        }
-    }
     
     private static Vector2 Rotate(Vector2 v, float degrees) {
         float sin = Mathf.Sin(degrees * Mathf.Deg2Rad);
@@ -45,10 +39,6 @@ public class PlayerControl : MonoBehaviour
         v.x = (cos * tx) - (sin * ty);
         v.y = (sin * tx) + (cos * ty);
         return v;
-    }
-
-    void OnResetLocation() {
-        transform.position = new Vector3(0, 1, 0);
     }
     
      //Remove later on for test purposes only
