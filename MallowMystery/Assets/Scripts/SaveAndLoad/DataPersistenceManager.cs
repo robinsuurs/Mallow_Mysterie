@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
-using Dialogue.Editor.Nodes;
 using Dialogue.Runtime;
 using ScriptObjects;
 using Subtegral.DialogueSystem.DataContainers;

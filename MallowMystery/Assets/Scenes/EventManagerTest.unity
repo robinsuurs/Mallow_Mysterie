@@ -1610,28 +1610,28 @@ PrefabInstance:
         type: 3}
       propertyPath: response.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 11400000, guid: e10444a92f7652f478e5f8decfb2daf1,
+      objectReference: {fileID: 11400000, guid: f2dcac3b8a0602646b9b89ef2c5c3729,
         type: 2}
     - target: {fileID: 8554239893437738822, guid: 48cd2e296764e4d4ea7e8204b73fb49e,
         type: 3}
       propertyPath: response.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Raise
+      value: LoadNextScene
       objectReference: {fileID: 0}
     - target: {fileID: 8554239893437738822, guid: 48cd2e296764e4d4ea7e8204b73fb49e,
         type: 3}
       propertyPath: response.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: DialogueEvent, Assembly-CSharp
+      value: LevelManager, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 8554239893437738822, guid: 48cd2e296764e4d4ea7e8204b73fb49e,
         type: 3}
       propertyPath: response.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
-      objectReference: {fileID: 11400000, guid: 2bb6fb925532abf4e92db35320125e00,
+      objectReference: {fileID: 11400000, guid: a784f3cc70cc7714fa19bf4b1be69c22,
         type: 2}
     - target: {fileID: 8554239893437738822, guid: 48cd2e296764e4d4ea7e8204b73fb49e,
         type: 3}
       propertyPath: response.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: Subtegral.DialogueSystem.DataContainers.DialogueContainer, Runtime
+      value: ScriptObjects.SceneSwitchData, Assembly-CSharp
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
