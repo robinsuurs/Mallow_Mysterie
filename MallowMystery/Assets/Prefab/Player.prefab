@@ -2485,10 +2485,10 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 0
+  m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 116
+  m_Constraints: 112
   m_CollisionDetection: 3
 --- !u!114 &7240833003482693129
 MonoBehaviour:
@@ -2560,8 +2560,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerCanvas: {fileID: 6235238581636981498}
-  cameraSprite: {fileID: 3656396150243643841, guid: ef7cfbf58684e544eae7d08fc99fae5f,
-    type: 3}
   interactListener: {fileID: 11400000, guid: 4ed36360354325242838f9c14d5a3500, type: 2}
 --- !u!33 &3720553255282751796
 MeshFilter:

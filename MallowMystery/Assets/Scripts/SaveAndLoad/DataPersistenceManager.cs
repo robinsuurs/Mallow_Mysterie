@@ -84,11 +84,13 @@ public class DataPersistenceManager : MonoBehaviour {
             LoadDialogueStates();
             gameEventStandardAdd.Raise();
         }
-        
-        _levelManager.SpawnPlayer(_gameData);
-        if (fromMainMenu) { //TODO BM: for testing purposes
-            GameObject.FindWithTag("Player").transform.position = _gameData.playerLocation;
-            fromMainMenu = false;
+
+        if (!SceneManager.GetActiveScene().name.Equals("MainMenu")) {
+            _levelManager.SpawnPlayer(_gameData);
+            if (fromMainMenu) { //TODO BM: for testing purposes
+                GameObject.FindWithTag("Player").transform.position = _gameData.playerLocation;
+                fromMainMenu = false;
+            }
         }
     }
 
