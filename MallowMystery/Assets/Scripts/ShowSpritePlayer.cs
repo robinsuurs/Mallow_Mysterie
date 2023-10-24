@@ -8,12 +8,11 @@ using UnityEngine;
 public class ShowSpritePlayer : MonoBehaviour {
 
     [SerializeField] private GameObject playerCanvas;
-    [SerializeField] private Camera cameraSprite;
     [SerializeField] private GameEventChannel interactListener;
     private bool showSprite = false;
 
     private void Start() {
-       playerCanvas.transform.rotation = Quaternion.LookRotation(playerCanvas.transform.position - cameraSprite.transform.position);
+       playerCanvas.transform.rotation = Quaternion.LookRotation(playerCanvas.transform.position - GameObject.FindGameObjectWithTag("MainCamera").transform.position);
     }
 
     private void showInteractableSprite() {

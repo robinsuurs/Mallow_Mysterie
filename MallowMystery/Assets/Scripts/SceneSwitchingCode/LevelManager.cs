@@ -13,10 +13,8 @@ public class LevelManager : ScriptableObject {
     private List<GameObject> spawnLocations;
     public SceneSwitchData sceneSwitchData;
     [SerializeField] private GameObject playerPrefab;
-    // private string newSpawnLocation;
-    public PlayerSpawnLocation playerSpawnLocation;
 
-    public void SpawnPlayer() {
+    public void SpawnPlayer(GameData gameData) {
         spawnLocations = GameObject.FindGameObjectsWithTag("SpawnLocation").ToList();
         if (sceneSwitchData != null) {
             foreach (var spawn in spawnLocations.Where(spawn => spawn.name.Equals(sceneSwitchData.playerSpawnLocationName))) {
@@ -25,7 +23,15 @@ public class LevelManager : ScriptableObject {
             }
         }
         else {
-            Instantiate(playerPrefab);
+            if (DataPersistenceManager.instance.getStartFresh() && !gameData.SceneName.Equals(SceneManager.GetActiveScene().name)) {
+                foreach (var spawn in GameObject.FindGameObjectsWithTag("SpawnLocation")
+                             .Where(spawn => spawn.name.Equals("TestSpawn"))) {
+                    Instantiate(playerPrefab, spawn.transform.position, quaternion.identity); //This is for Testing purposes
+                    break;
+                }
+            } else {
+                Instantiate(playerPrefab, gameData.playerLocation, quaternion.identity);
+            }
         }
     }
     
@@ -36,16 +42,5 @@ public class LevelManager : ScriptableObject {
         
         SceneManager.LoadScene(sceneSwitchData.sceneName);
         Time.timeScale = 1;
-        
-        // StartCoroutine(LoadNextSceneAfterSeconds(3));
-        // LoadNextSceneAfterSeconds(3);
     }
-
-    // IEnumerator LoadNextSceneAfterSeconds(int seconds)
-    // {
-    //     yield return new WaitForSecondsRealtime(seconds);
-    //     SceneManager.LoadScene(sceneSwitchData.sceneName);
-    //     Time.timeScale = 1;
-    // }
-    
 }

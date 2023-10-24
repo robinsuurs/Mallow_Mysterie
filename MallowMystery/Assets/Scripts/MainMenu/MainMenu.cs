@@ -16,19 +16,21 @@ public class MainMenu : MonoBehaviour {
         if (!DataPersistenceManager.instance.hasGameData()) {
             continueGameButton.interactable = false;
         }
+        DataPersistenceManager.instance.resetToStandardValues();
     }
 
     public void OnNewGameClicked() {
         Debug.Log("Opening scene");
         DisableMenuButtons();
         DataPersistenceManager.instance.NewGame();
-        SceneManager.LoadSceneAsync("DetectiveRoom");
+        SceneManager.LoadSceneAsync(DataPersistenceManager.instance.getSceneToLoadForMainMenu());
     }
     
     public void OnContinueClicked() {
         DisableMenuButtons();
-        DataPersistenceManager.instance.SaveGame();
-        SceneManager.LoadSceneAsync("DetectiveRoom");
+        // DataPersistenceManager.instance.SaveGame();
+        DataPersistenceManager.instance.setFromMainMenu(true);
+        SceneManager.LoadSceneAsync(DataPersistenceManager.instance.getSceneToLoadForMainMenu());
     }
 
     private void DisableMenuButtons() {

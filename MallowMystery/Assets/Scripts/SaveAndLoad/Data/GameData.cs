@@ -7,12 +7,13 @@ using ScriptObjects;
 using Subtegral.DialogueSystem.DataContainers;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Serialization;
 
 [System.Serializable]
 public class GameData {
     public List<ItemData> items;
     public Inventory Inventory;
-    public Scene Scene;
+    public string SceneName;
     public Vector3 playerLocation;
     public List<DialogueNodeData> dialogues;
     public List<string> alreadyHadConversations = new List<string>();
@@ -35,7 +36,7 @@ public class GameData {
 
         this.Inventory = inventory;
 
-        // Scene = startscene;
+        SceneName = "DetectiveRoom";
         playerLocation = new Vector3(-0.5f, 0.5f, 0.2f);
     }
 }

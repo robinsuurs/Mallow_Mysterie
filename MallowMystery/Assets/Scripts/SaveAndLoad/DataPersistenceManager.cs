@@ -18,8 +18,6 @@ public class DataPersistenceManager : MonoBehaviour {
     [SerializeField] private bool encryptData;
     [SerializeField] private GameEventStandardAdd gameEventStandardAdd;
     [SerializeField] private LevelManager _levelManager;
-    [SerializeField] private PlayerSpawnLocation startState;
-    public PlayerSpawnLocation playerSpawnLocation;
     
     //TODO: Change this shit:
     [SerializeField] private Inventory _inventory;
@@ -29,20 +27,19 @@ public class DataPersistenceManager : MonoBehaviour {
     private FileDataHandler dataHandler;
     public static DataPersistenceManager instance { get; private set; }
 
+    private bool fromMainMenu = false; //TODO BM: for testing purposes remove after done with it
+
     private void Awake() {
         if (instance != null) {
             Debug.LogError("More than one DataPersistenceManager found, Shit hits the fan! Or Destroying the new one");
             Destroy(this.gameObject);
             return;
         }
-
         
         instance = this;
         DontDestroyOnLoad(this.gameObject);
         this.dataHandler = new FileDataHandler(Application.persistentDataPath, fileName, encryptData);
         _levelManager.sceneSwitchData = null;
-        playerSpawnLocation = Instantiate(startState);
-        _levelManager.playerSpawnLocation = playerSpawnLocation;
     }
 
     private void OnEnable() {
@@ -79,23 +76,33 @@ public class DataPersistenceManager : MonoBehaviour {
         if (this._gameData == null || startFresh) {
             Debug.Log("No GameData found. A new Game needs to be created");
             NewGame();
-            _levelManager.SpawnPlayer();
-            GameObject.FindWithTag("Player").transform.position = _gameData.playerLocation;
-            return;
         }
         else {
             foreach (IDataPersistence dataPersistenceObj in dataPersistences) {
                 dataPersistenceObj.LoadData(_gameData);
             }
-            
-            _levelManager.SpawnPlayer();
-            if (_gameData.Scene.Equals(SceneManager.GetActiveScene())) {
-                GameObject.FindWithTag("Player").transform.position = _gameData.playerLocation;
-            }
 
             LoadDialogueStates();
             gameEventStandardAdd.Raise();
         }
+        
+        _levelManager.SpawnPlayer(_gameData);
+        if (fromMainMenu) { //TODO BM: for testing purposes
+            GameObject.FindWithTag("Player").transform.position = _gameData.playerLocation;
+            fromMainMenu = false;
+        }
+    }
+
+    public void setFromMainMenu (bool fromMainMenu) {
+        this.fromMainMenu = fromMainMenu;
+    }
+
+    public string getSceneToLoadForMainMenu() {
+        return _gameData.SceneName;
+    }
+
+    public bool getStartFresh() { //TODO: BM remove after testing
+        return startFresh;
     }
 
     public void SaveGame () {
@@ -110,8 +117,7 @@ public class DataPersistenceManager : MonoBehaviour {
         
         SaveDialogueStates();
 
-        _gameData.Scene = SceneManager.GetActiveScene();
-
+        _gameData.SceneName = SceneManager.GetActiveScene().name;
         _gameData.playerLocation = GameObject.FindWithTag("Player").transform.position;
         
         dataHandler.Save(_gameData);
@@ -135,5 +141,9 @@ public class DataPersistenceManager : MonoBehaviour {
         foreach (var dialogueContainer in from dialogueContainer in dialogueContainers from name in _gameData.alreadyHadConversations where dialogueContainer.name.Equals(name) select dialogueContainer) {
             dialogueContainer.alreadyHadConversation = true;
         }
+    }
+
+    public void resetToStandardValues() {
+        _levelManager.sceneSwitchData = null;
     }
 }
