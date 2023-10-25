@@ -12,14 +12,13 @@ GameObject:
   - component: {fileID: 2086959227743365195}
   - component: {fileID: 115464231733770538}
   - component: {fileID: 5398566155908360694}
-  - component: {fileID: 5207572771485090239}
   - component: {fileID: 5655698890625057747}
   - component: {fileID: 7240833003482693129}
   - component: {fileID: 7852033682614110431}
   - component: {fileID: 5817523818181583359}
   - component: {fileID: 2606015960907076335}
-  - component: {fileID: 3720553255282751796}
   - component: {fileID: 536707504317006359}
+  - component: {fileID: -3940612414090899957}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -2441,28 +2440,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &5207572771485090239
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4579995105151368285}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 0
-  serializedVersion: 5
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 0}
 --- !u!54 &5655698890625057747
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2534,6 +2511,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
+  mainCam: {fileID: 0}
 --- !u!114 &5817523818181583359
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2561,14 +2539,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerCanvas: {fileID: 6235238581636981498}
   interactListener: {fileID: 11400000, guid: 4ed36360354325242838f9c14d5a3500, type: 2}
---- !u!33 &3720553255282751796
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4579995105151368285}
-  m_Mesh: {fileID: 0}
 --- !u!65 &536707504317006359
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2590,6 +2560,21 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 2, z: 1}
   m_Center: {x: 0.4662454, y: 0.75679195, z: 0.6606016}
+--- !u!114 &-3940612414090899957
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4579995105151368285}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb856871918c01343bea248b3f8ab631, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  settingsScreen: {fileID: 4259134266708700367, guid: 4871d105b63bca14fadf22870a0f9c5f,
+    type: 3}
+  _stringEvent: {fileID: 11400000, guid: 71e325f927843a94fbbbd52234bf0079, type: 2}
 --- !u!1 &6235238581636981498
 GameObject:
   m_ObjectHideFlags: 0

@@ -11,8 +11,9 @@ using UnityEngine.Serialization;
 [System.Serializable]
 public class GameData {
     public List<ItemData> items;
-    public Inventory Inventory;
-    public string SceneName;
+    public List<ItemDataSave> ItemDataSaves = new List<ItemDataSave>();
+    public Inventory inventory;
+    public string sceneName;
     public Vector3 playerLocation;
     public List<DialogueNodeData> dialogues;
     public List<string> alreadyHadConversations = new List<string>();
@@ -25,6 +26,7 @@ public class GameData {
             foreach (var item in clueItems) {
                 items.Add(item);
                 item.hasBeenPickedUp = false;
+                item.pickedUpNumber = 0;
             }
         }
         
@@ -32,10 +34,12 @@ public class GameData {
         foreach (var dialogue in dialogueContainers) {
             dialogue.alreadyHadConversation = false;
         }
+        
+        inventory.newGame();
+        this.inventory = inventory;
+        
 
-        this.Inventory = inventory;
-
-        SceneName = "DetectiveRoom";
-        playerLocation = new Vector3(-0.5f, 0.5f, 0.2f);
+        sceneName = "DetectiveRoom";
+        playerLocation = new Vector3(-0.5f, 0.3522396f, 0.2f);
     }
 }

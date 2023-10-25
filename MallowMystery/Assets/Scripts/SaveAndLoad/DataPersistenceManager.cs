@@ -61,7 +61,9 @@ public class DataPersistenceManager : MonoBehaviour {
     }
 
     private void OnApplicationQuit() {
-        SaveGame();
+        if (!SceneManager.GetActiveScene().name.Equals("MainMenu")) {
+            SaveGame();
+        }
     }
 
     public void NewGame() {
@@ -99,7 +101,7 @@ public class DataPersistenceManager : MonoBehaviour {
     }
 
     public string getSceneToLoadForMainMenu() {
-        return _gameData.SceneName;
+        return _gameData.sceneName;
     }
 
     public bool getStartFresh() { //TODO: BM remove after testing
@@ -118,7 +120,7 @@ public class DataPersistenceManager : MonoBehaviour {
         
         SaveDialogueStates();
 
-        _gameData.SceneName = SceneManager.GetActiveScene().name;
+        _gameData.sceneName = SceneManager.GetActiveScene().name;
         _gameData.playerLocation = GameObject.FindWithTag("Player").transform.position;
         
         dataHandler.Save(_gameData);

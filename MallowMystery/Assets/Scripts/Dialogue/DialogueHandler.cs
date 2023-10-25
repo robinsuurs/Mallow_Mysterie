@@ -21,14 +21,18 @@ public class DialogueHandler : MonoBehaviour
     [SerializeField] private Transform buttonContainer;
     [SerializeField] private float textspeed;
     [SerializeField] private Inventory _inventory;
-    [SerializeField] private GameObject DialogueCanvas;
+    private GameObject DialogueCanvas;
     [SerializeField] private ListOfSprites _listOfSprites;
 
     private IEnumerable<NodeLinkData> choices = new List<NodeLinkData>();
     public string currentDialogue;
     private bool singleOption;
     private bool inDialogue;
-    
+
+    private void Start() {
+        DialogueCanvas = GameObject.FindWithTag("CanvasManager").gameObject.transform.Find("DialogueCanvas").gameObject;
+    }
+
     public void StartDialogue(DialogueContainer dialogueContainer) {
         if (!inDialogue) {
             dialogue = dialogueContainer;
