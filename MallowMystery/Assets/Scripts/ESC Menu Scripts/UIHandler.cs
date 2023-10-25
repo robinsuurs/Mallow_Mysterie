@@ -15,6 +15,6 @@ public class UIHandler : MonoBehaviour {
     }
 
     void OnOpenInventory() {
-        
+        settingsScreen.GetComponent<SettingsScreenManager>().showSettingsScreen("Inventory");
     }
 }
