@@ -24,7 +24,7 @@ public class SettingsScreenManager : MonoBehaviour
             if (gameObjectShown.Equals("OpenSettings")) {
                 gameObjectShown = "MainSettings";
             }
-            this.currentShownGameObject = this.gameObject.transform.Find(gameObjectShown).gameObject;
+            this.currentShownGameObject = this.gameObject.transform.Find("MenuContainer").transform.Find(gameObjectShown).gameObject;
             this.currentShownGameObject.SetActive(true);
         }
     }
