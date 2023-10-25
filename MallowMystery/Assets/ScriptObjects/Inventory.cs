@@ -30,6 +30,7 @@ namespace ScriptObjects
         }
 
         public void SaveData(ref GameData data) {
+            data.ItemDataSaves.Clear();
             data.items = this.items;
             data.inventory.itemsPickedUp = this.itemsPickedUp;
             foreach (var itemDataSave in data.inventory.items.Select(item => new ItemDataSave(item.itemName, item.hasBeenPickedUp, item.pickedUpNumber))) {
