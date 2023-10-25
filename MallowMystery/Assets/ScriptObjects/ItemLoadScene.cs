@@ -7,6 +7,7 @@ using UnityEngine.Serialization;
 
 public class ItemLoadScene : MonoBehaviour {
     [SerializeField] private ItemData itemData;
+    [SerializeField] private Inventory _inventory;
 
     public void ShowObjectOrNot() {
         if (itemData.hasBeenPickedUp) {
@@ -16,6 +17,7 @@ public class ItemLoadScene : MonoBehaviour {
 
     public void PickUpObject() {
         itemData.hasBeenPickedUp = true;
+        itemData.pickedUpNumber = _inventory.pickedUpItemNumber();
         this.GameObject().SetActive(false);
     }
 }
