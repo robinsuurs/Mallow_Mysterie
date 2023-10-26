@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 public class MainScreen : MonoBehaviour {
     public void backToMainMenu() {
         Time.timeScale = 1;
-        // DataPersistenceManager.instance.SaveGame();
         SceneManager.LoadScene("Scenes/MainMenu");
     }
 

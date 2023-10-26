@@ -11,7 +11,7 @@ using Object = UnityEngine.Object;
 
 public class ItemDataNamesRetriever
 {
-    public string ClueItems = "Clues/BramTest";
+    public string ClueItems = "Resources/Clues/PickupClues";
     public string[] itemDatasTest;
     public List<string> itemNames;
 

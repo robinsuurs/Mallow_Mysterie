@@ -17,6 +17,7 @@ public class MainMenu : MonoBehaviour {
             continueGameButton.interactable = false;
         }
         DataPersistenceManager.instance.resetToStandardValues();
+        
     }
 
     public void OnNewGameClicked() {
