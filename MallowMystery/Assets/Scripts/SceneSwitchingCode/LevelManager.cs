@@ -39,7 +39,7 @@ public class LevelManager : ScriptableObject {
     {
         Time.timeScale = 0;
         this.sceneSwitchData = sceneSwitchData;
-        
+        DataPersistenceManager.instance.SaveGame();
         SceneManager.LoadScene(sceneSwitchData.sceneName);
         Time.timeScale = 1;
     }

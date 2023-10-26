@@ -8,20 +8,19 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
 
-[System.Serializable]
+[System.Serializable] 
 public class GameData {
     public List<ItemData> items;
-    public List<ItemDataSave> ItemDataSaves = new List<ItemDataSave>();
+    public readonly List<ItemDataSave> ItemDataSaves = new List<ItemDataSave>();
+    public List<string> alreadyHadConversations = new List<string>();
     public Inventory inventory;
     public string sceneName;
     public Vector3 playerLocation;
-    public List<DialogueNodeData> dialogues;
-    public List<string> alreadyHadConversations = new List<string>();
-
+    
     //Set start thing when you create a newGame
-    public GameData(Inventory inventory) {
+    public GameData(string leaveEmpty) {
         this.items = new List<ItemData>();
-        var clueItems = Resources.FindObjectsOfTypeAll<ScriptableObject>().OfType<ItemData>();
+        var clueItems = Resources.LoadAll("Clues/Pickup clues", typeof(ItemData)).Cast<ItemData>().ToArray();
         if (clueItems.Count() != 0) {
             foreach (var item in clueItems) {
                 items.Add(item);
@@ -29,16 +28,16 @@ public class GameData {
                 item.pickedUpNumber = 0;
             }
         }
+
+        this.inventory = Resources.LoadAll("Clues/ClueInventory", typeof(Inventory))
+            .Cast<Inventory>().FirstOrDefault(inventoryArray => inventoryArray.name.Equals("ClueInventory"));
+        this.inventory.newGame(this.items);
         
-        List<DialogueContainer> dialogueContainers = Resources.LoadAll<DialogueContainer>("").ToList();
+        List<DialogueContainer> dialogueContainers = Resources.LoadAll<DialogueContainer>("Dialogues").ToList();
         foreach (var dialogue in dialogueContainers) {
             dialogue.alreadyHadConversation = false;
         }
         
-        inventory.newGame();
-        this.inventory = inventory;
-        
-
         sceneName = "DetectiveRoom";
         playerLocation = new Vector3(-0.5f, 0.3522396f, 0.2f);
     }

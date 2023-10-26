@@ -346,17 +346,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1967956138881784765, guid: 90da51a3f4e823048af2b52f7fce6253,
-        type: 3}
-      propertyPath: _inventory
-      value: 
-      objectReference: {fileID: 11400000, guid: 9b88e5fd99f1886478c294c52675e601,
-        type: 2}
-    - target: {fileID: 1967956138881784765, guid: 90da51a3f4e823048af2b52f7fce6253,
-        type: 3}
-      propertyPath: startFresh
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4117460809587361749, guid: 90da51a3f4e823048af2b52f7fce6253,
         type: 3}
       propertyPath: m_Name
@@ -2244,6 +2233,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvasses
       objectReference: {fileID: 0}
+    - target: {fileID: 4167240278752862005, guid: a2e6b720ebdc656418c6866afcdbe1d2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8199445453085926920, guid: a2e6b720ebdc656418c6866afcdbe1d2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2696,7 +2690,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemData: {fileID: 11400000, guid: 922ff8b2481ce6a4e9ae2e1c74a37a30, type: 2}
-  _inventory: {fileID: 11400000, guid: 55d9fdbf67c1e0f4aa07186bf35483d2, type: 2}
+  _inventory: {fileID: 11400000, guid: 9b88e5fd99f1886478c294c52675e601, type: 2}
 --- !u!114 &1263692366
 MonoBehaviour:
   m_ObjectHideFlags: 0

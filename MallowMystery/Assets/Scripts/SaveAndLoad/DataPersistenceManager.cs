@@ -18,9 +18,6 @@ public class DataPersistenceManager : MonoBehaviour {
     [SerializeField] private GameEventStandardAdd gameEventStandardAdd;
     [SerializeField] private LevelManager _levelManager;
     
-    //TODO: Change this shit:
-    [SerializeField] private Inventory _inventory;
-    
     private GameData _gameData;
     private List<IDataPersistence> dataPersistences;
     private FileDataHandler dataHandler;
@@ -67,7 +64,7 @@ public class DataPersistenceManager : MonoBehaviour {
     }
 
     public void NewGame() {
-        this._gameData = new GameData(_inventory);
+        this._gameData = new GameData("");
     }
 
     private void LoadGame() {
@@ -88,6 +85,7 @@ public class DataPersistenceManager : MonoBehaviour {
         }
 
         if (!SceneManager.GetActiveScene().name.Equals("MainMenu")) {
+            GameObject.FindWithTag("CanvasManager").transform.Find("ShortcutImages").gameObject.SetActive(true);
             _levelManager.SpawnPlayer(_gameData);
             if (fromMainMenu) { //TODO BM: for testing purposes
                 GameObject.FindWithTag("Player").transform.position = _gameData.playerLocation;
@@ -98,6 +96,7 @@ public class DataPersistenceManager : MonoBehaviour {
 
     public void setFromMainMenu (bool fromMainMenu) {
         this.fromMainMenu = fromMainMenu;
+        this._levelManager.sceneSwitchData = null;
     }
 
     public string getSceneToLoadForMainMenu() {
