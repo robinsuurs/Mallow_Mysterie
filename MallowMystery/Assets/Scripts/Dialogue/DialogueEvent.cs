@@ -7,12 +7,17 @@ using UnityEngine;
 public class DialogueEvent : ScriptableObject
 {
     private List<DialogueListener> _listeners = new List<DialogueListener>();
-    
+    public DialogueContainer DialogueContainer = null;
     public void Raise(DialogueContainer dialogue)
     {
         for (int i = _listeners.Count -1; i >= 0; i--)
         {
-            _listeners[i].OnEventTriggered(dialogue);
+            if (DialogueContainer != null) {
+                _listeners[i].OnEventTriggered(dialogue);
+            }
+            else {
+                _listeners[i].OnEventTriggered(dialogue);
+            }
         }
     }
     public void AddListener(DialogueListener listener)
