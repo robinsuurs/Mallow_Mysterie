@@ -13,7 +13,13 @@ public class AnimationController : MonoBehaviour {
 
     private void Start() {
         _camera = FindObjectsOfType<Camera>(true).FirstOrDefault(cam => cam.name.Equals("CutSceneCamera"));
-        _playableDirector = GameObject.FindWithTag("AnimationImageShower").GetComponent<PlayableDirector>();
+        if ( GameObject.FindWithTag("AnimationImageShower") != null) {
+            _playableDirector = GameObject.FindWithTag("AnimationImageShower").GetComponent<PlayableDirector>();
+        }
+        else {
+            Debug.Log("Couldn't AnimationImageShower (Canvasses -> Cutscene is supposed to be on not off)");
+        }
+        
     }
 
     public void startAnimation() {
