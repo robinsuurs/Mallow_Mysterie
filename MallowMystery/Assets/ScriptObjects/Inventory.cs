@@ -17,9 +17,8 @@ namespace ScriptObjects
         }
         
         public void LoadData(GameData data) {
-            this.items = data.items;
             foreach (var item in data.inventory.items) {
-                foreach (var dataSave in data.ItemDataSaves.Where(dataSave => item.itemName.Equals(dataSave.itemName))) {
+                foreach (var dataSave in data.itemDataSaves.Where(dataSave => item.itemName.Equals(dataSave.itemName))) {
                     item.hasBeenPickedUp = dataSave.hasBeenPickedUp;
                     item.pickedUpNumber = dataSave.pickedUpNumber;
                     break;
@@ -28,10 +27,9 @@ namespace ScriptObjects
         }
 
         public void SaveData(ref GameData data) {
-            data.ItemDataSaves.Clear();
-            data.items = this.items;
+            data.itemDataSaves.Clear();
             foreach (var itemDataSave in data.inventory.items.Select(item => new ItemDataSave(item.itemName, item.hasBeenPickedUp, item.pickedUpNumber))) {
-                data.ItemDataSaves.Add(itemDataSave);
+                data.itemDataSaves.Add(itemDataSave);
             }
         }
     }

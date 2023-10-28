@@ -11,16 +11,17 @@ using UnityEngine.Serialization;
 [System.Serializable] 
 public class GameData {
     public List<ItemData> items;
-    public readonly List<ItemDataSave> ItemDataSaves = new List<ItemDataSave>();
+    public List<ItemDataSave> itemDataSaves = new List<ItemDataSave>();
     public List<string> alreadyHadConversations = new List<string>();
     public Inventory inventory;
     public string sceneName;
     public Vector3 playerLocation;
+    public ProgressionEnum.gameProgression gameProgression;
     
     //Set start thing when you create a newGame
     public GameData(string leaveEmpty) {
         this.items = new List<ItemData>();
-        var clueItems = Resources.LoadAll("Clues/Pickup clues", typeof(ItemData)).Cast<ItemData>().ToArray();
+        var clueItems = Resources.LoadAll("Clues/PickupClues", typeof(ItemData)).Cast<ItemData>().ToArray();
         if (clueItems.Count() != 0) {
             foreach (var item in clueItems) {
                 items.Add(item);
@@ -31,7 +32,7 @@ public class GameData {
 
         this.inventory = Resources.LoadAll("Clues/ClueInventory", typeof(Inventory))
             .Cast<Inventory>().FirstOrDefault(inventoryArray => inventoryArray.name.Equals("ClueInventory"));
-        this.inventory.newGame(this.items);
+        this.inventory.items = this.items;
         
         List<DialogueContainer> dialogueContainers = Resources.LoadAll<DialogueContainer>("Dialogues").ToList();
         foreach (var dialogue in dialogueContainers) {
@@ -40,5 +41,6 @@ public class GameData {
         
         sceneName = "DetectiveRoom";
         playerLocation = new Vector3(-0.5f, 0.3522396f, 0.2f);
+        gameProgression = ProgressionEnum.gameProgression.talkToDetectiveInOffice;
     }
 }
