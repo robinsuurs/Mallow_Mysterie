@@ -7,6 +7,6 @@ public class ProgressionEnum
     public enum gameProgression {
         start = 1,
         talkToDetectiveInOffice = 2,
-        toDetective = 3
+        toFriendsHouse = 3
     }
 }

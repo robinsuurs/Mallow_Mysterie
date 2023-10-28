@@ -11,7 +11,7 @@ using UnityEngine.Serialization;
 [System.Serializable] 
 public class GameData {
     public List<ItemData> items;
-    public readonly List<ItemDataSave> ItemDataSaves = new List<ItemDataSave>();
+    public List<ItemDataSave> itemDataSaves = new List<ItemDataSave>();
     public List<string> alreadyHadConversations = new List<string>();
     public Inventory inventory;
     public string sceneName;
