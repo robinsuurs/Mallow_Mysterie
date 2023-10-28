@@ -2,19 +2,26 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class UIHandler : MonoBehaviour {
-    [SerializeField] private GameObject settingsScreen;
+    [SerializeField] private SettingsScreenManager settingsScreenManager;
 
     private void Start() {
-        settingsScreen = GameObject.FindWithTag("CanvasManager").gameObject.transform.Find("SettingsScreen").gameObject;
+        settingsScreenManager = GameObject.FindWithTag("CanvasManager").gameObject.transform.Find("SettingsScreen").gameObject.GetComponent<SettingsScreenManager>();
     }
 
     void OnOpenSettings() {
-        settingsScreen.GetComponent<SettingsScreenManager>().showSettingsScreen("OpenSettings");
+        settingsScreenManager.showSettingsScreen("OpenSettings");
     }
 
     void OnOpenInventory() {
-        settingsScreen.GetComponent<SettingsScreenManager>().showSettingsScreen("Inventory");
+        settingsScreenManager.showSettingsScreen("Inventory");
+    }
+
+    void OnOpenMap() {
+        if (SceneManager.GetActiveScene().name.Equals("OverworldMap")) {
+            settingsScreenManager.showSettingsScreen("MapOverlay");   
+        }
     }
 }

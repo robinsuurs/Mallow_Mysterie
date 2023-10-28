@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using DefaultNamespace;
 using ScriptObjects;
 using TMPro;
 using Unity.VisualScripting;
