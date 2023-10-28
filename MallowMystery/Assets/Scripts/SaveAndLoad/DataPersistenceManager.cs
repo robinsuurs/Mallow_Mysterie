@@ -107,6 +107,14 @@ public class DataPersistenceManager : MonoBehaviour {
         return startFresh;
     }
 
+    public ProgressionEnum.gameProgression getProgession() {
+        return _gameData.gameProgression;
+    }
+
+    public void setProgression(ProgressionEnum.gameProgression progressionState) {
+        _gameData.gameProgression = progressionState;
+    }
+
     public void SaveGame () {
         if (this._gameData == null) {
             Debug.Log("No GameData found. A new Game needs to be created before being saved");
