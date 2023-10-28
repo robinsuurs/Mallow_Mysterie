@@ -13,12 +13,12 @@ public class ListOfSprites : MonoBehaviour
     public string spriteFolder = "CharacterImages";
 
     void OnValidate() {
-        string fullPath = $"{Application.dataPath}/Resources/CharacterImages/{spriteFolder}";
+        string fullPath = $"{Application.dataPath}/Resources/Sprites/{spriteFolder}";
         if (!System.IO.Directory.Exists(fullPath)) {            
             return;
         }
 
-        var folders = new string[]{$"Assets/Resources/CharacterImages/{spriteFolder}"};
+        var folders = new string[]{$"Assets/Resources/Sprites/{spriteFolder}"};
         var guids = AssetDatabase.FindAssets("t:Sprite", folders);
 
         var newSprites = new Sprite[guids.Length];
