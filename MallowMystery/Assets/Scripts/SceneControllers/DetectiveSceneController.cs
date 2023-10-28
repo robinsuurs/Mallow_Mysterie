@@ -12,7 +12,7 @@ public class DetectiveSceneController : MonoBehaviour {
         var progression = DataPersistenceManager.instance.getProgession();
         if (progression == ProgressionEnum.gameProgression.talkToDetectiveInOffice) {
             detectiveCharacter.GetComponent<DialogueSender>().setDialogueContainer
-                (Resources.LoadAll("Dialogues/Scene1 Dialogue", typeof(DialogueContainer)).Cast<DialogueContainer>().First());
+                (Resources.LoadAll("Dialogues/test1", typeof(DialogueContainer)).Cast<DialogueContainer>().First());
         }
     }
 }

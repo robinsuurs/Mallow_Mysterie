@@ -76,6 +76,9 @@ public class DialogueHandler : MonoBehaviour
         var currentNode = dialogue.DialogueNodeData.Find(x => x.nodeGuid == narrativeDataGUID);
         if (currentNode.dialogueText.Equals("") && currentNode.SpeakerSpriteLeft.Equals("") && currentNode.SpeakerSpriteRight.Equals("")) { //TODO BM: 15-10-2023 change this
             EndDialogue();
+        } else if (currentNode.canSkipFromThisPoint && !dialogue.alreadyHadConversation) {
+            choices = dialogue.NodeLinks.Where(x => x.BaseNodeGUID == narrativeDataGUID).ToList();
+            ProceedToNarrative(choices.First().TargetNodeGUID);
         } else {
             choices = dialogue.NodeLinks.Where(x => x.BaseNodeGUID == narrativeDataGUID).ToList();
             currentDialogue = ProcessProperties(currentNode.dialogueText);
