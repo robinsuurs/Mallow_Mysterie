@@ -18,7 +18,7 @@ public class ItemPopUpManager : MonoBehaviour {
     }
 
     private void Update() {
-        if ((Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.E)) && popUpShowing) {
+        if ((Input.GetMouseButtonDown(0)) && popUpShowing) {
             ItemPopUpScreen.SetActive(false);
             Time.timeScale = 1;
             popUpShowing = false;
