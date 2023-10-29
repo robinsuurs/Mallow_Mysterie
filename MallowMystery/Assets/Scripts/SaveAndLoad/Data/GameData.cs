@@ -10,7 +10,6 @@ using UnityEngine.Serialization;
 
 [System.Serializable] 
 public class GameData {
-    public List<ItemData> items;
     public List<ItemDataSave> itemDataSaves = new List<ItemDataSave>();
     public List<string> alreadyHadConversations = new List<string>();
     public Inventory inventory;
@@ -20,7 +19,7 @@ public class GameData {
     
     //Set start thing when you create a newGame
     public GameData(string leaveEmpty) {
-        this.items = new List<ItemData>();
+        List<ItemData> items = new List<ItemData>();
         var clueItems = Resources.LoadAll("Clues/PickupClues", typeof(ItemData)).Cast<ItemData>().ToArray();
         if (clueItems.Count() != 0) {
             foreach (var item in clueItems) {
@@ -32,7 +31,7 @@ public class GameData {
 
         this.inventory = Resources.LoadAll("Clues/ClueInventory", typeof(Inventory))
             .Cast<Inventory>().FirstOrDefault(inventoryArray => inventoryArray.name.Equals("ClueInventory"));
-        this.inventory.items = this.items;
+        this.inventory.items = items;
         
         List<DialogueContainer> dialogueContainers = Resources.LoadAll<DialogueContainer>("Dialogues").ToList();
         foreach (var dialogue in dialogueContainers) {

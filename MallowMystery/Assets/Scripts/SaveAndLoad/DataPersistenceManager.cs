@@ -103,10 +103,6 @@ public class DataPersistenceManager : MonoBehaviour {
         return _gameData.sceneName;
     }
 
-    public bool getStartFresh() { //TODO: BM remove after testing
-        return startFresh;
-    }
-
     public ProgressionEnum.gameProgression getProgession() {
         return _gameData.gameProgression;
     }
