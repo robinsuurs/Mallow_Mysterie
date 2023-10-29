@@ -12,10 +12,6 @@ namespace ScriptObjects
         [Tooltip("Description of the item")] 
         public string description;
         public bool hasBeenPickedUp = false;
-
-        public void Pickup(bool set)
-        {
-            hasBeenPickedUp = set;
-        }
+        public int pickedUpNumber;
     }
 }

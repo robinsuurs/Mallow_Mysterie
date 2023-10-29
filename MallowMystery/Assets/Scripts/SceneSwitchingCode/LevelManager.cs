@@ -23,7 +23,7 @@ public class LevelManager : ScriptableObject {
             }
         }
         else {
-            if (DataPersistenceManager.instance.getStartFresh() && !gameData.SceneName.Equals(SceneManager.GetActiveScene().name)) {
+            if (DataPersistenceManager.instance.getStartFresh() || !gameData.sceneName.Equals(SceneManager.GetActiveScene().name)) {
                 foreach (var spawn in GameObject.FindGameObjectsWithTag("SpawnLocation")
                              .Where(spawn => spawn.name.Equals("TestSpawn"))) {
                     Instantiate(playerPrefab, spawn.transform.position, quaternion.identity); //This is for Testing purposes
@@ -39,7 +39,7 @@ public class LevelManager : ScriptableObject {
     {
         Time.timeScale = 0;
         this.sceneSwitchData = sceneSwitchData;
-        
+        DataPersistenceManager.instance.SaveGame();
         SceneManager.LoadScene(sceneSwitchData.sceneName);
         Time.timeScale = 1;
     }

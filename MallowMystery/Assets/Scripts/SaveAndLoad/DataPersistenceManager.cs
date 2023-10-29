@@ -18,9 +18,6 @@ public class DataPersistenceManager : MonoBehaviour {
     [SerializeField] private GameEventStandardAdd gameEventStandardAdd;
     [SerializeField] private LevelManager _levelManager;
     
-    //TODO: Change this shit:
-    [SerializeField] private Inventory _inventory;
-    
     private GameData _gameData;
     private List<IDataPersistence> dataPersistences;
     private FileDataHandler dataHandler;
@@ -61,11 +58,13 @@ public class DataPersistenceManager : MonoBehaviour {
     }
 
     private void OnApplicationQuit() {
-        SaveGame();
+        if (!SceneManager.GetActiveScene().name.Equals("MainMenu")) {
+            SaveGame();
+        }
     }
 
     public void NewGame() {
-        this._gameData = new GameData(_inventory);
+        this._gameData = new GameData("");
     }
 
     private void LoadGame() {
@@ -86,6 +85,7 @@ public class DataPersistenceManager : MonoBehaviour {
         }
 
         if (!SceneManager.GetActiveScene().name.Equals("MainMenu")) {
+            GameObject.FindWithTag("CanvasManager").transform.Find("ShortcutImages").gameObject.SetActive(true);
             _levelManager.SpawnPlayer(_gameData);
             if (fromMainMenu) { //TODO BM: for testing purposes
                 GameObject.FindWithTag("Player").transform.position = _gameData.playerLocation;
@@ -96,14 +96,23 @@ public class DataPersistenceManager : MonoBehaviour {
 
     public void setFromMainMenu (bool fromMainMenu) {
         this.fromMainMenu = fromMainMenu;
+        this._levelManager.sceneSwitchData = null;
     }
 
     public string getSceneToLoadForMainMenu() {
-        return _gameData.SceneName;
+        return _gameData.sceneName;
     }
 
     public bool getStartFresh() { //TODO: BM remove after testing
         return startFresh;
+    }
+
+    public ProgressionEnum.gameProgression getProgession() {
+        return _gameData.gameProgression;
+    }
+
+    public void setProgression(ProgressionEnum.gameProgression progressionState) {
+        _gameData.gameProgression = progressionState;
     }
 
     public void SaveGame () {
@@ -118,7 +127,7 @@ public class DataPersistenceManager : MonoBehaviour {
         
         SaveDialogueStates();
 
-        _gameData.SceneName = SceneManager.GetActiveScene().name;
+        _gameData.sceneName = SceneManager.GetActiveScene().name;
         _gameData.playerLocation = GameObject.FindWithTag("Player").transform.position;
         
         dataHandler.Save(_gameData);

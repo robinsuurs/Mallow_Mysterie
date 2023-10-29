@@ -8,34 +8,39 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
 
-[System.Serializable]
+[System.Serializable] 
 public class GameData {
     public List<ItemData> items;
-    public Inventory Inventory;
-    public string SceneName;
-    public Vector3 playerLocation;
-    public List<DialogueNodeData> dialogues;
+    public List<ItemDataSave> itemDataSaves = new List<ItemDataSave>();
     public List<string> alreadyHadConversations = new List<string>();
-
+    public Inventory inventory;
+    public string sceneName;
+    public Vector3 playerLocation;
+    public ProgressionEnum.gameProgression gameProgression;
+    
     //Set start thing when you create a newGame
-    public GameData(Inventory inventory) {
+    public GameData(string leaveEmpty) {
         this.items = new List<ItemData>();
-        var clueItems = Resources.FindObjectsOfTypeAll<ScriptableObject>().OfType<ItemData>();
+        var clueItems = Resources.LoadAll("Clues/PickupClues", typeof(ItemData)).Cast<ItemData>().ToArray();
         if (clueItems.Count() != 0) {
             foreach (var item in clueItems) {
                 items.Add(item);
                 item.hasBeenPickedUp = false;
+                item.pickedUpNumber = 0;
             }
         }
+
+        this.inventory = Resources.LoadAll("Clues/ClueInventory", typeof(Inventory))
+            .Cast<Inventory>().FirstOrDefault(inventoryArray => inventoryArray.name.Equals("ClueInventory"));
+        this.inventory.items = this.items;
         
-        List<DialogueContainer> dialogueContainers = Resources.LoadAll<DialogueContainer>("").ToList();
+        List<DialogueContainer> dialogueContainers = Resources.LoadAll<DialogueContainer>("Dialogues").ToList();
         foreach (var dialogue in dialogueContainers) {
             dialogue.alreadyHadConversation = false;
         }
-
-        this.Inventory = inventory;
-
-        SceneName = "DetectiveRoom";
-        playerLocation = new Vector3(-0.5f, 0.5f, 0.2f);
+        
+        sceneName = "DetectiveRoom";
+        playerLocation = new Vector3(-0.5f, 0.3522396f, 0.2f);
+        gameProgression = ProgressionEnum.gameProgression.talkToDetectiveInOffice;
     }
 }
