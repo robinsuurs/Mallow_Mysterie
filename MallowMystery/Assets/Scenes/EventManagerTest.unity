@@ -1761,6 +1761,12 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &290877616 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5117355762359804816, guid: a2e6b720ebdc656418c6866afcdbe1d2,
+    type: 3}
+  m_PrefabInstance: {fileID: 1147602856}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &303450510 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1390655035737179678, guid: a2e6b720ebdc656418c6866afcdbe1d2,
@@ -2798,6 +2804,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvasses
       objectReference: {fileID: 0}
+    - target: {fileID: 1390655035737179678, guid: a2e6b720ebdc656418c6866afcdbe1d2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3720114486370651064, guid: a2e6b720ebdc656418c6866afcdbe1d2,
+        type: 3}
+      propertyPath: m_InitialState
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3720114486370651064, guid: a2e6b720ebdc656418c6866afcdbe1d2,
+        type: 3}
+      propertyPath: m_DirectorUpdateMode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3720114486370651064, guid: a2e6b720ebdc656418c6866afcdbe1d2,
+        type: 3}
+      propertyPath: m_SceneBindings.Array.data[0].value
+      value: 
+      objectReference: {fileID: 290877616}
     - target: {fileID: 3720114486370651064, guid: a2e6b720ebdc656418c6866afcdbe1d2,
         type: 3}
       propertyPath: m_SceneBindings.Array.data[1].value
