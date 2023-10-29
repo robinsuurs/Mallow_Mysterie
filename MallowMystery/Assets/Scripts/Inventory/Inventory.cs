@@ -7,10 +7,6 @@ namespace ScriptObjects
 {
     [CreateAssetMenu]
     public class Inventory : ListOfStuff<ItemData>, IDataPersistence {
-
-        public void newGame(List<ItemData> items) {
-            this.items = items;
-        }
         
         public int pickedUpItemNumber() {
             return this.items.Count(item => item.hasBeenPickedUp);
