@@ -11,9 +11,9 @@ public class InventoryScreen : MonoBehaviour {
     [SerializeField] private List<GameObject> inventoryPlaceholders;
 
     public void setInventoryItems() {
-        List<ItemData> itemDatas = Resources.LoadAll("Clues/ClueInventory", typeof(Inventory))
-            .Cast<Inventory>().FirstOrDefault(inventoryArray => inventoryArray.name.Equals("ClueInventory")).items;
-        List<ItemData> pickedUpItems = itemDatas.Where(itemData => itemData.hasBeenPickedUp).OrderBy(data => data.pickedUpNumber).ToList();
+        List<ItemData> pickedUpItems = Resources.LoadAll("Clues/ClueInventory", typeof(Inventory))
+            .Cast<Inventory>().FirstOrDefault(inventoryArray => inventoryArray.name.Equals("ClueInventory"))
+            ?.items.Where(itemData => itemData.hasBeenPickedUp).OrderBy(data => data.pickedUpNumber).ToList();
         for (int i = 0; i < pickedUpItems.Count; i++) {
             // inventoryPlaceholders[i].
             inventoryPlaceholders[i].transform.Find("ItemImage").gameObject.GetComponent<Image>().sprite =

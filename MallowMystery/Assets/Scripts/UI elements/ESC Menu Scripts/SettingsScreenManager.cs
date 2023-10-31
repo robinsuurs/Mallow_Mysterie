@@ -1,19 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SettingsScreenManager : MonoBehaviour
 {
     private GameObject currentShownGameObject;
     
     public void showSettingsScreen(string gameObjectShown) {
-        if (this.gameObject.activeSelf && gameObjectShown.Equals("OpenSettings")) {
+        if (this.gameObject.activeSelf && (gameObjectShown.Equals("OpenSettings") || currentShownGameObject.name.Equals(gameObjectShown))) {
             currentShownGameObject.SetActive(false);
             currentShownGameObject = null;
             this.gameObject.SetActive(false);
             Time.timeScale = 1;
-        }
-        else {
+        } else if (gameObjectShown.Equals("OverworldMap") && !SceneManager.GetActiveScene().name.Equals(gameObjectShown)) {
+            
+        } else {
             if (!this.gameObject.activeSelf) {
                 this.gameObject.SetActive(true);
             }

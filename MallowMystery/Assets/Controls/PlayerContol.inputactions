@@ -33,6 +33,33 @@
                     "initialStateCheck": false
                 },
                 {
+                    "name": "OpenInventory",
+                    "type": "Button",
+                    "id": "d171cf6f-6385-4bce-a6be-4739855f12e1",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "OpenSettings",
+                    "type": "Button",
+                    "id": "fa01d350-ceb0-4f33-abf8-3a8092368c6e",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "OpenMap",
+                    "type": "Button",
+                    "id": "e4f1fa98-5d11-425d-b948-08af892098c7",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "ResetLocation",
                     "type": "Button",
                     "id": "01e3f872-592f-4bb3-9808-78386a57456c",
@@ -117,24 +144,6 @@
                     "name": "WalkRight",
                     "type": "Button",
                     "id": "1e23f042-8f6a-4d68-b205-3c1d192c0424",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "OpenSettings",
-                    "type": "Button",
-                    "id": "fa01d350-ceb0-4f33-abf8-3a8092368c6e",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "OpenInventory",
-                    "type": "Button",
-                    "id": "d171cf6f-6385-4bce-a6be-4739855f12e1",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -359,6 +368,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "OpenInventory",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b6225af9-843b-409c-9452-86dfeda86858",
+                    "path": "<Keyboard>/m",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "OpenMap",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

@@ -4,22 +4,32 @@ using UnityEngine.InputSystem;
 public class PlayerControl : MonoBehaviour
 {
     
-    private Rigidbody _rigidbody;
+    private Rigidbody rb;
     private Vector2 _movement;
     [SerializeField] private float speed = 10;
     private int walkDegrees = -45;
+    public float maxVelocityChange = 10f;
     
     // Start is called before the first frame update
     void Start()
     {
-        _rigidbody = GetComponent<Rigidbody>();
+        rb = GetComponent<Rigidbody>();
         mainCam = GameObject.FindWithTag("MainCamera").gameObject;
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        transform.Translate(new Vector3(_movement.x,0,_movement.y)* (speed*Time.deltaTime));
+        Vector3 targetVelocity = new Vector3(_movement.x, 0, _movement.y);
+        targetVelocity = transform.TransformDirection(targetVelocity) * speed;
+        
+        Vector3 velocity = rb.velocity;
+        Vector3 velocityChange = (targetVelocity - velocity);
+        velocityChange.x = Mathf.Clamp(velocityChange.x, -maxVelocityChange, maxVelocityChange);
+        velocityChange.z = Mathf.Clamp(velocityChange.z, -maxVelocityChange, maxVelocityChange);
+        velocityChange.y = 0;
+
+        rb.AddForce(velocityChange, ForceMode.VelocityChange);
     }
 
     void OnMove(InputValue inputValue)

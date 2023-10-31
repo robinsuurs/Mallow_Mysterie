@@ -17,7 +17,7 @@ public class AnimationController : MonoBehaviour {
             _playableDirector = GameObject.FindWithTag("AnimationImageShower").GetComponent<PlayableDirector>();
         }
         else {
-            Debug.Log("Couldn't AnimationImageShower (Canvasses -> Cutscene is supposed to be on not off)");
+            Debug.Log("Couldn't find AnimationImageShower (Canvasses -> Cutscene is supposed to be on not off)");
         }
         
     }
