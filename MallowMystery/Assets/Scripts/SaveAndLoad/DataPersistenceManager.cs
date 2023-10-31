@@ -88,10 +88,6 @@ public class DataPersistenceManager : MonoBehaviour {
         if (!SceneManager.GetActiveScene().name.Equals("MainMenu")) {
             GameObject.FindWithTag("CanvasManager").transform.Find("ShortcutImages").gameObject.SetActive(true);
             _levelManager.SpawnPlayer(_gameData);
-            // if (fromMainMenu) { //TODO BM: for testing purposes
-            //     GameObject.FindWithTag("Player").transform.position = _gameData.playerLocation;
-            //     fromMainMenu = false;
-            // }
         }
     }
 
