@@ -10,9 +10,14 @@ public class DetectiveSceneController : MonoBehaviour {
     [SerializeField] private GameObject detectiveCharacter;
     private void Start() {
         var progression = DataPersistenceManager.instance.getProgession();
-        if (progression == ProgressionEnum.gameProgression.talkToDetectiveInOffice) {
-            detectiveCharacter.GetComponent<DialogueSender>().setDialogueContainer
-                (Resources.LoadAll("Dialogues/test1", typeof(DialogueContainer)).Cast<DialogueContainer>().First());
+        switch (progression) {
+            case ProgressionEnum.gameProgression.talkToDetectiveInOffice:
+                detectiveCharacter.GetComponent<DialogueSender>().setDialogueContainer
+                    (Resources.LoadAll("Dialogues/test1", typeof(DialogueContainer)).Cast<DialogueContainer>().First());
+                break;
+            case ProgressionEnum.gameProgression.toFriendsHouse:
+                detectiveCharacter.SetActive(false);
+                break;
         }
     }
 }

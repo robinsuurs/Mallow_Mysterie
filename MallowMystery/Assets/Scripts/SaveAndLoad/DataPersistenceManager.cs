@@ -107,10 +107,6 @@ public class DataPersistenceManager : MonoBehaviour {
         return _gameData.gameProgression;
     }
 
-    public void setProgression(ProgressionEnum.gameProgression progressionState) {
-        _gameData.gameProgression = progressionState;
-    }
-
     public void SaveGame () {
         if (this._gameData == null) {
             Debug.Log("No GameData found. A new Game needs to be created before being saved");
@@ -151,5 +147,19 @@ public class DataPersistenceManager : MonoBehaviour {
 
     public void resetToStandardValues() {
         _levelManager.sceneSwitchData = null;
+    }
+    
+    public void setGameState(string gamestate) {
+        switch (gamestate) {
+            case "start" :
+                _gameData.gameProgression = ProgressionEnum.gameProgression.start;
+                break;
+            case "talkToDetectiveInOffice" :
+                _gameData.gameProgression = ProgressionEnum.gameProgression.talkToDetectiveInOffice;
+                break;
+            case "toFriendsHouse" :
+                _gameData.gameProgression = ProgressionEnum.gameProgression.toFriendsHouse;
+                break;
+        }
     }
 }
