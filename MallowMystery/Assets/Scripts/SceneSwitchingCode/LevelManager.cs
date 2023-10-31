@@ -12,6 +12,7 @@ using UnityEngine.Serialization;
 public class LevelManager : ScriptableObject {
     public SceneSwitchData sceneSwitchData;
     [SerializeField] private GameObject playerPrefab;
+    
 
     public void SpawnPlayer(GameData gameData) {
         bool spawnedPlayer = false;
@@ -32,7 +33,6 @@ public class LevelManager : ScriptableObject {
                         break;
                     }
                 }
-                
             } else {
                 Instantiate(playerPrefab, gameData.playerLocation, quaternion.identity);
                 spawnedPlayer = true;
