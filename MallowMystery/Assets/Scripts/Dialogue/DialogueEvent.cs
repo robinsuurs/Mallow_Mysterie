@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Dialogue.RunTime;
 using Subtegral.DialogueSystem.DataContainers;
 using UnityEngine;
 

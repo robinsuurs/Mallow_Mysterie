@@ -1,12 +1,9 @@
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using Dialogue.Runtime;
+using Dialogue.RunTime;
 using ScriptObjects;
 using Subtegral.DialogueSystem.DataContainers;
 using UnityEngine;
-using UnityEngine.SceneManagement;
-using UnityEngine.Serialization;
 
 [System.Serializable] 
 public class GameData {
