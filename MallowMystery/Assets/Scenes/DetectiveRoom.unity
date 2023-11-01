@@ -579,6 +579,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &998799703 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 78353326072956506, guid: a2e6b720ebdc656418c6866afcdbe1d2,
+    type: 3}
+  m_PrefabInstance: {fileID: 4285760735795300762}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1061314351
 GameObject:
   m_ObjectHideFlags: 0
@@ -1273,6 +1279,11 @@ PrefabInstance:
       objectReference: {fileID: 1530947808}
     - target: {fileID: 6699632568914510753, guid: 7e3d1715ac86d7742a17f98d1c85a340,
         type: 3}
+      propertyPath: DialogueImage
+      value: 
+      objectReference: {fileID: 998799703}
+    - target: {fileID: 6699632568914510753, guid: 7e3d1715ac86d7742a17f98d1c85a340,
+        type: 3}
       propertyPath: buttonContainer
       value: 
       objectReference: {fileID: 494176138}
@@ -1961,6 +1972,16 @@ PrefabInstance:
       propertyPath: m_SceneBindings.Array.data[1].value
       value: 
       objectReference: {fileID: 71300332}
+    - target: {fileID: 4167240278752862005, guid: a2e6b720ebdc656418c6866afcdbe1d2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5313709341985542350, guid: a2e6b720ebdc656418c6866afcdbe1d2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8199445453085926920, guid: a2e6b720ebdc656418c6866afcdbe1d2,
         type: 3}
       propertyPath: m_LocalPosition.x

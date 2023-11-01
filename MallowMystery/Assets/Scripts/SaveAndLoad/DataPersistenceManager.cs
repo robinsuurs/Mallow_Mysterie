@@ -77,6 +77,8 @@ public class DataPersistenceManager : MonoBehaviour {
             NewGame();
         }
         else {
+            _gameData.inventory = Resources.LoadAll("Clues/ClueInventory", typeof(Inventory))
+                .Cast<Inventory>().FirstOrDefault(inventoryArray => inventoryArray.name.Equals("ClueInventory"));
             foreach (IDataPersistence dataPersistenceObj in dataPersistences) {
                 dataPersistenceObj.LoadData(_gameData);
             }

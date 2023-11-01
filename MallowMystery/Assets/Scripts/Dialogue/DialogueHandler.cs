@@ -16,6 +16,9 @@ public class DialogueHandler : MonoBehaviour
     [SerializeField] private TextMeshProUGUI DialogueBoxUI;
     [SerializeField] private TextMeshProUGUI SpeakerNameBoxLeft;
     [SerializeField] private TextMeshProUGUI SpeakerNameBoxRight;
+    [SerializeField] private Sprite DialogueLeft;
+    [SerializeField] private Sprite DialogueRight;
+    [SerializeField] private GameObject DialogueImage;
     private DialogueContainer dialogue;
     [SerializeField] private Button ChoicesButton;
     [SerializeField] private Transform buttonContainer;
@@ -95,9 +98,11 @@ public class DialogueHandler : MonoBehaviour
             if (currentNode.SpeakerNameLocation.Equals("Speaker Name Left")) {
                 SpeakerNameBoxLeft.text = currentNode.SpeakerName;
                 SpeakerNameBoxRight.text = "";
+                DialogueImage.GetComponent<Image>().sprite = DialogueLeft;
             } else {
                 SpeakerNameBoxRight.text = currentNode.SpeakerName;
                 SpeakerNameBoxLeft.text = "";
+                DialogueImage.GetComponent<Image>().sprite = DialogueRight;
             }
     
             if (choices.Count() is 1 or 0 || (choices.Count() >= 2 && !CanSkip(currentNode, choices))) {
