@@ -165,6 +165,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbdd6fd6a1f3ade488d72b4908f4d02b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _dialogueContainer: {fileID: 11400000, guid: 0167c04129a7216468e93553c8293b2b, type: 2}
 --- !u!1001 &376828290
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -516,11 +517,6 @@ PrefabInstance:
     - target: {fileID: 950788863271735146, guid: 90da51a3f4e823048af2b52f7fce6253,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1967956138881784765, guid: 90da51a3f4e823048af2b52f7fce6253,
-        type: 3}
-      propertyPath: startFresh
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4117460809587361749, guid: 90da51a3f4e823048af2b52f7fce6253,
@@ -1279,6 +1275,12 @@ PrefabInstance:
       objectReference: {fileID: 927309206}
     - target: {fileID: 6699632568914510753, guid: 7e3d1715ac86d7742a17f98d1c85a340,
         type: 3}
+      propertyPath: DialogueLeft
+      value: 
+      objectReference: {fileID: 21300000, guid: d22b264705cccfe40b5eeb9bc9d3fb13,
+        type: 3}
+    - target: {fileID: 6699632568914510753, guid: 7e3d1715ac86d7742a17f98d1c85a340,
+        type: 3}
       propertyPath: DialogueBoxUI
       value: 
       objectReference: {fileID: 1530947808}
@@ -1287,6 +1289,12 @@ PrefabInstance:
       propertyPath: DialogueImage
       value: 
       objectReference: {fileID: 998799703}
+    - target: {fileID: 6699632568914510753, guid: 7e3d1715ac86d7742a17f98d1c85a340,
+        type: 3}
+      propertyPath: DialogueRight
+      value: 
+      objectReference: {fileID: 21300000, guid: be0333a758701d14d9f50b51101b5e3a,
+        type: 3}
     - target: {fileID: 6699632568914510753, guid: 7e3d1715ac86d7742a17f98d1c85a340,
         type: 3}
       propertyPath: buttonContainer
@@ -1977,16 +1985,6 @@ PrefabInstance:
       propertyPath: m_SceneBindings.Array.data[1].value
       value: 
       objectReference: {fileID: 71300332}
-    - target: {fileID: 4167240278752862005, guid: a2e6b720ebdc656418c6866afcdbe1d2,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5313709341985542350, guid: a2e6b720ebdc656418c6866afcdbe1d2,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8199445453085926920, guid: a2e6b720ebdc656418c6866afcdbe1d2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2533,13 +2531,18 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1296835060455999675, guid: 5754bd3e240ff4c49a88ff51dd33a6d9,
         type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1296835060455999675, guid: 5754bd3e240ff4c49a88ff51dd33a6d9,
+        type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.434166
       objectReference: {fileID: 0}
     - target: {fileID: 1296835060455999675, guid: 5754bd3e240ff4c49a88ff51dd33a6d9,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -7.911604
+      value: -7.76
       objectReference: {fileID: 0}
     - target: {fileID: 1296835060455999675, guid: 5754bd3e240ff4c49a88ff51dd33a6d9,
         type: 3}
@@ -2591,7 +2594,13 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 7001133569070313237, guid: 5754bd3e240ff4c49a88ff51dd33a6d9,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 7001133569070313237, guid: 5754bd3e240ff4c49a88ff51dd33a6d9, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -2688,7 +2697,7 @@ PrefabInstance:
     - target: {fileID: 3220407328100908031, guid: 299a707558f4bd34face1dfe16a9ecdb,
         type: 3}
       propertyPath: response.m_PersistentCalls.m_Calls.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3220407328100908031, guid: 299a707558f4bd34face1dfe16a9ecdb,
         type: 3}
