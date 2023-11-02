@@ -5,7 +5,7 @@ using Subtegral.DialogueSystem.DataContainers;
 using UnityEngine;
 
 public class DialogueSender : MonoBehaviour {
-    private DialogueContainer _dialogueContainer;
+    [SerializeField] private DialogueContainer _dialogueContainer;
     public void sendDialogue() {
         if (_dialogueContainer != null) {
             GameObject.Find("DialogueHandlerObject").transform.GetComponent<DialogueHandler>().StartDialogue(_dialogueContainer);

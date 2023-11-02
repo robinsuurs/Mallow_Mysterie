@@ -50,6 +50,12 @@ public class DataPersistenceManager : MonoBehaviour {
     private void OnSceneLoaded (Scene scene, LoadSceneMode mode) {
         this.dataPersistences = FindAllDataPersistenceObjects();
         LoadGame();
+        if (!SceneManager.GetActiveScene().name.Equals("MainMenu")) {
+            Camera.main.gameObject.GetComponent<Follow_Player>().setFollowPlayer(); //TODO BM: change this, this is not how it is supposed to work
+            if (SceneManager.GetActiveScene().name.Equals("OverworldMap")) {
+                GameObject.FindWithTag("Player").GetComponent<PlayerControl>().setDegrees();
+            }
+        }
     }
 
     private List<IDataPersistence> FindAllDataPersistenceObjects() {
