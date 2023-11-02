@@ -5,6 +5,7 @@ Shader "Unlit/SeeThrough"
     Properties
     {
         _BaseColor("Color", Color) = (1,1,1,1)
+        _SeeThroughCenter("See through position", Vector) = (0,0,0)
 //       [MainTexture] _BaseMap("Base Map", 2D) = "white"
     }
 
@@ -50,6 +51,7 @@ Shader "Unlit/SeeThrough"
             
              CBUFFER_START(UnityPerMaterial)
                 float4 _BaseColor;
+                float4 _SeeThroughCenter;
              CBUFFER_END
             
             // The vertex shader definition with properties defined in the Varyings
@@ -73,7 +75,8 @@ Shader "Unlit/SeeThrough"
             // The fragment shader definition.
             float4 frag(Varyings IN) : SV_Target
             {
-                float4 circle =length(IN.uv)-.3;
+                float2 circlePos = IN.uv*_SeeThroughCenter;
+                float4 circle =length(circlePos)-.3;
                 return step(0,circle);
                 float4 color = _BaseColor;
                 return circle;

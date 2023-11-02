@@ -26,14 +26,13 @@ public class SeeThrough : MonoBehaviour
         if (Physics.Linecast(transform.position, targetObject.position, out RaycastHit hitInfo,layerMask))
         {
             
-            var materials = targetObject.transform.GetComponent<Renderer>().materials;
-
-            for(int j = 0; j < materials.Length; j++)
-            {
-                materials[j].SetVector("_CutoutPos", hitInfo.textureCoord);
-                materials[j].SetFloat("_CutoutSize", 0.1f);
-                materials[j].SetFloat("_FalloffSize", 0.05f);
-            }
+            var material = hitInfo.transform.GetComponent<Renderer>().material;
+      
+            
+            material.SetVector("_CutoutPos", hitInfo.point);
+            material.SetFloat("_CoutoutSize", 0.1f);
+            material.SetFloat("_FalloffSize", 0.05f);
+            
         } 
     }
 }
