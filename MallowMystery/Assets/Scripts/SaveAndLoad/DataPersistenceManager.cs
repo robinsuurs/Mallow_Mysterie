@@ -99,8 +99,7 @@ public class DataPersistenceManager : MonoBehaviour {
         }
     }
 
-    public void setFromMainMenu (bool fromMainMenu) {
-        this.fromMainMenu = fromMainMenu;
+    public void setFromMainMenu () {
         this._levelManager.sceneSwitchData = null;
     }
 

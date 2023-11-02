@@ -16,7 +16,7 @@ public class MainScreen : MonoBehaviour {
     }
 
     public void loadGame() {
-        DataPersistenceManager.instance.setFromMainMenu(true);
+        DataPersistenceManager.instance.setFromMainMenu();
         SceneManager.LoadSceneAsync(DataPersistenceManager.instance.getSceneToLoadForMainMenu());
         Time.timeScale = 1;
     }
