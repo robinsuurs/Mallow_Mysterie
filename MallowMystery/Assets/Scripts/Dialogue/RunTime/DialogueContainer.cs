@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using Dialogue.Runtime;
+using Subtegral.DialogueSystem.DataContainers;
 using UnityEngine;
-using UnityEngine.Serialization;
 
-namespace Subtegral.DialogueSystem.DataContainers
+namespace Dialogue.RunTime
 {
     [Serializable]
     public class DialogueContainer : ScriptableObject

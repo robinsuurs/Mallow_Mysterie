@@ -1,16 +1,12 @@
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using Dialogue.Runtime;
+using Dialogue.RunTime;
 using ScriptObjects;
 using Subtegral.DialogueSystem.DataContainers;
 using UnityEngine;
-using UnityEngine.SceneManagement;
-using UnityEngine.Serialization;
 
 [System.Serializable] 
 public class GameData {
-    public List<ItemData> items;
     public List<ItemDataSave> itemDataSaves = new List<ItemDataSave>();
     public List<string> alreadyHadConversations = new List<string>();
     public Inventory inventory;
@@ -20,19 +16,14 @@ public class GameData {
     
     //Set start thing when you create a newGame
     public GameData(string leaveEmpty) {
-        this.items = new List<ItemData>();
-        var clueItems = Resources.LoadAll("Clues/PickupClues", typeof(ItemData)).Cast<ItemData>().ToArray();
-        if (clueItems.Count() != 0) {
-            foreach (var item in clueItems) {
-                items.Add(item);
-                item.hasBeenPickedUp = false;
-                item.pickedUpNumber = 0;
-            }
-        }
 
         this.inventory = Resources.LoadAll("Clues/ClueInventory", typeof(Inventory))
             .Cast<Inventory>().FirstOrDefault(inventoryArray => inventoryArray.name.Equals("ClueInventory"));
-        this.inventory.items = this.items;
+        
+        foreach (var item in inventory.items) {
+            item.hasBeenPickedUp = false;
+            item.pickedUpNumber = 0;
+        }
         
         List<DialogueContainer> dialogueContainers = Resources.LoadAll<DialogueContainer>("Dialogues").ToList();
         foreach (var dialogue in dialogueContainers) {

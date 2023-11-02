@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 using Dialogue.Runtime;
+using Dialogue.RunTime;
 using ScriptObjects;
 using Subtegral.DialogueSystem.DataContainers;
 using UnityEngine.SceneManagement;
@@ -76,6 +77,8 @@ public class DataPersistenceManager : MonoBehaviour {
             NewGame();
         }
         else {
+            _gameData.inventory = Resources.LoadAll("Clues/ClueInventory", typeof(Inventory))
+                .Cast<Inventory>().FirstOrDefault(inventoryArray => inventoryArray.name.Equals("ClueInventory"));
             foreach (IDataPersistence dataPersistenceObj in dataPersistences) {
                 dataPersistenceObj.LoadData(_gameData);
             }
@@ -87,10 +90,6 @@ public class DataPersistenceManager : MonoBehaviour {
         if (!SceneManager.GetActiveScene().name.Equals("MainMenu")) {
             GameObject.FindWithTag("CanvasManager").transform.Find("ShortcutImages").gameObject.SetActive(true);
             _levelManager.SpawnPlayer(_gameData);
-            if (fromMainMenu) { //TODO BM: for testing purposes
-                GameObject.FindWithTag("Player").transform.position = _gameData.playerLocation;
-                fromMainMenu = false;
-            }
         }
     }
 
@@ -103,16 +102,8 @@ public class DataPersistenceManager : MonoBehaviour {
         return _gameData.sceneName;
     }
 
-    public bool getStartFresh() { //TODO: BM remove after testing
-        return startFresh;
-    }
-
     public ProgressionEnum.gameProgression getProgession() {
         return _gameData.gameProgression;
-    }
-
-    public void setProgression(ProgressionEnum.gameProgression progressionState) {
-        _gameData.gameProgression = progressionState;
     }
 
     public void SaveGame () {
@@ -155,5 +146,19 @@ public class DataPersistenceManager : MonoBehaviour {
 
     public void resetToStandardValues() {
         _levelManager.sceneSwitchData = null;
+    }
+    
+    public void setGameState(string gamestate) {
+        switch (gamestate) {
+            case "start" :
+                _gameData.gameProgression = ProgressionEnum.gameProgression.start;
+                break;
+            case "talkToDetectiveInOffice" :
+                _gameData.gameProgression = ProgressionEnum.gameProgression.talkToDetectiveInOffice;
+                break;
+            case "toFriendsHouse" :
+                _gameData.gameProgression = ProgressionEnum.gameProgression.toFriendsHouse;
+                break;
+        }
     }
 }

@@ -16,6 +16,9 @@ public class DialogueHandler : MonoBehaviour
     [SerializeField] private TextMeshProUGUI DialogueBoxUI;
     [SerializeField] private TextMeshProUGUI SpeakerNameBoxLeft;
     [SerializeField] private TextMeshProUGUI SpeakerNameBoxRight;
+    [SerializeField] private Sprite DialogueLeft;
+    [SerializeField] private Sprite DialogueRight;
+    [SerializeField] private GameObject DialogueImage;
     private DialogueContainer dialogue;
     [SerializeField] private Button ChoicesButton;
     [SerializeField] private Transform buttonContainer;
@@ -76,6 +79,9 @@ public class DialogueHandler : MonoBehaviour
         var currentNode = dialogue.DialogueNodeData.Find(x => x.nodeGuid == narrativeDataGUID);
         if (currentNode.dialogueText.Equals("") && currentNode.SpeakerSpriteLeft.Equals("") && currentNode.SpeakerSpriteRight.Equals("")) { //TODO BM: 15-10-2023 change this
             EndDialogue();
+        } else if (currentNode.canSkipFromThisPoint && !dialogue.alreadyHadConversation) {
+            choices = dialogue.NodeLinks.Where(x => x.BaseNodeGUID == narrativeDataGUID).ToList();
+            ProceedToNarrative(choices.First().TargetNodeGUID);
         } else {
             choices = dialogue.NodeLinks.Where(x => x.BaseNodeGUID == narrativeDataGUID).ToList();
             currentDialogue = ProcessProperties(currentNode.dialogueText);
@@ -92,9 +98,11 @@ public class DialogueHandler : MonoBehaviour
             if (currentNode.SpeakerNameLocation.Equals("Speaker Name Left")) {
                 SpeakerNameBoxLeft.text = currentNode.SpeakerName;
                 SpeakerNameBoxRight.text = "";
+                DialogueImage.GetComponent<Image>().sprite = DialogueLeft;
             } else {
                 SpeakerNameBoxRight.text = currentNode.SpeakerName;
                 SpeakerNameBoxLeft.text = "";
+                DialogueImage.GetComponent<Image>().sprite = DialogueRight;
             }
     
             if (choices.Count() is 1 or 0 || (choices.Count() >= 2 && !CanSkip(currentNode, choices))) {

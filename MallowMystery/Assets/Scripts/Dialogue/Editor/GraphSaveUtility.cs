@@ -3,6 +3,7 @@ using System.Linq;
 using Dialogue.Editor.Graph;
 using Dialogue.Editor.Nodes;
 using Dialogue.Runtime;
+using Dialogue.RunTime;
 using UnityEditor;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
