@@ -20,7 +20,6 @@ public class MainMenu : MonoBehaviour {
     }
 
     public void OnNewGameClicked() {
-        Debug.Log("Opening scene");
         DisableMenuButtons();
         DataPersistenceManager.instance.NewGame();
         SceneManager.LoadSceneAsync(DataPersistenceManager.instance.getSceneToLoadForMainMenu());
@@ -28,8 +27,7 @@ public class MainMenu : MonoBehaviour {
     
     public void OnContinueClicked() {
         DisableMenuButtons();
-        // DataPersistenceManager.instance.SaveGame();
-        DataPersistenceManager.instance.setFromMainMenu(true);
+        DataPersistenceManager.instance.setFromMainMenu();
         SceneManager.LoadSceneAsync(DataPersistenceManager.instance.getSceneToLoadForMainMenu());
     }
 

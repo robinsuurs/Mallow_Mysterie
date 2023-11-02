@@ -7,7 +7,8 @@ public class PlayerControl : MonoBehaviour
     private Rigidbody rb;
     private Vector2 _movement;
     [SerializeField] private float speed = 10;
-    private int walkDegrees = -45;
+    [SerializeField] private int walkDegrees = -45;
+    [SerializeField] private bool overworldWalking;
     public float maxVelocityChange = 10f;
     
     // Start is called before the first frame update
@@ -30,6 +31,10 @@ public class PlayerControl : MonoBehaviour
         velocityChange.y = 0;
 
         rb.AddForce(velocityChange, ForceMode.VelocityChange);
+    }
+
+    public void setDegrees() {
+        walkDegrees = -5;
     }
 
     void OnMove(InputValue inputValue)
@@ -82,6 +87,10 @@ public class PlayerControl : MonoBehaviour
         void OnCamera6() {
             mainCam.transform.position = new Vector3(-120, 121, -70);
             mainCam.transform.eulerAngles = new Vector3(40, 60, 0);
+        }
+
+        public void OnOverworldWaking(InputValue inputValue) {
+            walkDegrees = -5;
         }
     
         public void OnWalkLeft(InputValue inputValue) {

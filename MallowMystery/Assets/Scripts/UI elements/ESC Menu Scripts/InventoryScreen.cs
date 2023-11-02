@@ -42,8 +42,9 @@ public class InventoryScreen : MonoBehaviour {
             if (i + pageNumber * 6 < pickedUpItems.Count) {
                 inventoryPlaceholders[i].transform.Find("Image").gameObject.GetComponent<Image>().sprite = pickedUpItems[i + pageNumber * 6].icon;
                 inventoryPlaceholders[i].transform.Find("ItemName").gameObject.GetComponent<TextMeshProUGUI>().text = pickedUpItems[i + pageNumber * 6].itemName;
+                inventoryPlaceholders[i].GetComponent<Button>().enabled = true;
             } else {
-                break;
+                inventoryPlaceholders[i].GetComponent<Button>().enabled = false;
             }
         }
     }
