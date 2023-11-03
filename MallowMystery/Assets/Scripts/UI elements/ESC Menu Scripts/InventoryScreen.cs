@@ -15,8 +15,8 @@ public class InventoryScreen : MonoBehaviour {
     [SerializeField] private List<GameObject> inventoryPlaceholders;
     [SerializeField] private GameObject selectedImageLoc;
 
-    public void setInventoryItems() {
-        pageNumber = 0;
+    public void setInventoryItems(int pageNumber) {
+        this.pageNumber = pageNumber;
         pickedUpItems = Resources.LoadAll("Clues/ClueInventory", typeof(Inventory))
             .Cast<Inventory>().FirstOrDefault(inventoryArray => inventoryArray.name.Equals("ClueInventory"))
             ?.items.Where(itemData => itemData.hasBeenPickedUp).OrderBy(data => data.pickedUpNumber).ToList();
@@ -53,5 +53,10 @@ public class InventoryScreen : MonoBehaviour {
         selectedImageLoc.transform.Find("ItemImage").GetComponent<Image>().sprite = pickedUpItems[clickedItemNumber + pageNumber * 6].icon;
         selectedImageLoc.transform.Find("ItemName").GetComponent<TextMeshProUGUI>().text = pickedUpItems[clickedItemNumber + pageNumber * 6].itemName;
         selectedImageLoc.transform.Find("ItemLocationFound").GetComponent<TextMeshProUGUI>().text = pickedUpItems[clickedItemNumber + pageNumber * 6].description;
+    }
+
+    public void newItemPickUp(ItemData pickedUpItem) {
+        setInventoryItems(pickedUpItem.pickedUpNumber / 6);
+        itemCloseUp(pickedUpItem.pickedUpNumber - 1);
     }
 }

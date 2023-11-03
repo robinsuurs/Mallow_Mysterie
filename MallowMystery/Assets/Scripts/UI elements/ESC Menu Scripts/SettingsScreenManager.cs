@@ -29,7 +29,7 @@ public class SettingsScreenManager : MonoBehaviour
             this.currentShownGameObject = this.gameObject.transform.Find("MenuContainer").transform.Find(gameObjectShown).gameObject;
             this.currentShownGameObject.SetActive(true);
             if (gameObjectShown.Equals("Inventory")) {
-                currentShownGameObject.transform.GetComponent<InventoryScreen>().setInventoryItems();
+                currentShownGameObject.transform.GetComponent<InventoryScreen>().setInventoryItems(0);
             }
         }
     }

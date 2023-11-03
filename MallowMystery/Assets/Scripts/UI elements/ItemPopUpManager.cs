@@ -5,23 +5,25 @@ using UnityEngine.UI;
 
 public class ItemPopUpManager : MonoBehaviour {
     [SerializeField] private GameObject ItemPopUpScreen;
-    private bool popUpShowing = false;
+    private ItemData _itemData;
         
     public void showPopUp(ItemData itemData) {
         Time.timeScale = 0;
-        popUpShowing = true;
+        this._itemData = itemData;
         GameObject itemHolder = ItemPopUpScreen.transform.Find("ItemHolder").gameObject;
         itemHolder.transform.Find("ItemImage").gameObject.GetComponent<Image>().sprite = itemData.icon;
         itemHolder.transform.Find("ItemName").gameObject.GetComponent<TextMeshProUGUI>().text = itemData.itemName;
-        itemHolder.transform.Find("ItemDescription").gameObject.GetComponent<TextMeshProUGUI>().text = itemData.description;
         ItemPopUpScreen.SetActive(true);
     }
 
-    private void Update() {
-        if ((Input.GetMouseButtonDown(0)) && popUpShowing) {
-            ItemPopUpScreen.SetActive(false);
-            Time.timeScale = 1;
-            popUpShowing = false;
-        }
+    public void closePopUp() {
+        ItemPopUpScreen.SetActive(false);
+        Time.timeScale = 1;
+    }
+
+    public void seeInInventory() {
+        closePopUp();
+        GameObject.FindWithTag("CanvasManager").gameObject.transform.Find("SettingsScreen").gameObject.GetComponent<SettingsScreenManager>().showSettingsScreen("Inventory");
+        GameObject.FindWithTag("CanvasManager").gameObject.transform.Find("SettingsScreen").gameObject.transform.Find("MenuContainer").transform.Find("Inventory").GetComponent<InventoryScreen>().newItemPickUp(_itemData);
     }
 }

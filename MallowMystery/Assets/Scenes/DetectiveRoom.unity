@@ -166,6 +166,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _dialogueContainer: {fileID: 11400000, guid: 0167c04129a7216468e93553c8293b2b, type: 2}
+--- !u!114 &255559534 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2981581999650544227, guid: 7e3d1715ac86d7742a17f98d1c85a340,
+    type: 3}
+  m_PrefabInstance: {fileID: 1995172233}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3ef391dd8af4004ae3c5bc636cd7fa3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &376828290
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1275,12 +1287,6 @@ PrefabInstance:
       objectReference: {fileID: 927309206}
     - target: {fileID: 6699632568914510753, guid: 7e3d1715ac86d7742a17f98d1c85a340,
         type: 3}
-      propertyPath: DialogueLeft
-      value: 
-      objectReference: {fileID: 21300000, guid: d22b264705cccfe40b5eeb9bc9d3fb13,
-        type: 3}
-    - target: {fileID: 6699632568914510753, guid: 7e3d1715ac86d7742a17f98d1c85a340,
-        type: 3}
       propertyPath: DialogueBoxUI
       value: 
       objectReference: {fileID: 1530947808}
@@ -1289,12 +1295,6 @@ PrefabInstance:
       propertyPath: DialogueImage
       value: 
       objectReference: {fileID: 998799703}
-    - target: {fileID: 6699632568914510753, guid: 7e3d1715ac86d7742a17f98d1c85a340,
-        type: 3}
-      propertyPath: DialogueRight
-      value: 
-      objectReference: {fileID: 21300000, guid: be0333a758701d14d9f50b51101b5e3a,
-        type: 3}
     - target: {fileID: 6699632568914510753, guid: 7e3d1715ac86d7742a17f98d1c85a340,
         type: 3}
       propertyPath: buttonContainer
@@ -1970,11 +1970,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 633919945549751236, guid: a2e6b720ebdc656418c6866afcdbe1d2,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 255559534}
     - target: {fileID: 743477701914702969, guid: a2e6b720ebdc656418c6866afcdbe1d2,
         type: 3}
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 7639753689314635340}
+    - target: {fileID: 799316721127745658, guid: a2e6b720ebdc656418c6866afcdbe1d2,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 255559534}
     - target: {fileID: 998664649362567335, guid: a2e6b720ebdc656418c6866afcdbe1d2,
         type: 3}
       propertyPath: m_Name
