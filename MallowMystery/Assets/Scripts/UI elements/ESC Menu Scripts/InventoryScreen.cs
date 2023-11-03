@@ -24,7 +24,7 @@ public class InventoryScreen : MonoBehaviour {
     }
 
     public void flipPageForward() {
-        if ((pageNumber + 1) * 6 > pickedUpItems.Count) {
+        if (pickedUpItems.Count > (pageNumber + 1) * 6) {
             pageNumber += 1;
             setPage();
         }
@@ -44,11 +44,13 @@ public class InventoryScreen : MonoBehaviour {
                 inventoryPlaceholders[i].transform.Find("ItemName").gameObject.GetComponent<TextMeshProUGUI>().text = pickedUpItems[i + pageNumber * 6].itemName;
                 inventoryPlaceholders[i].GetComponent<Button>().enabled = true;
             } else {
+                inventoryPlaceholders[i].transform.Find("Image").gameObject.GetComponent<Image>().sprite = null;
+                inventoryPlaceholders[i].transform.Find("ItemName").gameObject.GetComponent<TextMeshProUGUI>().text = "";
                 inventoryPlaceholders[i].GetComponent<Button>().enabled = false;
             }
         }
     }
-
+    
     public void itemCloseUp(int clickedItemNumber) {
         selectedImageLoc.transform.Find("ItemImage").GetComponent<Image>().sprite = pickedUpItems[clickedItemNumber + pageNumber * 6].icon;
         selectedImageLoc.transform.Find("ItemName").GetComponent<TextMeshProUGUI>().text = pickedUpItems[clickedItemNumber + pageNumber * 6].itemName;
@@ -56,7 +58,8 @@ public class InventoryScreen : MonoBehaviour {
     }
 
     public void newItemPickUp(ItemData pickedUpItem) {
-        setInventoryItems(pickedUpItem.pickedUpNumber / 6);
-        itemCloseUp(pickedUpItem.pickedUpNumber - 1);
+        int pageNumber = pickedUpItem.pickedUpNumber != 1 ? (pickedUpItem.pickedUpNumber - 1) / 6 : 0;
+        setInventoryItems(pageNumber);
+        itemCloseUp(pickedUpItem.pickedUpNumber - 1 - pageNumber * 6);
     }
 }
