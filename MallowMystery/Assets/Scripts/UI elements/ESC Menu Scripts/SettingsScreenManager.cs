@@ -1,13 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class SettingsScreenManager : MonoBehaviour
 {
     private GameObject currentShownGameObject;
     
     public void showSettingsScreen(string gameObjectShown) {
+        if (!SceneManager.GetActiveScene().name.Equals("OverworldMap")) {
+            this.gameObject.transform.Find("MenuContainer").transform.Find("MapButton").GetComponent<Button>().interactable = false;
+        }
         if (this.gameObject.activeSelf && (gameObjectShown.Equals("OpenSettings") || currentShownGameObject.name.Equals(gameObjectShown))) {
             currentShownGameObject.SetActive(false);
             currentShownGameObject = null;
@@ -29,7 +34,7 @@ public class SettingsScreenManager : MonoBehaviour
             this.currentShownGameObject = this.gameObject.transform.Find("MenuContainer").transform.Find(gameObjectShown).gameObject;
             this.currentShownGameObject.SetActive(true);
             if (gameObjectShown.Equals("Inventory")) {
-                currentShownGameObject.transform.GetComponent<InventoryScreen>().setInventoryItems();
+                currentShownGameObject.transform.GetComponent<InventoryScreen>().setInventoryItems(0);
             }
         }
     }

@@ -66,5 +66,9 @@ public class LevelManager : ScriptableObject {
         else {
             Instantiate(playerPrefab, loc, quaternion.identity);
         }
+
+        if (SceneManager.GetActiveScene().name.Equals("FriendsAppartment1")) {
+            Camera.main.GetComponent<Follow_Player>().setFollowPlayer();
+        }
     }
 }

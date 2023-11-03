@@ -13,28 +13,24 @@ public class colliderTriggersApartment1 : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other) {
         triggers += 1;
-        test();
-        Debug.Log("walkIn");
+        ShowRoom();
     }
 
     private void OnTriggerExit(Collider other)
     {
         triggers -= 1;
-        test2();
-        Debug.Log("walkOut");
+        HideRoom();
     }
 
-    private void test() {
+    private void ShowRoom() {
         if (triggers >= 1) {
             Camera.main.cullingMask |= (1 << LayerMaskName);
         }
-        Debug.Log(triggers);
     }
     
-    private void test2() {
+    private void HideRoom() {
         if (triggers == 0) {
             Camera.main.cullingMask &= ~(1 << LayerMaskName);
         }
-        Debug.Log(triggers);
     }
 }
