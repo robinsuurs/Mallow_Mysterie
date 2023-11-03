@@ -14,6 +14,7 @@ public class InventoryScreen : MonoBehaviour {
     
     [SerializeField] private List<GameObject> inventoryPlaceholders;
     [SerializeField] private GameObject selectedImageLoc;
+    [SerializeField] private TextMeshProUGUI currentPage;
 
     public void setInventoryItems(int pageNumber) {
         this.pageNumber = pageNumber;
@@ -38,6 +39,7 @@ public class InventoryScreen : MonoBehaviour {
     }
 
     private void setPage() {
+        currentPage.text = (pageNumber + 1).ToString();
         for (int i = 0; i < 6; i++) {
             if (i + pageNumber * 6 < pickedUpItems.Count) {
                 inventoryPlaceholders[i].transform.Find("Image").gameObject.GetComponent<Image>().sprite = pickedUpItems[i + pageNumber * 6].icon;

@@ -32,6 +32,7 @@ public class ItemLoadScene : MonoBehaviour {
                         }
                         else if (itemDatas[itemDatas.Count - 1].hasBeenPickedUp) {
                             GetComponent<GameEventListeners>().enabled = false;
+                            GetComponent<BoxCollider>().enabled = false;
                         }
                     }
                     break;

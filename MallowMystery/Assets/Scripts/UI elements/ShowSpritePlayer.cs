@@ -23,6 +23,7 @@ public class ShowSpritePlayer : MonoBehaviour {
     public void Update() {
         if ((interactListener.GetListenersList().Count != 0 && !showSprite) || (interactListener.GetListenersList().Count == 0 && showSprite)) {
             showInteractableSprite();
+            playerCanvas.transform.rotation = Quaternion.LookRotation(playerCanvas.transform.position - GameObject.FindGameObjectWithTag("MainCamera").transform.position);
         }
     }
 }
