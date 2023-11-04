@@ -10,7 +10,13 @@ public class SeeThrough : MonoBehaviour
     
     private  Material material;
     private Camera _mainCamera;
-
+    
+    //Beunhaase functie voor aan script gooien
+    public void setFollowPlayer() {
+       
+            targetObject = GameObject.FindWithTag("Player").transform;
+       
+    }
     private void Awake()
     {
         _mainCamera = GetComponent<Camera>();
