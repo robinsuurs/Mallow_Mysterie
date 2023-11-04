@@ -42,9 +42,6 @@ public class PlayerControl : MonoBehaviour
     {
         _movement = Rotate(inputValue.Get<Vector2>(), walkDegrees);
     }
-    void OnResetLocation() {
-        transform.position = new Vector3(0, 1, 0);
-    }
     
     private static Vector2 Rotate(Vector2 v, float degrees) {
         float sin = Mathf.Sin(degrees * Mathf.Deg2Rad);
@@ -61,61 +58,61 @@ public class PlayerControl : MonoBehaviour
      [SerializeField] private GameObject mainCam;
     
         void OnCamera1() {
-            if (!SceneManager.GetActiveScene().name.Equals("OverworldMap")) {
+            if (SceneManager.GetActiveScene().name.Equals("DetectiveRoom")) {
             mainCam.transform.position = new Vector3(-120, 100, -120);
             mainCam.transform.eulerAngles = new Vector3(30, 45, 0);
             }
         }
         
         void OnCamera2() {
-            if (!SceneManager.GetActiveScene().name.Equals("OverworldMap")) {
+            if (SceneManager.GetActiveScene().name.Equals("DetectiveRoom")) {
             mainCam.transform.position = new Vector3(-80, 120, -80);
             mainCam.transform.eulerAngles = new Vector3(45, 45, 0);
             }
         }
         
         void OnCamera3() {
-            if (!SceneManager.GetActiveScene().name.Equals("OverworldMap")) {
+            if (SceneManager.GetActiveScene().name.Equals("DetectiveRoom")) {
             mainCam.transform.position = new Vector3(-60, 150, -60);
             mainCam.transform.eulerAngles = new Vector3(60, 45, 0);
             }
         }
         
         void OnCamera4() {
-            if (!SceneManager.GetActiveScene().name.Equals("OverworldMap")) {
+            if (SceneManager.GetActiveScene().name.Equals("DetectiveRoom")) {
             mainCam.transform.position = new Vector3(-120, 85, -70);
             mainCam.transform.eulerAngles = new Vector3(30, 60, 0);
             }
         }
         
         void OnCamera5() {
-            if (!SceneManager.GetActiveScene().name.Equals("OverworldMap")) {
+            if (SceneManager.GetActiveScene().name.Equals("DetectiveRoom")) {
             mainCam.transform.position = new Vector3(-120, 90, -90);
             mainCam.transform.eulerAngles = new Vector3(30, 53, 0);
             }
         }
         
         void OnCamera6() {
-            if (!SceneManager.GetActiveScene().name.Equals("OverworldMap")) {
+            if (SceneManager.GetActiveScene().name.Equals("DetectiveRoom")) {
             mainCam.transform.position = new Vector3(-120, 121, -70);
             mainCam.transform.eulerAngles = new Vector3(40, 60, 0);
             }
         }
     
         public void OnWalkLeft(InputValue inputValue) {
-            if (!SceneManager.GetActiveScene().name.Equals("OverworldMap")) {
+            if (SceneManager.GetActiveScene().name.Equals("DetectiveRoom")) {
             walkDegrees = 0;
             }
         }
         
         public void OnWalkForward(InputValue inputValue) {
-            if (!SceneManager.GetActiveScene().name.Equals("OverworldMap")) {
+            if (SceneManager.GetActiveScene().name.Equals("DetectiveRoom")) {
             walkDegrees = -45;
             }
         }
         
         public void OnWalkRight(InputValue inputValue) {
-            if (!SceneManager.GetActiveScene().name.Equals("OverworldMap")) {
+            if (SceneManager.GetActiveScene().name.Equals("DetectiveRoom")) {
             walkDegrees = -90;
             }
         }
