@@ -61,7 +61,7 @@ public class DialogueHandler : MonoBehaviour
     
     void Update()
     {
-        if ((Input.GetMouseButtonDown(0)) && inDialogue) {
+        if ((Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Space)) && inDialogue) {
             if (DialogueBoxUI.text == currentDialogue) {
                 if (!choices.Any()) {
                     EndDialogue();

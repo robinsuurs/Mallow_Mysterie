@@ -1,4 +1,5 @@
-﻿using ScriptObjects;
+﻿using System;
+using ScriptObjects;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -25,5 +26,11 @@ public class ItemPopUpManager : MonoBehaviour {
         closePopUp();
         GameObject.FindWithTag("CanvasManager").gameObject.transform.Find("SettingsScreen").gameObject.GetComponent<SettingsScreenManager>().showSettingsScreen("Inventory");
         GameObject.FindWithTag("CanvasManager").gameObject.transform.Find("SettingsScreen").gameObject.transform.Find("MenuContainer").transform.Find("Inventory").GetComponent<InventoryScreen>().newItemPickUp(_itemData);
+    }
+
+    private void Update() {
+        if (this.isActiveAndEnabled && (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Space))) {
+            closePopUp();
+        }
     }
 }
