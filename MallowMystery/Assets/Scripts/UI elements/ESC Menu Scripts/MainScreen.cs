@@ -20,4 +20,8 @@ public class MainScreen : MonoBehaviour {
         SceneManager.LoadSceneAsync(DataPersistenceManager.instance.getSceneToLoadForMainMenu());
         Time.timeScale = 1;
     }
+
+    public void exitgame() {
+        Application.Quit();
+    }
 }
