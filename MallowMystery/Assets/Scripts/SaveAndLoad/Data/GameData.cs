@@ -31,7 +31,7 @@ public class GameData {
         }
         
         sceneName = "DetectiveRoom";
-        playerLocation = new Vector3(-0.5f, 0.3522396f, 0.2f);
+        playerLocation = new Vector3(-0.5f, 0.2433f, 0.2f);
         gameProgression = ProgressionEnum.gameProgression.talkToDetectiveInOffice;
     }
 }
