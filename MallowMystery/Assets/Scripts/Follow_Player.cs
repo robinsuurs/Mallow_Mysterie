@@ -21,6 +21,8 @@ public class Follow_Player : MonoBehaviour
     public void setFollowPlayer() {
         if (followPlayer) {
             this.player = GameObject.FindWithTag("Player");
+            transform.position = player.transform.position + CameraOffset;
+            player.GetComponent<ShowSpritePlayer>().setSpriteRotation();
         }
     }
 }
