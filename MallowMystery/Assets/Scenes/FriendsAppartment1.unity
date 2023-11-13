@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.3069224, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028331, g: 0.2257133, b: 0.3069217, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -403,9 +403,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemData: {fileID: 11400000, guid: b822fc87d6a08394b845266d8764b7df, type: 2}
-  itemDatas: []
   _inventory: {fileID: 11400000, guid: 9b88e5fd99f1886478c294c52675e601, type: 2}
-  removeAfterPickUp: 0
 --- !u!114 &55838034
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -591,9 +589,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemData: {fileID: 11400000, guid: 9215cb9a8b7f0f743a8a155745d30e7c, type: 2}
-  itemDatas: []
   _inventory: {fileID: 11400000, guid: 9b88e5fd99f1886478c294c52675e601, type: 2}
-  removeAfterPickUp: 0
 --- !u!114 &59575515
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -993,7 +989,7 @@ PrefabInstance:
     - target: {fileID: 3656396150243643841, guid: ef7cfbf58684e544eae7d08fc99fae5f,
         type: 3}
       propertyPath: m_CullingMask.m_Bits
-      value: 33554559
+      value: 127
       objectReference: {fileID: 0}
     - target: {fileID: 6362611275507629805, guid: ef7cfbf58684e544eae7d08fc99fae5f,
         type: 3}
@@ -1595,9 +1591,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemData: {fileID: 11400000, guid: 1faf0cf6e2db3764c853d09592f88f27, type: 2}
-  itemDatas: []
   _inventory: {fileID: 11400000, guid: 9b88e5fd99f1886478c294c52675e601, type: 2}
-  removeAfterPickUp: 0
 --- !u!65 &707207120
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2404,9 +2398,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemData: {fileID: 11400000, guid: a9a2de3b2e6ffcc41a41828ccf5f325c, type: 2}
-  itemDatas: []
   _inventory: {fileID: 11400000, guid: 9b88e5fd99f1886478c294c52675e601, type: 2}
-  removeAfterPickUp: 0
 --- !u!114 &1037778534
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4952,9 +4944,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemData: {fileID: 11400000, guid: b345000ddf2b98b4f89234aac489f47f, type: 2}
-  itemDatas: []
   _inventory: {fileID: 11400000, guid: 9b88e5fd99f1886478c294c52675e601, type: 2}
-  removeAfterPickUp: 0
 --- !u!114 &1914342809
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8276,9 +8266,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemData: {fileID: 11400000, guid: 504c2fbac631dda4eb3fdfab78a1b531, type: 2}
-  itemDatas: []
   _inventory: {fileID: 11400000, guid: 9b88e5fd99f1886478c294c52675e601, type: 2}
-  removeAfterPickUp: 0
 --- !u!114 &2584362638914341441
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10672,9 +10660,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemData: {fileID: 11400000, guid: 09f249f8c3f0bf1468fa25188c874188, type: 2}
-  itemDatas: []
   _inventory: {fileID: 11400000, guid: 9b88e5fd99f1886478c294c52675e601, type: 2}
-  removeAfterPickUp: 0
 --- !u!65 &5121845958939019555
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11965,9 +11951,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemData: {fileID: 11400000, guid: 30f811189ca560d4f9f2146bca305330, type: 2}
-  itemDatas: []
   _inventory: {fileID: 11400000, guid: 9b88e5fd99f1886478c294c52675e601, type: 2}
-  removeAfterPickUp: 0
 --- !u!114 &6324013446330779656
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12754,13 +12738,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemData: {fileID: 0}
-  itemDatas:
-  - {fileID: 11400000, guid: 5d056879c787398489c038be23808a7b, type: 2}
-  - {fileID: 11400000, guid: a672cd653f2899d4e88873c904b48288, type: 2}
-  - {fileID: 11400000, guid: b023e9dd36e46914994abc96f86a36b8, type: 2}
-  - {fileID: 11400000, guid: b978a83e6c2a8ac439d26fab256259d0, type: 2}
   _inventory: {fileID: 11400000, guid: 9b88e5fd99f1886478c294c52675e601, type: 2}
-  removeAfterPickUp: 1
 --- !u!114 &6670690219168387662
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14589,12 +14567,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemData: {fileID: 0}
-  itemDatas:
-  - {fileID: 11400000, guid: 30f811189ca560d4f9f2146bca305330, type: 2}
-  - {fileID: 11400000, guid: ee104d769bb62314596bb60b74c4f288, type: 2}
-  - {fileID: 11400000, guid: d39b688f3ced8bd4ca016cf7e37de226, type: 2}
   _inventory: {fileID: 11400000, guid: 9b88e5fd99f1886478c294c52675e601, type: 2}
-  removeAfterPickUp: 0
 --- !u!114 &8297544784742525507
 MonoBehaviour:
   m_ObjectHideFlags: 0
