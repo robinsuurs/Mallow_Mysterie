@@ -24,8 +24,6 @@ public class DataPersistenceManager : MonoBehaviour {
     private FileDataHandler dataHandler;
     public static DataPersistenceManager instance { get; private set; }
 
-    // private bool fromMainMenu = false; //TODO BM: for testing purposes remove after done with it
-
     private void Awake() {
         if (instance != null) {
             Debug.LogError("More than one DataPersistenceManager found, Shit hits the fan! Or Destroying the new one");

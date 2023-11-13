@@ -26,6 +26,8 @@ public class DialogueHandler : MonoBehaviour
     [SerializeField] private Inventory _inventory;
     private GameObject DialogueCanvas;
     [SerializeField] private ListOfSprites _listOfSprites;
+    [SerializeField] private GameObject cutSceneImage;
+    [SerializeField] private GameObject cutSceneCamera;
 
     private IEnumerable<NodeLinkData> choices = new List<NodeLinkData>();
     public string currentDialogue;
@@ -103,6 +105,13 @@ public class DialogueHandler : MonoBehaviour
                 SpeakerNameBoxRight.text = currentNode.SpeakerName;
                 SpeakerNameBoxLeft.text = "";
                 DialogueImage.GetComponent<Image>().sprite = DialogueRight;
+            }
+
+            if (currentNode.CutSceneImageName != "") {
+                cutSceneCamera.SetActive(true);
+                _listOfSprites.CutSceneImageSetter(currentNode.CutSceneImageName);
+            } else {
+                cutSceneCamera.SetActive(false);
             }
     
             if (choices.Count() is 1 or 0 || (choices.Count() >= 2 && !CanSkip(currentNode, choices))) {
