@@ -19,7 +19,7 @@ public class DialogueHandler : MonoBehaviour
     [SerializeField] private TextMeshProUGUI SpeakerNameBoxRight;
     [SerializeField] private Sprite DialogueLeft;
     [SerializeField] private Sprite DialogueRight;
-    private GameObject DialogueBoxSprite;
+    [SerializeField] private GameObject DialogueBoxSprite;
     private DialogueContainer dialogue;
     [SerializeField] private Button ChoicesButton;
     [SerializeField] private Transform buttonContainer;
