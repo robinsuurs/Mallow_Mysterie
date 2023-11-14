@@ -12,9 +12,6 @@ GameObject:
   - component: {fileID: 5961373918089776872}
   - component: {fileID: 3297137609325534007}
   - component: {fileID: 4734386402937065417}
-  - component: {fileID: 5383123276860223376}
-  - component: {fileID: 5440073980288969712}
-  - component: {fileID: 3833547125704628373}
   m_Layer: 5
   m_Name: ShortcutImages
   m_TagString: Untagged
@@ -105,78 +102,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &5383123276860223376
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 14406460702717021}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Events:
-    m_Signals:
-    - {fileID: 11400000, guid: 8e83e3669e67a2d40b47af7ea21219b2, type: 2}
-    m_Events:
-    - m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 3833547125704628373}
-          m_TargetAssemblyTypeName: test, Assembly-CSharp
-          m_MethodName: testing
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
---- !u!114 &5440073980288969712
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 14406460702717021}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Events:
-    m_Signals:
-    - {fileID: 11400000, guid: 68f2e15cb30edd0499034b288e59ad92, type: 2}
-    m_Events:
-    - m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 3833547125704628373}
-          m_TargetAssemblyTypeName: test, Assembly-CSharp
-          m_MethodName: testing
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 1
-          m_CallState: 2
---- !u!114 &3833547125704628373
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 14406460702717021}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f5d38eead73d6d9439418fc5f238b9b1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &78353326072956506
 GameObject:
   m_ObjectHideFlags: 0
@@ -1349,11 +1274,11 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1594548176686246511}
   - {fileID: 5352958715309771801}
   - {fileID: 8605252728333938196}
   - {fileID: 710063165562681978}
   - {fileID: 7896255651509548541}
-  - {fileID: 1594548176686246511}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1119032430216759755
@@ -1767,8 +1692,6 @@ GameObject:
   - component: {fileID: 8606575601747331893}
   - component: {fileID: 8485218758922759377}
   - component: {fileID: 6703454252550956182}
-  - component: {fileID: 7915627199795321298}
-  - component: {fileID: 7397292058351123468}
   m_Layer: 5
   m_Name: ItemHolder
   m_TagString: Untagged
@@ -1837,46 +1760,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!320 &7915627199795321298
-PlayableDirector:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1390655035737179678}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_PlayableAsset: {fileID: 11400000, guid: e1e314144ce840f44b6a79f785a05a92, type: 2}
-  m_InitialState: 0
-  m_WrapMode: 2
-  m_DirectorUpdateMode: 2
-  m_InitialTime: 0
-  m_SceneBindings:
-  - key: {fileID: 873050947936180891, guid: e1e314144ce840f44b6a79f785a05a92, type: 2}
-    value: {fileID: 7397292058351123468}
-  m_ExposedReferences:
-    m_References: []
---- !u!95 &7397292058351123468
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1390655035737179678}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1517651690885011273
 GameObject:
   m_ObjectHideFlags: 0

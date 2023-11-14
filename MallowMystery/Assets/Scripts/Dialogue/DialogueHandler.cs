@@ -9,6 +9,7 @@ using Subtegral.DialogueSystem.DataContainers;
 using UnityEngine;
 using TMPro;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class DialogueHandler : MonoBehaviour
@@ -18,7 +19,7 @@ public class DialogueHandler : MonoBehaviour
     [SerializeField] private TextMeshProUGUI SpeakerNameBoxRight;
     [SerializeField] private Sprite DialogueLeft;
     [SerializeField] private Sprite DialogueRight;
-    [SerializeField] private GameObject DialogueImage;
+    private GameObject DialogueBoxSprite;
     private DialogueContainer dialogue;
     [SerializeField] private Button ChoicesButton;
     [SerializeField] private Transform buttonContainer;
@@ -26,7 +27,6 @@ public class DialogueHandler : MonoBehaviour
     [SerializeField] private Inventory _inventory;
     private GameObject DialogueCanvas;
     [SerializeField] private ListOfSprites _listOfSprites;
-    [SerializeField] private GameObject cutSceneImage;
     [SerializeField] private GameObject cutSceneCamera;
 
     private IEnumerable<NodeLinkData> choices = new List<NodeLinkData>();
@@ -100,11 +100,11 @@ public class DialogueHandler : MonoBehaviour
             if (currentNode.SpeakerNameLocation.Equals("Speaker Name Left")) {
                 SpeakerNameBoxLeft.text = currentNode.SpeakerName;
                 SpeakerNameBoxRight.text = "";
-                DialogueImage.GetComponent<Image>().sprite = DialogueLeft;
+                DialogueBoxSprite.GetComponent<Image>().sprite = DialogueLeft;
             } else {
                 SpeakerNameBoxRight.text = currentNode.SpeakerName;
                 SpeakerNameBoxLeft.text = "";
-                DialogueImage.GetComponent<Image>().sprite = DialogueRight;
+                DialogueBoxSprite.GetComponent<Image>().sprite = DialogueRight;
             }
 
             if (currentNode.CutSceneImageName != "") {

@@ -7,7 +7,6 @@ using UnityEngine.Events;
 
 public class DialogueListener : MonoBehaviour
 {
-    // Start is called before the first frame update
     public DialogueEvent Event;
     public UnityEvent<DialogueContainer> response;
     private void OnEnable() {

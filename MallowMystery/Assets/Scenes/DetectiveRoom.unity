@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028331, g: 0.2257133, b: 0.3069217, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.3069224, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -592,51 +592,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 4285760735795300762}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1061314351
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1061314353}
-  - component: {fileID: 1061314352}
-  m_Layer: 0
-  m_Name: SceneController
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
-  m_IsActive: 1
---- !u!114 &1061314352
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1061314351}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 68de0786b96407f42b4faab17ee1a5bc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  detectiveCharacter: {fileID: 184974439}
---- !u!4 &1061314353
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1061314351}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.0561695, y: -31.891861, z: 39.788322}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1108488668 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7065948008153511904, guid: a2e6b720ebdc656418c6866afcdbe1d2,
@@ -1225,6 +1180,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2981581999650544227, guid: 7e3d1715ac86d7742a17f98d1c85a340,
+        type: 3}
+      propertyPath: ItemPopUpScreen
+      value: 
+      objectReference: {fileID: 4285760735795300763}
     - target: {fileID: 5813699635169111962, guid: 7e3d1715ac86d7742a17f98d1c85a340,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2050,6 +2010,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 498284678524846506, guid: a2e6b720ebdc656418c6866afcdbe1d2,
+        type: 3}
+      propertyPath: m_TagString
+      value: DialogueSpriteRight
+      objectReference: {fileID: 0}
     - target: {fileID: 633919945549751236, guid: a2e6b720ebdc656418c6866afcdbe1d2,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -2069,6 +2034,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: CanvasManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 1947971970492687144, guid: a2e6b720ebdc656418c6866afcdbe1d2,
+        type: 3}
+      propertyPath: m_TagString
+      value: CutSceneImage
+      objectReference: {fileID: 0}
+    - target: {fileID: 5754618635855506936, guid: a2e6b720ebdc656418c6866afcdbe1d2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8199445453085926920, guid: a2e6b720ebdc656418c6866afcdbe1d2,
         type: 3}
@@ -2120,11 +2095,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8297098248778496509, guid: a2e6b720ebdc656418c6866afcdbe1d2,
+        type: 3}
+      propertyPath: m_TagString
+      value: DialogueSpriteLeft
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a2e6b720ebdc656418c6866afcdbe1d2, type: 3}
+--- !u!1 &4285760735795300763 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4537311037141806577, guid: a2e6b720ebdc656418c6866afcdbe1d2,
+    type: 3}
+  m_PrefabInstance: {fileID: 4285760735795300762}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4344360078636729596
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3250,4 +3236,3 @@ SceneRoots:
   - {fileID: 867548374}
   - {fileID: 1995172233}
   - {fileID: 4285760735795300762}
-  - {fileID: 1061314353}

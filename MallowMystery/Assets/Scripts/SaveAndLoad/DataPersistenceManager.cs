@@ -82,8 +82,6 @@ public class DataPersistenceManager : MonoBehaviour {
             NewGame();
         }
         else {
-            _gameData.inventory = Resources.LoadAll("Clues/ClueInventory", typeof(Inventory))
-                .Cast<Inventory>().FirstOrDefault(inventoryArray => inventoryArray.name.Equals("ClueInventory"));
             foreach (IDataPersistence dataPersistenceObj in dataPersistences) {
                 dataPersistenceObj.LoadData(_gameData);
             }
@@ -104,10 +102,6 @@ public class DataPersistenceManager : MonoBehaviour {
 
     public string getSceneToLoadForMainMenu() {
         return _gameData.sceneName;
-    }
-
-    public ProgressionEnum.gameProgression getProgession() {
-        return _gameData.gameProgression;
     }
 
     public void SaveGame () {
@@ -150,19 +144,5 @@ public class DataPersistenceManager : MonoBehaviour {
 
     public void resetToStandardValues() {
         _levelManager.sceneSwitchData = null;
-    }
-    
-    public void setGameState(string gamestate) {
-        switch (gamestate) {
-            case "start" :
-                _gameData.gameProgression = ProgressionEnum.gameProgression.start;
-                break;
-            case "talkToDetectiveInOffice" :
-                _gameData.gameProgression = ProgressionEnum.gameProgression.talkToDetectiveInOffice;
-                break;
-            case "toFriendsHouse" :
-                _gameData.gameProgression = ProgressionEnum.gameProgression.toFriendsHouse;
-                break;
-        }
     }
 }
