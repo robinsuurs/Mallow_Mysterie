@@ -1,124 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &604411373901083962
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 5531851016078236466}
-  - component: {fileID: 4155923537343103450}
-  - component: {fileID: 5264072305781595207}
-  - component: {fileID: 225845323563914885}
-  m_Layer: 0
-  m_Name: CutSceneController
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &5531851016078236466
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 604411373901083962}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 5813699635169111962}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4155923537343103450
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 604411373901083962}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a736dd6b61ab2a14bb33d850118bc631, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _playableAsset: {fileID: 11400000, guid: 40c91dc607ab0c94495526e355e2737a, type: 2}
---- !u!114 &5264072305781595207
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 604411373901083962}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Events:
-    m_Signals:
-    - {fileID: 11400000, guid: 68f2e15cb30edd0499034b288e59ad92, type: 2}
-    m_Events:
-    - m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 4155923537343103450}
-          m_TargetAssemblyTypeName: AnimationStart, Assembly-CSharp
-          m_MethodName: endAnimation
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_MethodName: SetActive
-          m_Mode: 6
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 1
-          m_CallState: 2
---- !u!114 &225845323563914885
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 604411373901083962}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Events:
-    m_Signals:
-    - {fileID: 11400000, guid: 8e83e3669e67a2d40b47af7ea21219b2, type: 2}
-    m_Events:
-    - m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_MethodName: SetActive
-          m_Mode: 6
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
 --- !u!1 &3622293418233155823
 GameObject:
   m_ObjectHideFlags: 0
@@ -222,6 +103,8 @@ MonoBehaviour:
   textspeed: 0.05
   _inventory: {fileID: 11400000, guid: 9b88e5fd99f1886478c294c52675e601, type: 2}
   _listOfSprites: {fileID: 5860865502082882730}
+  cutSceneImage: {fileID: 0}
+  cutSceneCamera: {fileID: 0}
   currentDialogue: 
 --- !u!114 &6768527534807288246
 MonoBehaviour:
@@ -263,14 +146,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e62c49a8d65db74d8e3b8d38f34c5a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spriteFolder: CharacterImages
-  characterSprites:
-  - {fileID: 21300000, guid: 85c55de158f548941b91b568b0a4d628, type: 3}
-  - {fileID: 21300000, guid: 5c6544b47d805e84288f563a2219c176, type: 3}
-  - {fileID: 21300000, guid: 2cbcafa3b6e9e7e448892fccea7a39ef, type: 3}
-  - {fileID: 21300000, guid: 4c0a2dce7264d4140bce5e7556041a34, type: 3}
   leftImage: {fileID: 0}
   rightImage: {fileID: 0}
+  CutSceneImage: {fileID: 0}
 --- !u!1 &6353478741705946576
 GameObject:
   m_ObjectHideFlags: 0
@@ -371,6 +249,5 @@ Transform:
   - {fileID: 2621329285902595778}
   - {fileID: 1434784651425791116}
   - {fileID: 2306877377939291058}
-  - {fileID: 5531851016078236466}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
