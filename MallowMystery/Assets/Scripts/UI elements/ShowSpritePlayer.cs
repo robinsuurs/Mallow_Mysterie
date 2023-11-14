@@ -10,9 +10,9 @@ public class ShowSpritePlayer : MonoBehaviour {
     [SerializeField] private GameObject playerCanvas;
     [SerializeField] private GameEventChannel interactListener;
     private bool showSprite = false;
-
-    private void Start() {
-       playerCanvas.transform.rotation = Quaternion.LookRotation(playerCanvas.transform.position - GameObject.FindGameObjectWithTag("MainCamera").transform.position);
+    
+    public void setSpriteRotation() {
+        playerCanvas.transform.rotation = Quaternion.LookRotation(playerCanvas.transform.position - Camera.main.transform.position);
     }
 
     private void showInteractableSprite() {
@@ -22,8 +22,8 @@ public class ShowSpritePlayer : MonoBehaviour {
 
     public void Update() {
         if ((interactListener.GetListenersList().Count != 0 && !showSprite) || (interactListener.GetListenersList().Count == 0 && showSprite)) {
+            playerCanvas.transform.rotation = Quaternion.LookRotation(playerCanvas.transform.position - Camera.main.transform.position);
             showInteractableSprite();
-            playerCanvas.transform.rotation = Quaternion.LookRotation(playerCanvas.transform.position - GameObject.FindGameObjectWithTag("MainCamera").transform.position);
         }
     }
 }

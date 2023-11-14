@@ -66,15 +66,15 @@ public class PlayerControl : MonoBehaviour
         
         void OnCamera2() {
             if (SceneManager.GetActiveScene().name.Equals("DetectiveRoom")) {
-            mainCam.transform.position = new Vector3(-80, 120, -80);
-            mainCam.transform.eulerAngles = new Vector3(45, 45, 0);
+            mainCam.transform.position = new Vector3(-121.5f, 93, -95);
+            mainCam.transform.eulerAngles = new Vector3(30, 52, 0);
             }
         }
         
         void OnCamera3() {
             if (SceneManager.GetActiveScene().name.Equals("DetectiveRoom")) {
-            mainCam.transform.position = new Vector3(-60, 150, -60);
-            mainCam.transform.eulerAngles = new Vector3(60, 45, 0);
+            mainCam.transform.position = new Vector3(-114, 84, -80);
+            mainCam.transform.eulerAngles = new Vector3(30, 55, 0);
             }
         }
         
@@ -82,38 +82,6 @@ public class PlayerControl : MonoBehaviour
             if (SceneManager.GetActiveScene().name.Equals("DetectiveRoom")) {
             mainCam.transform.position = new Vector3(-120, 85, -70);
             mainCam.transform.eulerAngles = new Vector3(30, 60, 0);
-            }
-        }
-        
-        void OnCamera5() {
-            if (SceneManager.GetActiveScene().name.Equals("DetectiveRoom")) {
-            mainCam.transform.position = new Vector3(-120, 90, -90);
-            mainCam.transform.eulerAngles = new Vector3(30, 53, 0);
-            }
-        }
-        
-        void OnCamera6() {
-            if (SceneManager.GetActiveScene().name.Equals("DetectiveRoom")) {
-            mainCam.transform.position = new Vector3(-120, 121, -70);
-            mainCam.transform.eulerAngles = new Vector3(40, 60, 0);
-            }
-        }
-    
-        public void OnWalkLeft(InputValue inputValue) {
-            if (SceneManager.GetActiveScene().name.Equals("DetectiveRoom")) {
-            walkDegrees = 0;
-            }
-        }
-        
-        public void OnWalkForward(InputValue inputValue) {
-            if (SceneManager.GetActiveScene().name.Equals("DetectiveRoom")) {
-            walkDegrees = -45;
-            }
-        }
-        
-        public void OnWalkRight(InputValue inputValue) {
-            if (SceneManager.GetActiveScene().name.Equals("DetectiveRoom")) {
-            walkDegrees = -90;
             }
         }
 }
