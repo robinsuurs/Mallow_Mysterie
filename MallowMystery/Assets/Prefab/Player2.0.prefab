@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1053600862918052598}
   - component: {fileID: 5050632048339436015}
   - component: {fileID: 6130605531166870930}
+  - component: {fileID: 15273816283016465}
   m_Layer: 0
   m_Name: Player2.0
   m_TagString: Player
@@ -57,7 +58,7 @@ CharacterController:
   m_Radius: 0.5
   m_SlopeLimit: 45
   m_StepOffset: 0.3
-  m_SkinWidth: 0.08
+  m_SkinWidth: 0.1
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &6130605531166870930
@@ -74,7 +75,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Actions: {fileID: -944628639613478452, guid: 59907ebbc6858584b81c7a48c17517a6,
     type: 3}
-  m_NotificationBehavior: 2
+  m_NotificationBehavior: 0
   m_UIInputModule: {fileID: 0}
   m_DeviceLostEvent:
     m_PersistentCalls:
@@ -163,6 +164,23 @@ MonoBehaviour:
   m_DefaultActionMap: PlayerMovement
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &15273816283016465
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4720912205891867494}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09ed14efb86f6be4cad225ddcd6dc353, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 10
+  controller: {fileID: 5050632048339436015}
+  plInputAction: {fileID: -944628639613478452, guid: 59907ebbc6858584b81c7a48c17517a6,
+    type: 3}
+  mainCamera: {fileID: 0}
 --- !u!1 &7176222168410934633
 GameObject:
   m_ObjectHideFlags: 0
