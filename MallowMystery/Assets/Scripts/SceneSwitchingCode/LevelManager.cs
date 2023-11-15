@@ -21,24 +21,22 @@ public class LevelManager : ScriptableObject {
         if (sceneSwitchData != null) {
             foreach (var spawn in spawnLocations.Where(spawn => spawn.name.Equals(sceneSwitchData.playerSpawnLocationName))) {
                 instantiate(spawn.gameObject.transform.position);
-                // Instantiate(playerPrefab, spawn.gameObject.transform.position, quaternion.identity);
                 spawnedPlayer = true;
                 break;
             }
         }
         else {
+            //If testing and the scene doesn't correspond to the saved scene name
             if (!gameData.sceneName.Equals(SceneManager.GetActiveScene().name)) {
                 if (spawnLocations.Exists(spawn => spawn.name.Equals("TestSpawn"))) {
                     foreach (var spawn in spawnLocations.Where(spawn => spawn.name.Equals("TestSpawn"))) {
                         instantiate(spawn.transform.position);
-                        // Instantiate(playerPrefab, spawn.transform.position, quaternion.identity); //This is for Testing purposes
                         spawnedPlayer = true;
                         break;
                     }
                 }
             } else {
                 instantiate(gameData.playerLocation);
-                // Instantiate(playerPrefab, gameData.playerLocation, quaternion.identity);
                 spawnedPlayer = true;
             }
         }
@@ -46,7 +44,6 @@ public class LevelManager : ScriptableObject {
         if (spawnedPlayer) return;
         Debug.Log("No spawn location found, spawning player at 0,0,0");
         instantiate(new Vector3(0,0,0));
-        // Instantiate(playerPrefab, new Vector3(0,0,0), quaternion.identity);
     }
     
     //TODO BM: 29-10-2023 Look into async load of scene, has to be in monobehaviour because of coroutine
