@@ -28,6 +28,7 @@ public class DialogueHandler : MonoBehaviour
     private GameObject DialogueCanvas;
     [SerializeField] private ListOfSprites _listOfSprites;
     [SerializeField] private GameObject cutSceneCamera;
+    [SerializeField] private InputActionAsset _inputAction;
 
     private IEnumerable<NodeLinkData> choices = new List<NodeLinkData>();
     public string currentDialogue;
@@ -46,6 +47,7 @@ public class DialogueHandler : MonoBehaviour
             ProceedToNarrative(narrativeData);
             inDialogue = true;
             Time.timeScale = 0f;
+            disableInputActions();
         }
     }
 
@@ -58,12 +60,13 @@ public class DialogueHandler : MonoBehaviour
         SpeakerNameBoxLeft.text = "";
         SpeakerNameBoxRight.text = "";
         DialogueCanvas.SetActive(false);
+        enableInputActions();
         Time.timeScale = 1f;
     }
     
     void Update()
     {
-        if ((Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Space)) && inDialogue) {
+        if (inDialogue && (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Space))) {
             if (DialogueBoxUI.text == currentDialogue) {
                 if (!choices.Any()) {
                     EndDialogue();
@@ -158,5 +161,13 @@ public class DialogueHandler : MonoBehaviour
             DialogueBoxUI.text += c;
             yield return new WaitForSecondsRealtime(textspeed);
         }
+    }
+
+    private void enableInputActions() {
+        _inputAction.Enable();
+    }
+    
+    private void disableInputActions() {
+        _inputAction.Disable();
     }
 }

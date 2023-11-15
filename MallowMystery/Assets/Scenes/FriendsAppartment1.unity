@@ -8711,6 +8711,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1067176571610488696, guid: 08a7da6836f6d8f4e9c4cd9742a0fc19,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -284
+      objectReference: {fileID: 0}
     - target: {fileID: 2052929505422633438, guid: 08a7da6836f6d8f4e9c4cd9742a0fc19,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -8761,21 +8766,76 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2465956595347920270, guid: 08a7da6836f6d8f4e9c4cd9742a0fc19,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 2465956595347920270, guid: 08a7da6836f6d8f4e9c4cd9742a0fc19,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 2465956595347920270, guid: 08a7da6836f6d8f4e9c4cd9742a0fc19,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 104
+      objectReference: {fileID: 0}
+    - target: {fileID: 2735294224997646888, guid: 08a7da6836f6d8f4e9c4cd9742a0fc19,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 650
+      objectReference: {fileID: 0}
+    - target: {fileID: 2735294224997646888, guid: 08a7da6836f6d8f4e9c4cd9742a0fc19,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 800
+      objectReference: {fileID: 0}
+    - target: {fileID: 2735294224997646888, guid: 08a7da6836f6d8f4e9c4cd9742a0fc19,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 407.22668
+      objectReference: {fileID: 0}
     - target: {fileID: 3143299785889258567, guid: 08a7da6836f6d8f4e9c4cd9742a0fc19,
         type: 3}
       propertyPath: cutSceneCamera
       value: 
       objectReference: {fileID: 375423451}
+    - target: {fileID: 3619275869814905476, guid: 08a7da6836f6d8f4e9c4cd9742a0fc19,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -365
+      objectReference: {fileID: 0}
     - target: {fileID: 3786867865695559477, guid: 08a7da6836f6d8f4e9c4cd9742a0fc19,
         type: 3}
       propertyPath: m_Name
       value: CanvasAndManagers
+      objectReference: {fileID: 0}
+    - target: {fileID: 5309593230421308024, guid: 08a7da6836f6d8f4e9c4cd9742a0fc19,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -193
       objectReference: {fileID: 0}
     - target: {fileID: 6400838226152832356, guid: 08a7da6836f6d8f4e9c4cd9742a0fc19,
         type: 3}
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 888203691}
+    - target: {fileID: 7602206316013136293, guid: 08a7da6836f6d8f4e9c4cd9742a0fc19,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 48
+      objectReference: {fileID: 0}
+    - target: {fileID: 7602206316013136293, guid: 08a7da6836f6d8f4e9c4cd9742a0fc19,
+        type: 3}
+      propertyPath: m_fontSizeBase
+      value: 48
+      objectReference: {fileID: 0}
+    - target: {fileID: 7814520692859462892, guid: 08a7da6836f6d8f4e9c4cd9742a0fc19,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
