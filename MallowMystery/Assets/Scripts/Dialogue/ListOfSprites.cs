@@ -10,40 +10,77 @@ using UnityEditor;
 public class ListOfSprites : MonoBehaviour
 {
 #if UNITY_EDITOR
-    public string spriteFolder = "CharacterImages";
+    private string spriteFolder = "CharacterImages";
+    private string cutSceneImageFolder = "CutSceneImages";
+    private bool spriteFolderExist = true;
+    private bool cutSceneImageFolderExist = true;
 
     void OnValidate() {
         string fullPath = $"{Application.dataPath}/Resources/Sprites/{spriteFolder}";
         if (!System.IO.Directory.Exists(fullPath)) {            
-            return;
+            spriteFolderExist = false;
         }
 
-        var folders = new string[]{$"Assets/Resources/Sprites/{spriteFolder}"};
-        var guids = AssetDatabase.FindAssets("t:Sprite", folders);
-
-        var newSprites = new Sprite[guids.Length];
-
-        bool mismatch;
-        if (characterSprites == null) {
-            mismatch = true;
-            characterSprites = newSprites;
-        } else {
-            mismatch = newSprites.Length != characterSprites.Length;
+        string fullPathCutScene = $"{Application.dataPath}/Resources/Sprites/{cutSceneImageFolder}";
+        if (!System.IO.Directory.Exists(fullPathCutScene)) {            
+            cutSceneImageFolderExist = false;
         }
 
-        for (int i = 0; i < newSprites.Length; i++) {
-            var path = AssetDatabase.GUIDToAssetPath(guids[i]);
-            newSprites[i] = AssetDatabase.LoadAssetAtPath<Sprite>(path);
-            mismatch |= (i < characterSprites.Length && characterSprites[i] != newSprites[i]);
+        if (spriteFolderExist) {
+            var folders = new string[]{$"Assets/Resources/Sprites/{spriteFolder}"};
+            var guids = AssetDatabase.FindAssets("t:Sprite", folders);
+
+            var newSprites = new Sprite[guids.Length];
+
+            bool mismatch;
+            if (characterSprites == null) {
+                mismatch = true;
+                characterSprites = newSprites;
+            } else {
+                mismatch = newSprites.Length != characterSprites.Length;
+            }
+
+            for (int i = 0; i < newSprites.Length; i++) {
+                var path = AssetDatabase.GUIDToAssetPath(guids[i]);
+                newSprites[i] = AssetDatabase.LoadAssetAtPath<Sprite>(path);
+                mismatch |= (i < characterSprites.Length && characterSprites[i] != newSprites[i]);
+            }
+
+            if (mismatch) {
+                characterSprites = newSprites;
+                Debug.Log($"{name} sprite list updated.");
+            }        
         }
 
-        if (mismatch) {
-            characterSprites = newSprites;
-            Debug.Log($"{name} sprite list updated.");
-        }        
+        if (cutSceneImageFolderExist) {
+            var folders = new string[]{$"Assets/Resources/Sprites/{cutSceneImageFolder}"};
+            var guids = AssetDatabase.FindAssets("t:Sprite", folders);
+
+            var newCutSceneImages = new Sprite[guids.Length];
+
+            bool mismatch;
+            if (cutSceneImages == null) {
+                mismatch = true;
+                cutSceneImages = newCutSceneImages;
+            } else {
+                mismatch = newCutSceneImages.Length != cutSceneImages.Length;
+            }
+
+            for (int i = 0; i < newCutSceneImages.Length; i++) {
+                var path = AssetDatabase.GUIDToAssetPath(guids[i]);
+                newCutSceneImages[i] = AssetDatabase.LoadAssetAtPath<Sprite>(path);
+                mismatch |= (i < cutSceneImages.Length && cutSceneImages[i] != newCutSceneImages[i]);
+            }
+
+            if (mismatch) {
+                cutSceneImages = newCutSceneImages;
+                Debug.Log($"{name} sprite list updated.");
+            } 
+        }
+        
     }
 #endif
-    public Sprite[] characterSprites;
+    private Sprite[] characterSprites;
     
     [SerializeField] private Image leftImage;
     [SerializeField] private Image rightImage;
@@ -64,5 +101,13 @@ public class ListOfSprites : MonoBehaviour
         } else {
             rightImage.gameObject.SetActive(false);
         }  
+    }
+
+    private Sprite[] cutSceneImages;
+    [SerializeField] private Image CutSceneImage;
+    
+    public void CutSceneImageSetter(string currentNodeCutSceneImageName) {
+        CutSceneImage.sprite =
+            cutSceneImages.FirstOrDefault(sprite => sprite.name.Equals(currentNodeCutSceneImageName));
     }
 }

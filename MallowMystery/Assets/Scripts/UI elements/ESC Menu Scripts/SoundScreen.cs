@@ -20,17 +20,17 @@ public class SoundScreen : MonoBehaviour{
     }
 
     public void ChangeMasterVolume(float volumeLevel) {
-        masterMixer.SetFloat("masterVolume", volumeLevel);
+        masterMixer.SetFloat("masterVolume", volumeLevel == 0 ? -80 : Mathf.Log10(volumeLevel) * 20);
         PlayerPrefs.SetFloat("masterVolume", volumeLevel);
     }
     
     public void ChangeMusicVolume(float volumeLevel) {
-        masterMixer.SetFloat("musicVolume", volumeLevel);
+        masterMixer.SetFloat("musicVolume", volumeLevel == 0 ? -80 : Mathf.Log10(volumeLevel) * 20);
         PlayerPrefs.SetFloat("musicVolume", volumeLevel);
     }
     
     public void ChangeEffectVolume(float volumeLevel) {
-        masterMixer.SetFloat("effectVolume", volumeLevel);
+        masterMixer.SetFloat("effectVolume", volumeLevel == 0 ? -80 : Mathf.Log10(volumeLevel) * 20);
         PlayerPrefs.SetFloat("effectVolume", volumeLevel);
     }
 

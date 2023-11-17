@@ -19,6 +19,7 @@ namespace Dialogue.Editor.Nodes
         public List<ItemPortCombi> ItemPortCombis;
         public List<string> SkipPorts;
         public bool CanSkipFromThisPoint = false;
+        public string CutSceneImageName;
         
         public DialogueNode (DialogueNodeData data) {
             DialogueText = data.dialogueText;
@@ -30,6 +31,7 @@ namespace Dialogue.Editor.Nodes
             ItemPortCombis = data.ItemPortCombis;
             SkipPorts = data.SkipPorts;
             CanSkipFromThisPoint = data.canSkipFromThisPoint;
+            CutSceneImageName = data.CutSceneImageName;
         }
         
         public DialogueNode () {
