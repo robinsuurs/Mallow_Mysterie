@@ -9,6 +9,7 @@ using UnityEngine.UI;
 public class SettingsScreenManager : MonoBehaviour
 {
     private GameObject currentShownGameObject;
+    [SerializeField] private GameObject ScreenButtons;
     [SerializeField] private InputActionAsset _inputAction;
     
     public void showSettingsScreen(string gameObjectShown) {
@@ -50,6 +51,7 @@ public class SettingsScreenManager : MonoBehaviour
         _inputAction["Interact"].Disable();
         _inputAction["OpenInventory"].Disable();
         _inputAction["OpenMap"].Disable();
+        ScreenButtons.SetActive(false);
     }
 
     private void enableInputKeys() {
@@ -57,5 +59,6 @@ public class SettingsScreenManager : MonoBehaviour
         _inputAction["Interact"].Enable();
         _inputAction["OpenInventory"].Enable();
         _inputAction["OpenMap"].Enable();
+        ScreenButtons.SetActive(true);
     }
 }

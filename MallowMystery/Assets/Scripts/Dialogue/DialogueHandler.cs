@@ -29,6 +29,7 @@ public class DialogueHandler : MonoBehaviour
     [SerializeField] private ListOfSprites _listOfSprites;
     [SerializeField] private GameObject cutSceneCamera;
     [SerializeField] private InputActionAsset _inputAction;
+    [SerializeField] private GameObject ScreenButtons;
 
     private IEnumerable<NodeLinkData> choices = new List<NodeLinkData>();
     public string currentDialogue;
@@ -111,7 +112,7 @@ public class DialogueHandler : MonoBehaviour
             }
 
             if (currentNode.CutSceneImageName != "") {
-                cutSceneCamera.SetActive(true);
+                // cutSceneCamera.SetActive(true); //TODO BM: Leave like this till knowing what to do with cutscene
                 _listOfSprites.CutSceneImageSetter(currentNode.CutSceneImageName);
             } else {
                 cutSceneCamera.SetActive(false);
@@ -165,9 +166,11 @@ public class DialogueHandler : MonoBehaviour
 
     private void enableInputActions() {
         _inputAction.Enable();
+        ScreenButtons.SetActive(true);
     }
     
     private void disableInputActions() {
         _inputAction.Disable();
+        ScreenButtons.SetActive(false);
     }
 }

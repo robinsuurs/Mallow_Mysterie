@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.3069224, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028331, g: 0.2257133, b: 0.3069217, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -141,7 +141,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbdd6fd6a1f3ade488d72b4908f4d02b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _dialogueContainer: {fileID: 11400000, guid: 7719349b4147f6b42930419ceebd7b7e, type: 2}
+  _dialogueContainer: {fileID: 11400000, guid: f08e25e04ff936846a0b35884c030b9e, type: 2}
 --- !u!1001 &376828290
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -309,6 +309,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ef7cfbf58684e544eae7d08fc99fae5f, type: 3}
+--- !u!1 &431055865 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5959999442961562944, guid: 08a7da6836f6d8f4e9c4cd9742a0fc19,
+    type: 3}
+  m_PrefabInstance: {fileID: 1319381578}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &463908754 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6317154897018305262, guid: c2c880ea70692a547bb61dd7d238300e,
@@ -497,6 +503,18 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.28764507, y: 0.02683866, z: 0.0931202}
   m_Center: {x: -0.112768576, y: 0.0034193348, z: 0.040715355}
+--- !u!114 &1030802101 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7740835872771482314, guid: 08a7da6836f6d8f4e9c4cd9742a0fc19,
+    type: 3}
+  m_PrefabInstance: {fileID: 1319381578}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6dce26d4dc08e0944b18678d535ac91f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1193299912
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -798,6 +816,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3143299785889258567, guid: 08a7da6836f6d8f4e9c4cd9742a0fc19,
         type: 3}
+      propertyPath: ScreenButtons
+      value: 
+      objectReference: {fileID: 431055865}
+    - target: {fileID: 3143299785889258567, guid: 08a7da6836f6d8f4e9c4cd9742a0fc19,
+        type: 3}
       propertyPath: cutSceneCamera
       value: 
       objectReference: {fileID: 1684458728}
@@ -806,16 +829,41 @@ PrefabInstance:
       propertyPath: m_Name
       value: CanvasAndManagers
       objectReference: {fileID: 0}
+    - target: {fileID: 5818498806931627614, guid: 08a7da6836f6d8f4e9c4cd9742a0fc19,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1030802101}
+    - target: {fileID: 5818498806931627614, guid: 08a7da6836f6d8f4e9c4cd9742a0fc19,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: showSettingsScreen
+      objectReference: {fileID: 0}
+    - target: {fileID: 5818498806931627614, guid: 08a7da6836f6d8f4e9c4cd9742a0fc19,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: SettingsScreenManager, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 6400838226152832356, guid: 08a7da6836f6d8f4e9c4cd9742a0fc19,
         type: 3}
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 7639753689314635340}
+    - target: {fileID: 6775221278009361797, guid: 08a7da6836f6d8f4e9c4cd9742a0fc19,
+        type: 3}
+      propertyPath: ScreenButtons
+      value: 
+      objectReference: {fileID: 431055865}
     - target: {fileID: 7732688839337809448, guid: 08a7da6836f6d8f4e9c4cd9742a0fc19,
         type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7740835872771482314, guid: 08a7da6836f6d8f4e9c4cd9742a0fc19,
+        type: 3}
+      propertyPath: ScreenButtons
+      value: 
+      objectReference: {fileID: 431055865}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
