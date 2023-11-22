@@ -51,9 +51,6 @@ public class DataPersistenceManager : MonoBehaviour {
         if (!SceneManager.GetActiveScene().name.Equals("MainMenu")) {
             Camera.main.gameObject.GetComponent<Follow_Player>().setFollowPlayer(); //TODO BM: change this, this is not how it is supposed to work
             Camera.main.gameObject.GetComponent<SeeThrough>().setFollowPlayer();
-            if (SceneManager.GetActiveScene().name.Equals("OverworldMap")) {
-                GameObject.FindWithTag("Player").GetComponent<PlayerControl>().setDegrees();
-            }
         }
     }
 
