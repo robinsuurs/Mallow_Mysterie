@@ -48,7 +48,6 @@ public class ListOfSprites : MonoBehaviour
 
             if (mismatch) {
                 characterSprites = newSprites;
-                Debug.Log($"{name} sprite list updated.");
             }        
         }
 
@@ -74,7 +73,6 @@ public class ListOfSprites : MonoBehaviour
 
             if (mismatch) {
                 cutSceneImages = newCutSceneImages;
-                Debug.Log($"{name} sprite list updated.");
             } 
         }
         
