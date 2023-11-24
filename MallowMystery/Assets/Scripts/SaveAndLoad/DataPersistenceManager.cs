@@ -142,4 +142,8 @@ public class DataPersistenceManager : MonoBehaviour {
     public void resetToStandardValues() {
         _levelManager.sceneSwitchData = null;
     }
+
+    public GameData getGameData() {
+        return _gameData;
+    }
 }

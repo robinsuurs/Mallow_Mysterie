@@ -10,7 +10,6 @@ using UnityEngine.UI;
 public class ItemLoadScene : MonoBehaviour {
     [SerializeField] private ItemData itemData;
     [SerializeField] private Inventory _inventory;
-    [SerializeField] private AnswerEvent answerEvent;
 
     public void ShowObjectOrNot() {
         if (itemData.hasBeenPickedUp) {
@@ -24,7 +23,6 @@ public class ItemLoadScene : MonoBehaviour {
             itemData.pickedUpNumber = _inventory.pickedUpItemNumber();
             GameObject.FindWithTag("ItemPopUp").gameObject.GetComponent<ItemPopUpManager>().showPopUp(itemData);
             this.GameObject().SetActive(false);
-            answerEvent.Raise();
         }
     }
 }
