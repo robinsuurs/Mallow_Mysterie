@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028331, g: 0.2257133, b: 0.3069217, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.3069224, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5218,7 +5218,6 @@ GameObject:
   - component: {fileID: 1651594347}
   - component: {fileID: 1651594346}
   - component: {fileID: 1651594345}
-  - component: {fileID: 1651594349}
   m_Layer: 5
   m_Name: Dropdown
   m_TagString: Untagged
@@ -5261,9 +5260,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _dropdown: {fileID: 1651594346}
-  nameOfAnswer: testing
-  answerEvent:
-  - {fileID: 11400000, guid: f43a94ff70d37754fa14cc13de791b26, type: 2}
+  question: {fileID: 11400000, guid: d84fb272007ed074b964fbaa40b22ef1, type: 2}
 --- !u!114 &1651594346
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5319,9 +5316,9 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1651594349}
-        m_TargetAssemblyTypeName: saveSelection, Assembly-CSharp
-        m_MethodName: saveSelectionToGameData
+      - m_Target: {fileID: 1651594345}
+        m_TargetAssemblyTypeName: SetQuestions, Assembly-CSharp
+        m_MethodName: saveAnswer
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5370,18 +5367,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1651594343}
   m_CullTransparentMesh: 1
---- !u!114 &1651594349
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1651594343}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: febb0bfa86dcf3146af9160e6502b80c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1659079914
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7282,6 +7267,11 @@ PrefabInstance:
     - target: {fileID: 950788863271735146, guid: 90da51a3f4e823048af2b52f7fce6253,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1967956138881784765, guid: 90da51a3f4e823048af2b52f7fce6253,
+        type: 3}
+      propertyPath: startFresh
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4117460809587361749, guid: 90da51a3f4e823048af2b52f7fce6253,

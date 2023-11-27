@@ -32,6 +32,11 @@ public class GameData {
             dialogue.alreadyHadConversation = false;
         }
         
+        List<Answer> answers = Resources.LoadAll<Answer>("QuestionAnswers/Answers").ToList();
+        foreach (var answer in answers) {
+            answer.setEnabledFalse();
+        }
+        
         questionAnswerDic.Clear();
         
         sceneName = "DetectiveRoom";

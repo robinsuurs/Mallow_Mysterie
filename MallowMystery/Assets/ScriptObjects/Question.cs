@@ -23,10 +23,10 @@ public class Question : ScriptableObject {
     }
     
     private void OnValidate() {
-#if UNITY_EDITOR
+        #if UNITY_EDITOR
         if (UID != "") return;
         UID = GUID.Generate().ToString();
         UnityEditor.EditorUtility.SetDirty(this);
-#endif
+        #endif
     }
 }

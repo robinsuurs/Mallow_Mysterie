@@ -16,7 +16,7 @@ public class SetQuestions : MonoBehaviour {
 
     private void refreshDropDown() {
         _dropdown.ClearOptions();
-        _dropdown.AddOptions(question.getAnswers().Select(answer => answer.getAnswer()).OrderBy(s => s).ToList());
+        _dropdown.AddOptions(question.getAnswers().Where(answer => answer.getEnabled()).Select(answer => answer.getAnswer()).OrderBy(s => s).ToList());
         
         string answerUID;
         DataPersistenceManager.instance.getGameData().questionAnswerDic.TryGetValue(question.UID, out answerUID);
@@ -27,5 +27,9 @@ public class SetQuestions : MonoBehaviour {
             _dropdown.SetValueWithoutNotify(i);
             break;
         }
+    }
+
+    public void saveAnswer(int number) {
+        DataPersistenceManager.instance.getGameData().questionAnswerDic.Add(question.UID, question.getAnswerGUIDBasedOnString(_dropdown.options[number].text));
     }
 }

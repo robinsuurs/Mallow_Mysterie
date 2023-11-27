@@ -1,11 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using ScriptObjects;
-using TMPro;
+
 using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Serialization;
-using UnityEngine.UI;
+
 
 public class ItemLoadScene : MonoBehaviour {
     [SerializeField] private ItemData itemData;

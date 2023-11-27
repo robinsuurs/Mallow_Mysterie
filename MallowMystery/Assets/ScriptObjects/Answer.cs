@@ -9,6 +9,7 @@ using UnityEngine.Events;
 public class Answer : ScriptableObject {
     [SerializeField] private string answer;
     [SerializeField] private List<AnswerEvent> answerEvents;
+    private bool enabled = false;
     
     public delegate void SelectAction();
     public event SelectAction OnSelectedEvent;
@@ -19,17 +20,28 @@ public class Answer : ScriptableObject {
         foreach (var answerEvent in answerEvents) {
             answerEvent.AddListener(this);
         }
+
+        enabled = false;
     }
 
     public void OnEventTriggered() {
         foreach (var answerEvent in answerEvents) {
             answerEvent.RemoveListener(this);
         }
+        enabled = true;
         OnSelectedEvent?.Invoke();
     }
 
     public string getAnswer() {
         return answer;
+    }
+
+    public bool getEnabled() {
+        return enabled;
+    }
+
+    public void setEnabledFalse() {
+        enabled = false;
     }
     
     private void OnValidate() {
