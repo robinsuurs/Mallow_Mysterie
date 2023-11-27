@@ -24,8 +24,6 @@ public class DataPersistenceManager : MonoBehaviour {
     private FileDataHandler dataHandler;
     public static DataPersistenceManager instance { get; private set; }
 
-    // private bool fromMainMenu = false; //TODO BM: for testing purposes remove after done with it
-
     private void Awake() {
         if (instance != null) {
             Debug.LogError("More than one DataPersistenceManager found, Shit hits the fan! Or Destroying the new one");
@@ -53,9 +51,6 @@ public class DataPersistenceManager : MonoBehaviour {
         if (!SceneManager.GetActiveScene().name.Equals("MainMenu")) {
             Camera.main.gameObject.GetComponent<Follow_Player>().setFollowPlayer(); //TODO BM: change this, this is not how it is supposed to work
             Camera.main.gameObject.GetComponent<SeeThrough>().setFollowPlayer();
-            if (SceneManager.GetActiveScene().name.Equals("OverworldMap")) {
-                GameObject.FindWithTag("Player").GetComponent<PlayerControl>().setDegrees();
-            }
         }
     }
 
@@ -84,8 +79,6 @@ public class DataPersistenceManager : MonoBehaviour {
             NewGame();
         }
         else {
-            _gameData.inventory = Resources.LoadAll("Clues/ClueInventory", typeof(Inventory))
-                .Cast<Inventory>().FirstOrDefault(inventoryArray => inventoryArray.name.Equals("ClueInventory"));
             foreach (IDataPersistence dataPersistenceObj in dataPersistences) {
                 dataPersistenceObj.LoadData(_gameData);
             }
@@ -106,10 +99,6 @@ public class DataPersistenceManager : MonoBehaviour {
 
     public string getSceneToLoadForMainMenu() {
         return _gameData.sceneName;
-    }
-
-    public ProgressionEnum.gameProgression getProgession() {
-        return _gameData.gameProgression;
     }
 
     public void SaveGame () {
@@ -152,19 +141,5 @@ public class DataPersistenceManager : MonoBehaviour {
 
     public void resetToStandardValues() {
         _levelManager.sceneSwitchData = null;
-    }
-    
-    public void setGameState(string gamestate) {
-        switch (gamestate) {
-            case "start" :
-                _gameData.gameProgression = ProgressionEnum.gameProgression.start;
-                break;
-            case "talkToDetectiveInOffice" :
-                _gameData.gameProgression = ProgressionEnum.gameProgression.talkToDetectiveInOffice;
-                break;
-            case "toFriendsHouse" :
-                _gameData.gameProgression = ProgressionEnum.gameProgression.toFriendsHouse;
-                break;
-        }
     }
 }

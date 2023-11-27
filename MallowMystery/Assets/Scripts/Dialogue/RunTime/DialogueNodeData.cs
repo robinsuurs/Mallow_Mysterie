@@ -18,6 +18,6 @@ namespace Dialogue.Runtime
         public List<ItemPortCombi> ItemPortCombis = new List<ItemPortCombi>();
         public List<string> SkipPorts = new List<string>();
         public bool canSkipFromThisPoint;
-        
+        public string CutSceneImageName;
     }
 }

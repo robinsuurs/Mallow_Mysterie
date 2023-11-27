@@ -89,7 +89,8 @@ namespace Subtegral.DialogueSystem.Editor
                     SpeakerSpriteRight = node.SpeakerSpriteRight,
                     ItemPortCombis = node.ItemPortCombis,
                     SkipPorts = node.SkipPorts,
-                    canSkipFromThisPoint = node.CanSkipFromThisPoint
+                    canSkipFromThisPoint = node.CanSkipFromThisPoint,
+                    CutSceneImageName = node.CutSceneImageName
                 });
             }
 

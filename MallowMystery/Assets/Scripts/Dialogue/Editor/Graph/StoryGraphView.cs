@@ -341,6 +341,17 @@ namespace Dialogue.Editor.Graph
             if (useDefaultValues) {
                 tempDialogueNode.SpeakerNameLocation = LeftRightPopUp.value;
             }
+            
+            //SpeakerSprite, which sprite does there need to be shown
+            var cutSceneImageTitle = new TextField(string.Empty)
+            {
+                label = "CutSceneImageTitle",
+                multiline = true
+            };
+            cutSceneImageTitle.AddToClassList("textarea");
+            cutSceneImageTitle.RegisterValueChangedCallback(evt => { tempDialogueNode.CutSceneImageName = evt.newValue; });
+            cutSceneImageTitle.SetValueWithoutNotify(tempDialogueNode.CutSceneImageName);
+            tempDialogueNode.mainContainer.Add(cutSceneImageTitle);
 
             //Check for if the player already had the conversation so it will become skip able 
             BaseBoolField CanSkipFromThisPoint = new Toggle() {

@@ -5,27 +5,30 @@ using System.Linq;
 using Dialogue.Runtime;
 using Dialogue.RunTime;
 using ScriptObjects;
-using Subtegral.DialogueSystem.DataContainers;
 using UnityEngine;
 using TMPro;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
-public class DialogueHandler : MonoBehaviour
-{
+public class DialogueHandler : MonoBehaviour {
+    [SerializeField] private GameObject dialogueCanvas;
     [SerializeField] private TextMeshProUGUI DialogueBoxUI;
     [SerializeField] private TextMeshProUGUI SpeakerNameBoxLeft;
     [SerializeField] private TextMeshProUGUI SpeakerNameBoxRight;
     [SerializeField] private Sprite DialogueLeft;
     [SerializeField] private Sprite DialogueRight;
-    [SerializeField] private GameObject DialogueImage;
+    [SerializeField] private GameObject DialogueBoxSprite;
     private DialogueContainer dialogue;
     [SerializeField] private Button ChoicesButton;
     [SerializeField] private Transform buttonContainer;
     [SerializeField] private float textspeed;
     [SerializeField] private Inventory _inventory;
-    private GameObject DialogueCanvas;
     [SerializeField] private ListOfSprites _listOfSprites;
+    [SerializeField] private InputActionAsset _inputAction;
+    [SerializeField] private GameObject ScreenButtons;
+
+    [SerializeField] private GameObject cutsceneImage;
 
     private IEnumerable<NodeLinkData> choices = new List<NodeLinkData>();
     public string currentDialogue;
@@ -33,35 +36,39 @@ public class DialogueHandler : MonoBehaviour
     private bool inDialogue;
 
     private void Start() {
-        DialogueCanvas = GameObject.FindWithTag("CanvasManager").gameObject.transform.Find("DialogueCanvas").gameObject;
+        ScreenButtons = GameObject.FindWithTag("ScreenButtons").gameObject;
     }
 
     public void StartDialogue(DialogueContainer dialogueContainer) {
         if (!inDialogue) {
             dialogue = dialogueContainer;
-            DialogueCanvas.SetActive(true);
+            dialogueCanvas.SetActive(true);
+            ScreenButtons.SetActive(false);
             var narrativeData = dialogueContainer.NodeLinks.Where(x => x.PortName.Equals("Next")).ToList()[0].TargetNodeGUID;
             ProceedToNarrative(narrativeData);
             inDialogue = true;
             Time.timeScale = 0f;
+            disableInputActions();
         }
     }
 
     private void EndDialogue() {
         dialogue.alreadyHadConversation = true;
+        ScreenButtons.SetActive(true);
         currentDialogue = null;
         singleOption = false;
         inDialogue = false;
         DialogueBoxUI.text = "";
         SpeakerNameBoxLeft.text = "";
         SpeakerNameBoxRight.text = "";
-        DialogueCanvas.SetActive(false);
+        dialogueCanvas.SetActive(false);
+        enableInputActions();
         Time.timeScale = 1f;
     }
     
     void Update()
     {
-        if ((Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Space)) && inDialogue) {
+        if (inDialogue && (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Space))) {
             if (DialogueBoxUI.text == currentDialogue) {
                 if (!choices.Any()) {
                     EndDialogue();
@@ -98,11 +105,18 @@ public class DialogueHandler : MonoBehaviour
             if (currentNode.SpeakerNameLocation.Equals("Speaker Name Left")) {
                 SpeakerNameBoxLeft.text = currentNode.SpeakerName;
                 SpeakerNameBoxRight.text = "";
-                DialogueImage.GetComponent<Image>().sprite = DialogueLeft;
+                DialogueBoxSprite.GetComponent<Image>().sprite = DialogueLeft;
             } else {
                 SpeakerNameBoxRight.text = currentNode.SpeakerName;
                 SpeakerNameBoxLeft.text = "";
-                DialogueImage.GetComponent<Image>().sprite = DialogueRight;
+                DialogueBoxSprite.GetComponent<Image>().sprite = DialogueRight;
+            }
+
+            if (currentNode.CutSceneImageName != "") {
+                // cutSceneCamera.SetActive(true); //TODO BM: Leave like this till knowing what to do with cutscene
+                _listOfSprites.CutSceneImageSetter(currentNode.CutSceneImageName);
+            } else {
+                cutsceneImage.SetActive(false);
             }
     
             if (choices.Count() is 1 or 0 || (choices.Count() >= 2 && !CanSkip(currentNode, choices))) {
@@ -149,5 +163,15 @@ public class DialogueHandler : MonoBehaviour
             DialogueBoxUI.text += c;
             yield return new WaitForSecondsRealtime(textspeed);
         }
+    }
+
+    private void enableInputActions() {
+        _inputAction.Enable();
+        ScreenButtons.SetActive(true);
+    }
+    
+    private void disableInputActions() {
+        _inputAction.Disable();
+        ScreenButtons.SetActive(false);
     }
 }
