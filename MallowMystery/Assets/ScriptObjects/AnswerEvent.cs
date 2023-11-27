@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Events/AnswerEvent")]
 public class AnswerEvent : ScriptableObject
 {
-    private readonly List<SetQuestions> _listeners = new List<SetQuestions>();
+    private readonly List<Answer> _listeners = new List<Answer>();
     public void Raise()
     {
         for (int i = _listeners.Count -1; i >= 0; i--)
@@ -13,12 +13,12 @@ public class AnswerEvent : ScriptableObject
             _listeners[i].OnEventTriggered();
         }
     }
-    public void AddListener(SetQuestions listener)
+    public void AddListener(Answer answer)
     {
-        _listeners.Add(listener);
+        _listeners.Add(answer);
     }
-    public void RemoveListener(SetQuestions listener)
+    public void RemoveListener(Answer answer)
     {
-        _listeners.Remove(listener);
+        _listeners.Remove(answer);
     }
 }

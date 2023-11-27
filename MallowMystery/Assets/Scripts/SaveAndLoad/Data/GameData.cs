@@ -12,6 +12,9 @@ public class GameData {
     public string sceneName;
     public Vector3 playerLocation;
     public List<DropdownInfo> dropdownAnswers = new List<DropdownInfo>();
+
+    public SerializableDictionary<string, string> questionAnswerDic =
+        new SerializableDictionary<string, string>();
     
     //Set start thing when you create a newGame
     public GameData(string leaveEmpty) {
@@ -28,6 +31,8 @@ public class GameData {
         foreach (var dialogue in dialogueContainers) {
             dialogue.alreadyHadConversation = false;
         }
+        
+        questionAnswerDic.Clear();
         
         sceneName = "DetectiveRoom";
         playerLocation = new Vector3(-0.5f, 0.2433f, 0.2f);
