@@ -89,6 +89,7 @@ namespace Subtegral.DialogueSystem.Editor
                     SpeakerSpriteRight = node.SpeakerSpriteRight,
                     ItemPortCombis = node.ItemPortCombis,
                     SkipPorts = node.SkipPorts,
+                    QuestionAnswerPortCombis = node.QuestionAnswerPortCombis,
                     canSkipFromThisPoint = node.CanSkipFromThisPoint,
                     CutSceneImageName = node.CutSceneImageName
                 });
@@ -162,8 +163,9 @@ namespace Subtegral.DialogueSystem.Editor
                         _graphView.CreateChoicePort(tempNode, "item", false, node.PortName);
                     } else if (tempNode.SkipPorts.Any(skipPort => skipPort.Equals(node.PortName))) {
                         _graphView.CreateChoicePort(tempNode, "skip", false, node.PortName);
-                    }
-                    else {
+                    } else if (tempNode.QuestionAnswerPortCombis.Any(q => q.portname.Equals(node.PortName))) {
+                        _graphView.CreateChoicePort(tempNode, "question", false, node.PortName);
+                    } else {
                         _graphView.CreateChoicePort(tempNode, "",false, node.PortName);
                     }
                 }

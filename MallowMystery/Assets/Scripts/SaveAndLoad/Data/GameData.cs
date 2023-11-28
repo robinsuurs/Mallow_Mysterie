@@ -42,13 +42,4 @@ public class GameData {
         sceneName = "DetectiveRoom";
         playerLocation = new Vector3(-0.5f, 0.2433f, 0.2f);
     }
-
-    public void setDropdownInfo(string nameDropDown, string value) {
-        foreach (var dropdown in dropdownAnswers.Where(dropdown => dropdown.nameDropdown.Equals(nameDropDown))) {
-            dropdown.value = value;
-            return;
-        }
-
-        dropdownAnswers.Add(new DropdownInfo(nameDropDown, value));
-    }
 }

@@ -7,14 +7,15 @@ using UnityEngine.Events;
 
 [CreateAssetMenu(menuName = "Deduction/Answer")]
 public class Answer : ScriptableObject {
-    [SerializeField] private string answer;
+    public string answer; //Needs to be public for dialogue
+    public string UID; //Needs to be public for dialogue
     [SerializeField] private List<AnswerEvent> answerEvents;
     private bool enabled = false;
     
     public delegate void SelectAction();
     public event SelectAction OnSelectedEvent;
     
-    public string UID;
+    
 
     private void OnEnable() {
         foreach (var answerEvent in answerEvents) {

@@ -6,8 +6,8 @@ using UnityEngine;
 
 [CreateAssetMenu(menuName = "Deduction/Question")]
 public class Question : ScriptableObject {
-    [SerializeField] private List<Answer> answers;
-    [SerializeField] private string question;
+    public List<Answer> answers; //Needs to be public for dialogue
+    public string question; //Needs to be public for dialogue
     public string UID;
 
     public List<Answer> getAnswers() {
