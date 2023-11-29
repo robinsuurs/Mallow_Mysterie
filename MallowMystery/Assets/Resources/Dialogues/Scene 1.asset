@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 78b3fd9154634ebdb8c8a48960b9a16a, type: 3}
-  m_Name: cutSceneTest
+  m_Name: Scene 1
   m_EditorClassIdentifier: 
   alreadyHadConversation: 0
   NodeLinks:
@@ -63,47 +63,51 @@ MonoBehaviour:
   - nodeGuid: 4d49e8ac-1074-4383-a7f4-373fc71e76c8
     dialogueText: With a tarp covering all but her head and a little part of her
       hand.
-    position: {x: 1082.4, y: -73.6}
+    position: {x: 1082, y: -74}
     SpeakerName: Tyrone
     SpeakerNameLocation: Speaker Name Right
     SpeakerSpriteLeft: M1
     SpeakerSpriteRight: D1
     ItemPortCombis: []
+    QuestionAnswerPortCombis: []
     SkipPorts: []
     canSkipFromThisPoint: 0
     CutSceneImageName: 
   - nodeGuid: 3cbcc49c-99ae-4d42-9557-95d731f276a9
     dialogueText: When you walked by the alleyway next to her house you saw her body
       surrounded by the police.
-    position: {x: 1082.4, y: 278.40002}
+    position: {x: 1082, y: 278}
     SpeakerName: Tyrone
     SpeakerNameLocation: Speaker Name Right
     SpeakerSpriteLeft: M1
     SpeakerSpriteRight: D1
     ItemPortCombis: []
+    QuestionAnswerPortCombis: []
     SkipPorts: []
     canSkipFromThisPoint: 0
     CutSceneImageName: 
   - nodeGuid: 501beaf8-b19e-43c0-bfce-b3b20afbafdf
     dialogueText: A melt scar? Curious. The police were saying it was just a common
       mugging, but how would a street crook get their hands on water or fire?
-    position: {x: 1630.4, y: 278.40002}
+    position: {x: 1630, y: 278}
     SpeakerName: Tyrone
     SpeakerNameLocation: Speaker Name Right
     SpeakerSpriteLeft: M1
     SpeakerSpriteRight: D1
     ItemPortCombis: []
+    QuestionAnswerPortCombis: []
     SkipPorts: []
     canSkipFromThisPoint: 0
     CutSceneImageName: 
   - nodeGuid: 1fc69362-4284-4463-9f48-b49a45a748c5
     dialogueText: Yes, and her hand had a new melt scar that I had never seen before.
-    position: {x: 1630.4, y: -72}
+    position: {x: 1630, y: -72}
     SpeakerName: Milton
     SpeakerNameLocation: Speaker Name Left
     SpeakerSpriteLeft: M1
     SpeakerSpriteRight: D1
     ItemPortCombis: []
+    QuestionAnswerPortCombis: []
     SkipPorts: []
     canSkipFromThisPoint: 0
     CutSceneImageName: 
@@ -111,135 +115,145 @@ MonoBehaviour:
     dialogueText: "Also, why would they be that confident in it being a simple robbery
       in the first place? Their evidence cart was mostly empty and I didn\u2019t
       even see a murder weapon."
-    position: {x: 2172.8, y: -72}
+    position: {x: 2173, y: -72}
     SpeakerName: Tyrone
     SpeakerNameLocation: Speaker Name Right
     SpeakerSpriteLeft: M1
     SpeakerSpriteRight: D1
     ItemPortCombis: []
+    QuestionAnswerPortCombis: []
     SkipPorts: []
     canSkipFromThisPoint: 0
     CutSceneImageName: 
   - nodeGuid: f5a088a9-719f-417d-9dc4-a51f3d74cbd1
     dialogueText: "I wonder where the evidence could\u2019ve gone. Did you see anyone
       investigating Cornelia\u2019s house by any chance?\u201D"
-    position: {x: 2172.8, y: 278.40002}
+    position: {x: 2173, y: 278}
     SpeakerName: Milton
     SpeakerNameLocation: Speaker Name Left
     SpeakerSpriteLeft: M1
     SpeakerSpriteRight: D1
     ItemPortCombis: []
+    QuestionAnswerPortCombis: []
     SkipPorts: []
     canSkipFromThisPoint: 0
     CutSceneImageName: 
   - nodeGuid: 43d4c8d1-d8fc-4e6d-aa5e-8d4b27b52453
     dialogueText: "Something tells me we could find something in there. Cornelia
       was a careful and suspicious woman, she might\u2019ve left some hints behind."
-    position: {x: 2684.8, y: -72}
+    position: {x: 2685, y: -72}
     SpeakerName: Milton
     SpeakerNameLocation: Speaker Name Left
     SpeakerSpriteLeft: M1
     SpeakerSpriteRight: D1
     ItemPortCombis: []
+    QuestionAnswerPortCombis: []
     SkipPorts: []
     canSkipFromThisPoint: 0
     CutSceneImageName: 
   - nodeGuid: a93a94b4-da79-4efc-b040-19c7ce06df7c
     dialogueText: "No, I did not. Weird. Maybe they haven\u2019t received a search
       warrant yet?"
-    position: {x: 2684.8, y: 278.40002}
+    position: {x: 2685, y: 278}
     SpeakerName: Tyrone
     SpeakerNameLocation: Speaker Name Right
     SpeakerSpriteLeft: M1
     SpeakerSpriteRight: D1
     ItemPortCombis: []
+    QuestionAnswerPortCombis: []
     SkipPorts: []
     canSkipFromThisPoint: 0
     CutSceneImageName: 
   - nodeGuid: 54b6a64f-4ca4-431d-8908-5919eb30a2f2
     dialogueText: We?! Are you suggesting that we break into her house?
-    position: {x: 3198.4, y: -72}
+    position: {x: 3198, y: -72}
     SpeakerName: Tyrone
     SpeakerNameLocation: Speaker Name Right
     SpeakerSpriteLeft: M1
     SpeakerSpriteRight: D1
     ItemPortCombis: []
+    QuestionAnswerPortCombis: []
     SkipPorts: []
     canSkipFromThisPoint: 0
     CutSceneImageName: 
   - nodeGuid: 7c401c8d-f7d3-4e79-b63d-b1618b3b17f9
     dialogueText: Exactly. I even know where she keeps her spare key.
-    position: {x: 3198.4, y: 278.40002}
+    position: {x: 3198, y: 278}
     SpeakerName: Milton
     SpeakerNameLocation: Speaker Name Left
     SpeakerSpriteLeft: M1
     SpeakerSpriteRight: D1
     ItemPortCombis: []
+    QuestionAnswerPortCombis: []
     SkipPorts: []
     canSkipFromThisPoint: 0
     CutSceneImageName: 
   - nodeGuid: b287ecc7-3dcc-4a3b-be09-e07da83fa771
     dialogueText: "I suppose it could be helpful. But I\u2019m not going in without
       a proper warrant! I\u2019ll just leave this to you, I have my own work to do."
-    position: {x: 3700.8, y: 130.4}
+    position: {x: 3701, y: 130}
     SpeakerName: Tyrone
     SpeakerNameLocation: Speaker Name Right
     SpeakerSpriteLeft: M1
     SpeakerSpriteRight: D1
     ItemPortCombis: []
+    QuestionAnswerPortCombis: []
     SkipPorts: []
     canSkipFromThisPoint: 0
     CutSceneImageName: 
   - nodeGuid: 4d792952-8def-4fb6-9161-80abc3c7f72e
     dialogueText: Alright, let's set the facts straight.
-    position: {x: 560, y: -73.6}
+    position: {x: 560, y: -74}
     SpeakerName: Tyrone
     SpeakerNameLocation: Speaker Name Right
     SpeakerSpriteLeft: M1
     SpeakerSpriteRight: D1
     ItemPortCombis: []
+    QuestionAnswerPortCombis: []
     SkipPorts: []
     canSkipFromThisPoint: 0
-    CutSceneImageName: One_sketch
+    CutSceneImageName: 
   - nodeGuid: dfa95877-5ae5-4f4a-8b28-68f1a40efc07
     dialogueText: "So you went to meet up with Cornelia and when she didn\u2019t
       show up you went to look for her."
-    position: {x: 560, y: 278.40002}
+    position: {x: 560, y: 278}
     SpeakerName: Tyrone
     SpeakerNameLocation: Speaker Name Right
     SpeakerSpriteLeft: M1
     SpeakerSpriteRight: D1
     ItemPortCombis: []
+    QuestionAnswerPortCombis: []
+    SkipPorts: []
+    canSkipFromThisPoint: 0
+    CutSceneImageName: 
+  - nodeGuid: 845c2315-68a6-495f-a28a-5fd8512bbc12
+    dialogueText: 
+    position: {x: 754, y: -324}
+    SpeakerName: 
+    SpeakerNameLocation: Speaker Name Left
+    SpeakerSpriteLeft: 
+    SpeakerSpriteRight: 
+    ItemPortCombis: []
+    QuestionAnswerPortCombis: []
     SkipPorts: []
     canSkipFromThisPoint: 0
     CutSceneImageName: 
   - nodeGuid: 423bf2d6-5239-40a2-a18a-3496ca1b0527
     dialogueText: Back again so soon?
-    position: {x: 100, y: -250.40001}
+    position: {x: 100, y: -251}
     SpeakerName: Tyrone
     SpeakerNameLocation: Speaker Name Right
     SpeakerSpriteLeft: M1
     SpeakerSpriteRight: D1
     ItemPortCombis: []
+    QuestionAnswerPortCombis: []
     SkipPorts:
     - Skip dialogue
     - Sorry I am going
     - Sorry I am going
     - Sorry I am going
     - Sorry I am going
-    - Sorry I am going
     canSkipFromThisPoint: 1
-    CutSceneImageName: 
-  - nodeGuid: 845c2315-68a6-495f-a28a-5fd8512bbc12
-    dialogueText: 
-    position: {x: 687.2, y: -390.4}
-    SpeakerName: 
-    SpeakerNameLocation: Speaker Name Left
-    SpeakerSpriteLeft: 
-    SpeakerSpriteRight: 
-    ItemPortCombis: []
-    SkipPorts: []
-    canSkipFromThisPoint: 0
     CutSceneImageName: 
   ExposedProperties:
   - PropertyName: Ignore
@@ -249,3 +263,6 @@ MonoBehaviour:
   - PropertyName: Tyrone
     PropertyValue: New Value
   CommentBlockData: []
+  dialogueEvent:
+    m_PersistentCalls:
+      m_Calls: []
