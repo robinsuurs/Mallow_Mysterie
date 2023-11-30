@@ -17,6 +17,7 @@ namespace Dialogue.Editor.Nodes
         public string SpeakerSpriteLeft;
         public string SpeakerSpriteRight;
         public List<ItemPortCombi> ItemPortCombis;
+        public List<QuestionAnswerPortCombi> QuestionAnswerPortCombis;
         public List<string> SkipPorts;
         public bool CanSkipFromThisPoint = false;
         public string CutSceneImageName;
@@ -29,6 +30,7 @@ namespace Dialogue.Editor.Nodes
             SpeakerSpriteLeft = data.SpeakerSpriteLeft;
             SpeakerSpriteRight = data.SpeakerSpriteRight;
             ItemPortCombis = data.ItemPortCombis;
+            QuestionAnswerPortCombis = data.QuestionAnswerPortCombis;
             SkipPorts = data.SkipPorts;
             CanSkipFromThisPoint = data.canSkipFromThisPoint;
             CutSceneImageName = data.CutSceneImageName;
