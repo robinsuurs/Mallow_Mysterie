@@ -226,6 +226,22 @@ MonoBehaviour:
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
+--- !u!114 &-668738031273297597
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c87fc7a9274d4b4fb367210c3cf90b2, type: 3}
+  m_Name: ClueFlashSettings
+  m_EditorClassIdentifier: 
+  active: 1
+  flashSpeed:
+    m_OverrideState: 0
+    m_Value: 0
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -241,3 +257,4 @@ MonoBehaviour:
   components:
   - {fileID: -1405723584409246133}
   - {fileID: -2573071620626084466}
+  - {fileID: -668738031273297597}

@@ -54,7 +54,8 @@ MonoBehaviour:
   m_RendererFeatures:
   - {fileID: -1878332245247344467}
   - {fileID: 7341742134220542852}
-  m_RendererFeatureMap: adc0de57c6d2eee584d3bba6921be365
+  - {fileID: 1731865825262486748}
+  m_RendererFeatureMap: adc0de57c6d2eee584d3bba6921be365dcc468d1cad20818
   m_UseNativeRenderPass: 0
   postProcessData: {fileID: 11400000, guid: 41439944d30ece34e96484bdb6645b55, type: 2}
   xrSystemData: {fileID: 11400000, guid: 60e1133243b97e347b653163a8c01b64, type: 2}
@@ -97,6 +98,19 @@ MonoBehaviour:
   m_CopyDepthMode: 0
   m_AccurateGbufferNormals: 0
   m_IntermediateTextureMode: 1
+--- !u!114 &1731865825262486748
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52113a2728664e1d9b9f0e063a82b648, type: 3}
+  m_Name: Clue Flash
+  m_EditorClassIdentifier: 
+  m_Active: 1
 --- !u!114 &7341742134220542852
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -109,7 +123,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d613f08f173d4dd895bb07b3230baa9, type: 3}
   m_Name: HotCold effect
   m_EditorClassIdentifier: 
-  m_Active: 1
+  m_Active: 0
   passMaterial: {fileID: -876546973899608171, guid: 97db552d116ca9a429fc937999c9417d,
     type: 3}
   injectionPoint: 600
