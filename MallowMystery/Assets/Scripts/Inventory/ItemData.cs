@@ -15,7 +15,7 @@ namespace ScriptObjects
         public string description;
         public bool hasBeenPickedUp = false;
         public int pickedUpNumber;
-        [SerializeField] private List<AnswerEvent> _event;
+        [SerializeField] private List<PickupEvent> _event;
 
         public void setPickUp() {
             hasBeenPickedUp = true;
