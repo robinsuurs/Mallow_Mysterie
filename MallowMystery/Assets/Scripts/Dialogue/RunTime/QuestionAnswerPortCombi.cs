@@ -12,10 +12,5 @@ namespace Dialogue.RunTime {
             this.questionUID = questionUid;
             this.answerUID = answerUid;
         }
-        
-        public QuestionAnswerPortCombi(string questionUid, string answerUid) {
-            this.questionUID = questionUid;
-            this.answerUID = answerUid;
-        }
     }
 }
