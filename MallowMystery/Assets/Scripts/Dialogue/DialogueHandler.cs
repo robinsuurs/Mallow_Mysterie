@@ -63,6 +63,7 @@ public class DialogueHandler : MonoBehaviour {
         SpeakerNameBoxRight.text = "";
         dialogueCanvas.SetActive(false);
         enableInputActions();
+        dialogue.dialogueEvent.Invoke();
         Time.timeScale = 1f;
     }
     
