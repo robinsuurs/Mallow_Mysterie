@@ -211,7 +211,7 @@ namespace Dialogue.Editor.Graph
                     SkipPort(nodeCache, useDefaultValues, generatedPort, outputPortName, textField);
                     break;
                 case "question" :
-                    QuestionPort(nodeCache, useDefaultValues, generatedPort, outputPortName);
+                    QuestionPort(nodeCache, useDefaultValues, generatedPort, outputPortName, textField);
                     break;
             }
             
@@ -268,7 +268,8 @@ namespace Dialogue.Editor.Graph
             });
         }
         
-        private void QuestionPort(DialogueNode nodeCache, bool useDefaultValues, Port generatedPort, string overriddenPortName) {
+        private void QuestionPort(DialogueNode nodeCache, bool useDefaultValues, Port generatedPort,
+            string overriddenPortName, TextField textField) {
             int defaultIndex = useDefaultValues ? 0 : getNumberAnswer(nodeCache, overriddenPortName);
             defaultIndex = defaultIndex < 0 ? 0 : defaultIndex;
             
@@ -308,7 +309,8 @@ namespace Dialogue.Editor.Graph
             }
 
             if (useDefaultValues) {
-                QuestionAnswerPortCombi questionAnswerPortCombi = new QuestionAnswerPortCombi(overriddenPortName, questionUid, answerUid);
+                QuestionAnswerPortCombi questionAnswerPortCombi = new QuestionAnswerPortCombi(GUID.Generate().ToString(), questionUid, answerUid);
+                textField.value = questionAnswerPortCombi.portname;
                 nodeCache.QuestionAnswerPortCombis.Add(questionAnswerPortCombi);
             }
         }
