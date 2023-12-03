@@ -5,8 +5,9 @@ using UnityEditor;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Deduction/Question")]
-public class Question : ScriptableObject {
-    public List<Answer> answers; //Needs to be public for dialogue
+public class Question : ScriptableObject, IDataPersistence {
+    [SerializeField] private List<Answer> answers;
+    private Answer chosenAnswer;
     public string question; //Needs to be public for dialogue
     public string UID;
 
@@ -21,6 +22,14 @@ public class Question : ScriptableObject {
     public string getAnswerStringBasedOnGUID(string GUID) {
         return answers.Where(answerList => answerList.UID.Equals(GUID)).Select(answerList => answerList.getAnswer()).FirstOrDefault();
     }
+
+    public void setChosenAnswer(string answer) {
+        chosenAnswer = answers.FirstOrDefault(answerList => answerList.getAnswer().Equals(answer));
+    }
+
+    public Answer getChosenAnswer() {
+        return chosenAnswer;
+    }
     
     private void OnValidate() {
         #if UNITY_EDITOR
@@ -28,5 +37,20 @@ public class Question : ScriptableObject {
         UID = GUID.Generate().ToString();
         UnityEditor.EditorUtility.SetDirty(this);
         #endif
+    }
+
+    public void LoadData(GameData data) {
+        string answerUID;
+        data.questionAnswerDic.TryGetValue(UID, out answerUID);
+        
+        if (answerUID == null) return;
+        
+        foreach (var answer in answers.Where(answer => answer.UID.Equals(answerUID))) {
+            this.chosenAnswer = answer;
+        }
+    }
+
+    public void SaveData(ref GameData data) {
+        data.questionAnswerDic[UID] = chosenAnswer.UID;
     }
 }

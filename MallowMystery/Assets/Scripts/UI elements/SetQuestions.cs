@@ -30,6 +30,6 @@ public class SetQuestions : MonoBehaviour {
     }
 
     public void saveAnswer(int number) {
-        DataPersistenceManager.instance.getGameData().questionAnswerDic.Add(question.UID, question.getAnswerGUIDBasedOnString(_dropdown.options[number].text));
+        question.setChosenAnswer(_dropdown.options[number].text);
     }
 }
