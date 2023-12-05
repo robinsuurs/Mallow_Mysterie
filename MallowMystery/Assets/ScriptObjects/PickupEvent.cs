@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Events/AnswerEvent")]
-public class AnswerEvent : ScriptableObject
+public class PickupEvent : ScriptableObject
 {
     private readonly List<Answer> _listeners = new List<Answer>();
     public void Raise()
