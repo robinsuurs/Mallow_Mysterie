@@ -25,4 +25,8 @@ public class Follow_Player : MonoBehaviour
             player.GetComponent<ShowSpritePlayer>().setSpriteRotation();
         }
     }
+
+    public Vector3 getCameraOffset() {
+        return CameraOffset;
+    }
 }

@@ -83,7 +83,7 @@ public class DataPersistenceManager : MonoBehaviour {
         }
 
         if (!SceneManager.GetActiveScene().name.Equals("MainMenu")) {
-            GameObject.FindWithTag("CanvasManager").transform.Find("ShortcutImages").gameObject.SetActive(true);
+            // GameObject.FindWithTag("CanvasManager").transform.Find("ShortcutImages").gameObject.SetActive(true);
             _levelManager.SpawnPlayer(_gameData);
         }
     }
