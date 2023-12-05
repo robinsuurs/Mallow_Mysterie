@@ -21,7 +21,7 @@ public class CameraToTram : MonoBehaviour, IDataPersistence {
         // if (cameraHasPanned) return;
         
         _inputAction.Disable();
-        mainCam = mainCam;
+        mainCam = Camera.main;
         
         orignalLocation = mainCam.transform.position;
 
