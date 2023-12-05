@@ -2,40 +2,63 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class SettingsScreenManager : MonoBehaviour
 {
     private GameObject currentShownGameObject;
+    [SerializeField] private GameObject ScreenButtons;
+    [SerializeField] private InputActionAsset _inputAction;
     
     public void showSettingsScreen(string gameObjectShown) {
+        //Block opening off map in other scenes
         if (!SceneManager.GetActiveScene().name.Equals("OverworldMap")) {
-            this.gameObject.transform.Find("MenuContainer").transform.Find("MapButton").GetComponent<Button>().interactable = false;
+            gameObject.transform.Find("MenuContainer").transform.Find("MapButton").GetComponent<Button>().interactable = false;
         }
-        if (this.gameObject.activeSelf && (gameObjectShown.Equals("OpenSettings") || currentShownGameObject.name.Equals(gameObjectShown))) {
+        
+        if (gameObject.activeSelf && gameObjectShown.Equals("OpenSettings")) {
             currentShownGameObject.SetActive(false);
             currentShownGameObject = null;
-            this.gameObject.SetActive(false);
+            gameObject.SetActive(false);
+            enableInputKeys();
             Time.timeScale = 1;
-        } else if (gameObjectShown.Equals("OverworldMap") && !SceneManager.GetActiveScene().name.Equals(gameObjectShown)) {
-            
         } else {
-            if (!this.gameObject.activeSelf) {
-                this.gameObject.SetActive(true);
+            if (!gameObject.activeSelf) {
+                gameObject.SetActive(true);
+                disableInputKeys();
+                Time.timeScale = 0f;
             }
-            Time.timeScale = 0f;
+            
             if (currentShownGameObject != null) {
                 currentShownGameObject.SetActive(false);
             }
+            
             if (gameObjectShown.Equals("OpenSettings")) {
                 gameObjectShown = "MainSettings";
             }
-            this.currentShownGameObject = this.gameObject.transform.Find("MenuContainer").transform.Find(gameObjectShown).gameObject;
-            this.currentShownGameObject.SetActive(true);
+            currentShownGameObject = gameObject.transform.Find("MenuContainer").transform.Find(gameObjectShown).gameObject;
+            currentShownGameObject.SetActive(true);
             if (gameObjectShown.Equals("Inventory")) {
                 currentShownGameObject.transform.GetComponent<InventoryScreen>().setInventoryItems(0);
             }
         }
+    }
+
+    private void disableInputKeys() {
+        _inputAction["Move"].Disable();
+        _inputAction["Interact"].Disable();
+        _inputAction["OpenInventory"].Disable();
+        _inputAction["OpenMap"].Disable();
+        ScreenButtons.SetActive(false);
+    }
+
+    private void enableInputKeys() {
+        _inputAction["Move"].Enable();
+        _inputAction["Interact"].Enable();
+        _inputAction["OpenInventory"].Enable();
+        _inputAction["OpenMap"].Enable();
+        ScreenButtons.SetActive(true);
     }
 }

@@ -74,6 +74,4 @@ public class ItemDataNamesRetriever
         // throws InvalidCastException if types are incompatible
         return (T)retval;
     }
-    
-    
 }

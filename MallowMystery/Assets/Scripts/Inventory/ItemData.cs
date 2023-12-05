@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
@@ -14,10 +15,20 @@ namespace ScriptObjects
         public string description;
         public bool hasBeenPickedUp = false;
         public int pickedUpNumber;
+        [SerializeField] private List<AnswerEvent> _event;
+
+        public void setPickUp() {
+            hasBeenPickedUp = true;
+            foreach (var pickUp in _event) {
+                pickUp.Raise();
+            }
+        }
         
         public void LoadData(GameData data) {
             foreach (var dataSave in data.itemDataSaves.Where(dataSave => itemName.Equals(dataSave.itemName))) {
-                hasBeenPickedUp = dataSave.hasBeenPickedUp;
+                if (dataSave.hasBeenPickedUp) {
+                    setPickUp();
+                }
                 pickedUpNumber = dataSave.pickedUpNumber;
                 break;
             }

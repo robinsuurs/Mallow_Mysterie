@@ -8,9 +8,13 @@ using UnityEngine;
 [System.Serializable] 
 public class GameData {
     public List<ItemDataSave> itemDataSaves = new List<ItemDataSave>();
+    public List<PermissionCheckSave> PermissionCheckSaves = new List<PermissionCheckSave>();
     public List<string> alreadyHadConversations = new List<string>();
     public string sceneName;
     public Vector3 playerLocation;
+
+    public SerializableDictionary<string, string> questionAnswerDic =
+        new SerializableDictionary<string, string>();
     
     //Set start thing when you create a newGame
     public GameData(string leaveEmpty) {
@@ -27,6 +31,18 @@ public class GameData {
         foreach (var dialogue in dialogueContainers) {
             dialogue.alreadyHadConversation = false;
         }
+        
+        List<Answer> answers = Resources.LoadAll<Answer>("QuestionAnswers/Answers").ToList();
+        foreach (var answer in answers) {
+            answer.setEnabledFalse();
+        }
+        
+        List<PermissionCheck> permissions = Resources.LoadAll<PermissionCheck>("Permission").ToList();
+        foreach (var permission in permissions) {
+            permission.setPermission(false);
+        }
+        
+        questionAnswerDic.Clear();
         
         sceneName = "DetectiveRoom";
         playerLocation = new Vector3(-0.5f, 0.2433f, 0.2f);

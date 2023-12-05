@@ -1,12 +1,7 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
-using Dialogue.Runtime;
 using Dialogue.RunTime;
-using ScriptObjects;
-using Subtegral.DialogueSystem.DataContainers;
 using UnityEngine.SceneManagement;
 
 //Youtube video used: https://www.youtube.com/watch?v=aUi9aijvpgs&t=538s
@@ -51,9 +46,6 @@ public class DataPersistenceManager : MonoBehaviour {
         if (!SceneManager.GetActiveScene().name.Equals("MainMenu")) {
             Camera.main.gameObject.GetComponent<Follow_Player>().setFollowPlayer(); //TODO BM: change this, this is not how it is supposed to work
             Camera.main.gameObject.GetComponent<SeeThrough>().setFollowPlayer();
-            if (SceneManager.GetActiveScene().name.Equals("OverworldMap")) {
-                GameObject.FindWithTag("Player").GetComponent<PlayerControl>().setDegrees();
-            }
         }
     }
 
@@ -144,5 +136,9 @@ public class DataPersistenceManager : MonoBehaviour {
 
     public void resetToStandardValues() {
         _levelManager.sceneSwitchData = null;
+    }
+
+    public GameData getGameData() {
+        return _gameData;
     }
 }
