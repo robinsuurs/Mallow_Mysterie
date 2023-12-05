@@ -38,7 +38,12 @@ public class PlayerMovement : MonoBehaviour
         //move the player
         var outputSpeed = _moveDirection * speed;
         controller.SimpleMove(outputSpeed);
-        print(controller.velocity.magnitude);
+        // print(controller.velocity.magnitude);
+    }
+
+    public Vector3 GetMoveDirection()
+    {
+        return _moveDirection;
     }
 
 }
