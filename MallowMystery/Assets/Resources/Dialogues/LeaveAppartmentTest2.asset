@@ -1,0 +1,68 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78b3fd9154634ebdb8c8a48960b9a16a, type: 3}
+  m_Name: LeaveAppartmentTest2
+  m_EditorClassIdentifier: 
+  alreadyHadConversation: 0
+  NodeLinks:
+  - BaseNodeGUID: 7018d241-427d-470e-87e7-3cd6c06e6693
+    PortName: Next
+    TargetNodeGUID: 5096ace8-bf71-4928-a4f3-9adff14508bc
+  - BaseNodeGUID: 5096ace8-bf71-4928-a4f3-9adff14508bc
+    PortName: Trapped
+    TargetNodeGUID: b2da61aa-6fe4-4948-8141-4d814b709bad
+  - BaseNodeGUID: 5096ace8-bf71-4928-a4f3-9adff14508bc
+    PortName: LEAAAVEEE
+    TargetNodeGUID: 7808e10e-174b-4871-8f27-06c271ffab73
+  DialogueNodeData:
+  - nodeGuid: 5096ace8-bf71-4928-a4f3-9adff14508bc
+    dialogueText: I WANT TO LEAVE
+    position: {x: 274, y: 200}
+    SpeakerName: 
+    SpeakerNameLocation: Speaker Name Left
+    SpeakerSpriteLeft: 
+    SpeakerSpriteRight: 
+    ItemPortCombis: []
+    QuestionAnswerPortCombis: []
+    SkipPorts: []
+    canSkipFromThisPoint: 0
+    CutSceneImageName: 
+  DialogueEndNodeData:
+  - nodeGuid: 7808e10e-174b-4871-8f27-06c271ffab73
+    dialogueText: leave
+    position: {x: 712, y: 277}
+    DialogueEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 11400000, guid: f2dcac3b8a0602646b9b89ef2c5c3729, type: 2}
+          m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
+          m_MethodName: LoadNextScene
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 11400000, guid: fd04759f9e80bba428967f6971b0ff36,
+              type: 2}
+            m_ObjectArgumentAssemblyTypeName: ScriptObjects.SceneSwitchData, Assembly-CSharp
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - nodeGuid: b2da61aa-6fe4-4948-8141-4d814b709bad
+    dialogueText: trapped
+    position: {x: 698, y: 141}
+    DialogueEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  ExposedProperties:
+  - PropertyName: Ignore
+    PropertyValue: New Value
+  CommentBlockData: []

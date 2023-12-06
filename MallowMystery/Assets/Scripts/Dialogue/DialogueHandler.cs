@@ -57,7 +57,7 @@ public class DialogueHandler : MonoBehaviour {
         }
     }
 
-    private void EndDialogue(float number) {
+    private void EndDialogue() {
         dialogue.alreadyHadConversation = true;
         ScreenButtons.SetActive(true);
         currentDialogue = null;
@@ -68,7 +68,6 @@ public class DialogueHandler : MonoBehaviour {
         SpeakerNameBoxRight.text = "";
         dialogueCanvas.SetActive(false);
         enableInputActions();
-        dialogue.dialogueEvent.Invoke(0);
         Time.timeScale = 1f;
     }
     
@@ -77,7 +76,7 @@ public class DialogueHandler : MonoBehaviour {
         if (inDialogue && (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Space))) {
             if (DialogueBoxUI.text == currentDialogue) {
                 if (!choices.Any()) {
-                    EndDialogue(0);
+                    EndDialogue();
                 } else if (overwrite) {
                     overwrite = false;
                     ProceedToNarrative(overwriteGUID);
@@ -94,9 +93,9 @@ public class DialogueHandler : MonoBehaviour {
     private void ProceedToNarrative(string narrativeDataGUID) {
         var currentNode = dialogue.DialogueNodeData.FirstOrDefault(x => x.nodeGuid == narrativeDataGUID);
         if (currentNode == null) {
-            EndingNode(dialogue.DialogueEndNodeData.Find(x => x.nodeGuid == narrativeDataGUID).dialogueText);
+            EndingNode(narrativeDataGUID);
         } else if (currentNode.dialogueText.Equals("") && currentNode.SpeakerSpriteLeft.Equals("") && currentNode.SpeakerSpriteRight.Equals("")) { //TODO BM: 15-10-2023 change this
-            EndDialogue(0);
+            EndDialogue();
         } else if (currentNode.canSkipFromThisPoint && !dialogue.alreadyHadConversation) {
             choices = dialogue.NodeLinks.Where(x => x.BaseNodeGUID == narrativeDataGUID).ToList();
             ProceedToNarrative(choices.First().TargetNodeGUID);
@@ -161,8 +160,9 @@ public class DialogueHandler : MonoBehaviour {
         }
     }
 
-    private void EndingNode(string dialogueText) {
-        EndDialogue(float.Parse(dialogueText));
+    private void EndingNode(string narrativeDataGuid) {
+        EndDialogue();
+        dialogue.DialogueEndNodeData.FirstOrDefault(x => x.nodeGuid == narrativeDataGuid)!.DialogueEvent.Invoke();
     }
 
     private bool CanSkip(DialogueNodeData dialogueNodeData, IEnumerable<NodeLinkData> nodeLinkDatas) {

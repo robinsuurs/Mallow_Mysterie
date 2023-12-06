@@ -16,6 +16,5 @@ namespace Dialogue.RunTime
         public List<DialogueEndNodeData> DialogueEndNodeData = new List<DialogueEndNodeData>();
         public List<ExposedProperty> ExposedProperties = new List<ExposedProperty>();
         public List<CommentBlockData> CommentBlockData = new List<CommentBlockData>();
-        public UnityEvent<float> dialogueEvent = new UnityEvent<float>();
     }
 }
