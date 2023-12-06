@@ -30,6 +30,9 @@ public class DialogueHandler : MonoBehaviour {
 
     [SerializeField] private GameObject cutsceneImage;
 
+    private string overwriteGUID;
+    private bool overwrite;
+
     private IEnumerable<NodeLinkData> choices = new List<NodeLinkData>();
     public string currentDialogue;
     private bool singleOption;
@@ -63,6 +66,7 @@ public class DialogueHandler : MonoBehaviour {
         SpeakerNameBoxRight.text = "";
         dialogueCanvas.SetActive(false);
         enableInputActions();
+        dialogue.dialogueEvent.Invoke();
         Time.timeScale = 1f;
     }
     
@@ -72,6 +76,9 @@ public class DialogueHandler : MonoBehaviour {
             if (DialogueBoxUI.text == currentDialogue) {
                 if (!choices.Any()) {
                     EndDialogue();
+                } else if (overwrite) {
+                    overwrite = false;
+                    ProceedToNarrative(overwriteGUID);
                 } else if (singleOption) {
                     ProceedToNarrative(choices.First().TargetNodeGUID);
                 }
@@ -118,8 +125,14 @@ public class DialogueHandler : MonoBehaviour {
             } else {
                 cutsceneImage.SetActive(false);
             }
-    
-            if (choices.Count() is 1 or 0 || (choices.Count() >= 2 && !CanSkip(currentNode, choices))) {
+
+            if (choices.Any(choice => currentNode.QuestionAnswerPortCombis.Any(x => x.portname.Equals(choice.PortName)))) {
+                overwrite = true;
+                foreach (var choice in from question in currentNode.QuestionAnswerPortCombis from choice in choices where question.portname.Equals(choice.PortName) select choice) {
+                    overwriteGUID = choice.TargetNodeGUID;
+                }
+                // overwriteGUID = choices.Where(choice => choice.PortName.Equals(currentNode.QuestionAnswerPortCombis.))
+            } else if (choices.Count() is 1 or 0 || (choices.Count() >= 2 && !CanSkip(currentNode, choices))) {
                 singleOption = true;
                 buttonContainer.gameObject.SetActive(false);
             } else {

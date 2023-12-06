@@ -16,6 +16,7 @@ namespace Dialogue.Runtime
         public string SpeakerSpriteLeft;
         public string SpeakerSpriteRight;
         public List<ItemPortCombi> ItemPortCombis = new List<ItemPortCombi>();
+        public List<QuestionAnswerPortCombi> QuestionAnswerPortCombis = new List<QuestionAnswerPortCombi>();
         public List<string> SkipPorts = new List<string>();
         public bool canSkipFromThisPoint;
         public string CutSceneImageName;
