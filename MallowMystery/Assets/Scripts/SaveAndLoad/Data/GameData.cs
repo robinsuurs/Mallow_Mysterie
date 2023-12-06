@@ -10,6 +10,7 @@ public class GameData {
     public List<ItemDataSave> itemDataSaves = new List<ItemDataSave>();
     public List<PermissionCheckSave> PermissionCheckSaves = new List<PermissionCheckSave>();
     public List<string> alreadyHadConversations = new List<string>();
+    public float timeRun;
     public string sceneName;
     public Vector3 playerLocation;
 
@@ -43,6 +44,7 @@ public class GameData {
         }
         
         questionAnswerDic.Clear();
+        timeRun = 0;
         
         sceneName = "DetectiveRoom";
         playerLocation = new Vector3(-0.5f, 0.2433f, 0.2f);
