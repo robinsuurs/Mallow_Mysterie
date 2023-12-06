@@ -13,8 +13,9 @@ namespace Dialogue.RunTime
         public bool alreadyHadConversation = false;
         public List<NodeLinkData> NodeLinks = new List<NodeLinkData>();
         public List <DialogueNodeData> DialogueNodeData = new List<DialogueNodeData>();
+        public List<DialogueEndNodeData> DialogueEndNodeData = new List<DialogueEndNodeData>();
         public List<ExposedProperty> ExposedProperties = new List<ExposedProperty>();
         public List<CommentBlockData> CommentBlockData = new List<CommentBlockData>();
-        public UnityEvent dialogueEvent = new UnityEvent();
+        public UnityEvent<float> dialogueEvent = new UnityEvent<float>();
     }
 }

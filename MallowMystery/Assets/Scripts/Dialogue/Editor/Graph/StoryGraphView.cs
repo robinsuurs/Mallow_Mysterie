@@ -126,6 +126,37 @@ namespace Dialogue.Editor.Graph
             DialogueNodeData tempNode = new DialogueNodeData() { nodeGuid = Guid.NewGuid().ToString(), ItemPortCombis = new List<ItemPortCombi>()};
             AddElement(CreateNode(tempNode, position));
         }
+        
+        public void CreateNewDialogueEndNode(Vector2 position) {
+            DialogueEndNodeData tempNode = new DialogueEndNodeData() { nodeGuid = Guid.NewGuid().ToString()};
+            AddElement(CreateNode(tempNode, position));
+        }
+        
+        public DialogueEndNode CreateNode(DialogueEndNodeData dialogueEndNodeData, Vector2 position) {
+            var tempDialogueNode = new DialogueEndNode(dialogueEndNodeData);
+            
+            tempDialogueNode.styleSheets.Add(Resources.Load<StyleSheet>("Node"));
+            
+            var inputPort = GetPortInstance(tempDialogueNode, Direction.Input, Port.Capacity.Multi);
+            inputPort.portName = "";
+            tempDialogueNode.inputContainer.Add(inputPort);
+            
+            var dialogueTextLongField = new TextField(string.Empty)
+            {
+                label = "DialogueText",
+                multiline = true,
+            };
+            dialogueTextLongField.AddToClassList("textarea");
+            dialogueTextLongField.RegisterValueChangedCallback(evt => { tempDialogueNode.DialogueText = evt.newValue; });
+            dialogueTextLongField.SetValueWithoutNotify(tempDialogueNode.DialogueText);
+            tempDialogueNode.mainContainer.Add(dialogueTextLongField);
+            
+            tempDialogueNode.RefreshExpandedState();
+            tempDialogueNode.RefreshPorts(); 
+            tempDialogueNode.SetPosition(new Rect(position, DefaultNodeSize));
+            
+            return tempDialogueNode;
+        }
 
         public DialogueNode CreateNode(DialogueNodeData dialogueNodeData, Vector2 position, bool useDefaultValues = true) {
             var tempDialogueNode = new DialogueNode(dialogueNodeData);
@@ -449,6 +480,11 @@ namespace Dialogue.Editor.Graph
         }
 
         private Port GetPortInstance(DialogueNode node, Direction nodeDirection, Port.Capacity capacity = Port.Capacity.Single)
+        {
+            return node.InstantiatePort(Orientation.Horizontal, nodeDirection, capacity, typeof(float));
+        }
+        
+        private Port GetPortInstance(DialogueEndNode node, Direction nodeDirection, Port.Capacity capacity = Port.Capacity.Single)
         {
             return node.InstantiatePort(Orientation.Horizontal, nodeDirection, capacity, typeof(float));
         }
