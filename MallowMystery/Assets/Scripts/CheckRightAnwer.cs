@@ -9,11 +9,9 @@ public class CheckRightAnwer : MonoBehaviour {
     [SerializeField] private Question question;
     [SerializeField] private Answer answer;
 
-    private void Start() {
-        checkAnswerQuestion();
-    }
-
     public void checkAnswerQuestion() {
-        boolEvent.Raise(Equals(question.getChosenAnswer().UID, answer.UID));
+        if (question.getChosenAnswer() != null) {
+            boolEvent.Raise(Equals(question.getChosenAnswer().UID, answer.UID));
+        }
     }
 }
