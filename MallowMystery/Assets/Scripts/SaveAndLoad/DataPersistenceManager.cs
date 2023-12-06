@@ -50,7 +50,7 @@ public class DataPersistenceManager : MonoBehaviour {
     }
 
     private List<IDataPersistence> FindAllDataPersistenceObjects() {
-        IEnumerable<IDataPersistence> dataPersistenceMon = Resources.FindObjectsOfTypeAll<MonoBehaviour>().OfType<IDataPersistence>();
+        IEnumerable<IDataPersistence> dataPersistenceMon = FindObjectsOfType<MonoBehaviour>().OfType<IDataPersistence>();
         IEnumerable<IDataPersistence> dataPersistenceScript = Resources.FindObjectsOfTypeAll<ScriptableObject>().OfType<IDataPersistence>();
         return new List<IDataPersistence>(dataPersistenceMon.Concat(dataPersistenceScript));
     }

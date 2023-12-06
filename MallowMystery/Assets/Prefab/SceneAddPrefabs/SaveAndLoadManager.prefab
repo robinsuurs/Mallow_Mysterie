@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 950788863271735146}
   - component: {fileID: 1967956138881784765}
+  - component: {fileID: 8575305139061895114}
   m_Layer: 0
   m_Name: SaveAndLoadManager
   m_TagString: Untagged
@@ -49,5 +50,16 @@ MonoBehaviour:
   encryptData: 0
   gameEventStandardAdd: {fileID: 11400000, guid: d2276c29057ba0e4a80f6d296de3b8d9,
     type: 2}
-  SetDeductionAnswer: {fileID: 11400000, guid: 02374f2ad62c57347acd51e803e92744, type: 2}
   _levelManager: {fileID: 11400000, guid: f2dcac3b8a0602646b9b89ef2c5c3729, type: 2}
+--- !u!114 &8575305139061895114
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4117460809587361749}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c155840f120da941b09d08805f242be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
