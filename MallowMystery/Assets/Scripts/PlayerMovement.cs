@@ -41,11 +41,6 @@ public class PlayerMovement : MonoBehaviour
         // print(controller.velocity.magnitude);
     }
 
-    public Vector3 GetMoveDirection()
-    {
-        return _moveDirection;
-    }
-
 }
     
     
