@@ -42,6 +42,7 @@ public class Answer : ScriptableObject {
         return enabled;
     }
 
+    //For new game
     public void setEnabledFalse() {
         enabled = false;
     }

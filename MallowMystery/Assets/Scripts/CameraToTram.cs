@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Object = UnityEngine.Object;
 
 public class CameraToTram : MonoBehaviour, IDataPersistence {
     [SerializeField] private InputActionAsset _inputAction;
@@ -11,14 +12,16 @@ public class CameraToTram : MonoBehaviour, IDataPersistence {
     [SerializeField] private GameObject tram;
     [SerializeField] private float speed;
     [SerializeField] private float waitTime;
+    
     private int cameraPanningState = 0;
 
     private Vector3 orignalLocation;
     private Vector3 targetLocation;
+    
     private Camera mainCam;
 
-    public void moveCamera() {
-        // if (cameraHasPanned) return;
+    public void moveCamera(bool value) {
+        if (cameraHasPanned || !value) return;
         
         _inputAction.Disable();
         mainCam = Camera.main;
