@@ -14,6 +14,8 @@ public class GameData {
     public string sceneName;
     public Vector3 playerLocation;
 
+    public bool cameraHasPanned;
+
     public SerializableDictionary<string, string> questionAnswerDic =
         new SerializableDictionary<string, string>();
     
@@ -45,6 +47,8 @@ public class GameData {
         
         questionAnswerDic.Clear();
         timeRun = 0;
+
+        cameraHasPanned = false;
         
         sceneName = "DetectiveRoom";
         playerLocation = new Vector3(-0.5f, 0.2433f, 0.2f);

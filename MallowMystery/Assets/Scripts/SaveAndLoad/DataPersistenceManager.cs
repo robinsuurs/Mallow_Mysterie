@@ -3,6 +3,7 @@ using UnityEngine;
 using System.Linq;
 using Dialogue.RunTime;
 using UnityEngine.SceneManagement;
+using UnityEngine.Serialization;
 
 //Youtube video used: https://www.youtube.com/watch?v=aUi9aijvpgs&t=538s
 
@@ -11,7 +12,8 @@ public class DataPersistenceManager : MonoBehaviour {
     [SerializeField] private string fileName;
     [SerializeField] private bool startFresh;
     [SerializeField] private bool encryptData;
-    [SerializeField] private GameEventStandardAdd gameEventStandardAdd;
+    [SerializeField] private GameEventStandardAdd showItems;
+    [SerializeField] private GameEventStandardAdd endSceneLoaded;
     [SerializeField] private LevelManager _levelManager;
     
     private GameData _gameData;
@@ -79,12 +81,13 @@ public class DataPersistenceManager : MonoBehaviour {
             }
 
             LoadDialogueStates();
-            gameEventStandardAdd.Raise();
+            showItems.Raise();
         }
 
         if (!SceneManager.GetActiveScene().name.Equals("MainMenu")) {
-            GameObject.FindWithTag("CanvasManager").transform.Find("ShortcutImages").gameObject.SetActive(true);
+            // GameObject.FindWithTag("CanvasManager").transform.Find("ShortcutImages").gameObject.SetActive(true);
             _levelManager.SpawnPlayer(_gameData);
+            endSceneLoaded.Raise();
         }
     }
 

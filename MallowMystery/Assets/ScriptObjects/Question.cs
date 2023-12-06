@@ -7,7 +7,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Deduction/Question")]
 public class Question : ScriptableObject, IDataPersistence {
     [SerializeField] private List<Answer> answers;
-    private Answer chosenAnswer;
+    [SerializeField] private Answer chosenAnswer;
     public string question; //Needs to be public for dialogue
     public string UID;
 
@@ -51,6 +51,11 @@ public class Question : ScriptableObject, IDataPersistence {
     }
 
     public void SaveData(ref GameData data) {
-        data.questionAnswerDic[UID] = chosenAnswer.UID;
+        if (chosenAnswer != null) {
+            data.questionAnswerDic[UID] = chosenAnswer.UID;
+        } else {
+            data.questionAnswerDic[UID] = null;
+        }
+        
     }
 }
