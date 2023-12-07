@@ -137,10 +137,7 @@ public class DialogueHandler : MonoBehaviour {
                     Button button = Instantiate(ChoicesButton, buttonContainer);
                     button.GetComponentInChildren<Text>().text = ProcessProperties(choice.PortName);
                     button.GetComponentInChildren<Text>().fontSize = 24;
-                    button.onClick.AddListener(() => {
-                        Debug.Log("test");
-                        ProceedToNarrative(choice.TargetNodeGUID);
-                    });
+                    button.onClick.AddListener(() => ProceedToNarrative(choice.TargetNodeGUID));
                 }
             }   
         }
