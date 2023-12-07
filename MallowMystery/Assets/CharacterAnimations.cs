@@ -65,8 +65,6 @@ public class CharacterAnimations : MonoBehaviour
         {
             Vector2 direction = movementAction.ReadValue<Vector2>();
             
-            print(transform.TransformVector(direction.x,0,direction.y));
-            
             var targetAngle = Mathf.Atan2(direction.x, direction.y) * Mathf.Rad2Deg;
             transform.eulerAngles = new Vector3(0, targetAngle+transform.parent.rotation.eulerAngles.y, 0);
             

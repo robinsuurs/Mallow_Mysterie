@@ -26,7 +26,6 @@ public class DialogueHandler : MonoBehaviour {
     [SerializeField] private Inventory _inventory;
     [SerializeField] private ListOfSprites _listOfSprites;
     [SerializeField] private InputActionAsset _inputAction;
-    [SerializeField] private GameObject ScreenButtons;
 
     [SerializeField] private GameObject cutsceneImage;
 
@@ -38,15 +37,10 @@ public class DialogueHandler : MonoBehaviour {
     private bool singleOption;
     private bool inDialogue;
 
-    private void Start() {
-        ScreenButtons = GameObject.FindWithTag("ScreenButtons").gameObject;
-    }
-
     public void StartDialogue(DialogueContainer dialogueContainer) {
         if (!inDialogue) {
             dialogue = dialogueContainer;
             dialogueCanvas.SetActive(true);
-            ScreenButtons.SetActive(false);
             var narrativeData = dialogueContainer.NodeLinks.Where(x => x.PortName.Equals("Next")).ToList()[0].TargetNodeGUID;
             ProceedToNarrative(narrativeData);
             inDialogue = true;
@@ -57,7 +51,6 @@ public class DialogueHandler : MonoBehaviour {
 
     private void EndDialogue() {
         dialogue.alreadyHadConversation = true;
-        ScreenButtons.SetActive(true);
         currentDialogue = null;
         singleOption = false;
         inDialogue = false;
@@ -180,11 +173,9 @@ public class DialogueHandler : MonoBehaviour {
 
     private void enableInputActions() {
         _inputAction.Enable();
-        ScreenButtons.SetActive(true);
     }
     
     private void disableInputActions() {
         _inputAction.Disable();
-        ScreenButtons.SetActive(false);
     }
 }

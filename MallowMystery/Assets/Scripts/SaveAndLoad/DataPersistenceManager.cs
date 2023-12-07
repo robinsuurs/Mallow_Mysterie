@@ -43,9 +43,8 @@ public class DataPersistenceManager : MonoBehaviour {
     private void OnSceneLoaded (Scene scene, LoadSceneMode mode) {
         this.dataPersistences = FindAllDataPersistenceObjects();
         LoadGame();
-        if (!SceneManager.GetActiveScene().name.Equals("MainMenu")) {
-            Camera.main.gameObject.GetComponent<Follow_Player>().setFollowPlayer(); //TODO BM: change this, this is not how it is supposed to work
-            Camera.main.gameObject.GetComponent<SeeThrough>().setFollowPlayer();
+        if (!SceneManager.GetActiveScene().name.Equals("MainMenu") && !SceneManager.GetActiveScene().name.Equals("DetectiveRoom")) {
+            Camera.main.gameObject.GetComponent<Follow_Player>().setFollowPlayer();
         }
     }
 
@@ -83,7 +82,6 @@ public class DataPersistenceManager : MonoBehaviour {
         }
 
         if (!SceneManager.GetActiveScene().name.Equals("MainMenu")) {
-            GameObject.FindWithTag("CanvasManager").transform.Find("ShortcutImages").gameObject.SetActive(true);
             _levelManager.SpawnPlayer(_gameData);
         }
     }
