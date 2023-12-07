@@ -40,12 +40,6 @@ public class PlayerMovement : MonoBehaviour
         controller.SimpleMove(outputSpeed);
         // print(controller.velocity.magnitude);
     }
-
-    public Vector3 GetMoveDirection()
-    {
-        return _moveDirection;
-    }
-
 }
     
     
