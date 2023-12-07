@@ -15,9 +15,6 @@ public class TabGroup : MonoBehaviour
 
     private void Start()
     {
-        tabIdle = new Color(1f, 0.6f, 0.6f);
-        tabHover = new Color(1f, 0.4f, 0.4f);
-        tabActive = new Color(1f, 0.8f, 0.8f);
         // resetTabs();
 
         foreach (TabButt butt in tabButtons)
@@ -26,8 +23,6 @@ public class TabGroup : MonoBehaviour
             butt.deactivate();
         }
         OnTabSelected(tabButtons[0]);
-        
-
     }
 
 
@@ -45,7 +40,7 @@ public class TabGroup : MonoBehaviour
         resetTabs();
         if (button != selectedTab)
         {
-            button.GetComponent<Image>().color = tabHover;
+            button.ColorHover();
         }
     }
 
@@ -57,9 +52,9 @@ public class TabGroup : MonoBehaviour
     {
         selectedTab?.deactivate();
         selectedTab = button;
-        selectedTab.activate();
+        selectedTab?.activate();
         resetTabs();
-        button.GetComponent<Image>().color = tabActive;
+        button.ColorActive();
     }
 
     void resetTabs()
@@ -68,7 +63,7 @@ public class TabGroup : MonoBehaviour
         {
             if (butt != selectedTab)
             {
-                butt.GetComponent<Image>().color = tabIdle;
+                butt.ColorIdle();
             }
         }
     }

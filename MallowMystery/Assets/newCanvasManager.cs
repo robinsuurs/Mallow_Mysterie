@@ -3,10 +3,9 @@ using System.Collections.Generic;
 using UnityEngine.EventSystems;
 using UnityEngine;
 
-public class newCanvasManager : MonoBehaviour, IPointerClickHandler
+public class newCanvasManager : MonoBehaviour//, IPointerClickHandler
 {
-    private List<GameObject> AllPages;
-    private GameObject openPage;
+    [SerializeField] private GameObject Journal;
     
     // Start is called before the first frame update
     void Start()
@@ -20,8 +19,16 @@ public class newCanvasManager : MonoBehaviour, IPointerClickHandler
         
     }
 
-    public void OnPointerClick(PointerEventData eventData)
+    // public void OnPointerClick(PointerEventData eventData) //TODO: Doet het niet.
+    // {
+    //     closeJournal();
+    // }
+
+    public void closeJournal()
     {
-        throw new System.NotImplementedException();
+        if (Journal.activeSelf)
+        {
+            Journal.SetActive(false);
+        }
     }
 }
