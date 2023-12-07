@@ -73,11 +73,11 @@ Camera:
   far clip plane: 300
   field of view: 60
   orthographic: 1
-  orthographic size: 15
+  orthographic size: 7
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 33554495
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -109,7 +109,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_RenderShadows: 1
+  m_RenderShadows: 0
   m_RequiresDepthTextureOption: 2
   m_RequiresOpaqueTextureOption: 2
   m_CameraType: 0
@@ -213,12 +213,12 @@ GameObject:
   - component: {fileID: 4774187085892330888}
   - component: {fileID: 2889197390788210615}
   m_Layer: 0
-  m_Name: CutSceneCamera
-  m_TagString: MainCamera
+  m_Name: DialogueCamera
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1428577423033380530
 Transform:
   m_ObjectHideFlags: 0

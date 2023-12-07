@@ -40,7 +40,6 @@ public class PlayerMovement : MonoBehaviour
         controller.SimpleMove(outputSpeed);
         // print(controller.velocity.magnitude);
     }
-
 }
     
     
