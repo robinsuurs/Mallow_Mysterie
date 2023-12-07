@@ -37,9 +37,9 @@ public class DialogueHandler : MonoBehaviour {
     public string currentDialogue;
     private bool singleOption;
     private bool inDialogue;
-
-        listOfQuestions = Resources.LoadAll<Question>("QuestionAnswers/Questions").ToList();
+    
     private void Start() {
+        listOfQuestions = Resources.LoadAll<Question>("QuestionAnswers/Questions").ToList();
     }
 
     public void StartDialogue(DialogueContainer dialogueContainer) {
@@ -138,7 +138,7 @@ public class DialogueHandler : MonoBehaviour {
                     }
                 }
                 
-            } else if (choices.Count() is 1 or 0 || (choices.Count() >= 2 && !CanSkip(currentNode, choices))) {
+            } else if (choices.Count() is 1 or 0 || (choices.Count() >= 2 && CanSkip(currentNode, choices))) {
                 singleOption = true;
                 buttonContainer.gameObject.SetActive(false);
             } else {
@@ -164,7 +164,7 @@ public class DialogueHandler : MonoBehaviour {
     private bool CanSkip(DialogueNodeData dialogueNodeData, IEnumerable<NodeLinkData> nodeLinkDatas) {
         if (dialogueNodeData.SkipPorts.Count() != 0) {
             bool test = nodeLinkDatas.Any(choice => dialogueNodeData.SkipPorts.Any(x => x.Equals(choice.PortName)));
-            return dialogue.alreadyHadConversation && test;
+            return !(dialogue.alreadyHadConversation && test);
         } else {
             return false;
         }

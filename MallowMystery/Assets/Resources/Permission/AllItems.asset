@@ -10,26 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1d4ea1469433f764fa3f45625794a89d, type: 3}
-  m_Name: LeaveAppertment
+  m_Name: AllItems
   m_EditorClassIdentifier: 
-  UID: 55b7c856edf55f34c863aecd4aee16c8
-  permission: 1
+  UID: 0c649c8594645d84cb7437444d6d3295
+  permission: 0
   permitted:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 11400000, guid: f2dcac3b8a0602646b9b89ef2c5c3729, type: 2}
-        m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
-        m_MethodName: LoadNextScene
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: fd04759f9e80bba428967f6971b0ff36,
-            type: 2}
-          m_ObjectArgumentAssemblyTypeName: ScriptObjects.SceneSwitchData, Assembly-CSharp
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   notPermitted:
     m_PersistentCalls:
       m_Calls:
@@ -38,7 +25,7 @@ MonoBehaviour:
         m_MethodName: Raise
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: 1e177c23d46c67d42a95c4d34b90071e,
+          m_ObjectArgument: {fileID: 11400000, guid: 730978900489dbb4a9a5c80d4f2a4724,
             type: 2}
           m_ObjectArgumentAssemblyTypeName: Dialogue.RunTime.DialogueContainer, Runtime
           m_IntArgument: 0
