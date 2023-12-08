@@ -10,26 +10,42 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 78b3fd9154634ebdb8c8a48960b9a16a, type: 3}
-  m_Name: LeaveAppartmentTest2
+  m_Name: LeavingEnoughClues
   m_EditorClassIdentifier: 
   alreadyHadConversation: 0
   NodeLinks:
-  - BaseNodeGUID: 7018d241-427d-470e-87e7-3cd6c06e6693
+  - BaseNodeGUID: a2850609-85d2-4b6f-a688-2a9eb007df79
     PortName: Next
-    TargetNodeGUID: 5096ace8-bf71-4928-a4f3-9adff14508bc
-  - BaseNodeGUID: 5096ace8-bf71-4928-a4f3-9adff14508bc
-    PortName: Trapped
-    TargetNodeGUID: b2da61aa-6fe4-4948-8141-4d814b709bad
-  - BaseNodeGUID: 5096ace8-bf71-4928-a4f3-9adff14508bc
-    PortName: LEAAAVEEE
-    TargetNodeGUID: 7808e10e-174b-4871-8f27-06c271ffab73
+    TargetNodeGUID: 0684f0fc-d610-42fc-a056-6cd96299d875
+  - BaseNodeGUID: 0684f0fc-d610-42fc-a056-6cd96299d875
+    PortName: Option 1
+    TargetNodeGUID: 4c72930d-7fe3-4743-96c1-c4b170fab9ee
+  - BaseNodeGUID: 4c72930d-7fe3-4743-96c1-c4b170fab9ee
+    PortName: "Yes, let\u2019s go"
+    TargetNodeGUID: 770107b3-64fc-432d-8814-a3c8fed9658a
+  - BaseNodeGUID: 4c72930d-7fe3-4743-96c1-c4b170fab9ee
+    PortName: No, I should keep searching
+    TargetNodeGUID: bdc7438b-fd7a-4b9f-ab49-e894fa24b878
   DialogueNodeData:
-  - nodeGuid: 5096ace8-bf71-4928-a4f3-9adff14508bc
-    dialogueText: I WANT TO LEAVE
-    position: {x: 274, y: 200}
-    SpeakerName: 
+  - nodeGuid: 0684f0fc-d610-42fc-a056-6cd96299d875
+    dialogueText: "If I go right now, I won\u2019t be able to return\u2026 The police
+      could be here any second."
+    position: {x: 248, y: 200}
+    SpeakerName: Milton
     SpeakerNameLocation: Speaker Name Left
-    SpeakerSpriteLeft: 
+    SpeakerSpriteLeft: M1
+    SpeakerSpriteRight: 
+    ItemPortCombis: []
+    QuestionAnswerPortCombis: []
+    SkipPorts: []
+    canSkipFromThisPoint: 0
+    CutSceneImageName: 
+  - nodeGuid: 4c72930d-7fe3-4743-96c1-c4b170fab9ee
+    dialogueText: Did I really find everything?
+    position: {x: 619, y: 212}
+    SpeakerName: Milton
+    SpeakerNameLocation: Speaker Name Left
+    SpeakerSpriteLeft: M1
     SpeakerSpriteRight: 
     ItemPortCombis: []
     QuestionAnswerPortCombis: []
@@ -37,9 +53,9 @@ MonoBehaviour:
     canSkipFromThisPoint: 0
     CutSceneImageName: 
   DialogueEndNodeData:
-  - nodeGuid: 7808e10e-174b-4871-8f27-06c271ffab73
-    dialogueText: leave
-    position: {x: 712, y: 277}
+  - nodeGuid: 770107b3-64fc-432d-8814-a3c8fed9658a
+    dialogueText: Leave
+    position: {x: 1025, y: 177}
     DialogueEvent:
       m_PersistentCalls:
         m_Calls:
@@ -56,13 +72,15 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-  - nodeGuid: b2da61aa-6fe4-4948-8141-4d814b709bad
-    dialogueText: trapped
-    position: {x: 698, y: 141}
+  - nodeGuid: bdc7438b-fd7a-4b9f-ab49-e894fa24b878
+    dialogueText: Stay
+    position: {x: 1025, y: 296}
     DialogueEvent:
       m_PersistentCalls:
         m_Calls: []
   ExposedProperties:
   - PropertyName: Ignore
+    PropertyValue: New Value
+  - PropertyName: Milton
     PropertyValue: New Value
   CommentBlockData: []

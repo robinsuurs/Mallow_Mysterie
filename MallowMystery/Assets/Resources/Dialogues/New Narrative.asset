@@ -10,30 +10,37 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 78b3fd9154634ebdb8c8a48960b9a16a, type: 3}
-  m_Name: leaveAppartmentCant
+  m_Name: New Narrative
   m_EditorClassIdentifier: 
-  alreadyHadConversation: 1
+  alreadyHadConversation: 0
   NodeLinks:
-  - BaseNodeGUID: 7018d241-427d-470e-87e7-3cd6c06e6693
+  - BaseNodeGUID: 6075b17c-3276-42ae-ad30-9812c1355e31
     PortName: Next
-    TargetNodeGUID: 06bb216b-e123-44cd-9f49-31c9ce2e4808
+    TargetNodeGUID: 2551bb5a-2fc7-4117-adf1-df04f54e065a
+  - BaseNodeGUID: 2551bb5a-2fc7-4117-adf1-df04f54e065a
+    PortName: Option 1
+    TargetNodeGUID: 63429189-8c23-4d0f-97a0-f7348aa0b2be
   DialogueNodeData:
-  - nodeGuid: 06bb216b-e123-44cd-9f49-31c9ce2e4808
-    dialogueText: There must be more to this. I should keep searching.
-    position: {x: 246, y: 168}
-    SpeakerName: Milton
+  - nodeGuid: 2551bb5a-2fc7-4117-adf1-df04f54e065a
+    dialogueText: rhsrth
+    position: {x: 216, y: 200}
+    SpeakerName: 
     SpeakerNameLocation: Speaker Name Left
-    SpeakerSpriteLeft: M1
+    SpeakerSpriteLeft: 
     SpeakerSpriteRight: 
     ItemPortCombis: []
     QuestionAnswerPortCombis: []
     SkipPorts: []
     canSkipFromThisPoint: 0
     CutSceneImageName: 
-  DialogueEndNodeData: []
+  DialogueEndNodeData:
+  - nodeGuid: 63429189-8c23-4d0f-97a0-f7348aa0b2be
+    dialogueText: srthrth
+    position: {x: 610, y: 200}
+    DialogueEvent:
+      m_PersistentCalls:
+        m_Calls: []
   ExposedProperties:
   - PropertyName: Ignore
-    PropertyValue: New Value
-  - PropertyName: Milton
     PropertyValue: New Value
   CommentBlockData: []

@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 78b3fd9154634ebdb8c8a48960b9a16a, type: 3}
-  m_Name: leaveAppartmentCant
+  m_Name: PickedUpAllClues
   m_EditorClassIdentifier: 
-  alreadyHadConversation: 1
+  alreadyHadConversation: 0
   NodeLinks:
-  - BaseNodeGUID: 7018d241-427d-470e-87e7-3cd6c06e6693
+  - BaseNodeGUID: f1b4aabd-8bf8-430a-9ea7-cb638ed314ea
     PortName: Next
-    TargetNodeGUID: 06bb216b-e123-44cd-9f49-31c9ce2e4808
+    TargetNodeGUID: ca1d540a-6c76-4550-a2af-8f694bf7af1c
   DialogueNodeData:
-  - nodeGuid: 06bb216b-e123-44cd-9f49-31c9ce2e4808
-    dialogueText: There must be more to this. I should keep searching.
-    position: {x: 246, y: 168}
+  - nodeGuid: ca1d540a-6c76-4550-a2af-8f694bf7af1c
+    dialogueText: I think I should go now, the police could be here any minute.
+    position: {x: 231, y: 186}
     SpeakerName: Milton
     SpeakerNameLocation: Speaker Name Left
     SpeakerSpriteLeft: M1
