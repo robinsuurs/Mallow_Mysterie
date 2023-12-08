@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1d4ea1469433f764fa3f45625794a89d, type: 3}
-  m_Name: LeaveAppertment
+  m_Name: LeaveApertment
   m_EditorClassIdentifier: 
   UID: 55b7c856edf55f34c863aecd4aee16c8
-  permission: 1
+  permission: 0
   permitted:
     m_PersistentCalls:
       m_Calls:
@@ -41,6 +41,18 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 11400000, guid: 1e177c23d46c67d42a95c4d34b90071e,
             type: 2}
           m_ObjectArgumentAssemblyTypeName: Dialogue.RunTime.DialogueContainer, Runtime
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: 27020540486b6d542aee811afac1d726, type: 2}
+        m_TargetAssemblyTypeName: PermissionCheck, Assembly-CSharp
+        m_MethodName: setPermission
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
