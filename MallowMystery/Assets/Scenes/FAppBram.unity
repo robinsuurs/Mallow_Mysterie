@@ -3068,6 +3068,52 @@ Transform:
   - {fileID: 57525227}
   m_Father: {fileID: 639535501}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1153723182 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 841361169561416312, guid: 5a26d5299007e7841b68729c8161b4cf,
+    type: 3}
+  m_PrefabInstance: {fileID: 4775826129935405855}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1153723184
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1153723182}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7369536b4e135e54589fcb42cdc1fd19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: a600bb442a36d3b4e8da2a90dc63f7ae, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1153723185}
+        m_TargetAssemblyTypeName: EndingScript, Assembly-CSharp
+        m_MethodName: testing
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1153723185 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3896427078156470080, guid: 5a26d5299007e7841b68729c8161b4cf,
+    type: 3}
+  m_PrefabInstance: {fileID: 4775826129935405855}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1153723182}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 360fc27a8bf6beb46b037e61445c3fcc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1174605458 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: c01889d25257a024c9a29d76baa19d27,
@@ -10395,6 +10441,43 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2392228327658235863, guid: 5a26d5299007e7841b68729c8161b4cf,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2392228327658235863, guid: 5a26d5299007e7841b68729c8161b4cf,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 11400000, guid: a600bb442a36d3b4e8da2a90dc63f7ae,
+        type: 2}
+    - target: {fileID: 2392228327658235863, guid: 5a26d5299007e7841b68729c8161b4cf,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Raise
+      objectReference: {fileID: 0}
+    - target: {fileID: 2392228327658235863, guid: 5a26d5299007e7841b68729c8161b4cf,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: EndingEvent, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2392228327658235863, guid: 5a26d5299007e7841b68729c8161b4cf,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 11400000, guid: 55ab565243dfc464e8de8edfdf196f06,
+        type: 2}
+    - target: {fileID: 2392228327658235863, guid: 5a26d5299007e7841b68729c8161b4cf,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: EndingStringList, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3896427078156470080, guid: 5a26d5299007e7841b68729c8161b4cf,
+        type: 3}
+      propertyPath: timeBetweenDarkAndText
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4845668896686031991, guid: 5a26d5299007e7841b68729c8161b4cf,
         type: 3}
       propertyPath: m_Name
@@ -10453,7 +10536,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 841361169561416312, guid: 5a26d5299007e7841b68729c8161b4cf,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1153723184}
   m_SourcePrefab: {fileID: 100100000, guid: 5a26d5299007e7841b68729c8161b4cf, type: 3}
 --- !u!1001 &4933027499415209553
 PrefabInstance:

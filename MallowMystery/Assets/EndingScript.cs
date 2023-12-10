@@ -12,8 +12,10 @@ using UnityEngine.Video;
 
 public class EndingScript : MonoBehaviour {
     [SerializeField] private float fadeSpeed;
+    [SerializeField] private float timeBetweenDarkAndText;
     [SerializeField] private float endingTextTimeShownLength;
     [SerializeField] private float statsTextTimeShownLength;
+    private EndingStringList endingStringList;
     
     [SerializeField] private InputActionAsset input;
     [SerializeField] private Canvas endCanvas;
@@ -32,15 +34,28 @@ public class EndingScript : MonoBehaviour {
         videoObject.GetComponent<VideoPlayer>().loopPointReached -= afterVideo;
     }
 
-    public void FadeToBlack(string endingTextEnding) {
+    // public void FadeToBlack(string endingTextEnding) {
+    //     input.Disable();
+    //     endCanvas.enabled = true;
+    //     SetText(endingTextEnding);
+    //     StartCoroutine(FadeToBlackTime());
+    // }
+
+    public void testing(EndingStringList endingStringList) {
+        this.endingStringList = endingStringList;
         input.Disable();
         endCanvas.enabled = true;
-        SetText(endingTextEnding);
+        SetText();
         StartCoroutine(FadeToBlackTime());
     }
 
-    private void SetText(string endingTextEnding) {
-        endingText.text = endingTextEnding;
+    // private void SetText(string endingTextEnding) {
+    //     endingText.text = endingTextEnding;
+    //     lengthDuration.text += TimeSpan.FromSeconds(TimePlayedTrack.currentTimeRun).ToString(@"hh\:mm\:ss");
+    //     itemsCollected.text += inventory.items.Count(item => item.hasBeenPickedUp).ToString();
+    // }
+    
+    private void SetText() {
         lengthDuration.text += TimeSpan.FromSeconds(TimePlayedTrack.currentTimeRun).ToString(@"hh\:mm\:ss");
         itemsCollected.text += inventory.items.Count(item => item.hasBeenPickedUp).ToString();
     }
@@ -57,8 +72,16 @@ public class EndingScript : MonoBehaviour {
             yield return null;
         }
         
+        yield return new WaitForSeconds(timeBetweenDarkAndText);
+
         endingText.gameObject.SetActive(true);
-        yield return new WaitForSeconds(endingTextTimeShownLength);
+        foreach (var text in endingStringList.getEndingScriptList()) {
+            endingText.text = text;
+            yield return new WaitForSeconds(endingTextTimeShownLength);
+        }
+        
+        
+        // yield return new WaitForSeconds(endingTextTimeShownLength);
         endingText.gameObject.SetActive(false);
 
         lengthDuration.gameObject.SetActive(true);
