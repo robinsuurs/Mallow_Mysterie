@@ -1,20 +1,19 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.Serialization;
 
-[VolumeComponentMenuForRenderPipeline("Custom/Clue Flash", typeof(UniversalRenderPipeline))]
-public class ClueFlashSettings : VolumeComponent, IPostProcessComponent
+
+[VolumeComponentMenuForRenderPipeline("Custom/Outline", typeof(UniversalRenderPipeline))]
+public class OutlineSettings : VolumeComponent, IPostProcessComponent
 {
-    [SerializeField] private FloatParameter flashSpeed = new FloatParameter(0.0f);
+    [SerializeField] private FloatParameter lineThickness = new FloatParameter(0.0f);
     
     public bool IsActive()
     {
         //render this effect when:
         //Speed is higher than 0 and the Component is set active in the engine 
-        return flashSpeed.value>0.0f && active;
+        return lineThickness.value>0.0f && active;
     }
 
     public bool IsTileCompatible()

@@ -1,5 +1,18 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-7936883318971446798
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0afe1991138604242975928411de3d94, type: 3}
+  m_Name: OutlineRenderFeature
+  m_EditorClassIdentifier: 
+  m_Active: 0
 --- !u!114 &-1878332245247344467
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -54,9 +67,8 @@ MonoBehaviour:
   m_RendererFeatures:
   - {fileID: -1878332245247344467}
   - {fileID: 7341742134220542852}
-  - {fileID: 1731865825262486748}
-  m_RendererFeatureMap: adc0de57c6d2eee584d3bba6921be365dcc468d1cad20818
-  m_UseNativeRenderPass: 0
+  m_RendererFeatureMap: adc0de57c6d2eee584d3bba6921be365
+  m_UseNativeRenderPass: 1
   postProcessData: {fileID: 11400000, guid: 41439944d30ece34e96484bdb6645b55, type: 2}
   xrSystemData: {fileID: 11400000, guid: 60e1133243b97e347b653163a8c01b64, type: 2}
   shaders:
@@ -111,6 +123,8 @@ MonoBehaviour:
   m_Name: Clue Flash
   m_EditorClassIdentifier: 
   m_Active: 1
+  clueShader: {fileID: -6465566751694194690, guid: 1c51cb3be754d9540bd6e42190738726,
+    type: 3}
 --- !u!114 &7341742134220542852
 MonoBehaviour:
   m_ObjectHideFlags: 0
