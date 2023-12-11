@@ -15,7 +15,7 @@ public class DataPersistenceManager : MonoBehaviour {
     [SerializeField] private GameEventStandardAdd showItems;
     [SerializeField] private GameEventStandardAdd endSceneLoaded;
     [SerializeField] private LevelManager _levelManager;
-    
+    [SerializeField] private EndingStringList endingStringList;
     private GameData _gameData;
     private List<IDataPersistence> dataPersistences;
     private FileDataHandler dataHandler;
@@ -45,7 +45,7 @@ public class DataPersistenceManager : MonoBehaviour {
     private void OnSceneLoaded (Scene scene, LoadSceneMode mode) {
         this.dataPersistences = FindAllDataPersistenceObjects();
         LoadGame();
-        if (!SceneManager.GetActiveScene().name.Equals("MainMenu") && !SceneManager.GetActiveScene().name.Equals("DetectiveRoom")) {
+        if (!SceneManager.GetActiveScene().name.Equals("MainMenu") && !SceneManager.GetActiveScene().name.Equals("DetectiveRoom") && !SceneManager.GetActiveScene().name.Equals("EndingScene")) {
             Camera.main.gameObject.GetComponent<Follow_Player>().setFollowPlayer();
         }
     }
@@ -141,5 +141,13 @@ public class DataPersistenceManager : MonoBehaviour {
 
     public GameData getGameData() {
         return _gameData;
+    }
+
+    public void setEndingStringList(EndingStringList endingStringList) {
+        this.endingStringList = endingStringList;
+    }
+
+    public EndingStringList GetEndingStringList() {
+        return endingStringList;
     }
 }
