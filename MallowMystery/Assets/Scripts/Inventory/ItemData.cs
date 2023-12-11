@@ -11,6 +11,7 @@ namespace ScriptObjects
     {
         public string itemName;
         public Sprite icon;
+        public string locationFound;
         [Tooltip("Description of the item")] 
         public string description;
         public bool hasBeenPickedUp = false;
