@@ -10,23 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 78b3fd9154634ebdb8c8a48960b9a16a, type: 3}
-  m_Name: test
+  m_Name: LeaveApartmentDeduct
   m_EditorClassIdentifier: 
   alreadyHadConversation: 0
   NodeLinks:
-  - BaseNodeGUID: a39de385-67f3-4c26-bb3e-313b45d04e90
+  - BaseNodeGUID: 4c5d4317-5a23-4af9-92b3-06390378c3b5
     PortName: Next
-    TargetNodeGUID: e869fedc-2134-497c-8bda-2c80853c1411
-  - BaseNodeGUID: e869fedc-2134-497c-8bda-2c80853c1411
+    TargetNodeGUID: 7e9ecfc7-f6b4-48e3-88ff-b9eec560a024
+  - BaseNodeGUID: 7e9ecfc7-f6b4-48e3-88ff-b9eec560a024
     PortName: Option 1
-    TargetNodeGUID: 367adb82-6f3c-4b5d-8333-91788428580c
-  - BaseNodeGUID: e869fedc-2134-497c-8bda-2c80853c1411
-    PortName: Option 2
-    TargetNodeGUID: 2df2b898-2828-46dc-b238-1f7a1b104cc0
+    TargetNodeGUID: fbbf45a2-02ad-46be-8544-8cc771492deb
   DialogueNodeData:
-  - nodeGuid: e869fedc-2134-497c-8bda-2c80853c1411
-    dialogueText: testings
-    position: {x: 256, y: 129}
+  - nodeGuid: 7e9ecfc7-f6b4-48e3-88ff-b9eec560a024
+    dialogueText: Maybe i should take a look at my deductions
+    position: {x: 204.8, y: 200}
     SpeakerName: 
     SpeakerNameLocation: Speaker Name Left
     SpeakerSpriteLeft: 
@@ -37,19 +34,15 @@ MonoBehaviour:
     canSkipFromThisPoint: 0
     CutSceneImageName: 
   DialogueEndNodeData:
-  - nodeGuid: 367adb82-6f3c-4b5d-8333-91788428580c
-    dialogueText: LET ME OUT
-    position: {x: 695, y: 54}
-    DialogueEvent:
-      m_PersistentCalls:
-        m_Calls: []
-  - nodeGuid: 2df2b898-2828-46dc-b238-1f7a1b104cc0
-    dialogueText: I WANNA STAY
-    position: {x: 676, y: 226}
+  - nodeGuid: fbbf45a2-02ad-46be-8544-8cc771492deb
+    dialogueText: asdasd
+    position: {x: 585.6, y: 200}
     DialogueEvent:
       m_PersistentCalls:
         m_Calls: []
   ExposedProperties:
   - PropertyName: Ignore
+    PropertyValue: New Value
+  - PropertyName: Milton
     PropertyValue: New Value
   CommentBlockData: []
