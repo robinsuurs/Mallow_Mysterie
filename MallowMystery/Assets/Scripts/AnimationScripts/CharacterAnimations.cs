@@ -33,11 +33,22 @@ public class CharacterAnimations : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        movementAction.started += setWalking;
-        movementAction.canceled += setIdle;
+        
         animator = GetComponent<Animator>();
         _state = AnimationState.Idle;
         StartCoroutine(IdleCycle());
+    }
+
+    private void OnEnable()
+    {
+        movementAction.started += setWalking;
+        movementAction.canceled += setIdle;
+    }
+
+    private void OnDisable()
+    {
+        movementAction.started -= setWalking;
+        movementAction.canceled -= setIdle;
     }
 
     void setIdle(InputAction.CallbackContext c)

@@ -13,7 +13,16 @@ public class DeductionQuestion : MonoBehaviour
 
     private void Start()
     {
-        addAnswer("De hoeren");
+        addAnswer("Rembrandt");
+        addAnswer("Rembrandt");
+        addAnswer("Rembrandt");
+        addAnswer("Rembrandt");
+        addAnswer("Rembrandt");
+        addAnswer("Rembrandt");
+        addAnswer("Rembrandt");
+        addAnswer("Rembrandt");
+        addAnswer("Rembrandt");
+        addAnswer("Rembrandt");
     }
 
     public void addAnswer(string answer)
