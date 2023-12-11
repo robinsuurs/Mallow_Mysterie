@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Dialogue.Runtime;
 using Subtegral.DialogueSystem.DataContainers;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Dialogue.RunTime
 {
@@ -14,5 +15,6 @@ namespace Dialogue.RunTime
         public List <DialogueNodeData> DialogueNodeData = new List<DialogueNodeData>();
         public List<ExposedProperty> ExposedProperties = new List<ExposedProperty>();
         public List<CommentBlockData> CommentBlockData = new List<CommentBlockData>();
+        public UnityEvent dialogueEvent = new UnityEvent();
     }
 }

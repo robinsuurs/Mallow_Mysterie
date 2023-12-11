@@ -5,45 +5,47 @@ using System.Linq;
 using Dialogue.Runtime;
 using Dialogue.RunTime;
 using ScriptObjects;
-using Subtegral.DialogueSystem.DataContainers;
 using UnityEngine;
 using TMPro;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
-public class DialogueHandler : MonoBehaviour
-{
+public class DialogueHandler : MonoBehaviour {
+    [SerializeField] private GameObject dialogueCanvas;
     [SerializeField] private TextMeshProUGUI DialogueBoxUI;
     [SerializeField] private TextMeshProUGUI SpeakerNameBoxLeft;
     [SerializeField] private TextMeshProUGUI SpeakerNameBoxRight;
     [SerializeField] private Sprite DialogueLeft;
     [SerializeField] private Sprite DialogueRight;
-    [SerializeField] private GameObject DialogueImage;
+    [SerializeField] private GameObject DialogueBoxSprite;
     private DialogueContainer dialogue;
     [SerializeField] private Button ChoicesButton;
     [SerializeField] private Transform buttonContainer;
     [SerializeField] private float textspeed;
     [SerializeField] private Inventory _inventory;
-    private GameObject DialogueCanvas;
     [SerializeField] private ListOfSprites _listOfSprites;
+    [SerializeField] private InputActionAsset _inputAction;
+
+    [SerializeField] private GameObject cutsceneImage;
+
+    private string overwriteGUID;
+    private bool overwrite;
 
     private IEnumerable<NodeLinkData> choices = new List<NodeLinkData>();
     public string currentDialogue;
     private bool singleOption;
     private bool inDialogue;
 
-    private void Start() {
-        DialogueCanvas = GameObject.FindWithTag("CanvasManager").gameObject.transform.Find("DialogueCanvas").gameObject;
-    }
-
     public void StartDialogue(DialogueContainer dialogueContainer) {
         if (!inDialogue) {
             dialogue = dialogueContainer;
-            DialogueCanvas.SetActive(true);
+            dialogueCanvas.SetActive(true);
             var narrativeData = dialogueContainer.NodeLinks.Where(x => x.PortName.Equals("Next")).ToList()[0].TargetNodeGUID;
             ProceedToNarrative(narrativeData);
             inDialogue = true;
             Time.timeScale = 0f;
+            disableInputActions();
         }
     }
 
@@ -55,16 +57,21 @@ public class DialogueHandler : MonoBehaviour
         DialogueBoxUI.text = "";
         SpeakerNameBoxLeft.text = "";
         SpeakerNameBoxRight.text = "";
-        DialogueCanvas.SetActive(false);
+        dialogueCanvas.SetActive(false);
+        enableInputActions();
+        dialogue.dialogueEvent.Invoke();
         Time.timeScale = 1f;
     }
     
     void Update()
     {
-        if ((Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Space)) && inDialogue) {
+        if (inDialogue && (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Space))) {
             if (DialogueBoxUI.text == currentDialogue) {
                 if (!choices.Any()) {
                     EndDialogue();
+                } else if (overwrite) {
+                    overwrite = false;
+                    ProceedToNarrative(overwriteGUID);
                 } else if (singleOption) {
                     ProceedToNarrative(choices.First().TargetNodeGUID);
                 }
@@ -98,14 +105,27 @@ public class DialogueHandler : MonoBehaviour
             if (currentNode.SpeakerNameLocation.Equals("Speaker Name Left")) {
                 SpeakerNameBoxLeft.text = currentNode.SpeakerName;
                 SpeakerNameBoxRight.text = "";
-                DialogueImage.GetComponent<Image>().sprite = DialogueLeft;
+                DialogueBoxSprite.GetComponent<Image>().sprite = DialogueLeft;
             } else {
                 SpeakerNameBoxRight.text = currentNode.SpeakerName;
                 SpeakerNameBoxLeft.text = "";
-                DialogueImage.GetComponent<Image>().sprite = DialogueRight;
+                DialogueBoxSprite.GetComponent<Image>().sprite = DialogueRight;
             }
-    
-            if (choices.Count() is 1 or 0 || (choices.Count() >= 2 && !CanSkip(currentNode, choices))) {
+
+            if (currentNode.CutSceneImageName != "") {
+                // cutSceneCamera.SetActive(true); //TODO BM: Leave like this till knowing what to do with cutscene
+                _listOfSprites.CutSceneImageSetter(currentNode.CutSceneImageName);
+            } else {
+                cutsceneImage.SetActive(false);
+            }
+
+            if (choices.Any(choice => currentNode.QuestionAnswerPortCombis.Any(x => x.portname.Equals(choice.PortName)))) {
+                overwrite = true;
+                foreach (var choice in from question in currentNode.QuestionAnswerPortCombis from choice in choices where question.portname.Equals(choice.PortName) select choice) {
+                    overwriteGUID = choice.TargetNodeGUID;
+                }
+                // overwriteGUID = choices.Where(choice => choice.PortName.Equals(currentNode.QuestionAnswerPortCombis.))
+            } else if (choices.Count() is 1 or 0 || (choices.Count() >= 2 && !CanSkip(currentNode, choices))) {
                 singleOption = true;
                 buttonContainer.gameObject.SetActive(false);
             } else {
@@ -149,5 +169,13 @@ public class DialogueHandler : MonoBehaviour
             DialogueBoxUI.text += c;
             yield return new WaitForSecondsRealtime(textspeed);
         }
+    }
+
+    private void enableInputActions() {
+        _inputAction.Enable();
+    }
+    
+    private void disableInputActions() {
+        _inputAction.Disable();
     }
 }
