@@ -11,8 +11,7 @@ public class MainScreen : MonoBehaviour {
 
     public void saveGame() {
         DataPersistenceManager.instance.SaveGame();
-        GameObject.FindWithTag("CanvasManager").gameObject.transform.Find("SettingsScreen")
-            .gameObject.GetComponent<SettingsScreenManager>().showSettingsScreen("OpenSettings");
+        // GameObject.FindWithTag("CanvasManager").gameObject.transform.Find("SettingsScreen").gameObject.GetComponent<SettingsScreenManager>().showSettingsScreen("OpenSettings");
     }
 
     public void loadGame() {
