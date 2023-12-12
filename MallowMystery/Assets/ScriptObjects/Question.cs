@@ -24,7 +24,7 @@ public class Question : ScriptableObject, IDataPersistence {
     }
 
     public void setChosenAnswer(string answer) {
-        chosenAnswer = answers.FirstOrDefault(answerList => answerList.getAnswer().Equals(answer));
+        chosenAnswer = answer == null ? null : answers.FirstOrDefault(answerList => answerList.getAnswer().Equals(answer));
     }
 
     public Answer getChosenAnswer() {

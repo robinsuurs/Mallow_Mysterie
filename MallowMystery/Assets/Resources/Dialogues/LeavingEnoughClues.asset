@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78b3fd9154634ebdb8c8a48960b9a16a, type: 3}
   m_Name: LeavingEnoughClues
   m_EditorClassIdentifier: 
-  alreadyHadConversation: 0
+  alreadyHadConversation: 1
   NodeLinks:
   - BaseNodeGUID: a2850609-85d2-4b6f-a688-2a9eb007df79
     PortName: Next
@@ -64,7 +64,7 @@ MonoBehaviour:
           m_MethodName: LoadNextScene
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 11400000, guid: fd04759f9e80bba428967f6971b0ff36,
+            m_ObjectArgument: {fileID: 11400000, guid: bbdb55a734fa3f5438af69cd721ed124,
               type: 2}
             m_ObjectArgumentAssemblyTypeName: ScriptObjects.SceneSwitchData, Assembly-CSharp
             m_IntArgument: 0
