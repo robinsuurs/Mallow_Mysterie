@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class TimePlayedTrack : MonoBehaviour, IDataPersistence {
     private string currentSceneName;
-    [SerializeField] private float currentTimeRun;
+    public static float currentTimeRun;
     private void Update() {
         if (currentSceneName != "MainMenu") {
             currentTimeRun += Time.unscaledDeltaTime;

@@ -7,10 +7,11 @@ using UnityEngine.Events;
 public class TimerQuestionWrong : MonoBehaviour {
     [SerializeField] private float currentTime;
     [SerializeField] private float maxTime;
+    [SerializeField] private GameEventStandardAdd standardEvent;
 
     [SerializeField] private UnityEvent ending;
 
-    private bool runTimer;
+    private bool runTimer = false;
     
     public void startTimer(bool run) {
         runTimer = !run;
@@ -20,7 +21,7 @@ public class TimerQuestionWrong : MonoBehaviour {
         if (runTimer) {
             currentTime += Time.deltaTime;
             if (currentTime > maxTime) {
-                //Open UI
+                standardEvent.Raise();
                 Debug.Log("Time Reached, EXPLODE");
             }
         }
