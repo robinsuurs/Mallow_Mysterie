@@ -2,12 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.EventSystems;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class newCanvasManager : MonoBehaviour//, IPointerClickHandler
 {
     [SerializeField] private GameObject Journal;
-
+    [SerializeField] private GameObject JournalTabs;
     [SerializeField] private List<GameObject> pages;
+
+    [SerializeField] private InputActionAsset input;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -34,6 +38,18 @@ public class newCanvasManager : MonoBehaviour//, IPointerClickHandler
             {
                 page.SetActive(false);
             }
+            input.Enable();
         }
     }
+
+
+
+    public void openJournal()
+    {
+        input.Disable();
+        Journal.SetActive(true);
+        // JournalTabs.
+        //Todo, add open to specific tab functionality
+    }
 }
+

@@ -6,6 +6,14 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
+public enum JournalPage
+{
+    Boeiah,
+    Clues,
+    Settings, 
+    Deduction,
+    Map
+}
 public class TabButt : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler
 {
     public TabGroup tabGroup;
@@ -15,6 +23,7 @@ public class TabButt : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler
     [SerializeField] private Color Hover;
     [SerializeField] private Color Active;
     private Image myImage;
+    [SerializeField] public JournalPage Me;
     
 
     private void Awake()
@@ -41,12 +50,18 @@ public class TabButt : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler
 
     public void activate()
     {
-        Page?.SetActive(true);
+        if (Page)
+        {
+            Page.SetActive(true);
+        }
     }
     public void deactivate()
     {
         // print("pageDeactivate");
-        Page?.SetActive(false);
+        if (Page)
+        {
+            Page.SetActive(false);
+        }
     }
 
     public void ColorIdle()
