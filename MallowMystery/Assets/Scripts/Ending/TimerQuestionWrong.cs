@@ -12,6 +12,7 @@ public class TimerQuestionWrong : MonoBehaviour {
     [SerializeField] private UnityEvent ending;
 
     private bool runTimer = false;
+    private bool opendUI = false;
     
     public void startTimer(bool run) {
         runTimer = !run;
@@ -20,9 +21,9 @@ public class TimerQuestionWrong : MonoBehaviour {
     private void Update() {
         if (runTimer) {
             currentTime += Time.deltaTime;
-            if (currentTime > maxTime) {
+            if (currentTime > maxTime && !opendUI) {
                 standardEvent.Raise();
-                Debug.Log("Time Reached, EXPLODE");
+                opendUI = true;
             }
         }
     }

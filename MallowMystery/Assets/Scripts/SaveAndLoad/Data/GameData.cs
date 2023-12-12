@@ -45,6 +45,11 @@ public class GameData {
             permission.setPermission(false);
         }
         
+        List<Question> questions = Resources.LoadAll<Question>("QuestionAnswers/Questions").ToList();
+        foreach (var question in questions) {
+            question.setChosenAnswer(null);
+        }
+        
         questionAnswerDic.Clear();
         timeRun = 0;
 
