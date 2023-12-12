@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1dad6ae7863ed64cb251f5b87b9a890, type: 3}
+  m_Name: A blue badge
+  m_EditorClassIdentifier: 
+  itemName: A blue badge
+  icon: {fileID: 0}
+  locationFound: "Found on top of the shoe rack by the front door in Cornelia\u2019s
+    house."
+  description: "A blue police badge with the letters \u201CDPD\u201D on it. Might
+    come in handy."
+  hasBeenPickedUp: 0
+  pickedUpNumber: 0
+  _event:
+  - {fileID: 11400000, guid: e03f43ef6b0f2a149b902277d73013ca, type: 2}
