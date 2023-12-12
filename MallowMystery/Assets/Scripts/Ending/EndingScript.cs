@@ -16,6 +16,7 @@ public class EndingScript : MonoBehaviour {
     private List<string> endingStringList;
 
     [SerializeField] private GameObject videoObject;
+    [SerializeField] private TextMeshProUGUI endingNumber;
     [SerializeField] private TextMeshProUGUI lengthDuration;
     [SerializeField] private TextMeshProUGUI itemsCollected;
     [SerializeField] private Inventory inventory;
@@ -41,7 +42,9 @@ public class EndingScript : MonoBehaviour {
     }
     
     private void SetText() {
-        endingStringList = DataPersistenceManager.instance.GetEndingStringList().getEndingScriptList();
+        EndingStringList endList = DataPersistenceManager.instance.GetEndingStringList();
+        endingStringList = endList.getEndingScriptList();
+        endingNumber.text = "Ending " + endList.getEndingNumber() + "/?";
         lengthDuration.text += TimeSpan.FromSeconds(TimePlayedTrack.currentTimeRun).ToString(@"hh\:mm\:ss");
         itemsCollected.text += inventory.items.Count(item => item.hasBeenPickedUp).ToString();
     }
