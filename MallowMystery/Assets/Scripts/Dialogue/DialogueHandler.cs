@@ -10,6 +10,7 @@ using TMPro;
 using UnityEngine.InputSystem;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public class DialogueHandler : MonoBehaviour {
     [SerializeField] private GameObject dialogueCanvas;
@@ -36,6 +37,10 @@ public class DialogueHandler : MonoBehaviour {
     public string currentDialogue;
     private bool singleOption;
     private bool inDialogue;
+    
+    public AudioSource audioSource;
+    public AudioClip[] audioClipArray;
+    AudioClip _lastClip;
 
     public void StartDialogue(DialogueContainer dialogueContainer) {
         if (!inDialogue) {
@@ -167,6 +172,7 @@ public class DialogueHandler : MonoBehaviour {
     IEnumerator TypeLine() {
         foreach (var c in currentDialogue.ToCharArray()) {
             DialogueBoxUI.text += c;
+            audioSource.PlayOneShot(RandomClip());
             yield return new WaitForSecondsRealtime(textspeed);
         }
     }
@@ -178,4 +184,17 @@ public class DialogueHandler : MonoBehaviour {
     private void disableInputActions() {
         _inputAction.Disable();
     }
+    
+    AudioClip RandomClip()
+        {
+            int attempts = 3;
+            AudioClip newClip = audioClipArray[Random.Range(0, audioClipArray.Length)];
+            while (newClip == _lastClip && attempts > 0) 
+            {
+                newClip = audioClipArray[Random.Range(0, audioClipArray.Length)];
+                attempts--;
+            }
+            _lastClip = newClip;
+            return newClip;
+        }
 }
