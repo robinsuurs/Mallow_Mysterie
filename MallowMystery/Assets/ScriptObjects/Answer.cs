@@ -4,13 +4,14 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Serialization;
 
 [CreateAssetMenu(menuName = "Deduction/Answer")]
 public class Answer : ScriptableObject {
     public string answer; //Needs to be public for dialogue
     public string UID; //Needs to be public for dialogue
-    [SerializeField] private List<AnswerEvent> answerEvents;
-    private bool enabled = false;
+    [SerializeField] private List<PickupEvent> pickupEvents;
+    [SerializeField] private bool enabled = false;
     
     public delegate void SelectAction();
     public event SelectAction OnSelectedEvent;
@@ -18,7 +19,7 @@ public class Answer : ScriptableObject {
     
 
     private void OnEnable() {
-        foreach (var answerEvent in answerEvents) {
+        foreach (var answerEvent in pickupEvents) {
             answerEvent.AddListener(this);
         }
 
@@ -26,7 +27,7 @@ public class Answer : ScriptableObject {
     }
 
     public void OnEventTriggered() {
-        foreach (var answerEvent in answerEvents) {
+        foreach (var answerEvent in pickupEvents) {
             answerEvent.RemoveListener(this);
         }
         enabled = true;
@@ -41,6 +42,7 @@ public class Answer : ScriptableObject {
         return enabled;
     }
 
+    //For new game
     public void setEnabledFalse() {
         enabled = false;
     }
