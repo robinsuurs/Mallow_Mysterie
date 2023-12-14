@@ -12,7 +12,6 @@ using UnityEngine.Serialization;
 public class LevelManager : ScriptableObject {
     public SceneSwitchData sceneSwitchData;
     [SerializeField] private GameObject playerPrefab;
-    [SerializeField] private GameObject playerOverworld;
     
 
     public void SpawnPlayer(GameData gameData) {
@@ -46,7 +45,6 @@ public class LevelManager : ScriptableObject {
         instantiate(new Vector3(0,0,0));
     }
     
-    //TODO BM: 29-10-2023 Look into async load of scene, has to be in monobehaviour because of coroutine
     public void LoadNextScene(SceneSwitchData sceneSwitchData)
     {
         Time.timeScale = 0;
@@ -57,12 +55,7 @@ public class LevelManager : ScriptableObject {
     }
     
     private void instantiate(Vector3 loc) {
-        if (SceneManager.GetActiveScene().name.Equals("OverworldMap")) {
-            Instantiate(playerOverworld, loc, quaternion.identity);
-        }
-        else {
-            Instantiate(playerPrefab, loc, quaternion.identity);
-        }
+        Instantiate(playerPrefab, loc, quaternion.identity);
 
         if (SceneManager.GetActiveScene().name.Equals("FriendsAppartment1")) {
             Camera.main.GetComponent<Follow_Player>().setFollowPlayer();

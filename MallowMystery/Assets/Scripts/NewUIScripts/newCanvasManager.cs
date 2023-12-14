@@ -9,6 +9,7 @@ public class newCanvasManager : MonoBehaviour//, IPointerClickHandler
     [SerializeField] private GameObject Journal;
     [SerializeField] private GameObject JournalTabs;
     [SerializeField] private List<GameObject> pages;
+    [SerializeField] private GameEventStandardAdd closeUI;
 
     [SerializeField] private InputActionAsset input;
     
@@ -39,6 +40,7 @@ public class newCanvasManager : MonoBehaviour//, IPointerClickHandler
                 page.SetActive(false);
             }
             input.Enable();
+            closeUI.Raise();
         }
     }
 
