@@ -5,6 +5,7 @@ using System.Linq;
 using ScriptObjects;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.Video;
 
@@ -133,5 +134,6 @@ public class EndingScript : MonoBehaviour {
 
     private void afterVideo(VideoPlayer source) {
         Debug.Log("EndingLoop");
+        SceneManager.LoadScene("MainMenu");
     }
 }

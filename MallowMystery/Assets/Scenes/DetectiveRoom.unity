@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.3069224, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028331, g: 0.2257133, b: 0.3069217, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -439,6 +439,11 @@ PrefabInstance:
     - target: {fileID: 950788863271735146, guid: 90da51a3f4e823048af2b52f7fce6253,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1967956138881784765, guid: 90da51a3f4e823048af2b52f7fce6253,
+        type: 3}
+      propertyPath: startFresh
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4117460809587361749, guid: 90da51a3f4e823048af2b52f7fce6253,
@@ -1871,11 +1876,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Dialogue
       objectReference: {fileID: 0}
-    - target: {fileID: 2413495323026541389, guid: a4e18039a41cbac4784eeac59c420610,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4910997196146501075, guid: a4e18039a41cbac4784eeac59c420610,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1925,21 +1925,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7316452550191993895, guid: a4e18039a41cbac4784eeac59c420610,
-        type: 3}
-      propertyPath: ScreenButtons
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 7733072678616978410, guid: a4e18039a41cbac4784eeac59c420610,
-        type: 3}
-      propertyPath: m_Camera
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 7733072678616978410, guid: a4e18039a41cbac4784eeac59c420610,
-        type: 3}
-      propertyPath: m_RenderMode
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

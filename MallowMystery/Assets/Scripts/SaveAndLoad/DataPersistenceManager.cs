@@ -12,7 +12,6 @@ public class DataPersistenceManager : MonoBehaviour {
     [SerializeField] private string fileName;
     [SerializeField] private bool startFresh;
     [SerializeField] private bool encryptData;
-    [SerializeField] private GameEventStandardAdd showItems;
     [SerializeField] private GameEventStandardAdd endSceneLoaded;
     [SerializeField] private LevelManager _levelManager;
     [SerializeField] private EndingStringList endingStringList;
@@ -80,7 +79,6 @@ public class DataPersistenceManager : MonoBehaviour {
             }
 
             LoadDialogueStates();
-            showItems.Raise();
         }
 
         if (!SceneManager.GetActiveScene().name.Equals("MainMenu")) {
