@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028331, g: 0.2257133, b: 0.3069217, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.3069224, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -9113,7 +9113,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 61b317c283cd73e49ad6328d669e7e7d,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 3355318434970278236}
+      addedObject: {fileID: 3355318434970278239}
   m_SourcePrefab: {fileID: 100100000, guid: 61b317c283cd73e49ad6328d669e7e7d, type: 3}
 --- !u!4 &3355318434970278232 stripped
 Transform:
@@ -9121,8 +9121,8 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 3355318434970278231}
   m_PrefabAsset: {fileID: 0}
---- !u!64 &3355318434970278236
-MeshCollider:
+--- !u!65 &3355318434970278239
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -9139,10 +9139,9 @@ MeshCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 2700354272823574166, guid: 61b317c283cd73e49ad6328d669e7e7d, type: 3}
+  serializedVersion: 3
+  m_Size: {x: 0.0098008895, y: 0.020986196, z: 0.06721423}
+  m_Center: {x: 0.0011907084, y: 0.0028578343, z: -0.028378744}
 --- !u!65 &3408514976035044754
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -14944,7 +14943,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 61b317c283cd73e49ad6328d669e7e7d,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 10.159
+      value: 9.644007
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 61b317c283cd73e49ad6328d669e7e7d,
         type: 3}
@@ -14954,7 +14953,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 61b317c283cd73e49ad6328d669e7e7d,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.38
+      value: -0.8394183
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 61b317c283cd73e49ad6328d669e7e7d,
         type: 3}
@@ -15013,7 +15012,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 61b317c283cd73e49ad6328d669e7e7d,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 8984147073513325417}
+      addedObject: {fileID: 8984147073513325414}
   m_SourcePrefab: {fileID: 100100000, guid: 61b317c283cd73e49ad6328d669e7e7d, type: 3}
 --- !u!4 &8984147073513325413 stripped
 Transform:
@@ -15021,8 +15020,8 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 8984147073513325412}
   m_PrefabAsset: {fileID: 0}
---- !u!64 &8984147073513325417
-MeshCollider:
+--- !u!65 &8984147073513325414
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -15039,10 +15038,9 @@ MeshCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 2700354272823574166, guid: 61b317c283cd73e49ad6328d669e7e7d, type: 3}
+  serializedVersion: 3
+  m_Size: {x: 0.009800889, y: 0.020986194, z: 0.06721423}
+  m_Center: {x: 0.0011907083, y: 0.002857835, z: -0.028378747}
 --- !u!1001 &9178610338051903927
 PrefabInstance:
   m_ObjectHideFlags: 0
