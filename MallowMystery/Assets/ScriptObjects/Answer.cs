@@ -13,12 +13,8 @@ public class Answer : ScriptableObject {
     [SerializeField] private List<PickupEvent> pickupEvents;
     [SerializeField] private bool enabled = false;
     
-    public delegate void SelectAction();
-    public event SelectAction OnSelectedEvent;
-    
-    
 
-    private void OnEnable() {
+    public void OnEnable() {
         foreach (var answerEvent in pickupEvents) {
             answerEvent.AddListener(this);
         }
@@ -27,11 +23,7 @@ public class Answer : ScriptableObject {
     }
 
     public void OnEventTriggered() {
-        foreach (var answerEvent in pickupEvents) {
-            answerEvent.RemoveListener(this);
-        }
         enabled = true;
-        OnSelectedEvent?.Invoke();
     }
 
     public string getAnswer() {
@@ -40,11 +32,6 @@ public class Answer : ScriptableObject {
 
     public bool getEnabled() {
         return enabled;
-    }
-
-    //For new game
-    public void setEnabledFalse() {
-        enabled = false;
     }
     
     private void OnValidate() {

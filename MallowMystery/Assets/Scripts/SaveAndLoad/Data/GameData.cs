@@ -37,7 +37,7 @@ public class GameData {
         
         List<Answer> answers = Resources.LoadAll<Answer>("QuestionAnswers/Answers").ToList();
         foreach (var answer in answers) {
-            answer.setEnabledFalse();
+            answer.OnEnable();
         }
         
         List<PermissionCheck> permissions = Resources.LoadAll<PermissionCheck>("Permission").ToList();
