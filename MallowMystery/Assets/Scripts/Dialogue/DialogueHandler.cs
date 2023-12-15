@@ -44,7 +44,7 @@ public class DialogueHandler : MonoBehaviour {
     AudioClip _lastClip;
     
     private void Start() {
-        // listOfQuestions = Resources.LoadAll<Question>("QuestionAnswers/Questions").ToList();
+        listOfQuestions = Resources.LoadAll<Question>("QuestionAnswers/Questions").ToList();
     }
 
     public void StartDialogue(DialogueContainer dialogueContainer) {
@@ -54,9 +54,8 @@ public class DialogueHandler : MonoBehaviour {
             var narrativeData = dialogueContainer.NodeLinks.Where(x => x.PortName.Equals("Next")).ToList()[0].TargetNodeGUID;
             ProceedToNarrative(narrativeData);
             inDialogue = true;
-            Time.timeScale = 0f;
+            // Time.timeScale = 0f;
             disableInputActions();
-            audioSource.volume = 0.033f;
         }
     }
 
@@ -69,8 +68,8 @@ public class DialogueHandler : MonoBehaviour {
         SpeakerNameBoxLeft.text = "";
         SpeakerNameBoxRight.text = "";
         dialogueCanvas.SetActive(false);
-        // enableInputActions();
-        Time.timeScale = 1f;
+        enableInputActions();
+        // Time.timeScale = 1f;
     }
     
     void Update()
@@ -189,21 +188,13 @@ public class DialogueHandler : MonoBehaviour {
         return dialogue.ExposedProperties.Aggregate(text, (current, exposedProperty) => current.Replace($"[{exposedProperty.PropertyName}]", exposedProperty.PropertyValue));
     }
 
-    IEnumerator TypeLine()
-    {
-        var first = true;
-        foreach (var c in currentDialogue.ToCharArray()) {
-            DialogueBoxUI.text += c;
-            if (first)
-            {
-                var clipPitch = Random.Range(0.75f, 1.15f);
-                audioSource.pitch = clipPitch;
+    IEnumerator TypeLine() {
+        var textArray = currentDialogue.ToCharArray();
+        for (var c = 0; c < textArray.Length; c++) {
+            DialogueBoxUI.text += textArray[c];
+            if (c % 2 == 0) {
+                audioSource.pitch = Random.Range(0.75f, 1.15f);
                 audioSource.PlayOneShot(RandomClip());
-                first = false;
-            }
-            else
-            {
-                first = true;
             }
             yield return new WaitForSecondsRealtime(textspeed);
         }
