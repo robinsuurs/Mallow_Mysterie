@@ -38,6 +38,10 @@ namespace Subtegral.DialogueSystem.Editor
                 {
                     level = 2, userData = new DialogueNode()
                 },
+                new SearchTreeEntry(new GUIContent("Dialogue ending Node", _indentationIcon))
+                {
+                    level = 2, userData = new DialogueEndNode()
+                },
                 new SearchTreeEntry(new GUIContent("Comment Block",_indentationIcon))
                 {
                     level = 1,
@@ -61,6 +65,9 @@ namespace Subtegral.DialogueSystem.Editor
                 case Group group:
                     var rect = new Rect(graphMousePosition, _graphView.DefaultCommentBlockSize);
                      _graphView.CreateCommentBlock(rect);
+                    return true;
+                case DialogueEndNode dialogueEndNode:
+                    _graphView.CreateNewDialogueEndNode(graphMousePosition);
                     return true;
             }
             return false;

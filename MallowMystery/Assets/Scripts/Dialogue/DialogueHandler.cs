@@ -32,7 +32,8 @@ public class DialogueHandler : MonoBehaviour {
 
     private string overwriteGUID;
     private bool overwrite;
-
+    private List<Question> listOfQuestions;
+    
     private IEnumerable<NodeLinkData> choices = new List<NodeLinkData>();
     public string currentDialogue;
     private bool singleOption;
@@ -41,6 +42,10 @@ public class DialogueHandler : MonoBehaviour {
     public AudioSource audioSource;
     public AudioClip[] audioClipArray;
     AudioClip _lastClip;
+    
+    private void Start() {
+        // listOfQuestions = Resources.LoadAll<Question>("QuestionAnswers/Questions").ToList();
+    }
 
     public void StartDialogue(DialogueContainer dialogueContainer) {
         if (!inDialogue) {
@@ -64,8 +69,7 @@ public class DialogueHandler : MonoBehaviour {
         SpeakerNameBoxLeft.text = "";
         SpeakerNameBoxRight.text = "";
         dialogueCanvas.SetActive(false);
-        enableInputActions();
-        dialogue.dialogueEvent.Invoke();
+        // enableInputActions();
         Time.timeScale = 1f;
     }
     
@@ -89,8 +93,10 @@ public class DialogueHandler : MonoBehaviour {
     }
     
     private void ProceedToNarrative(string narrativeDataGUID) {
-        var currentNode = dialogue.DialogueNodeData.Find(x => x.nodeGuid == narrativeDataGUID);
-        if (currentNode.dialogueText.Equals("") && currentNode.SpeakerSpriteLeft.Equals("") && currentNode.SpeakerSpriteRight.Equals("")) { //TODO BM: 15-10-2023 change this
+        var currentNode = dialogue.DialogueNodeData.FirstOrDefault(x => x.nodeGuid == narrativeDataGUID);
+        if (currentNode == null) {
+            EndingNode(narrativeDataGUID);
+        } else if (currentNode.dialogueText.Equals("") && currentNode.SpeakerSpriteLeft.Equals("") && currentNode.SpeakerSpriteRight.Equals("")) { //TODO BM: 15-10-2023 change this
             EndDialogue();
         } else if (currentNode.canSkipFromThisPoint && !dialogue.alreadyHadConversation) {
             choices = dialogue.NodeLinks.Where(x => x.BaseNodeGUID == narrativeDataGUID).ToList();
@@ -120,18 +126,26 @@ public class DialogueHandler : MonoBehaviour {
 
             if (currentNode.CutSceneImageName != "") {
                 // cutSceneCamera.SetActive(true); //TODO BM: Leave like this till knowing what to do with cutscene
-                _listOfSprites.CutSceneImageSetter(currentNode.CutSceneImageName);
+                // _listOfSprites.CutSceneImageSetter(currentNode.CutSceneImageName);
             } else {
                 cutsceneImage.SetActive(false);
             }
 
             if (choices.Any(choice => currentNode.QuestionAnswerPortCombis.Any(x => x.portname.Equals(choice.PortName)))) {
                 overwrite = true;
-                foreach (var choice in from question in currentNode.QuestionAnswerPortCombis from choice in choices where question.portname.Equals(choice.PortName) select choice) {
-                    overwriteGUID = choice.TargetNodeGUID;
+                buttonContainer.gameObject.SetActive(false);
+                
+                foreach (var questionAnswerPort in listOfQuestions.SelectMany(question => currentNode.QuestionAnswerPortCombis.Where(questionAnswerPort => question.UID.Equals(questionAnswerPort.questionUID) && question.getChosenAnswer().UID.Equals(questionAnswerPort.answerUID)))) {
+                    foreach (var choice in choices) {
+                        if (!choice.PortName.Equals(questionAnswerPort.portname)) continue;
+                        
+                        singleOption = true;
+                        overwriteGUID = choice.TargetNodeGUID;
+                        return;
+                    }
                 }
-                // overwriteGUID = choices.Where(choice => choice.PortName.Equals(currentNode.QuestionAnswerPortCombis.))
-            } else if (choices.Count() is 1 or 0 || (choices.Count() >= 2 && !CanSkip(currentNode, choices))) {
+                
+            } else if (choices.Count() is 1 or 0 || (choices.Count() >= 2 && CanSkip(currentNode, choices))) {
                 singleOption = true;
                 buttonContainer.gameObject.SetActive(false);
             } else {
@@ -149,10 +163,15 @@ public class DialogueHandler : MonoBehaviour {
         }
     }
 
+    private void EndingNode(string narrativeDataGuid) {
+        EndDialogue();
+        dialogue.DialogueEndNodeData.FirstOrDefault(x => x.nodeGuid == narrativeDataGuid)!.DialogueEvent.Invoke();
+    }
+
     private bool CanSkip(DialogueNodeData dialogueNodeData, IEnumerable<NodeLinkData> nodeLinkDatas) {
         if (dialogueNodeData.SkipPorts.Count() != 0) {
             bool test = nodeLinkDatas.Any(choice => dialogueNodeData.SkipPorts.Any(x => x.Equals(choice.PortName)));
-            return dialogue.alreadyHadConversation && test;
+            return !(dialogue.alreadyHadConversation && test);
         } else {
             return false;
         }

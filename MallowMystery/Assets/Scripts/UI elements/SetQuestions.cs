@@ -9,27 +9,26 @@ public class SetQuestions : MonoBehaviour {
     [SerializeField] private Question question;
 
     private void OnEnable() {
-        foreach (var answer in question.getAnswers()) {
-            answer.OnSelectedEvent += refreshDropDown;
-        }
+        refreshDropDown();
     }
 
     private void refreshDropDown() {
         _dropdown.ClearOptions();
+        _dropdown.AddOptions(new List<string> { "Select an answer" });
         _dropdown.AddOptions(question.getAnswers().Where(answer => answer.getEnabled()).Select(answer => answer.getAnswer()).OrderBy(s => s).ToList());
-        
-        string answerUID;
-        DataPersistenceManager.instance.getGameData().questionAnswerDic.TryGetValue(question.UID, out answerUID);
 
-        if (answerUID == null) return;
+        if (question.getChosenAnswer() == null) return;
         for (int i = 0; i < _dropdown.options.Count; i++) {
-            if (!_dropdown.options[i].text.Equals(question.getAnswerStringBasedOnGUID(answerUID))) continue;
+            if (!_dropdown.options[i].text.Equals(question.getChosenAnswer().answer)) continue;
             _dropdown.SetValueWithoutNotify(i);
             break;
         }
     }
 
     public void saveAnswer(int number) {
-        DataPersistenceManager.instance.getGameData().questionAnswerDic.Add(question.UID, question.getAnswerGUIDBasedOnString(_dropdown.options[number].text));
+        if (number == 0) {
+            question.setChosenAnswer(null);
+        }
+        question.setChosenAnswer(_dropdown.options[number].text);
     }
 }
