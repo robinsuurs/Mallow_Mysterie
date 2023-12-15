@@ -51,6 +51,7 @@ public class DialogueHandler : MonoBehaviour {
             inDialogue = true;
             Time.timeScale = 0f;
             disableInputActions();
+            audioSource.volume = 0.033f;
         }
     }
 
@@ -169,10 +170,22 @@ public class DialogueHandler : MonoBehaviour {
         return dialogue.ExposedProperties.Aggregate(text, (current, exposedProperty) => current.Replace($"[{exposedProperty.PropertyName}]", exposedProperty.PropertyValue));
     }
 
-    IEnumerator TypeLine() {
+    IEnumerator TypeLine()
+    {
+        var first = true;
         foreach (var c in currentDialogue.ToCharArray()) {
             DialogueBoxUI.text += c;
-            audioSource.PlayOneShot(RandomClip());
+            if (first)
+            {
+                var clipPitch = Random.Range(0.75f, 1.15f);
+                audioSource.pitch = clipPitch;
+                audioSource.PlayOneShot(RandomClip());
+                first = false;
+            }
+            else
+            {
+                first = true;
+            }
             yield return new WaitForSecondsRealtime(textspeed);
         }
     }
