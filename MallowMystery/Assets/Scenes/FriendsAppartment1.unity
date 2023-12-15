@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.3069224, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028331, g: 0.2257133, b: 0.3069217, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -461,6 +461,12 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1851968893919420778, guid: 312bea23fa0362245a7d0cb42eb217da,
+        type: 3}
+      propertyPath: clueInv
+      value: 
+      objectReference: {fileID: 11400000, guid: 8895089aba195f845951a72f3a516262,
+        type: 2}
     - target: {fileID: 4199459121684761797, guid: 312bea23fa0362245a7d0cb42eb217da,
         type: 3}
       propertyPath: m_Name
@@ -5721,11 +5727,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1967956138881784765, guid: 90da51a3f4e823048af2b52f7fce6253,
-        type: 3}
-      propertyPath: startFresh
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4117460809587361749, guid: 90da51a3f4e823048af2b52f7fce6253,
         type: 3}
       propertyPath: m_Name
@@ -10093,7 +10094,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   checkItems:
-  - {fileID: 11400000, guid: 5877be8e20450184a9659182afaf13e9, type: 2}
+  - {fileID: 11400000, guid: a9a2de3b2e6ffcc41a41828ccf5f325c, type: 2}
+  needOneOfList:
+  - {fileID: 11400000, guid: 1faf0cf6e2db3764c853d09592f88f27, type: 2}
+  - {fileID: 11400000, guid: 30f811189ca560d4f9f2146bca305330, type: 2}
+  - {fileID: 11400000, guid: e13a906c610b5dd439c5df9f2ccd1211, type: 2}
   nothing:
     m_PersistentCalls:
       m_Calls:

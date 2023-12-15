@@ -39,7 +39,7 @@ public class DialogueHandler : MonoBehaviour {
     private bool inDialogue;
     
     private void Start() {
-        listOfQuestions = Resources.LoadAll<Question>("QuestionAnswers/Questions").ToList();
+        // listOfQuestions = Resources.LoadAll<Question>("QuestionAnswers/Questions").ToList();
     }
 
     public void StartDialogue(DialogueContainer dialogueContainer) {
@@ -50,7 +50,7 @@ public class DialogueHandler : MonoBehaviour {
             ProceedToNarrative(narrativeData);
             inDialogue = true;
             Time.timeScale = 0f;
-            disableInputActions();
+            // disableInputActions();
         }
     }
 
@@ -63,7 +63,7 @@ public class DialogueHandler : MonoBehaviour {
         SpeakerNameBoxLeft.text = "";
         SpeakerNameBoxRight.text = "";
         dialogueCanvas.SetActive(false);
-        enableInputActions();
+        // enableInputActions();
         Time.timeScale = 1f;
     }
     
@@ -120,13 +120,14 @@ public class DialogueHandler : MonoBehaviour {
 
             if (currentNode.CutSceneImageName != "") {
                 // cutSceneCamera.SetActive(true); //TODO BM: Leave like this till knowing what to do with cutscene
-                _listOfSprites.CutSceneImageSetter(currentNode.CutSceneImageName);
+                // _listOfSprites.CutSceneImageSetter(currentNode.CutSceneImageName);
             } else {
                 cutsceneImage.SetActive(false);
             }
 
             if (choices.Any(choice => currentNode.QuestionAnswerPortCombis.Any(x => x.portname.Equals(choice.PortName)))) {
                 overwrite = true;
+                buttonContainer.gameObject.SetActive(false);
                 
                 foreach (var questionAnswerPort in listOfQuestions.SelectMany(question => currentNode.QuestionAnswerPortCombis.Where(questionAnswerPort => question.UID.Equals(questionAnswerPort.questionUID) && question.getChosenAnswer().UID.Equals(questionAnswerPort.answerUID)))) {
                     foreach (var choice in choices) {

@@ -15,7 +15,7 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 _moveInput;
     private Vector3 _moveDirection;
 
-    private void Start()
+    private void Awake()
     {
         //rotate the player relative to the camera
         mainCamera = FindObjectOfType<Camera>();
@@ -28,6 +28,7 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(transform.rotation.y);
         //poll value of the input value vector(x,y)
         _moveInput = _moveInputAction.ReadValue<Vector2>();
         

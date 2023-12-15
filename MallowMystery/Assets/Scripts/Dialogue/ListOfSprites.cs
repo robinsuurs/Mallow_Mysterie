@@ -78,7 +78,7 @@ public class ListOfSprites : MonoBehaviour
         
     }
 #endif
-    private Sprite[] characterSprites;
+    [SerializeField] private Sprite[] characterSprites;
     
     [SerializeField] private Image leftImage;
     [SerializeField] private Image rightImage;
