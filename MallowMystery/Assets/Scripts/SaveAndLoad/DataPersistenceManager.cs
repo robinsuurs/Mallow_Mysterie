@@ -3,6 +3,7 @@ using UnityEngine;
 using System.Linq;
 using Dialogue.RunTime;
 using UnityEngine.SceneManagement;
+using UnityEngine.Serialization;
 
 //Youtube video used: https://www.youtube.com/watch?v=aUi9aijvpgs&t=538s
 
@@ -11,9 +12,9 @@ public class DataPersistenceManager : MonoBehaviour {
     [SerializeField] private string fileName;
     [SerializeField] private bool startFresh;
     [SerializeField] private bool encryptData;
-    [SerializeField] private GameEventStandardAdd gameEventStandardAdd;
+    [SerializeField] private GameEventStandardAdd endSceneLoaded;
     [SerializeField] private LevelManager _levelManager;
-    
+    [SerializeField] private EndingStringList endingStringList;
     private GameData _gameData;
     private List<IDataPersistence> dataPersistences;
     private FileDataHandler dataHandler;
@@ -43,14 +44,13 @@ public class DataPersistenceManager : MonoBehaviour {
     private void OnSceneLoaded (Scene scene, LoadSceneMode mode) {
         this.dataPersistences = FindAllDataPersistenceObjects();
         LoadGame();
-        if (!SceneManager.GetActiveScene().name.Equals("MainMenu")) {
-            Camera.main.gameObject.GetComponent<Follow_Player>().setFollowPlayer(); //TODO BM: change this, this is not how it is supposed to work
-            Camera.main.gameObject.GetComponent<SeeThrough>().setFollowPlayer();
+        if (!SceneManager.GetActiveScene().name.Equals("MainMenu") && !SceneManager.GetActiveScene().name.Equals("DetectiveRoom") && !SceneManager.GetActiveScene().name.Equals("EndingScene")) {
+            Camera.main.gameObject.GetComponent<Follow_Player>().setFollowPlayer();
         }
     }
 
     private List<IDataPersistence> FindAllDataPersistenceObjects() {
-        IEnumerable<IDataPersistence> dataPersistenceMon = Resources.FindObjectsOfTypeAll<MonoBehaviour>().OfType<IDataPersistence>();
+        IEnumerable<IDataPersistence> dataPersistenceMon = FindObjectsOfType<MonoBehaviour>().OfType<IDataPersistence>();
         IEnumerable<IDataPersistence> dataPersistenceScript = Resources.FindObjectsOfTypeAll<ScriptableObject>().OfType<IDataPersistence>();
         return new List<IDataPersistence>(dataPersistenceMon.Concat(dataPersistenceScript));
     }
@@ -79,12 +79,11 @@ public class DataPersistenceManager : MonoBehaviour {
             }
 
             LoadDialogueStates();
-            gameEventStandardAdd.Raise();
         }
 
         if (!SceneManager.GetActiveScene().name.Equals("MainMenu")) {
-            GameObject.FindWithTag("CanvasManager").transform.Find("ShortcutImages").gameObject.SetActive(true);
             _levelManager.SpawnPlayer(_gameData);
+            endSceneLoaded.Raise();
         }
     }
 
@@ -140,5 +139,13 @@ public class DataPersistenceManager : MonoBehaviour {
 
     public GameData getGameData() {
         return _gameData;
+    }
+
+    public void setEndingStringList(EndingStringList endingStringList) {
+        this.endingStringList = endingStringList;
+    }
+
+    public EndingStringList GetEndingStringList() {
+        return endingStringList;
     }
 }

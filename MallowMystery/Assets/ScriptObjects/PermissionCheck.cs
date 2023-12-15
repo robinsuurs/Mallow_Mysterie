@@ -8,8 +8,8 @@ using UnityEngine.Serialization;
 
 [CreateAssetMenu(menuName = "Permission")]
 public class PermissionCheck : ScriptableObject, IDataPersistence {
-    private string UID;
-    [SerializeField] private bool permission;
+    [SerializeField] private string UID;
+    [SerializeField] private bool permission = false;
     [SerializeField] private UnityEvent permitted;
     [SerializeField] private UnityEvent notPermitted;
 

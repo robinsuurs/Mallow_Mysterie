@@ -10,8 +10,11 @@ public class GameData {
     public List<ItemDataSave> itemDataSaves = new List<ItemDataSave>();
     public List<PermissionCheckSave> PermissionCheckSaves = new List<PermissionCheckSave>();
     public List<string> alreadyHadConversations = new List<string>();
+    public float timeRun;
     public string sceneName;
     public Vector3 playerLocation;
+
+    public bool cameraHasPanned;
 
     public SerializableDictionary<string, string> questionAnswerDic =
         new SerializableDictionary<string, string>();
@@ -42,7 +45,15 @@ public class GameData {
             permission.setPermission(false);
         }
         
+        List<Question> questions = Resources.LoadAll<Question>("QuestionAnswers/Questions").ToList();
+        foreach (var question in questions) {
+            question.setChosenAnswer(null);
+        }
+        
         questionAnswerDic.Clear();
+        timeRun = 0;
+
+        cameraHasPanned = false;
         
         sceneName = "DetectiveRoom";
         playerLocation = new Vector3(-0.5f, 0.2433f, 0.2f);
