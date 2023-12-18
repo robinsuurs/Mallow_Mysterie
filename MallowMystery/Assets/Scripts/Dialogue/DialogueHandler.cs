@@ -10,6 +10,7 @@ using TMPro;
 using UnityEngine.InputSystem;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public class DialogueHandler : MonoBehaviour {
     [SerializeField] private GameObject dialogueCanvas;
@@ -38,8 +39,12 @@ public class DialogueHandler : MonoBehaviour {
     private bool singleOption;
     private bool inDialogue;
     
+    public AudioSource audioSource;
+    public AudioClip[] audioClipArray;
+    AudioClip _lastClip;
+    
     private void Start() {
-        // listOfQuestions = Resources.LoadAll<Question>("QuestionAnswers/Questions").ToList();
+        listOfQuestions = Resources.LoadAll<Question>("QuestionAnswers/Questions").ToList();
     }
 
     public void StartDialogue(DialogueContainer dialogueContainer) {
@@ -49,8 +54,8 @@ public class DialogueHandler : MonoBehaviour {
             var narrativeData = dialogueContainer.NodeLinks.Where(x => x.PortName.Equals("Next")).ToList()[0].TargetNodeGUID;
             ProceedToNarrative(narrativeData);
             inDialogue = true;
-            Time.timeScale = 0f;
-            // disableInputActions();
+            // Time.timeScale = 0f;
+            disableInputActions();
         }
     }
 
@@ -63,8 +68,8 @@ public class DialogueHandler : MonoBehaviour {
         SpeakerNameBoxLeft.text = "";
         SpeakerNameBoxRight.text = "";
         dialogueCanvas.SetActive(false);
-        // enableInputActions();
-        Time.timeScale = 1f;
+        enableInputActions();
+        // Time.timeScale = 1f;
     }
     
     void Update()
@@ -184,8 +189,13 @@ public class DialogueHandler : MonoBehaviour {
     }
 
     IEnumerator TypeLine() {
-        foreach (var c in currentDialogue.ToCharArray()) {
-            DialogueBoxUI.text += c;
+        var textArray = currentDialogue.ToCharArray();
+        for (var c = 0; c < textArray.Length; c++) {
+            DialogueBoxUI.text += textArray[c];
+            if (c % 2 == 0) {
+                audioSource.pitch = Random.Range(0.75f, 1.15f);
+                audioSource.PlayOneShot(RandomClip());
+            }
             yield return new WaitForSecondsRealtime(textspeed);
         }
     }
@@ -197,4 +207,17 @@ public class DialogueHandler : MonoBehaviour {
     private void disableInputActions() {
         _inputAction.Disable();
     }
+    
+    AudioClip RandomClip()
+        {
+            int attempts = 3;
+            AudioClip newClip = audioClipArray[Random.Range(0, audioClipArray.Length)];
+            while (newClip == _lastClip && attempts > 0) 
+            {
+                newClip = audioClipArray[Random.Range(0, audioClipArray.Length)];
+                attempts--;
+            }
+            _lastClip = newClip;
+            return newClip;
+        }
 }
