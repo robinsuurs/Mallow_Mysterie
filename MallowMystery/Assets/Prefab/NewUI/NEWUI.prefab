@@ -568,7 +568,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tabGroup: {fileID: 5615318687261877580}
-  Page: {fileID: 0}
+  Page: {fileID: 6570765922915932145}
   Idle: {r: 0.89411765, g: 0.33333334, b: 0.33333334, a: 1}
   Hover: {r: 0.89411765, g: 0.44705883, b: 0.44705883, a: 1}
   Active: {r: 0.4, g: 0.15172414, b: 0.15172414, a: 1}
@@ -616,7 +616,7 @@ GameObject:
   - component: {fileID: 1814342922047321698}
   - component: {fileID: 1096884678031822018}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: ClueDescription
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1412,6 +1412,59 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1 &4256952094167109447
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 547994222469763833}
+  - component: {fileID: 3398159477014779679}
+  m_Layer: 0
+  m_Name: CluesManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &547994222469763833
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4256952094167109447}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4198453934758844530}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3398159477014779679
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4256952094167109447}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a37bc68910538743afb84b9f6424e85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventoryPlaceholders:
+  - {fileID: 6037628419080401914}
+  - {fileID: 7389078608396984468}
+  - {fileID: 6714406160712907467}
+  - {fileID: 1600137250394456526}
+  - {fileID: 2490124821280075737}
+  - {fileID: 9113181883618954139}
+  selectedImageLoc: {fileID: 6570765922915932145}
+  currentPage: {fileID: 7408590430994120181}
 --- !u!1 &4361865089502297484
 GameObject:
   m_ObjectHideFlags: 0
@@ -1716,6 +1769,7 @@ Transform:
   - {fileID: 2328128434413233321}
   - {fileID: 6745016638825895973}
   - {fileID: 7401179799306768859}
+  - {fileID: 547994222469763833}
   m_Father: {fileID: 832770364551984687}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4997165265378836443
@@ -2371,7 +2425,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1458969182635975997}
-  - component: {fileID: 4586515586329786694}
+  - component: {fileID: 1491481062035687274}
   m_Layer: 5
   m_Name: CluesPage
   m_TagString: Untagged
@@ -2405,7 +2459,7 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &4586515586329786694
+--- !u!114 &1491481062035687274
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2414,18 +2468,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 6570765922915932145}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a37bc68910538743afb84b9f6424e85, type: 3}
+  m_Script: {fileID: 11500000, guid: dc79aeb10951b35a4b2c2dd5c0af5967, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventoryPlaceholders:
-  - {fileID: 6037628419080401914}
-  - {fileID: 7389078608396984468}
-  - {fileID: 6714406160712907467}
-  - {fileID: 1600137250394456526}
-  - {fileID: 2490124821280075737}
-  - {fileID: 9113181883618954139}
-  selectedImageLoc: {fileID: 1955092510626317928}
-  currentPage: {fileID: 7408590430994120181}
+  manager: {fileID: 3398159477014779679}
 --- !u!1 &6731258904927520266
 GameObject:
   m_ObjectHideFlags: 0
@@ -4504,7 +4550,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 3398159477014779679}
     - target: {fileID: 8347915514283229578, guid: 7bb84ed3f94073a63989ab244744f719,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
@@ -4664,7 +4710,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 3398159477014779679}
     - target: {fileID: 8347915514283229578, guid: 7bb84ed3f94073a63989ab244744f719,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
@@ -4974,7 +5020,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 3398159477014779679}
     - target: {fileID: 8347915514283229578, guid: 7bb84ed3f94073a63989ab244744f719,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
@@ -5134,7 +5180,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 3398159477014779679}
     - target: {fileID: 9190124862796463611, guid: 7bb84ed3f94073a63989ab244744f719,
         type: 3}
       propertyPath: m_text
@@ -5289,7 +5335,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 3398159477014779679}
     - target: {fileID: 8347915514283229578, guid: 7bb84ed3f94073a63989ab244744f719,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
@@ -5589,7 +5635,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 3398159477014779679}
     - target: {fileID: 8347915514283229578, guid: 7bb84ed3f94073a63989ab244744f719,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
