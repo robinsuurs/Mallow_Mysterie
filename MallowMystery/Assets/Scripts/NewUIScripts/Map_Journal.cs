@@ -28,6 +28,7 @@ public class Map_Journal : MonoBehaviour
         else
         {
             ImageMap.SetActive(false);
+            Marker.localScale = new Vector3(0, 0, 0);
             if (RenderMap)
             {
                 RenderMap.SetActive(true);
