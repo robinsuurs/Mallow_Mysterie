@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class TabGroup : MonoBehaviour
 {
-    private List<TabButt> tabButtons;
+    [SerializeField] private List<TabButt> tabButtons;
     private Color tabIdle;
     private Color tabHover;
     private Color tabActive;

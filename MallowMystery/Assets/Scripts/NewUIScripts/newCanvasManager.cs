@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.EventSystems;
@@ -6,52 +7,55 @@ using UnityEngine.InputSystem;
 
 public class newCanvasManager : MonoBehaviour//, IPointerClickHandler
 {
-    [SerializeField] private GameObject Journal;
-    [SerializeField] private GameObject JournalTabs;
-    [SerializeField] private List<GameObject> pages;
+    [SerializeField] private GameObject canvas;
+    [SerializeField] private JournalManager Journal;
     [SerializeField] private GameEventStandardAdd closeUI;
-
-    [SerializeField] private InputActionAsset input;
+    public bool isOpen = false;
     
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private UIControls ui;
+
+    private void Start()
     {
-        
+        // deactivateCanvas();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    // public void OnPointerClick(PointerEventData eventData) //TODO: Doet het niet.
-    // {
-    //     closeJournal();
-    // }
-
-    public void closeJournal()
-    {
-        if (Journal.activeSelf)
-        {
-            Journal.SetActive(false);
-            foreach (var page in pages)
-            {
-                page.SetActive(false);
-            }
-            input.Enable();
-            closeUI.Raise();
-        }
-    }
-
-
-
+    public void activateCanvas(){ canvas.SetActive(true);}
+    public void deactivateCanvas(){ canvas.SetActive(false);}
+    public bool isCanvasActive(){ return canvas.activeSelf; }
     public void openJournal()
     {
-        input.Disable();
-        Journal.SetActive(true);
-        // JournalTabs.
-        //Todo, add open to specific tab functionality
+        canvas.SetActive(true);
+        ui.deactivateInput();
+        Journal.activate();
     }
+
+    public void DisableCanvas()
+    {
+        Journal.closeJournal();
+        ui.activateInput();
+        canvas.SetActive(false);
+    }
+
+    public void openJournalPage(UIPage page)
+    {
+        canvas.SetActive(true);
+        if (Journal.isOpen && Journal.currentPage == page)
+        {
+            DisableCanvas();
+            return;
+        }
+        openJournal();
+        Journal.selectPage(page);
+    }
+    
 }
 
+public enum UIPage
+{
+    Clues,
+    Settings, 
+    Deduction,
+    Map,
+    Folder,
+    Pinboard
+}

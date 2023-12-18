@@ -35,6 +35,11 @@ public class TabButt : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
+        selectMe();
+    }
+
+    public void selectMe()
+    {
         tabGroup.OnTabSelected(this);
     }
 
