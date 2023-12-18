@@ -18,8 +18,15 @@ public class PlayerMovement : MonoBehaviour
     private void Start()
     {
         //rotate the player relative to the camera
-        mainCamera = FindObjectOfType<Camera>();
-        transform.Rotate(new Vector3(0,mainCamera.transform.eulerAngles.y,0));
+        mainCamera = Camera.main;
+        if (mainCamera != null)
+        {
+            transform.Rotate(new Vector3(0, mainCamera.transform.eulerAngles.y, 0));
+        }
+        else
+        {
+            print("No camera in scene tagged 'MainCamera'");
+        }
         
         //get the move action for value polling
         _moveInputAction = plInputAction.FindAction("Move");
