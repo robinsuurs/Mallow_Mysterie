@@ -16,7 +16,7 @@ public class newCanvasManager : MonoBehaviour//, IPointerClickHandler
 
     private void Start()
     {
-        // deactivateCanvas();
+        deactivateCanvas();
     }
 
     public void activateCanvas(){ canvas.SetActive(true);}
