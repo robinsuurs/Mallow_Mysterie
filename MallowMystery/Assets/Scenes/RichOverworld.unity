@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028331, g: 0.2257133, b: 0.3069217, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.3069224, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3050,6 +3050,47 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SceneSpecificOverworld
+      objectReference: {fileID: 0}
+    - target: {fileID: 4178754312792757073, guid: f3bc1e9325217b24bab017ddac854d71,
+        type: 3}
+      propertyPath: unityEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4178754312792757073, guid: f3bc1e9325217b24bab017ddac854d71,
+        type: 3}
+      propertyPath: unityEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4178754312792757073, guid: f3bc1e9325217b24bab017ddac854d71,
+        type: 3}
+      propertyPath: unityEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 11400000, guid: 7409c3885dce76944937bfb89df4bbf1,
+        type: 2}
+    - target: {fileID: 4178754312792757073, guid: f3bc1e9325217b24bab017ddac854d71,
+        type: 3}
+      propertyPath: unityEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4178754312792757073, guid: f3bc1e9325217b24bab017ddac854d71,
+        type: 3}
+      propertyPath: unityEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Raise
+      objectReference: {fileID: 0}
+    - target: {fileID: 4178754312792757073, guid: f3bc1e9325217b24bab017ddac854d71,
+        type: 3}
+      propertyPath: unityEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GameEventStandardAdd, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4178754312792757073, guid: f3bc1e9325217b24bab017ddac854d71,
+        type: 3}
+      propertyPath: unityEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 6700691543754727270, guid: f3bc1e9325217b24bab017ddac854d71,
+        type: 3}
+      propertyPath: fadeSpeed
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 8618962515585856039, guid: f3bc1e9325217b24bab017ddac854d71,
         type: 3}
