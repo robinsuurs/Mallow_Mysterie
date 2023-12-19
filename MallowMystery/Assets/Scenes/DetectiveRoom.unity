@@ -191,6 +191,18 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c28bf2996ab0bba45afd0553577b477f, type: 3}
+--- !u!114 &138539788 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3398159477014779679, guid: 528fd1b6223d4af37b5c769ac236b1f9,
+    type: 3}
+  m_PrefabInstance: {fileID: 1945562677228319718}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a37bc68910538743afb84b9f6424e85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &376828290
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1640,6 +1652,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1111663630313230226, guid: 528fd1b6223d4af37b5c769ac236b1f9,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 138539788}
+    - target: {fileID: 1111663630313230226, guid: 528fd1b6223d4af37b5c769ac236b1f9,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: flipPageForward
+      objectReference: {fileID: 0}
     - target: {fileID: 3004372380984215479, guid: 528fd1b6223d4af37b5c769ac236b1f9,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -1755,6 +1777,16 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6038057060748734423, guid: 528fd1b6223d4af37b5c769ac236b1f9,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 138539788}
+    - target: {fileID: 6038057060748734423, guid: 528fd1b6223d4af37b5c769ac236b1f9,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: flipPageBackwards
+      objectReference: {fileID: 0}
     - target: {fileID: 6454010187357066589, guid: 528fd1b6223d4af37b5c769ac236b1f9,
         type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -1764,6 +1796,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6844154596176639877, guid: 528fd1b6223d4af37b5c769ac236b1f9,
+        type: 3}
+      propertyPath: m_Name
+      value: ClueName
       objectReference: {fileID: 0}
     - target: {fileID: 7260128481483095951, guid: 528fd1b6223d4af37b5c769ac236b1f9,
         type: 3}
@@ -1801,7 +1838,8 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 2530836722406560318, guid: 528fd1b6223d4af37b5c769ac236b1f9, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 528fd1b6223d4af37b5c769ac236b1f9, type: 3}
