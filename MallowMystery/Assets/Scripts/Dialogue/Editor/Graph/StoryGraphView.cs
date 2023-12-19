@@ -340,7 +340,7 @@ namespace Dialogue.Editor.Graph
             }
 
             if (useDefaultValues) {
-                QuestionAnswerPortCombi questionAnswerPortCombi = new QuestionAnswerPortCombi(GUID.Generate().ToString(), questionUid, answerUid);
+                QuestionAnswerPortCombi questionAnswerPortCombi = new QuestionAnswerPortCombi(overriddenPortName, questionUid, answerUid);
                 textField.value = questionAnswerPortCombi.portname;
                 nodeCache.QuestionAnswerPortCombis.Add(questionAnswerPortCombi);
             }
@@ -439,12 +439,21 @@ namespace Dialogue.Editor.Graph
             speakerSpriteRight.RegisterValueChangedCallback(evt => { tempDialogueNode.SpeakerSpriteRight = evt.newValue; });
             speakerSpriteRight.SetValueWithoutNotify(tempDialogueNode.SpeakerSpriteRight);
             tempDialogueNode.mainContainer.Add(speakerSpriteRight);
-            
-            int LeftorRight = useDefaultValues ? 0 : tempDialogueNode.SpeakerNameLocation.Equals("Speaker Name Left") ? 0 : 1;
+
+            int LeftorRight = 0;
+            if (!useDefaultValues) {
+                LeftorRight = tempDialogueNode.SpeakerNameLocation switch {
+                    "Speaker Name Left" => 0,
+                    "Speaker Name Right" => 1,
+                    "None" => 2,
+                    _ => LeftorRight
+                };
+            }
             
             List<string> leftRight = new List<string>();
             leftRight.Add("Speaker Name Left");
             leftRight.Add("Speaker Name Right");
+            leftRight.Add("None");
             
             //Where does the speakerName need to be
             PopupField<string> LeftRightPopUp = new PopupField<string>(leftRight.Select(x => x).ToList(), LeftorRight);

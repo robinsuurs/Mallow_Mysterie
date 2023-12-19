@@ -10,27 +10,36 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 78b3fd9154634ebdb8c8a48960b9a16a, type: 3}
-  m_Name: PickedUpAllClues
+  m_Name: FALeaveDeduct
   m_EditorClassIdentifier: 
   alreadyHadConversation: 0
   NodeLinks:
-  - BaseNodeGUID: f1b4aabd-8bf8-430a-9ea7-cb638ed314ea
+  - BaseNodeGUID: 4c5d4317-5a23-4af9-92b3-06390378c3b5
     PortName: Next
-    TargetNodeGUID: ca1d540a-6c76-4550-a2af-8f694bf7af1c
+    TargetNodeGUID: 7e9ecfc7-f6b4-48e3-88ff-b9eec560a024
+  - BaseNodeGUID: 7e9ecfc7-f6b4-48e3-88ff-b9eec560a024
+    PortName: Option 1
+    TargetNodeGUID: fbbf45a2-02ad-46be-8544-8cc771492deb
   DialogueNodeData:
-  - nodeGuid: ca1d540a-6c76-4550-a2af-8f694bf7af1c
-    dialogueText: I think I should go now, the police could be here any minute.
-    position: {x: 231, y: 186}
-    SpeakerName: Milton
+  - nodeGuid: 7e9ecfc7-f6b4-48e3-88ff-b9eec560a024
+    dialogueText: Maybe i should take a look at my deductions
+    position: {x: 204.8, y: 200}
+    SpeakerName: 
     SpeakerNameLocation: Speaker Name Left
-    SpeakerSpriteLeft: M1
+    SpeakerSpriteLeft: 
     SpeakerSpriteRight: 
     ItemPortCombis: []
     QuestionAnswerPortCombis: []
     SkipPorts: []
     canSkipFromThisPoint: 0
     CutSceneImageName: 
-  DialogueEndNodeData: []
+  DialogueEndNodeData:
+  - nodeGuid: fbbf45a2-02ad-46be-8544-8cc771492deb
+    dialogueText: asdasd
+    position: {x: 585.6, y: 200}
+    DialogueEvent:
+      m_PersistentCalls:
+        m_Calls: []
   ExposedProperties:
   - PropertyName: Ignore
     PropertyValue: New Value
