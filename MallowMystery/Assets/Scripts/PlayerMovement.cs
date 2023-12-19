@@ -35,7 +35,7 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(transform.rotation.y);
+        // Debug.Log(transform.rotation.y);
         //poll value of the input value vector(x,y)
         _moveInput = _moveInputAction.ReadValue<Vector2>();
         
