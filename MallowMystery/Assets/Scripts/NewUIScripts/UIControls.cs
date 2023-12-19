@@ -49,6 +49,10 @@ public class UIControls : MonoBehaviour
     void openJournalSettings(InputAction.CallbackContext context) { Manager.openJournalPage(UIPage.Settings); }
     void openJournalDeduction(InputAction.CallbackContext context) { Manager.openJournalPage(UIPage.Deduction); }
     void openJournalMap(InputAction.CallbackContext context){ Manager.openJournalPage(UIPage.Map); }
+
+    public void openDeduction() {
+        openJournalDeduction(new InputAction.CallbackContext());
+    }
     
     public void activateInput() {moveAction.Enable(); interactAction.Enable();}
     public void deactivateInput() {moveAction.Disable(); interactAction.Disable();}
