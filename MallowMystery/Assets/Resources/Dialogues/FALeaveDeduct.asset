@@ -10,24 +10,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 78b3fd9154634ebdb8c8a48960b9a16a, type: 3}
-  m_Name: ROvTimerRunOut
+  m_Name: FALeaveDeduct
   m_EditorClassIdentifier: 
   alreadyHadConversation: 0
   NodeLinks:
-  - BaseNodeGUID: 96cefc49-6579-41e4-a7eb-ea1ccdf65e2f
+  - BaseNodeGUID: 4c5d4317-5a23-4af9-92b3-06390378c3b5
     PortName: Next
-    TargetNodeGUID: 415dedd9-c52c-47a7-bd4c-d0b7f5a155da
-  - BaseNodeGUID: 415dedd9-c52c-47a7-bd4c-d0b7f5a155da
+    TargetNodeGUID: 7e9ecfc7-f6b4-48e3-88ff-b9eec560a024
+  - BaseNodeGUID: 7e9ecfc7-f6b4-48e3-88ff-b9eec560a024
     PortName: Option 1
-    TargetNodeGUID: ce583cb6-2fb4-453c-b29b-ba5faa568051
+    TargetNodeGUID: fbbf45a2-02ad-46be-8544-8cc771492deb
   DialogueNodeData:
-  - nodeGuid: 415dedd9-c52c-47a7-bd4c-d0b7f5a155da
-    dialogueText: Hmmm... It feels like I'm missing something. I should take another
-      look at the clues.
-    position: {x: 231, y: 200}
-    SpeakerName: Milton
+  - nodeGuid: 7e9ecfc7-f6b4-48e3-88ff-b9eec560a024
+    dialogueText: Maybe i should take a look at my deductions
+    position: {x: 204.8, y: 200}
+    SpeakerName: 
     SpeakerNameLocation: Speaker Name Left
-    SpeakerSpriteLeft: M1
+    SpeakerSpriteLeft: 
     SpeakerSpriteRight: 
     ItemPortCombis: []
     QuestionAnswerPortCombis: []
@@ -35,9 +34,9 @@ MonoBehaviour:
     canSkipFromThisPoint: 0
     CutSceneImageName: 
   DialogueEndNodeData:
-  - nodeGuid: ce583cb6-2fb4-453c-b29b-ba5faa568051
-    dialogueText: 
-    position: {x: 617, y: 200}
+  - nodeGuid: fbbf45a2-02ad-46be-8544-8cc771492deb
+    dialogueText: asdasd
+    position: {x: 585.6, y: 200}
     DialogueEvent:
       m_PersistentCalls:
         m_Calls: []

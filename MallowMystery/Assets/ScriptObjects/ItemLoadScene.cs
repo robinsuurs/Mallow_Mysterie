@@ -16,12 +16,14 @@ public class ItemLoadScene : MonoBehaviour {
         }
     }
 
-    public void PickUpObject() {
-        if (GameObject.Find("ItemPopUp") == null || !GameObject.Find("ItemPopUp").activeSelf) {
+    public void PickUpObject(bool ShowPickUp) {
+        if ((GameObject.Find("ItemPopUp") == null || !GameObject.Find("ItemPopUp").activeSelf) && !itemData.hasBeenPickedUp) {
             itemData.setPickUp();
             itemData.pickedUpNumber = _inventory.pickedUpItemNumber();
-            GameObject.FindWithTag("ItemPopUp").gameObject.GetComponent<ItemPopUpManager>().showPopUp(itemData);
-            this.GameObject().SetActive(false);
+            if (ShowPickUp) {
+                GameObject.FindWithTag("ItemPopUp").gameObject.GetComponent<ItemPopUpManager>().showPopUp(itemData);
+                this.GameObject().SetActive(false);
+            }
         }
     }
 }

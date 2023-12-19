@@ -10,18 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 78b3fd9154634ebdb8c8a48960b9a16a, type: 3}
-  m_Name: ROverSecondTimeFAp
+  m_Name: RODetectiveAp
   m_EditorClassIdentifier: 
   alreadyHadConversation: 0
   NodeLinks:
-  - BaseNodeGUID: 2b7c05bf-efc8-42ed-9cd1-119a923a001a
+  - BaseNodeGUID: 22b7afd7-f2cb-44c8-a44a-962eaf094c61
     PortName: Next
-    TargetNodeGUID: 69ecf48a-4467-4051-a8e7-cd5e75de01d0
+    TargetNodeGUID: 79f1347c-bcac-4784-9a63-bda2e0278224
   DialogueNodeData:
-  - nodeGuid: 69ecf48a-4467-4051-a8e7-cd5e75de01d0
-    dialogueText: I shouldn't waste more time here. Who knows how much time I have
-      before the police comes to investigate?
-    position: {x: 223, y: 200}
+  - nodeGuid: 79f1347c-bcac-4784-9a63-bda2e0278224
+    dialogueText: Oh, it's locked. Seems like Tyrone left already.
+    position: {x: 216, y: 200}
     SpeakerName: Milton
     SpeakerNameLocation: Speaker Name Left
     SpeakerSpriteLeft: M1
