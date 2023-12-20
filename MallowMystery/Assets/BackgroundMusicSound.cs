@@ -7,11 +7,20 @@ using UnityEngine;
 public class BackgroundMusicSound : MonoBehaviour {
     public AudioSource audioSource;
     [SerializeField] private AudioClip backgroundMusic;
+    [SerializeField] private float changeVolumeLevelBackgroundValue;
     [SerializeField] private float fadeSpeed;
 
     private void Start() {
         audioSource.clip = backgroundMusic;
         audioSource.Play();
+    }
+
+    public void changeSoundLevel(bool soundChange) {
+        if (soundChange) {
+            audioSource.volume = changeVolumeLevelBackgroundValue;
+        } else {
+            audioSource.volume = 1;
+        }
     }
 
     public void soundFadeOut() {
