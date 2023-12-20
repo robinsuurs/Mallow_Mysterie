@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5190816517223582601}
   - component: {fileID: 3302530763528498435}
   - component: {fileID: 6341072588281528486}
+  - component: {fileID: 3947899817955220364}
   m_Layer: 0
   m_Name: SoundsBackground
   m_TagString: BackgroundSound
@@ -45,10 +46,10 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 7326827794412442297, guid: abb4bd9425dbbd9498f4d6c97ad50fd6,
     type: 2}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -143,4 +144,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioSource: {fileID: 3302530763528498435}
-  backgroundMusic: {fileID: 0}
+  backgroundMusic: {fileID: 8300000, guid: 124e8f383a159f54cacee2f978ca55a8, type: 3}
+  fadeSpeed: 0.15
+--- !u!114 &3947899817955220364
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2130041395050595008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7369536b4e135e54589fcb42cdc1fd19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: a600bb442a36d3b4e8da2a90dc63f7ae, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6341072588281528486}
+        m_TargetAssemblyTypeName: BackgroundMusicSound, Assembly-CSharp
+        m_MethodName: soundFadeOut
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
