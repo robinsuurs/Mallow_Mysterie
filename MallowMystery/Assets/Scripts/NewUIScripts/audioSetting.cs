@@ -14,9 +14,10 @@ public class audioSetting : MonoBehaviour
     [SerializeField] private TMP_Text handleText;
     [SerializeField] private AudioMixer audioMixer;
 
-    private void Start()
-    {
-        ValueChanged(PlayerPrefs.GetFloat(audioMixer.name));
+    [SerializeField] private AudioMixerOutput audioMixerOutput;
+
+    private void Start() {
+        slider.value = PlayerPrefs.GetFloat(audioMixerOutput.ToString());
     }
 
     public void increase()
@@ -32,7 +33,14 @@ public class audioSetting : MonoBehaviour
     public void ValueChanged(float volumeLevel)
     {
         handleText.SetText(slider.value.ToString());
-        audioMixer.SetFloat(audioMixer.name, volumeLevel == 0 ? -80 : Mathf.Log10(volumeLevel/10) * 20);
-        PlayerPrefs.SetFloat(audioMixer.name, volumeLevel);
+        audioMixer.SetFloat(audioMixerOutput.ToString(), volumeLevel == 0 ? -80 : Mathf.Log10((volumeLevel + 1)/10) * 20);
+        PlayerPrefs.SetFloat(audioMixerOutput.ToString(), volumeLevel);
+        PlayerPrefs.Save();
+    }
+
+    private enum AudioMixerOutput {
+        Master,
+        Music,
+        Effects
     }
 }

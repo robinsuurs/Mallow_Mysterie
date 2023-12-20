@@ -8,26 +8,27 @@ public class SoundMainMenuStart : MonoBehaviour
     [SerializeField] private AudioMixer masterMixer;
     
     private void Start() {
-        if (!PlayerPrefs.HasKey("masterVolume")) {
-            PlayerPrefs.SetFloat("masterVolume", 9);
-            PlayerPrefs.SetFloat("effectVolume", 9);
-            PlayerPrefs.SetFloat("musicVolume", 9);
+        if (!PlayerPrefs.HasKey("Master")) {
+            PlayerPrefs.SetFloat("Master", 9);
+            PlayerPrefs.SetFloat("Music", 9);
+            PlayerPrefs.SetFloat("Effects", 9);
+            PlayerPrefs.Save();
         }
         
-        ChangeMasterVolume(PlayerPrefs.GetFloat("masterVolume"));
-        ChangeMusicVolume(PlayerPrefs.GetFloat("musicVolume"));
-        ChangeEffectVolume(PlayerPrefs.GetFloat("effectVolume"));
+        ChangeMasterVolume(PlayerPrefs.GetFloat("Master"));
+        ChangeMusicVolume(PlayerPrefs.GetFloat("Music"));
+        ChangeEffectVolume(PlayerPrefs.GetFloat("Effects"));
     }
 
     private void ChangeMasterVolume(float volumeLevel) {
-        masterMixer.SetFloat("masterVolume", volumeLevel == 0 ? -80 : Mathf.Log10(volumeLevel/10) * 20);
+        masterMixer.SetFloat("Master", volumeLevel == 0 ? -80 : Mathf.Log10((volumeLevel + 1)/10) * 20);
     }
 
     private void ChangeMusicVolume(float volumeLevel) {
-        masterMixer.SetFloat("musicVolume", volumeLevel == 0 ? -80 : Mathf.Log10(volumeLevel/10) * 20);
+        masterMixer.SetFloat("Music", volumeLevel == 0 ? -80 : Mathf.Log10((volumeLevel + 1)/10) * 20);
     }
 
     private void ChangeEffectVolume(float volumeLevel) {
-        masterMixer.SetFloat("effectVolume", volumeLevel == 0 ? -80 : Mathf.Log10(volumeLevel/10) * 20);
+        masterMixer.SetFloat("Effects", volumeLevel == 0 ? -80 : Mathf.Log10((volumeLevel + 1)/10) * 20);
     }
 }
