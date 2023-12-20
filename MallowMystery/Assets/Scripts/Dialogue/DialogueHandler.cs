@@ -1,38 +1,34 @@
-using System;
+
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Dialogue.Runtime;
 using Dialogue.RunTime;
-using ScriptObjects;
 using UnityEngine;
 using TMPro;
 using UnityEngine.InputSystem;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class DialogueHandler : MonoBehaviour {
     [SerializeField] private GameObject dialogueCanvas;
     [SerializeField] private TextMeshProUGUI DialogueBoxUI;
     [SerializeField] private TextMeshProUGUI SpeakerNameBoxLeft;
+    [SerializeField] private GameObject SpeakerNameLeftNameBox;
+    [SerializeField] private Image SpeakerSpriteLeft;
     [SerializeField] private TextMeshProUGUI SpeakerNameBoxRight;
-    [SerializeField] private Sprite DialogueLeft;
-    [SerializeField] private Sprite DialogueRight;
-    [SerializeField] private GameObject DialogueBoxSprite;
-    private DialogueContainer dialogue;
+    [SerializeField] private GameObject SpeakerNameRightNameBox;
+    [SerializeField] private Image SpeakerSpriteRight;
     [SerializeField] private Button ChoicesButton;
     [SerializeField] private Transform buttonContainer;
     [SerializeField] private float textspeed;
-    [SerializeField] private Inventory _inventory;
     [SerializeField] private ListOfSprites _listOfSprites;
     [SerializeField] private InputActionAsset _inputAction;
-
-    [SerializeField] private GameObject cutsceneImage;
 
     private string overwriteGUID;
     private bool overwrite;
     private List<Question> listOfQuestions;
     
+    private DialogueContainer dialogue;
     private IEnumerable<NodeLinkData> choices = new List<NodeLinkData>();
     public string currentDialogue;
     private bool singleOption;
@@ -113,12 +109,8 @@ public class DialogueHandler : MonoBehaviour {
             
             setSpeakers(currentNode);
             
-            if (currentNode.CutSceneImageName != "") {
-                // cutSceneCamera.SetActive(true); //TODO BM: Leave like this till knowing what to do with cutscene
-                // _listOfSprites.CutSceneImageSetter(currentNode.CutSceneImageName);
-            } else {
-                cutsceneImage.SetActive(false);
-            }
+            _listOfSprites.CutSceneImageSetter(currentNode.CutSceneImageName);
+            
 
             if (choices.Any(choice => currentNode.QuestionAnswerPortCombis.Any(x => x.portname.Equals(choice.PortName)))) {
                 overwrite = true;
@@ -161,18 +153,17 @@ public class DialogueHandler : MonoBehaviour {
         switch (currentNode.SpeakerNameLocation) {
             case "Speaker Name Left":
                 SpeakerNameBoxLeft.text = currentNode.SpeakerName;
-                SpeakerNameBoxRight.text = "";
-                DialogueBoxSprite.GetComponent<Image>().sprite = DialogueLeft;
+                SpeakerNameLeftNameBox.SetActive(true);
+                SpeakerNameRightNameBox.SetActive(false);
                 break;
             case "Speaker Name Right":
                 SpeakerNameBoxRight.text = currentNode.SpeakerName;
-                SpeakerNameBoxLeft.text = "";
-                DialogueBoxSprite.GetComponent<Image>().sprite = DialogueRight;
+                SpeakerNameLeftNameBox.SetActive(false);
+                SpeakerNameRightNameBox.SetActive(true);
                 break;
             case "None":
-                SpeakerNameBoxRight.text = "";
-                SpeakerNameBoxLeft.text = "";
-                DialogueBoxSprite.GetComponent<Image>().sprite = DialogueRight;
+                SpeakerNameRightNameBox.SetActive(false);
+                SpeakerNameLeftNameBox.SetActive(false);
                 break;
         }
     }

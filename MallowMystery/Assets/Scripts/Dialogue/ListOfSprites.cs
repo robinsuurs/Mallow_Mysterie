@@ -102,10 +102,14 @@ public class ListOfSprites : MonoBehaviour
     }
 
     private Sprite[] cutSceneImages;
-    [SerializeField] private Image CutSceneImage;
+    [SerializeField] private Image cutSceneImage;
     
     public void CutSceneImageSetter(string currentNodeCutSceneImageName) {
-        CutSceneImage.sprite =
-            cutSceneImages.FirstOrDefault(sprite => sprite.name.Equals(currentNodeCutSceneImageName));
+        if (currentNodeCutSceneImageName != null) {
+            cutSceneImage.sprite =
+                cutSceneImages.FirstOrDefault(sprite => sprite.name.Equals(currentNodeCutSceneImageName));
+        } else {
+            cutSceneImage.gameObject.SetActive(false);
+        }
     }
 }

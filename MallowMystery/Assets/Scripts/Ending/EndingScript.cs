@@ -45,7 +45,7 @@ public class EndingScript : MonoBehaviour {
     private void SetText() {
         EndingStringList endList = DataPersistenceManager.instance.GetEndingStringList();
         endingStringList = endList.getEndingScriptList();
-        endingNumber.text = "Ending " + endList.getEndingNumber() + "/?";
+        endingNumber.text = "Ending " + endList.getEndingNumber() + "/6";
         lengthDuration.text += TimeSpan.FromSeconds(TimePlayedTrack.currentTimeRun).ToString(@"hh\:mm\:ss");
         itemsCollected.text += inventory.items.Count(item => item.hasBeenPickedUp).ToString();
     }
@@ -133,7 +133,6 @@ public class EndingScript : MonoBehaviour {
     }
 
     private void afterVideo(VideoPlayer source) {
-        Debug.Log("EndingLoop");
         SceneManager.LoadScene("MainMenu");
     }
 }
