@@ -925,17 +925,17 @@ PrefabInstance:
     - target: {fileID: 1246624709710663034, guid: ef7cfbf58684e544eae7d08fc99fae5f,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -119.6
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1246624709710663034, guid: ef7cfbf58684e544eae7d08fc99fae5f,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 97.7
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 1246624709710663034, guid: ef7cfbf58684e544eae7d08fc99fae5f,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -119.6
+      value: -22
       objectReference: {fileID: 0}
     - target: {fileID: 1246624709710663034, guid: ef7cfbf58684e544eae7d08fc99fae5f,
         type: 3}
@@ -991,6 +991,26 @@ PrefabInstance:
         type: 3}
       propertyPath: followPlayer
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1940762248258712902, guid: ef7cfbf58684e544eae7d08fc99fae5f,
+        type: 3}
+      propertyPath: CameraOffset.x
+      value: -16
+      objectReference: {fileID: 0}
+    - target: {fileID: 1940762248258712902, guid: ef7cfbf58684e544eae7d08fc99fae5f,
+        type: 3}
+      propertyPath: CameraOffset.y
+      value: 13.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1940762248258712902, guid: ef7cfbf58684e544eae7d08fc99fae5f,
+        type: 3}
+      propertyPath: CameraOffset.z
+      value: -16
+      objectReference: {fileID: 0}
+    - target: {fileID: 3656396150243643841, guid: ef7cfbf58684e544eae7d08fc99fae5f,
+        type: 3}
+      propertyPath: far clip plane
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 6362611275507629805, guid: ef7cfbf58684e544eae7d08fc99fae5f,
         type: 3}
