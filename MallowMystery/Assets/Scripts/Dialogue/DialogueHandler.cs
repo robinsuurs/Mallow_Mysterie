@@ -89,9 +89,6 @@ public class DialogueHandler : MonoBehaviour {
         } else if (currentNode.canSkipFromThisPoint && !dialogue.alreadyHadConversation) {
             choices = dialogue.NodeLinks.Where(x => x.BaseNodeGUID == narrativeDataGUID).ToList();
             ProceedToNarrative(choices.First().TargetNodeGUID);
-        } else if (currentNode.dialogueText.Equals("Buttons")) {
-            choices = dialogue.NodeLinks.Where(x => x.BaseNodeGUID == narrativeDataGUID).ToList();
-            ShowButtons();
         } else {
             choices = dialogue.NodeLinks.Where(x => x.BaseNodeGUID == narrativeDataGUID).ToList();
             currentDialogue = ProcessProperties(currentNode.dialogueText);

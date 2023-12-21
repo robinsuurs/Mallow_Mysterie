@@ -101,15 +101,15 @@ public class ListOfSprites : MonoBehaviour
         }  
     }
 
-    private Sprite[] cutSceneImages;
+    [SerializeField] private Sprite[] cutSceneImages;
     [SerializeField] private Image cutSceneImage;
     
     public void CutSceneImageSetter(string currentNodeCutSceneImageName) {
-        if (currentNodeCutSceneImageName != null) {
-            cutSceneImage.sprite =
-                cutSceneImages.FirstOrDefault(sprite => sprite.name.Equals(currentNodeCutSceneImageName));
+        var cutsceneImage = cutSceneImages.FirstOrDefault(sprite => sprite.name.Equals(currentNodeCutSceneImageName));
+        if (cutsceneImage != null) {
+            cutSceneImage.sprite = cutsceneImage;
         } else {
-            cutSceneImage.gameObject.SetActive(false);
+            cutSceneImage.sprite = cutSceneImages.FirstOrDefault(sprite => sprite.name.Equals("BlackBackground"));;
         }
     }
 }
