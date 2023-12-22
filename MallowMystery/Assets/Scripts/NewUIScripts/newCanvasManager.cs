@@ -10,7 +10,6 @@ public class newCanvasManager : MonoBehaviour//, IPointerClickHandler
     [SerializeField] private GameObject canvas;
     [SerializeField] private JournalManager Journal;
     [SerializeField] private GameEventStandardAdd closeUI;
-    public bool isOpen = false;
     
     [SerializeField] private UIControls ui;
 
@@ -34,6 +33,7 @@ public class newCanvasManager : MonoBehaviour//, IPointerClickHandler
         Journal.closeJournal();
         ui.activateInput();
         canvas.SetActive(false);
+        closeUI.Raise();
     }
 
     public void openJournalPage(UIPage page)
