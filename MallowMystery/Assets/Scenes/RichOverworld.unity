@@ -2668,6 +2668,14 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1658115098}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 45d259b1a3c46d9458412af435ce6bb5,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1658115100}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 45d259b1a3c46d9458412af435ce6bb5,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1658115099}
   m_SourcePrefab: {fileID: 100100000, guid: 45d259b1a3c46d9458412af435ce6bb5, type: 3}
 --- !u!1 &905363989
 GameObject:
@@ -3016,47 +3024,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SceneSpecificOverworld
-      objectReference: {fileID: 0}
-    - target: {fileID: 4178754312792757073, guid: f3bc1e9325217b24bab017ddac854d71,
-        type: 3}
-      propertyPath: unityEvent.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4178754312792757073, guid: f3bc1e9325217b24bab017ddac854d71,
-        type: 3}
-      propertyPath: unityEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4178754312792757073, guid: f3bc1e9325217b24bab017ddac854d71,
-        type: 3}
-      propertyPath: unityEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 11400000, guid: 7409c3885dce76944937bfb89df4bbf1,
-        type: 2}
-    - target: {fileID: 4178754312792757073, guid: f3bc1e9325217b24bab017ddac854d71,
-        type: 3}
-      propertyPath: unityEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4178754312792757073, guid: f3bc1e9325217b24bab017ddac854d71,
-        type: 3}
-      propertyPath: unityEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Raise
-      objectReference: {fileID: 0}
-    - target: {fileID: 4178754312792757073, guid: f3bc1e9325217b24bab017ddac854d71,
-        type: 3}
-      propertyPath: unityEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: GameEventStandardAdd, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 4178754312792757073, guid: f3bc1e9325217b24bab017ddac854d71,
-        type: 3}
-      propertyPath: unityEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 6700691543754727270, guid: f3bc1e9325217b24bab017ddac854d71,
-        type: 3}
-      propertyPath: fadeSpeed
-      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 8618962515585856039, guid: f3bc1e9325217b24bab017ddac854d71,
         type: 3}
@@ -4756,6 +4723,55 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.084248245, y: 0.020000018, z: 0.03472048}
   m_Center: {x: -0.021023154, y: 4.9659956e-13, z: 0.017063033}
+--- !u!65 &1658115099
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1658115094}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.084248275, y: 0.04169408, z: 0.034720477}
+  m_Center: {x: -0.02102316, y: 0.010847027, z: 0.017063037}
+--- !u!114 &1658115100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1658115094}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa55f38c52520ed4ba5e1d921233f98c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: 4ed36360354325242838f9c14d5a3500, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: be716de9ee9321b4190d90d1e24e73e6, type: 2}
+        m_TargetAssemblyTypeName: PermissionCheck, Assembly-CSharp
+        m_MethodName: raiseEvent
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!4 &1678537927 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4503256319335417953, guid: bac9020eef737904486dd6b723cfb948,

@@ -16,7 +16,20 @@ MonoBehaviour:
   permission: 0
   permitted:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: e10444a92f7652f478e5f8decfb2daf1, type: 2}
+        m_TargetAssemblyTypeName: DialogueEvent, Assembly-CSharp
+        m_MethodName: Raise
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: 7318fa926c6002e4aa45151072e58f5e,
+            type: 2}
+          m_ObjectArgumentAssemblyTypeName: Dialogue.RunTime.DialogueContainer, Runtime
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   notPermitted:
     m_PersistentCalls:
       m_Calls:
@@ -32,16 +45,4 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 11400000, guid: 8cd868260cb78784fb4e1319c9e36049, type: 2}
-        m_TargetAssemblyTypeName: PermissionCheck, Assembly-CSharp
-        m_MethodName: setPermission
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
         m_CallState: 2
