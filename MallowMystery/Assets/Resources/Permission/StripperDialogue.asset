@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: StripperDialogue
   m_EditorClassIdentifier: 
   UID: 2d1b1e8d2c9c6584883afca8c7854cbb
-  permission: 0
+  permission: 1
   permitted:
     m_PersistentCalls:
       m_Calls:
@@ -45,40 +45,4 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 11400000}
-        m_TargetAssemblyTypeName: PermissionCheck, Assembly-CSharp
-        m_MethodName: setPermission
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 11400000, guid: 28eb9edf7b9e9c547ba583774dbb781a, type: 2}
-        m_TargetAssemblyTypeName: PermissionCheck, Assembly-CSharp
-        m_MethodName: setPermission
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 11400000, guid: 28eb9edf7b9e9c547ba583774dbb781a, type: 2}
-        m_TargetAssemblyTypeName: PermissionCheck, Assembly-CSharp
-        m_MethodName: raiseEvent
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
         m_CallState: 2
