@@ -99,7 +99,7 @@ public class DataPersistenceManager : MonoBehaviour {
             return;
         }
 
-        if (!SceneManager.GetActiveScene().name.Equals("MainMenu") &&
+        if (!SceneManager.GetActiveScene().name.Equals("MainMenu") ||
             !SceneManager.GetActiveScene().name.Equals("EndingScene")) {
             return;
         }
