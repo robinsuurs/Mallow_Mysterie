@@ -925,17 +925,17 @@ PrefabInstance:
     - target: {fileID: 1246624709710663034, guid: ef7cfbf58684e544eae7d08fc99fae5f,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -119.6
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1246624709710663034, guid: ef7cfbf58684e544eae7d08fc99fae5f,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 97.7
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 1246624709710663034, guid: ef7cfbf58684e544eae7d08fc99fae5f,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -119.6
+      value: -22
       objectReference: {fileID: 0}
     - target: {fileID: 1246624709710663034, guid: ef7cfbf58684e544eae7d08fc99fae5f,
         type: 3}
@@ -991,6 +991,26 @@ PrefabInstance:
         type: 3}
       propertyPath: followPlayer
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1940762248258712902, guid: ef7cfbf58684e544eae7d08fc99fae5f,
+        type: 3}
+      propertyPath: CameraOffset.x
+      value: -16
+      objectReference: {fileID: 0}
+    - target: {fileID: 1940762248258712902, guid: ef7cfbf58684e544eae7d08fc99fae5f,
+        type: 3}
+      propertyPath: CameraOffset.y
+      value: 13.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1940762248258712902, guid: ef7cfbf58684e544eae7d08fc99fae5f,
+        type: 3}
+      propertyPath: CameraOffset.z
+      value: -16
+      objectReference: {fileID: 0}
+    - target: {fileID: 3656396150243643841, guid: ef7cfbf58684e544eae7d08fc99fae5f,
+        type: 3}
+      propertyPath: far clip plane
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 6362611275507629805, guid: ef7cfbf58684e544eae7d08fc99fae5f,
         type: 3}
@@ -2280,14 +2300,14 @@ MonoBehaviour:
       - m_Target: {fileID: 898871110}
         m_TargetAssemblyTypeName: ItemLoadScene, Assembly-CSharp
         m_MethodName: PickUpObject
-        m_Mode: 1
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
+          m_BoolArgument: 1
         m_CallState: 2
 --- !u!114 &898871109
 MonoBehaviour:
@@ -2889,14 +2909,14 @@ MonoBehaviour:
       - m_Target: {fileID: 1037778530}
         m_TargetAssemblyTypeName: ItemLoadScene, Assembly-CSharp
         m_MethodName: PickUpObject
-        m_Mode: 1
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
+          m_BoolArgument: 1
         m_CallState: 2
 --- !u!114 &1037778535
 MonoBehaviour:
@@ -3021,14 +3041,14 @@ MonoBehaviour:
       - m_Target: {fileID: 1055323473}
         m_TargetAssemblyTypeName: ItemLoadScene, Assembly-CSharp
         m_MethodName: PickUpObject
-        m_Mode: 1
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
+          m_BoolArgument: 1
         m_CallState: 2
 --- !u!114 &1055323473
 MonoBehaviour:
@@ -3924,14 +3944,14 @@ MonoBehaviour:
       - m_Target: {fileID: 1595840477}
         m_TargetAssemblyTypeName: ItemLoadScene, Assembly-CSharp
         m_MethodName: PickUpObject
-        m_Mode: 1
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
+          m_BoolArgument: 1
         m_CallState: 2
 --- !u!114 &1595840477
 MonoBehaviour:
@@ -5054,14 +5074,14 @@ MonoBehaviour:
       - m_Target: {fileID: 1882208093}
         m_TargetAssemblyTypeName: ItemLoadScene, Assembly-CSharp
         m_MethodName: PickUpObject
-        m_Mode: 1
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
+          m_BoolArgument: 1
         m_CallState: 2
 --- !u!114 &1882208093
 MonoBehaviour:
@@ -5409,14 +5429,14 @@ MonoBehaviour:
       - m_Target: {fileID: 1914342805}
         m_TargetAssemblyTypeName: ItemLoadScene, Assembly-CSharp
         m_MethodName: PickUpObject
-        m_Mode: 1
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
+          m_BoolArgument: 1
         m_CallState: 2
 --- !u!114 &1914342810
 MonoBehaviour:
@@ -5546,14 +5566,14 @@ MonoBehaviour:
       - m_Target: {fileID: 1950682908}
         m_TargetAssemblyTypeName: ItemLoadScene, Assembly-CSharp
         m_MethodName: PickUpObject
-        m_Mode: 1
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
+          m_BoolArgument: 1
         m_CallState: 2
 --- !u!114 &1950682907
 MonoBehaviour:
@@ -10301,13 +10321,14 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 11400000, guid: a708b7c51e830a344a09a5b2664eab14, type: 2}
-        m_TargetAssemblyTypeName: UIEvent, Assembly-CSharp
-        m_MethodName: RaiseDeduction
-        m_Mode: 1
+      - m_Target: {fileID: 11400000, guid: e10444a92f7652f478e5f8decfb2daf1, type: 2}
+        m_TargetAssemblyTypeName: DialogueEvent, Assembly-CSharp
+        m_MethodName: Raise
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 11400000, guid: 4c27d5f9f906ef042a3f617a3e68c325,
+            type: 2}
+          m_ObjectArgumentAssemblyTypeName: Dialogue.RunTime.DialogueContainer, Runtime
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -12118,14 +12139,14 @@ MonoBehaviour:
       - m_Target: {fileID: 6324013446330779653}
         m_TargetAssemblyTypeName: ItemLoadScene, Assembly-CSharp
         m_MethodName: PickUpObject
-        m_Mode: 1
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
+          m_BoolArgument: 1
         m_CallState: 2
 --- !u!65 &6324013446330779658
 BoxCollider:
@@ -12877,14 +12898,14 @@ MonoBehaviour:
       - m_Target: {fileID: 6670690219168387660}
         m_TargetAssemblyTypeName: ItemLoadScene, Assembly-CSharp
         m_MethodName: PickUpObject
-        m_Mode: 1
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
+          m_BoolArgument: 1
         m_CallState: 2
 --- !u!65 &6670690219168387665
 BoxCollider:

@@ -13,10 +13,23 @@ MonoBehaviour:
   m_Name: EnterApartment
   m_EditorClassIdentifier: 
   UID: 8a6528921237012419dabdf06b1d64df
-  permission: 0
+  permission: 1
   permitted:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: e10444a92f7652f478e5f8decfb2daf1, type: 2}
+        m_TargetAssemblyTypeName: DialogueEvent, Assembly-CSharp
+        m_MethodName: Raise
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: 7318fa926c6002e4aa45151072e58f5e,
+            type: 2}
+          m_ObjectArgumentAssemblyTypeName: Dialogue.RunTime.DialogueContainer, Runtime
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   notPermitted:
     m_PersistentCalls:
       m_Calls:
