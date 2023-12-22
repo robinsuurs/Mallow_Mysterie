@@ -16,6 +16,12 @@ public class InventoryScreen : MonoBehaviour {
     [SerializeField] private GameObject selectedImageLoc;
     [SerializeField] private TextMeshProUGUI currentPage;
 
+    private void Start()
+    {
+        setPage();
+        itemCloseUp(0);
+    }
+
     public void setInventoryItems(int pageNumber) {
         this.pageNumber = pageNumber;
         pickedUpItems = Resources.LoadAll("Clues/ClueInventory", typeof(Inventory))
@@ -54,9 +60,9 @@ public class InventoryScreen : MonoBehaviour {
     }
     
     public void itemCloseUp(int clickedItemNumber) {
-        selectedImageLoc.transform.Find("ItemImage").GetComponent<Image>().sprite = pickedUpItems[clickedItemNumber + pageNumber * 6].icon;
-        selectedImageLoc.transform.Find("ItemName").GetComponent<TextMeshProUGUI>().text = pickedUpItems[clickedItemNumber + pageNumber * 6].itemName;
-        selectedImageLoc.transform.Find("ItemLocationFound").GetComponent<TextMeshProUGUI>().text = pickedUpItems[clickedItemNumber + pageNumber * 6].description;
+        selectedImageLoc.transform.Find("ClueImage").GetComponent<Image>().sprite = pickedUpItems[clickedItemNumber + pageNumber * 6].icon;
+        selectedImageLoc.transform.Find("ClueName").GetComponent<TextMeshProUGUI>().text = pickedUpItems[clickedItemNumber + pageNumber * 6].itemName;
+        selectedImageLoc.transform.Find("ClueDescription").GetComponent<TextMeshProUGUI>().text = pickedUpItems[clickedItemNumber + pageNumber * 6].description;
     }
 
     public void newItemPickUp(ItemData pickedUpItem) {

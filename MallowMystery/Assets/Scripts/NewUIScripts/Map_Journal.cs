@@ -1,31 +1,38 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class Map_Journal : MonoBehaviour
 {
-    [SerializeField] private GameObject RenderMap;
+    [SerializeField] [CanBeNull] private GameObject RenderMap;
     [SerializeField] private GameObject ImageMap;
-    [SerializeField] private GameObject Marker;
+    [SerializeField] private RectTransform Marker;
     [SerializeField] private bool FixedMap;
     [SerializeField] private Vector2 MarkerPosision;
 
-    [SerializeField] private InputActionAsset input;
     // Start is called before the first frame update
-    void Start()
+    void OnEnable()
     {
         if (FixedMap)
         {
-            RenderMap.SetActive(false);
             ImageMap.SetActive(true);
+            Marker.anchoredPosition = new Vector2(MarkerPosision.x, MarkerPosision.y);
+            if (RenderMap)
+            {
+                RenderMap.SetActive(false);
+            }
         }
         else
         {
-            RenderMap.SetActive(true);
             ImageMap.SetActive(false);
-            Marker.transform.position = new Vector3(MarkerPosision.x, 0, MarkerPosision.y);
+            Marker.localScale = new Vector3(0, 0, 0);
+            if (RenderMap)
+            {
+                RenderMap.SetActive(true);
+            }
         }
     }
     

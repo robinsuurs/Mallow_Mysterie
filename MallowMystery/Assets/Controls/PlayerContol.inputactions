@@ -22,33 +22,6 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
-                },
-                {
-                    "name": "OpenInventory",
-                    "type": "Button",
-                    "id": "d171cf6f-6385-4bce-a6be-4739855f12e1",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "OpenSettings",
-                    "type": "Button",
-                    "id": "fa01d350-ceb0-4f33-abf8-3a8092368c6e",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "OpenMap",
-                    "type": "Button",
-                    "id": "e4f1fa98-5d11-425d-b948-08af892098c7",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -128,21 +101,54 @@
                     "action": "Interact",
                     "isComposite": false,
                     "isPartOfComposite": false
-                },
+                }
+            ]
+        },
+        {
+            "name": "UIInput",
+            "id": "bc5e6710-395e-4f30-aba2-d3ab58ab8aba",
+            "actions": [
                 {
-                    "name": "",
-                    "id": "b1e47613-914d-4ba9-b262-097c122d0887",
-                    "path": "<Keyboard>/escape",
-                    "interactions": "",
+                    "name": "OpenInventory",
+                    "type": "Button",
+                    "id": "b11645bc-429f-4a28-8530-145b9d47f917",
+                    "expectedControlType": "Button",
                     "processors": "",
-                    "groups": "",
-                    "action": "OpenSettings",
-                    "isComposite": false,
-                    "isPartOfComposite": false
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
+                    "name": "OpenSettings",
+                    "type": "Button",
+                    "id": "8abb264a-bf1c-49f1-ac63-5f9d687c2e9c",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "OpenMap",
+                    "type": "Button",
+                    "id": "9ecabd3d-2184-4ebf-9abe-6dc88e0c6a9a",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "openDeduction",
+                    "type": "Button",
+                    "id": "3a97ca9f-e95f-48cb-b5ba-c30c017f72f1",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
                     "name": "",
-                    "id": "3e2855be-9242-40cc-b409-6c9ae4f2e6df",
+                    "id": "20e47416-f1d9-4485-a3a3-39ffd024545f",
                     "path": "<Keyboard>/i",
                     "interactions": "",
                     "processors": "",
@@ -153,12 +159,34 @@
                 },
                 {
                     "name": "",
-                    "id": "b6225af9-843b-409c-9452-86dfeda86858",
+                    "id": "4830948c-ee6e-4abb-a6fd-74ef8e558886",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "OpenSettings",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c0877a2e-ad1c-489d-a899-673d9e1a8b20",
                     "path": "<Keyboard>/m",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "OpenMap",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f80890a3-5ccf-49c1-850f-990e1d796126",
+                    "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "openDeduction",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
