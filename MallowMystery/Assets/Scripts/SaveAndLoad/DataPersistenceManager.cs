@@ -56,9 +56,7 @@ public class DataPersistenceManager : MonoBehaviour {
     }
 
     private void OnApplicationQuit() {
-        if (!SceneManager.GetActiveScene().name.Equals("MainMenu")) {
-            SaveGame();
-        }
+        SaveGame();
     }
 
     public void NewGame() {
@@ -100,7 +98,12 @@ public class DataPersistenceManager : MonoBehaviour {
             Debug.Log("No GameData found. A new Game needs to be created before being saved");
             return;
         }
-        
+
+        if (!SceneManager.GetActiveScene().name.Equals("MainMenu") ||
+            !SceneManager.GetActiveScene().name.Equals("EndingScene")) {
+            return;
+        }
+
         foreach (IDataPersistence dataPersistenceObj in dataPersistences) {
             dataPersistenceObj.SaveData(ref _gameData);
         }
