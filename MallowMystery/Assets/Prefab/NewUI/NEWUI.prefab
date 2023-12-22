@@ -2792,9 +2792,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c99ee782f4da45e46935181fdfefa8ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  masterVolume: {fileID: 4076599342019507707}
-  musicVolume: {fileID: 8393568164227437173}
-  effectVolume: {fileID: 3979605437667032849}
   masterMixer: {fileID: 24100000, guid: abb4bd9425dbbd9498f4d6c97ad50fd6, type: 2}
 --- !u!1 &7532843136956476509
 GameObject:
@@ -4000,6 +3997,12 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -10.5
       objectReference: {fileID: 0}
+    - target: {fileID: 3698887829263302542, guid: a11458b623e0dde419d236d15b29355e,
+        type: 3}
+      propertyPath: audioMixer
+      value: 
+      objectReference: {fileID: 24100000, guid: bb65b01a3b781144bb51108589f8fe1f,
+        type: 2}
     - target: {fileID: 3705853649664023966, guid: a11458b623e0dde419d236d15b29355e,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -4305,6 +4308,12 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -119.1
       objectReference: {fileID: 0}
+    - target: {fileID: 8076222056281658090, guid: a11458b623e0dde419d236d15b29355e,
+        type: 3}
+      propertyPath: audioMixer
+      value: 
+      objectReference: {fileID: 24100000, guid: c2e6ec973d7a3b043b7846088f9024ca,
+        type: 2}
     - target: {fileID: 8082907497441652986, guid: a11458b623e0dde419d236d15b29355e,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -4376,30 +4385,6 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 1504827617300563034}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &3979605437667032849 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2582918501458967371, guid: a11458b623e0dde419d236d15b29355e,
-    type: 3}
-  m_PrefabInstance: {fileID: 1504827617300563034}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &4076599342019507707 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3202276205169226145, guid: a11458b623e0dde419d236d15b29355e,
-    type: 3}
-  m_PrefabInstance: {fileID: 1504827617300563034}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &6027014727141148104 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5135925777391288722, guid: a11458b623e0dde419d236d15b29355e,
