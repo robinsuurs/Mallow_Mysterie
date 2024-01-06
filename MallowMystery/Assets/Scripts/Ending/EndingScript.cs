@@ -21,6 +21,7 @@ public class EndingScript : MonoBehaviour {
     [SerializeField] private TextMeshProUGUI lengthDuration;
     [SerializeField] private TextMeshProUGUI itemsCollected;
     [SerializeField] private Inventory inventory;
+    [SerializeField] private int amountOfEndings;
 
     private bool running = false;
     private int state = 0;
@@ -45,7 +46,7 @@ public class EndingScript : MonoBehaviour {
     private void SetText() {
         EndingStringList endList = DataPersistenceManager.instance.GetEndingStringList();
         endingStringList = endList.getEndingScriptList();
-        endingNumber.text = "Ending " + endList.getEndingNumber() + "/6";
+        endingNumber.text = "Ending " + endList.getEndingNumber() + "/" + amountOfEndings;
         lengthDuration.text += TimeSpan.FromSeconds(TimePlayedTrack.currentTimeRun).ToString(@"hh\:mm\:ss");
         itemsCollected.text += inventory.items.Count(item => item.hasBeenPickedUp).ToString();
     }
