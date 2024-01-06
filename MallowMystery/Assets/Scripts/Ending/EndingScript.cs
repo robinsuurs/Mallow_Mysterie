@@ -22,6 +22,7 @@ public class EndingScript : MonoBehaviour {
     [SerializeField] private TextMeshProUGUI itemsCollected;
     [SerializeField] private Inventory inventory;
     [SerializeField] private int amountOfEndings;
+    [SerializeField] private GameObject iconClick;
 
     private bool running = false;
     private int state = 0;
@@ -56,12 +57,24 @@ public class EndingScript : MonoBehaviour {
             running = true;
             switch (state) {
                 case 0:
-                    StartCoroutine(OpacityTimeFadeInOut(endingText, endingText, endingStringList, textFadeSpeed, timeBetweenFadeOutFadeIn, b => { }));
+                    StartCoroutine(OpacityTimeFadeInOut(endingText, endingText, endingStringList, textFadeSpeed, timeBetweenFadeOutFadeIn,
+                        b => {
+                            if (b) {
+                                iconClick.SetActive(true);
+                            }
+                        }));
                     break;
                 case 1:
-                    StartCoroutine(OpacityTimeFadeInOut(endingText, stats, null, textFadeSpeed, timeBetweenFadeOutFadeIn, b => { }));
+                    iconClick.SetActive(false);
+                    StartCoroutine(OpacityTimeFadeInOut(endingText, stats, null, textFadeSpeed, timeBetweenFadeOutFadeIn,
+                        b => {
+                            if (b) {
+                                iconClick.SetActive(true);
+                            }
+                        }));
                     break;
                 case 2:
+                    iconClick.SetActive(false);
                     StartCoroutine(OpacityTimeFadeInOut(stats, null, null, textFadeSpeed, timeBetweenFadeOutFadeIn, b => {
                         if (b) {
                             videoObject.SetActive(true);
