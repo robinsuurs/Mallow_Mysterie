@@ -54,27 +54,20 @@ public class EndingScript : MonoBehaviour {
 
     private void Update() {
         if (Input.GetMouseButtonDown(0) && !running) {
+            iconClick.SetActive(false);
             running = true;
             switch (state) {
                 case 0:
+                    iconClick.SetActive(false);
                     StartCoroutine(OpacityTimeFadeInOut(endingText, endingText, endingStringList, textFadeSpeed, timeBetweenFadeOutFadeIn,
-                        b => {
-                            if (b) {
-                                iconClick.SetActive(true);
-                            }
-                        }));
+                        b => { iconClick.SetActive(true); }));
                     break;
                 case 1:
                     iconClick.SetActive(false);
                     StartCoroutine(OpacityTimeFadeInOut(endingText, stats, null, textFadeSpeed, timeBetweenFadeOutFadeIn,
-                        b => {
-                            if (b) {
-                                iconClick.SetActive(true);
-                            }
-                        }));
+                        b => { iconClick.SetActive(true); }));
                     break;
                 case 2:
-                    iconClick.SetActive(false);
                     StartCoroutine(OpacityTimeFadeInOut(stats, null, null, textFadeSpeed, timeBetweenFadeOutFadeIn, b => {
                         if (b) {
                             videoObject.SetActive(true);
@@ -92,7 +85,7 @@ public class EndingScript : MonoBehaviour {
         running = true;
         yield return new WaitForSeconds(timeBetweenDarkAndText);
         
-        StartCoroutine(OpacityTimeFadeInOut(null, endingText, endingStringList, textFadeSpeed, timeBetweenDarkAndText, b => { }));
+        StartCoroutine(OpacityTimeFadeInOut(null, endingText, endingStringList, textFadeSpeed, timeBetweenDarkAndText, b => { iconClick.SetActive(true); }));
     }
     
     // ReSharper disable Unity.PerformanceAnalysis
@@ -142,8 +135,8 @@ public class EndingScript : MonoBehaviour {
         }
 
         running = false;
-        yield return true;
         callback(true);
+        yield return true;
     }
 
     private void afterVideo(VideoPlayer source) {

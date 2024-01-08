@@ -13,11 +13,8 @@ MonoBehaviour:
   m_Name: StripperStrip
   m_EditorClassIdentifier: 
   UID: d472ab4bd3b94104aaa5b01f96bf4054
-  permission: 1
+  permission: 0
   permitted:
-    m_PersistentCalls:
-      m_Calls: []
-  notPermitted:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 11400000, guid: bea3f1ae5d596f24fbb37ad9e354914d, type: 2}
@@ -32,3 +29,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  notPermitted:
+    m_PersistentCalls:
+      m_Calls: []
