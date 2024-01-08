@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78b3fd9154634ebdb8c8a48960b9a16a, type: 3}
   m_Name: StripperBeforeNaked
   m_EditorClassIdentifier: 
-  alreadyHadConversation: 0
+  alreadyHadConversation: 1
   NodeLinks:
   - BaseNodeGUID: affb11da-e0b3-44b4-80b7-21f0cb0690b2
     PortName: Next
@@ -21,8 +21,8 @@ MonoBehaviour:
   - nodeGuid: 61e82f98-f62a-4d99-bdca-ee3b175030bc
     dialogueText: Nakey
     position: {x: 211.2, y: 200}
-    SpeakerName: 
-    SpeakerNameLocation: Speaker Name Left
+    SpeakerName: None
+    SpeakerNameLocation: None
     SpeakerSpriteLeft: 
     SpeakerSpriteRight: 
     ItemPortCombis: []
@@ -33,5 +33,7 @@ MonoBehaviour:
   DialogueEndNodeData: []
   ExposedProperties:
   - PropertyName: Ignore
+    PropertyValue: New Value
+  - PropertyName: None
     PropertyValue: New Value
   CommentBlockData: []

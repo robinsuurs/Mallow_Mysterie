@@ -13,17 +13,17 @@ public class TabGroup : MonoBehaviour
 
     private TabButt selectedTab;
 
-    private void Start()
-    {
-        // resetTabs();
-
-        foreach (TabButt butt in tabButtons)
-        {
-            butt.GetComponent<Image>().color = tabIdle;
-            butt.deactivate();
-        }
-        OnTabSelected(tabButtons[0]);
-    }
+    // private void Start()
+    // {
+    //     // resetTabs();
+    //
+    //     foreach (TabButt butt in tabButtons)
+    //     {
+    //         butt.GetComponent<Image>().color = tabIdle;
+    //         butt.deactivate();
+    //     }
+    //     // OnTabSelected(tabButtons[0]);
+    // }
 
 
     public void Subscribe(TabButt button)

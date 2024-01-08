@@ -21,6 +21,8 @@ public class EndingScript : MonoBehaviour {
     [SerializeField] private TextMeshProUGUI lengthDuration;
     [SerializeField] private TextMeshProUGUI itemsCollected;
     [SerializeField] private Inventory inventory;
+    [SerializeField] private int amountOfEndings;
+    [SerializeField] private GameObject iconClick;
 
     private bool running = false;
     private int state = 0;
@@ -45,20 +47,25 @@ public class EndingScript : MonoBehaviour {
     private void SetText() {
         EndingStringList endList = DataPersistenceManager.instance.GetEndingStringList();
         endingStringList = endList.getEndingScriptList();
-        endingNumber.text = "Ending " + endList.getEndingNumber() + "/6";
+        endingNumber.text = "Ending " + endList.getEndingNumber() + "/" + amountOfEndings;
         lengthDuration.text += TimeSpan.FromSeconds(TimePlayedTrack.currentTimeRun).ToString(@"hh\:mm\:ss");
         itemsCollected.text += inventory.items.Count(item => item.hasBeenPickedUp).ToString();
     }
 
     private void Update() {
         if (Input.GetMouseButtonDown(0) && !running) {
+            iconClick.SetActive(false);
             running = true;
             switch (state) {
                 case 0:
-                    StartCoroutine(OpacityTimeFadeInOut(endingText, endingText, endingStringList, textFadeSpeed, timeBetweenFadeOutFadeIn, b => { }));
+                    iconClick.SetActive(false);
+                    StartCoroutine(OpacityTimeFadeInOut(endingText, endingText, endingStringList, textFadeSpeed, timeBetweenFadeOutFadeIn,
+                        b => { iconClick.SetActive(true); }));
                     break;
                 case 1:
-                    StartCoroutine(OpacityTimeFadeInOut(endingText, stats, null, textFadeSpeed, timeBetweenFadeOutFadeIn, b => { }));
+                    iconClick.SetActive(false);
+                    StartCoroutine(OpacityTimeFadeInOut(endingText, stats, null, textFadeSpeed, timeBetweenFadeOutFadeIn,
+                        b => { iconClick.SetActive(true); }));
                     break;
                 case 2:
                     StartCoroutine(OpacityTimeFadeInOut(stats, null, null, textFadeSpeed, timeBetweenFadeOutFadeIn, b => {
@@ -78,7 +85,7 @@ public class EndingScript : MonoBehaviour {
         running = true;
         yield return new WaitForSeconds(timeBetweenDarkAndText);
         
-        StartCoroutine(OpacityTimeFadeInOut(null, endingText, endingStringList, textFadeSpeed, timeBetweenDarkAndText, b => { }));
+        StartCoroutine(OpacityTimeFadeInOut(null, endingText, endingStringList, textFadeSpeed, timeBetweenDarkAndText, b => { iconClick.SetActive(true); }));
     }
     
     // ReSharper disable Unity.PerformanceAnalysis
@@ -128,8 +135,8 @@ public class EndingScript : MonoBehaviour {
         }
 
         running = false;
-        yield return true;
         callback(true);
+        yield return true;
     }
 
     private void afterVideo(VideoPlayer source) {
