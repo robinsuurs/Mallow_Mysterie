@@ -16,6 +16,9 @@ MonoBehaviour:
   permission: 1
   permitted:
     m_PersistentCalls:
+      m_Calls: []
+  notPermitted:
+    m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 11400000, guid: bea3f1ae5d596f24fbb37ad9e354914d, type: 2}
         m_TargetAssemblyTypeName: GameEventStandardAdd, Assembly-CSharp
@@ -29,6 +32,3 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  notPermitted:
-    m_PersistentCalls:
-      m_Calls: []
