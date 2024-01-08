@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028331, g: 0.2257133, b: 0.3069217, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.3069224, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1434,18 +1434,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 455788798}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &484873399 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8561506338286150143, guid: 3378d7ef4d30d8a4d8cc57547070d4f3,
-    type: 3}
-  m_PrefabInstance: {fileID: 3149431820571632921}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f3ef391dd8af4004ae3c5bc636cd7fa3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &499285023
 GameObject:
   m_ObjectHideFlags: 0
@@ -5938,7 +5926,7 @@ PrefabInstance:
     - target: {fileID: 1967956138881784765, guid: 90da51a3f4e823048af2b52f7fce6253,
         type: 3}
       propertyPath: startFresh
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4117460809587361749, guid: 90da51a3f4e823048af2b52f7fce6253,
         type: 3}
@@ -8969,26 +8957,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1522810834982115984, guid: 3378d7ef4d30d8a4d8cc57547070d4f3,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 484873399}
-    - target: {fileID: 1522810834982115984, guid: 3378d7ef4d30d8a4d8cc57547070d4f3,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: closePopUp
-      objectReference: {fileID: 0}
-    - target: {fileID: 1655496056997663022, guid: 3378d7ef4d30d8a4d8cc57547070d4f3,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 484873399}
-    - target: {fileID: 1655496056997663022, guid: 3378d7ef4d30d8a4d8cc57547070d4f3,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: seeInInventory
-      objectReference: {fileID: 0}
     - target: {fileID: 4123720280014789804, guid: 3378d7ef4d30d8a4d8cc57547070d4f3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -9043,68 +9011,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ItemPopUp
-      objectReference: {fileID: 0}
-    - target: {fileID: 8561506338286150143, guid: 3378d7ef4d30d8a4d8cc57547070d4f3,
-        type: 3}
-      propertyPath: openUI.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8561506338286150143, guid: 3378d7ef4d30d8a4d8cc57547070d4f3,
-        type: 3}
-      propertyPath: showInv.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8561506338286150143, guid: 3378d7ef4d30d8a4d8cc57547070d4f3,
-        type: 3}
-      propertyPath: openUI.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8561506338286150143, guid: 3378d7ef4d30d8a4d8cc57547070d4f3,
-        type: 3}
-      propertyPath: showInv.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8561506338286150143, guid: 3378d7ef4d30d8a4d8cc57547070d4f3,
-        type: 3}
-      propertyPath: openUI.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 11400000, guid: a708b7c51e830a344a09a5b2664eab14,
-        type: 2}
-    - target: {fileID: 8561506338286150143, guid: 3378d7ef4d30d8a4d8cc57547070d4f3,
-        type: 3}
-      propertyPath: showInv.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 11400000, guid: 646f95a624865984486d101ff0f52e69,
-        type: 2}
-    - target: {fileID: 8561506338286150143, guid: 3378d7ef4d30d8a4d8cc57547070d4f3,
-        type: 3}
-      propertyPath: openUI.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8561506338286150143, guid: 3378d7ef4d30d8a4d8cc57547070d4f3,
-        type: 3}
-      propertyPath: openUI.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: RaiseClues
-      objectReference: {fileID: 0}
-    - target: {fileID: 8561506338286150143, guid: 3378d7ef4d30d8a4d8cc57547070d4f3,
-        type: 3}
-      propertyPath: showInv.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Raise
-      objectReference: {fileID: 0}
-    - target: {fileID: 8561506338286150143, guid: 3378d7ef4d30d8a4d8cc57547070d4f3,
-        type: 3}
-      propertyPath: openUI.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: UIEvent, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 8561506338286150143, guid: 3378d7ef4d30d8a4d8cc57547070d4f3,
-        type: 3}
-      propertyPath: showInv.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: ItemDataEvent, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 8561506338286150143, guid: 3378d7ef4d30d8a4d8cc57547070d4f3,
-        type: 3}
-      propertyPath: openUI.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

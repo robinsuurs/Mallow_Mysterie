@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1992578724639169753}
   - component: {fileID: 1352229987384851720}
+  - component: {fileID: 6901577924169908783}
   m_Layer: 0
   m_Name: ItemPopUpManager
   m_TagString: ItemPopUp
@@ -45,6 +46,66 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ItemPopUpScreen: {fileID: 0}
+  ItemImage: {fileID: 0}
+  ItemName: {fileID: 0}
+  itemShortDescription: {fileID: 0}
   _inputAction: {fileID: -944628639613478452, guid: 59907ebbc6858584b81c7a48c17517a6,
     type: 3}
-  ScreenButtons: {fileID: 0}
+  openUI:
+    m_PersistentCalls:
+      m_Calls: []
+  showInv:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: a708b7c51e830a344a09a5b2664eab14, type: 2}
+        m_TargetAssemblyTypeName: UIEvent, Assembly-CSharp
+        m_MethodName: RaiseClues
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: 646f95a624865984486d101ff0f52e69, type: 2}
+        m_TargetAssemblyTypeName: ItemDataEvent, Assembly-CSharp
+        m_MethodName: Raise
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &6901577924169908783
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 711669511047034756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2678692cc9ca39f4180f2995b3001367, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: 04ddfae70622f3a429b5933eb8e1961f, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1352229987384851720}
+        m_TargetAssemblyTypeName: ItemPopUpManager, Assembly-CSharp
+        m_MethodName: showPopUp
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
