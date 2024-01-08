@@ -15,7 +15,8 @@ namespace Subtegral.DialogueSystem.Editor
     public class GraphSaveUtility
     {
         private List<Edge> Edges => _graphView.edges.ToList();
-        private List<DialogueNode> Nodes => _graphView.nodes.ToList().Cast<DialogueNode>().ToList();
+        private List<DialogueNode> Nodes => _graphView.nodes.ToList().OfType<DialogueNode>().ToList();
+        private List<DialogueEndNode> EndNodes => _graphView.nodes.ToList().OfType<DialogueEndNode>().ToList();
 
         private List<Group> CommentBlocks =>
             _graphView.graphElements.ToList().Where(x => x is Group).Cast<Group>().ToList();
@@ -64,16 +65,30 @@ namespace Subtegral.DialogueSystem.Editor
         {
             if (!Edges.Any()) return false;
             var connectedSockets = Edges.Where(x => x.input.node != null).ToArray();
-            for (var i = 0; i < connectedSockets.Count(); i++)
-            {
+            for (var i = 0; i < connectedSockets.Count(); i++) {
                 var outputNode = (connectedSockets[i].output.node as DialogueNode);
-                var inputNode = (connectedSockets[i].input.node as DialogueNode);
-                dialogueContainerObject.NodeLinks.Add(new NodeLinkData
-                {
-                    BaseNodeGUID = outputNode.GUID,
-                    PortName = connectedSockets[i].output.portName,
-                    TargetNodeGUID = inputNode.GUID,
-                });
+                switch (connectedSockets[i].input.node) {
+                    case DialogueNode: {
+                        var inputNode = (connectedSockets[i].input.node as DialogueNode);
+                        dialogueContainerObject.NodeLinks.Add(new NodeLinkData
+                        {
+                            BaseNodeGUID = outputNode.GUID,
+                            PortName = connectedSockets[i].output.portName,
+                            TargetNodeGUID = inputNode.GUID,
+                        });
+                        break;
+                    }
+                    case DialogueEndNode: {
+                        var inputNode = (connectedSockets[i].input.node as DialogueEndNode);
+                        dialogueContainerObject.NodeLinks.Add(new NodeLinkData
+                        {
+                            BaseNodeGUID = outputNode.GUID,
+                            PortName = connectedSockets[i].output.portName,
+                            TargetNodeGUID = inputNode.GUID,
+                        });
+                        break;
+                    }
+                }
             }
 
             foreach (var node in Nodes.Where(node => !node.EntyPoint))
@@ -89,8 +104,19 @@ namespace Subtegral.DialogueSystem.Editor
                     SpeakerSpriteRight = node.SpeakerSpriteRight,
                     ItemPortCombis = node.ItemPortCombis,
                     SkipPorts = node.SkipPorts,
+                    QuestionAnswerPortCombis = node.QuestionAnswerPortCombis,
                     canSkipFromThisPoint = node.CanSkipFromThisPoint,
                     CutSceneImageName = node.CutSceneImageName
+                });
+            }
+            
+            foreach (var node in EndNodes.Where(node => !node.EntyPoint))
+            {
+                dialogueContainerObject.DialogueEndNodeData.Add(new DialogueEndNodeData
+                {
+                    nodeGuid = node.GUID,
+                    dialogueText = node.DialogueText,
+                    position = node.GetPosition().position,
                 });
             }
 
@@ -162,11 +188,18 @@ namespace Subtegral.DialogueSystem.Editor
                         _graphView.CreateChoicePort(tempNode, "item", false, node.PortName);
                     } else if (tempNode.SkipPorts.Any(skipPort => skipPort.Equals(node.PortName))) {
                         _graphView.CreateChoicePort(tempNode, "skip", false, node.PortName);
-                    }
-                    else {
+                    } else if (tempNode.QuestionAnswerPortCombis.Any(q => q.portname.Equals(node.PortName))) {
+                        _graphView.CreateChoicePort(tempNode, "question", false, node.PortName);
+                    } else {
                         _graphView.CreateChoicePort(tempNode, "",false, node.PortName);
                     }
                 }
+            }
+
+            foreach (var perNode in _dialogueContainer.DialogueEndNodeData) {
+                DialogueEndNode tempNode = _graphView.CreateNode(perNode, Vector2.zero);
+                tempNode.GUID = perNode.nodeGuid;
+                _graphView.AddElement(tempNode);
             }
         }
 
@@ -179,12 +212,21 @@ namespace Subtegral.DialogueSystem.Editor
                 for (var j = 0; j < connections.Count(); j++)
                 {
                     var targetNodeGUID = connections[j].TargetNodeGUID;
-                    var targetNode = Nodes.First(x => x.GUID == targetNodeGUID);
-                    LinkNodesTogether(Nodes[i].outputContainer[j].Q<Port>(), (Port)targetNode.inputContainer[0]);
+                    var targetNode = Nodes.FirstOrDefault(x => x.GUID == targetNodeGUID);
+                    if (targetNode != null) {
+                        LinkNodesTogether(Nodes[i].outputContainer[j].Q<Port>(), (Port)targetNode.inputContainer[0]);
 
-                    targetNode.SetPosition(new Rect(
-                        _dialogueContainer.DialogueNodeData.First(x => x.nodeGuid == targetNodeGUID).position,
-                        _graphView.DefaultNodeSize));
+                        targetNode.SetPosition(new Rect(
+                            _dialogueContainer.DialogueNodeData.First(x => x.nodeGuid == targetNodeGUID).position,
+                            _graphView.DefaultNodeSize));
+                    } else {
+                        var targetEndNode = EndNodes.FirstOrDefault(x => x.GUID == targetNodeGUID);
+                        LinkNodesTogether(Nodes[i].outputContainer[j].Q<Port>(), (Port)targetEndNode.inputContainer[0]);
+
+                        targetEndNode.SetPosition(new Rect(
+                            _dialogueContainer.DialogueEndNodeData.First(x => x.nodeGuid == targetNodeGUID).position,
+                            _graphView.DefaultNodeSize));
+                    }
                 }
             }
         }

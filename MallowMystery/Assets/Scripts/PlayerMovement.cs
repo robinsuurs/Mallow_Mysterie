@@ -15,11 +15,18 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 _moveInput;
     private Vector3 _moveDirection;
 
-    private void Start()
+    private void Awake()
     {
         //rotate the player relative to the camera
-        mainCamera = FindObjectOfType<Camera>();
-        transform.Rotate(new Vector3(0,mainCamera.transform.eulerAngles.y,0));
+        mainCamera = Camera.main;
+        if (mainCamera != null)
+        {
+            transform.Rotate(new Vector3(0, mainCamera.transform.eulerAngles.y, 0));
+        }
+        else
+        {
+            print("No camera in scene tagged 'MainCamera'");
+        }
         
         //get the move action for value polling
         _moveInputAction = plInputAction.FindAction("Move");
@@ -28,6 +35,7 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Debug.Log(transform.rotation.y);
         //poll value of the input value vector(x,y)
         _moveInput = _moveInputAction.ReadValue<Vector2>();
         
@@ -38,9 +46,8 @@ public class PlayerMovement : MonoBehaviour
         //move the player
         var outputSpeed = _moveDirection * speed;
         controller.SimpleMove(outputSpeed);
-        print(controller.velocity.magnitude);
+        // print(controller.velocity.magnitude);
     }
-
 }
     
     

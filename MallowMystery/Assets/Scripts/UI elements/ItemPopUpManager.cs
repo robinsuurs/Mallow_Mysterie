@@ -2,10 +2,12 @@
 using ScriptObjects;
 using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class ItemPopUpManager : MonoBehaviour {
     [SerializeField] private GameObject ItemPopUpScreen;
+    [SerializeField] private InputActionAsset _inputAction;
     private ItemData _itemData;
         
     public void showPopUp(ItemData itemData) {
@@ -15,11 +17,13 @@ public class ItemPopUpManager : MonoBehaviour {
         itemHolder.transform.Find("ItemImage").gameObject.GetComponent<Image>().sprite = itemData.icon;
         itemHolder.transform.Find("ItemName").gameObject.GetComponent<TextMeshProUGUI>().text = itemData.itemName;
         ItemPopUpScreen.SetActive(true);
+        _inputAction.Disable();
     }
 
     public void closePopUp() {
         ItemPopUpScreen.SetActive(false);
         Time.timeScale = 1;
+        _inputAction.Enable();
     }
 
     public void seeInInventory() {

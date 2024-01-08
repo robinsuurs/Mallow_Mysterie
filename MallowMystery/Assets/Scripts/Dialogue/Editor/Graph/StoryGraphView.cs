@@ -22,6 +22,7 @@ namespace Dialogue.Editor.Graph
         public List<ExposedProperty> ExposedProperties { get; private set; } = new List<ExposedProperty>();
         private NodeSearchWindow _searchWindow;
         private readonly ItemDataNamesRetriever itemDataNames = new ItemDataNamesRetriever();
+        private readonly QuestionAnswerRetriever questionAnswers = new QuestionAnswerRetriever();
 
         public StoryGraphView(StoryGraph editorWindow) {
             styleSheets.Add(Resources.Load<StyleSheet>("NarrativeGraph"));
@@ -56,7 +57,7 @@ namespace Dialogue.Editor.Graph
             ExposedProperties.Clear();
             Blackboard.Clear();
         }
-
+        
         public Group CreateCommentBlock(Rect rect, CommentBlockData commentBlockData = null)
         {
             if(commentBlockData==null)
@@ -121,9 +122,40 @@ namespace Dialogue.Editor.Graph
         
         
 
-        public void CreateNewDialogueNode(string nodeName, Vector2 position) {
+        public void CreateNewDialogueNode(Vector2 position) {
             DialogueNodeData tempNode = new DialogueNodeData() { nodeGuid = Guid.NewGuid().ToString(), ItemPortCombis = new List<ItemPortCombi>()};
             AddElement(CreateNode(tempNode, position));
+        }
+        
+        public void CreateNewDialogueEndNode(Vector2 position) {
+            DialogueEndNodeData tempNode = new DialogueEndNodeData() { nodeGuid = Guid.NewGuid().ToString()};
+            AddElement(CreateNode(tempNode, position));
+        }
+        
+        public DialogueEndNode CreateNode(DialogueEndNodeData dialogueEndNodeData, Vector2 position) {
+            var tempDialogueNode = new DialogueEndNode(dialogueEndNodeData);
+            
+            tempDialogueNode.styleSheets.Add(Resources.Load<StyleSheet>("Node"));
+            
+            var inputPort = GetPortInstance(tempDialogueNode, Direction.Input, Port.Capacity.Multi);
+            inputPort.portName = "";
+            tempDialogueNode.inputContainer.Add(inputPort);
+            
+            var dialogueTextLongField = new TextField(string.Empty)
+            {
+                label = "DialogueText",
+                multiline = true,
+            };
+            dialogueTextLongField.AddToClassList("textarea");
+            dialogueTextLongField.RegisterValueChangedCallback(evt => { tempDialogueNode.DialogueText = evt.newValue; });
+            dialogueTextLongField.SetValueWithoutNotify(tempDialogueNode.DialogueText);
+            tempDialogueNode.mainContainer.Add(dialogueTextLongField);
+            
+            tempDialogueNode.RefreshExpandedState();
+            tempDialogueNode.RefreshPorts(); 
+            tempDialogueNode.SetPosition(new Rect(position, DefaultNodeSize));
+            
+            return tempDialogueNode;
         }
 
         public DialogueNode CreateNode(DialogueNodeData dialogueNodeData, Vector2 position, bool useDefaultValues = true) {
@@ -136,19 +168,24 @@ namespace Dialogue.Editor.Graph
             tempDialogueNode.inputContainer.Add(inputPort);
             
             var button = new Button(() => { CreateChoicePort(tempDialogueNode, "", useDefaultValues); }) {
-                text = "Add Choice"
+                text = "Choice"
             };
             tempDialogueNode.titleButtonContainer.Add(button);
             
             var buttonItem = new Button(() => { CreateChoicePort(tempDialogueNode, "item", useDefaultValues); }) {
-                text = "Add Choice With Item"
+                text = "Item"
             };
             tempDialogueNode.titleButtonContainer.Add(buttonItem);
             
             var buttonSkip = new Button(() => { CreateChoicePort(tempDialogueNode, "skip", useDefaultValues); }) {
-                text = "Skip Dialogue"
+                text = "Skip"
             };
             tempDialogueNode.titleButtonContainer.Add(buttonSkip);
+            
+            var buttonQuestion = new Button(() => { CreateChoicePort(tempDialogueNode, "question", useDefaultValues); }) {
+                text = "Question"
+            };
+            tempDialogueNode.titleButtonContainer.Add(buttonQuestion);
             
             int defaultIndex = useDefaultValues ? 0 : ExposedProperties.FindIndex(x => x.PropertyName == tempDialogueNode.SpeakerName);
 
@@ -202,7 +239,10 @@ namespace Dialogue.Editor.Graph
                     ItemPort(nodeCache, useDefaultValues, generatedPort, outputPortName);
                     break;
                 case "skip" :
-                    SkipPort(nodeCache, generatedPort, outputPortName, textField);
+                    SkipPort(nodeCache, useDefaultValues, generatedPort, outputPortName, textField);
+                    break;
+                case "question" :
+                    QuestionPort(nodeCache, useDefaultValues, generatedPort, outputPortName, textField);
                     break;
             }
             
@@ -220,7 +260,7 @@ namespace Dialogue.Editor.Graph
         }
 
         private void ItemPort (DialogueNode nodeCache, bool useDefaultValues, Port generatedPort, string overriddenPortName) {
-            int defaultIndex = useDefaultValues ? 0 : getNumber(nodeCache, overriddenPortName);
+            int defaultIndex = useDefaultValues ? 0 : getNumberItem(nodeCache, overriddenPortName);
 
             defaultIndex = defaultIndex < 0 ? 0 : defaultIndex;
             
@@ -233,30 +273,105 @@ namespace Dialogue.Editor.Graph
                 }
             });
             itemNeeded.style.width = 80;
-            
-            ItemPortCombi itemPortCombiTemp = new ItemPortCombi(overriddenPortName, itemNeeded.value);
-            nodeCache.ItemPortCombis.Add(itemPortCombiTemp);
+
+            if (useDefaultValues) {
+                ItemPortCombi itemPortCombiTemp = new ItemPortCombi(overriddenPortName, itemNeeded.value);
+                nodeCache.ItemPortCombis.Add(itemPortCombiTemp);
+            }
             
             generatedPort.contentContainer.Add(itemNeeded);
         }
 
-        private void SkipPort(DialogueNode nodeCache, Port generatedPort, string overriddenPortName,
+        private void SkipPort(DialogueNode nodeCache, bool useDefaultValues, Port generatedPort,
+            string overriddenPortName,
             TextField textField) {
             Label label = new Label("Skip option tekst");
             label.style.width = 86;
             generatedPort.Add(label);
-            nodeCache.SkipPorts.Add(overriddenPortName);
+            if (useDefaultValues) {
+                nodeCache.SkipPorts.Add(overriddenPortName);
+            }
+            
             textField.RegisterValueChangedCallback(evt => {
                 generatedPort.portName = evt.newValue;
                 nodeCache.SkipPorts.Remove(evt.previousValue);
                 nodeCache.SkipPorts.Add(evt.newValue);
             });
         }
+        
+        private void QuestionPort(DialogueNode nodeCache, bool useDefaultValues, Port generatedPort,
+            string overriddenPortName, TextField textField) {
+            int defaultIndex = useDefaultValues ? 0 : getNumberAnswer(nodeCache, overriddenPortName);
+            defaultIndex = defaultIndex < 0 ? 0 : defaultIndex;
+            
+            PopupField<string> Answers = new PopupField<string>(questionAnswers.answersList.Select(x => x.answer).ToList(), defaultIndex);
+            
+            Answers.RegisterValueChangedCallback(evt => {
+                foreach (var combi in nodeCache.QuestionAnswerPortCombis.Where(combi => combi.portname.Equals(overriddenPortName))) {
+                    combi.answerUID = questionAnswers.getAnswerConnectedUID(evt.newValue);
+                    return;
+                }
+            });
+            Answers.style.width = 80;
+            generatedPort.contentContainer.Add(Answers);
+            
+            defaultIndex = useDefaultValues ? 0 : getNumberQuestion(nodeCache, overriddenPortName);
+            defaultIndex = defaultIndex < 0 ? 0 : defaultIndex;
+            
+            PopupField<string> Questions = new PopupField<string>(questionAnswers.questionNames.Select(x => x.question).ToList(), defaultIndex);
+            
+            Questions.RegisterValueChangedCallback(evt => {
+                foreach (var combi in nodeCache.QuestionAnswerPortCombis.Where(combi => combi.portname.Equals(overriddenPortName))) {
+                    combi.questionUID = questionAnswers.getQuesitonConnectedUID(evt.newValue);
+                    return;
+                }
+            });
+            Questions.style.width = 80;
+            generatedPort.contentContainer.Add(Questions);
+            
+            string questionUid = null;
+            foreach (var question in questionAnswers.questionNames.Where(question => question.question.Equals(Questions.value))) {
+                questionUid = question.questionUID;
+            }
+            
+            string answerUid = null;
+            foreach (var answer in questionAnswers.answersList.Where(answers => answers.answer.Equals(Answers.value))) {
+                answerUid = answer.answerUID;
+            }
 
-        private int getNumber(DialogueNode dialogueNode, string overriddenPortName) {
+            if (useDefaultValues) {
+                QuestionAnswerPortCombi questionAnswerPortCombi = new QuestionAnswerPortCombi(overriddenPortName, questionUid, answerUid);
+                textField.value = questionAnswerPortCombi.portname;
+                nodeCache.QuestionAnswerPortCombis.Add(questionAnswerPortCombi);
+            }
+        }
+
+        private int getNumberItem(DialogueNode dialogueNode, string overriddenPortName) {
             foreach (var name in dialogueNode.ItemPortCombis.Where(name => name.portname.Equals(overriddenPortName))) {
                 for (int i = 0; i < itemDataNames.itemNames.Count; i++) {
                     if (itemDataNames.itemNames[i] == name.itemName) {
+                        return i;
+                    }
+                }
+            }
+            return 0;
+        }
+        
+        private int getNumberQuestion(DialogueNode dialogueNode, string overriddenPortName) {
+            foreach (var name in dialogueNode.QuestionAnswerPortCombis.Where(name => name.portname.Equals(overriddenPortName))) {
+                for (int i = 0; i < questionAnswers.questionNames.Count; i++) {
+                    if (questionAnswers.questionNames[i].questionUID == name.questionUID) {
+                        return i;
+                    }
+                }
+            }
+            return 0;
+        }
+        
+        private int getNumberAnswer(DialogueNode dialogueNode, string overriddenPortName) {
+            foreach (var name in dialogueNode.QuestionAnswerPortCombis.Where(name => name.portname.Equals(overriddenPortName))) {
+                for (int i = 0; i < questionAnswers.answersList.Count; i++) {
+                    if (questionAnswers.answersList[i].answerUID == name.answerUID) {
                         return i;
                     }
                 }
@@ -324,12 +439,21 @@ namespace Dialogue.Editor.Graph
             speakerSpriteRight.RegisterValueChangedCallback(evt => { tempDialogueNode.SpeakerSpriteRight = evt.newValue; });
             speakerSpriteRight.SetValueWithoutNotify(tempDialogueNode.SpeakerSpriteRight);
             tempDialogueNode.mainContainer.Add(speakerSpriteRight);
-            
-            int LeftorRight = useDefaultValues ? 0 : tempDialogueNode.SpeakerNameLocation.Equals("Speaker Name Left") ? 0 : 1;
+
+            int LeftorRight = 0;
+            if (!useDefaultValues) {
+                LeftorRight = tempDialogueNode.SpeakerNameLocation switch {
+                    "Speaker Name Left" => 0,
+                    "Speaker Name Right" => 1,
+                    "None" => 2,
+                    _ => LeftorRight
+                };
+            }
             
             List<string> leftRight = new List<string>();
             leftRight.Add("Speaker Name Left");
             leftRight.Add("Speaker Name Right");
+            leftRight.Add("None");
             
             //Where does the speakerName need to be
             PopupField<string> LeftRightPopUp = new PopupField<string>(leftRight.Select(x => x).ToList(), LeftorRight);
@@ -365,6 +489,11 @@ namespace Dialogue.Editor.Graph
         }
 
         private Port GetPortInstance(DialogueNode node, Direction nodeDirection, Port.Capacity capacity = Port.Capacity.Single)
+        {
+            return node.InstantiatePort(Orientation.Horizontal, nodeDirection, capacity, typeof(float));
+        }
+        
+        private Port GetPortInstance(DialogueEndNode node, Direction nodeDirection, Port.Capacity capacity = Port.Capacity.Single)
         {
             return node.InstantiatePort(Orientation.Horizontal, nodeDirection, capacity, typeof(float));
         }

@@ -22,123 +22,6 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
-                },
-                {
-                    "name": "CheckInv",
-                    "type": "Button",
-                    "id": "16c0a304-a822-4559-ad0f-fc762249c20a",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "OpenInventory",
-                    "type": "Button",
-                    "id": "d171cf6f-6385-4bce-a6be-4739855f12e1",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "OpenSettings",
-                    "type": "Button",
-                    "id": "fa01d350-ceb0-4f33-abf8-3a8092368c6e",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "OpenMap",
-                    "type": "Button",
-                    "id": "e4f1fa98-5d11-425d-b948-08af892098c7",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "Camera1",
-                    "type": "Button",
-                    "id": "be69dfe3-55e6-4266-9ed7-ed25ef299b32",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "Camera2",
-                    "type": "Button",
-                    "id": "9be296e4-036a-4467-a1e3-e7a5d153fc67",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "Camera3",
-                    "type": "Button",
-                    "id": "8fd6dbb2-5322-46ab-9ddb-c90e397f61cc",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "Camera4",
-                    "type": "Button",
-                    "id": "0d64bbc4-4576-409e-94c5-ce469cef4089",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "Camera5",
-                    "type": "Button",
-                    "id": "a6a4f396-ab6b-44a3-8541-13b98784139b",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "Camera6",
-                    "type": "Button",
-                    "id": "a71b4d48-ca36-4887-bcc9-c1025e577b78",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "WalkLeft",
-                    "type": "Button",
-                    "id": "bfcaf12f-5203-4a41-a6fb-50c51783c287",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "WalkForward",
-                    "type": "Button",
-                    "id": "05f8626d-30e2-4a2c-a3a9-7c1d2ad471d0",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "WalkRight",
-                    "type": "Button",
-                    "id": "1e23f042-8f6a-4d68-b205-3c1d192c0424",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -218,131 +101,54 @@
                     "action": "Interact",
                     "isComposite": false,
                     "isPartOfComposite": false
-                },
+                }
+            ]
+        },
+        {
+            "name": "UIInput",
+            "id": "bc5e6710-395e-4f30-aba2-d3ab58ab8aba",
+            "actions": [
                 {
-                    "name": "",
-                    "id": "8b66517a-7b7d-4b90-a924-0bcb53edff5e",
-                    "path": "<Keyboard>/i",
-                    "interactions": "",
+                    "name": "OpenInventory",
+                    "type": "Button",
+                    "id": "b11645bc-429f-4a28-8530-145b9d47f917",
+                    "expectedControlType": "Button",
                     "processors": "",
-                    "groups": "Keyboard+Mouse",
-                    "action": "CheckInv",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "8f9986bf-0e5f-4c6b-b272-6d60655fecac",
-                    "path": "<Keyboard>/1",
                     "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Camera1",
-                    "isComposite": false,
-                    "isPartOfComposite": false
+                    "initialStateCheck": false
                 },
                 {
-                    "name": "",
-                    "id": "023b3cd8-3ecf-440c-b049-9c22ac2f0b43",
-                    "path": "<Keyboard>/2",
+                    "name": "OpenSettings",
+                    "type": "Button",
+                    "id": "8abb264a-bf1c-49f1-ac63-5f9d687c2e9c",
+                    "expectedControlType": "Button",
+                    "processors": "",
                     "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Camera2",
-                    "isComposite": false,
-                    "isPartOfComposite": false
+                    "initialStateCheck": false
                 },
                 {
-                    "name": "",
-                    "id": "3905c57f-9900-4a66-b5cf-4d9c9a811c3b",
-                    "path": "<Keyboard>/3",
+                    "name": "OpenMap",
+                    "type": "Button",
+                    "id": "9ecabd3d-2184-4ebf-9abe-6dc88e0c6a9a",
+                    "expectedControlType": "Button",
+                    "processors": "",
                     "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Camera3",
-                    "isComposite": false,
-                    "isPartOfComposite": false
+                    "initialStateCheck": false
                 },
                 {
-                    "name": "",
-                    "id": "729e078b-9e9f-4dd0-88cf-7d10f28c709f",
-                    "path": "<Keyboard>/4",
+                    "name": "openDeduction",
+                    "type": "Button",
+                    "id": "3a97ca9f-e95f-48cb-b5ba-c30c017f72f1",
+                    "expectedControlType": "Button",
+                    "processors": "",
                     "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Camera4",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
                 {
                     "name": "",
-                    "id": "58301d4d-33d7-40a5-aa91-3ac518010362",
-                    "path": "<Keyboard>/5",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Camera5",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "73eae12d-3f3a-49ca-a4ba-038c209292c8",
-                    "path": "<Keyboard>/6",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Camera6",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "693ec5ca-2c0e-4487-ab3a-ba0308e59678",
-                    "path": "<Keyboard>/8",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "WalkLeft",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "f6d7eeb0-5351-45bf-a427-50f69d556687",
-                    "path": "<Keyboard>/9",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "WalkForward",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "67245135-d2c6-4442-97b4-73ab1b9f712d",
-                    "path": "<Keyboard>/0",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "WalkRight",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "b1e47613-914d-4ba9-b262-097c122d0887",
-                    "path": "<Keyboard>/escape",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "OpenSettings",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "3e2855be-9242-40cc-b409-6c9ae4f2e6df",
+                    "id": "20e47416-f1d9-4485-a3a3-39ffd024545f",
                     "path": "<Keyboard>/i",
                     "interactions": "",
                     "processors": "",
@@ -353,12 +159,34 @@
                 },
                 {
                     "name": "",
-                    "id": "b6225af9-843b-409c-9452-86dfeda86858",
+                    "id": "4830948c-ee6e-4abb-a6fd-74ef8e558886",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "OpenSettings",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c0877a2e-ad1c-489d-a899-673d9e1a8b20",
                     "path": "<Keyboard>/m",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "OpenMap",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f80890a3-5ccf-49c1-850f-990e1d796126",
+                    "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "openDeduction",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

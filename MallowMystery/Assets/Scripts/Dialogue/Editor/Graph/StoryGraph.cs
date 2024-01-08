@@ -1,17 +1,14 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using Dialogue.Editor.Graph;
+﻿using System.Linq;
 using Dialogue.RunTime;
+using Subtegral.DialogueSystem.DataContainers;
+using Subtegral.DialogueSystem.Editor;
 using UnityEditor;
 using UnityEditor.Experimental.GraphView;
 using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.UIElements;
-using Subtegral.DialogueSystem.DataContainers;
 
-namespace Subtegral.DialogueSystem.Editor
+namespace Dialogue.Editor.Graph
 {
     public class StoryGraph : EditorWindow
     {

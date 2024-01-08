@@ -8,7 +8,7 @@ public class UIHandler : MonoBehaviour {
     [SerializeField] private SettingsScreenManager settingsScreenManager;
 
     private void Start() {
-        settingsScreenManager = GameObject.FindWithTag("CanvasManager").gameObject.transform.Find("SettingsScreen").gameObject.GetComponent<SettingsScreenManager>();
+        // settingsScreenManager = GameObject.FindWithTag("CanvasManager").gameObject.transform.Find("SettingsScreen").gameObject.GetComponent<SettingsScreenManager>();
     }
 
     void OnOpenSettings() {

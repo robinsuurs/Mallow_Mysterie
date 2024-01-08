@@ -1,0 +1,388 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78b3fd9154634ebdb8c8a48960b9a16a, type: 3}
+  m_Name: Dialogue 1
+  m_EditorClassIdentifier: 
+  alreadyHadConversation: 0
+  NodeLinks:
+  - BaseNodeGUID: 41b95868-1ee4-40eb-ace2-6850ca7b3600
+    PortName: Next
+    TargetNodeGUID: 4f83f30e-cb5a-4ae4-a8bc-c3b8887ce822
+  - BaseNodeGUID: 4f83f30e-cb5a-4ae4-a8bc-c3b8887ce822
+    PortName: Yea, can we go through this one more time?
+    TargetNodeGUID: 1e9dfc31-3f96-43cd-a528-76bfe0f178c1
+  - BaseNodeGUID: 4f83f30e-cb5a-4ae4-a8bc-c3b8887ce822
+    PortName: "No, I\u2019ll be on my way."
+    TargetNodeGUID: aa1a2b1a-1f02-41f9-b119-ae5ce78f893a
+  - BaseNodeGUID: 1e9dfc31-3f96-43cd-a528-76bfe0f178c1
+    PortName: Option 1
+    TargetNodeGUID: 765becea-0233-40ce-a464-8c993f9b4ed2
+  - BaseNodeGUID: 765becea-0233-40ce-a464-8c993f9b4ed2
+    PortName: Option 1
+    TargetNodeGUID: cff27f5d-d4df-402a-b28b-cf01a0701474
+  - BaseNodeGUID: cff27f5d-d4df-402a-b28b-cf01a0701474
+    PortName: Option 1
+    TargetNodeGUID: bb840e83-87df-4c27-9b63-d17c07e078a2
+  - BaseNodeGUID: bb840e83-87df-4c27-9b63-d17c07e078a2
+    PortName: Option 1
+    TargetNodeGUID: 61ab75fe-d672-4e18-b362-c8fcb28a845a
+  - BaseNodeGUID: 61ab75fe-d672-4e18-b362-c8fcb28a845a
+    PortName: Option 1
+    TargetNodeGUID: 570a090a-f004-48a4-86d2-f624132c035f
+  - BaseNodeGUID: 570a090a-f004-48a4-86d2-f624132c035f
+    PortName: Option 1
+    TargetNodeGUID: 27e62d48-08f8-47b5-9084-4a6734dd9486
+  - BaseNodeGUID: 27e62d48-08f8-47b5-9084-4a6734dd9486
+    PortName: Option 1
+    TargetNodeGUID: ebb360b7-81b0-4c61-9505-d7b18f5776a7
+  - BaseNodeGUID: ebb360b7-81b0-4c61-9505-d7b18f5776a7
+    PortName: Option 1
+    TargetNodeGUID: 22cfec91-f19a-4512-9ebc-221cbd45688a
+  - BaseNodeGUID: 22cfec91-f19a-4512-9ebc-221cbd45688a
+    PortName: Option 1
+    TargetNodeGUID: af5255af-f6da-417b-9517-0c49674d45fc
+  - BaseNodeGUID: af5255af-f6da-417b-9517-0c49674d45fc
+    PortName: Option 1
+    TargetNodeGUID: 6ee1856f-3a51-4d51-8ddd-16a68e3d5320
+  - BaseNodeGUID: 6ee1856f-3a51-4d51-8ddd-16a68e3d5320
+    PortName: Option 1
+    TargetNodeGUID: 9cefa1e3-8bc5-4fc4-8352-8506acb6beb4
+  - BaseNodeGUID: 9cefa1e3-8bc5-4fc4-8352-8506acb6beb4
+    PortName: Option 1
+    TargetNodeGUID: 1309aff7-e20b-4582-bc5d-693411b1b3aa
+  - BaseNodeGUID: 1309aff7-e20b-4582-bc5d-693411b1b3aa
+    PortName: Option 1
+    TargetNodeGUID: baf379ed-ccd5-46e6-b8b1-02e914d3a0da
+  - BaseNodeGUID: baf379ed-ccd5-46e6-b8b1-02e914d3a0da
+    PortName: Option 1
+    TargetNodeGUID: eb0740a3-2f46-4b48-b0bb-9e066b196c05
+  - BaseNodeGUID: eb0740a3-2f46-4b48-b0bb-9e066b196c05
+    PortName: Option 1
+    TargetNodeGUID: 9b26da68-7fa7-4e04-9b60-c8b08bdd4707
+  - BaseNodeGUID: 9b26da68-7fa7-4e04-9b60-c8b08bdd4707
+    PortName: Option 1
+    TargetNodeGUID: 267065b2-015d-47c7-b1b2-6ab59492f780
+  - BaseNodeGUID: 267065b2-015d-47c7-b1b2-6ab59492f780
+    PortName: Option 1
+    TargetNodeGUID: 341e59f8-019c-4c55-a70c-5ae6195e3c60
+  - BaseNodeGUID: 341e59f8-019c-4c55-a70c-5ae6195e3c60
+    PortName: Option 1
+    TargetNodeGUID: 9044e8e1-94b1-4971-9390-1e976fa29954
+  - BaseNodeGUID: 9044e8e1-94b1-4971-9390-1e976fa29954
+    PortName: Option 1
+    TargetNodeGUID: cc91571d-7588-42c9-8efd-060bdd4fa96f
+  DialogueNodeData:
+  - nodeGuid: 4f83f30e-cb5a-4ae4-a8bc-c3b8887ce822
+    dialogueText: "Oh, you\u2019re still here? Did you want to ask something?"
+    position: {x: 194, y: 200}
+    SpeakerName: Tyrone
+    SpeakerNameLocation: Speaker Name Right
+    SpeakerSpriteLeft: M1
+    SpeakerSpriteRight: D1
+    ItemPortCombis: []
+    QuestionAnswerPortCombis: []
+    SkipPorts: []
+    canSkipFromThisPoint: 1
+    CutSceneImageName: 
+  - nodeGuid: 1e9dfc31-3f96-43cd-a528-76bfe0f178c1
+    dialogueText: "\u2026So, let\u2019s get this straight."
+    position: {x: 590, y: -22}
+    SpeakerName: Tyrone
+    SpeakerNameLocation: Speaker Name Right
+    SpeakerSpriteLeft: M1
+    SpeakerSpriteRight: D1
+    ItemPortCombis: []
+    QuestionAnswerPortCombis: []
+    SkipPorts: []
+    canSkipFromThisPoint: 0
+    CutSceneImageName: 
+  - nodeGuid: aa1a2b1a-1f02-41f9-b119-ae5ce78f893a
+    dialogueText: 
+    position: {x: 590, y: 314}
+    SpeakerName: 
+    SpeakerNameLocation: Speaker Name Left
+    SpeakerSpriteLeft: 
+    SpeakerSpriteRight: 
+    ItemPortCombis: []
+    QuestionAnswerPortCombis: []
+    SkipPorts: []
+    canSkipFromThisPoint: 0
+    CutSceneImageName: 
+  - nodeGuid: 765becea-0233-40ce-a464-8c993f9b4ed2
+    dialogueText: "You\u2019re saying that you were supposed to meet up with Cornelia
+      this morning, but she did not show up, so you went to her house to look for
+      her."
+    position: {x: 950, y: -22}
+    SpeakerName: Tyrone
+    SpeakerNameLocation: Speaker Name Right
+    SpeakerSpriteLeft: M1
+    SpeakerSpriteRight: D1
+    ItemPortCombis: []
+    QuestionAnswerPortCombis: []
+    SkipPorts: []
+    canSkipFromThisPoint: 0
+    CutSceneImageName: 
+  - nodeGuid: bb840e83-87df-4c27-9b63-d17c07e078a2
+    dialogueText: "Everything but her face and her hand were covered by a thick tarp\u2026"
+    position: {x: 1615, y: -19}
+    SpeakerName: Tyrone
+    SpeakerNameLocation: Speaker Name Right
+    SpeakerSpriteLeft: M1
+    SpeakerSpriteRight: D1
+    ItemPortCombis: []
+    QuestionAnswerPortCombis: []
+    SkipPorts: []
+    canSkipFromThisPoint: 0
+    CutSceneImageName: 
+  - nodeGuid: cff27f5d-d4df-402a-b28b-cf01a0701474
+    dialogueText: "You were passing by an alleyway next to her house when you noticed
+      her, um\u2026 dead body surrounded by the police."
+    position: {x: 1289, y: -22}
+    SpeakerName: Tyrone
+    SpeakerNameLocation: Speaker Name Right
+    SpeakerSpriteLeft: M1
+    SpeakerSpriteRight: D1
+    ItemPortCombis: []
+    QuestionAnswerPortCombis: []
+    SkipPorts: []
+    canSkipFromThisPoint: 0
+    CutSceneImageName: 
+  - nodeGuid: 61ab75fe-d672-4e18-b362-c8fcb28a845a
+    dialogueText: And her hand had a weird melt scar on it that I had never seen
+      before!
+    position: {x: 1978, y: -19}
+    SpeakerName: Milton
+    SpeakerNameLocation: Speaker Name Left
+    SpeakerSpriteLeft: M1
+    SpeakerSpriteRight: D1
+    ItemPortCombis: []
+    QuestionAnswerPortCombis: []
+    SkipPorts: []
+    canSkipFromThisPoint: 0
+    CutSceneImageName: 
+  - nodeGuid: 570a090a-f004-48a4-86d2-f624132c035f
+    dialogueText: "Weird\u2026 very weird. You\u2019re saying that the police told
+      you it was a simple robbery, right? But how would a simple crook get their
+      hands on something capable of making a melt scar\u2026?"
+    position: {x: 2335, y: -3}
+    SpeakerName: Tyrone
+    SpeakerNameLocation: Speaker Name Right
+    SpeakerSpriteLeft: M1
+    SpeakerSpriteRight: D1
+    ItemPortCombis: []
+    QuestionAnswerPortCombis: []
+    SkipPorts: []
+    canSkipFromThisPoint: 0
+    CutSceneImageName: 
+  - nodeGuid: 27e62d48-08f8-47b5-9084-4a6734dd9486
+    dialogueText: "Also, I don\u2019t remember seeing anything in the evidence cart
+      while they pushed it away\u2026 Not even a murder weapon! I saw it myself at
+      the police station. Why would they be so confident about it being a simple
+      mugging? Seems suspicious."
+    position: {x: 2704, y: 0}
+    SpeakerName: Milton
+    SpeakerNameLocation: Speaker Name Left
+    SpeakerSpriteLeft: M1
+    SpeakerSpriteRight: D1
+    ItemPortCombis: []
+    QuestionAnswerPortCombis: []
+    SkipPorts: []
+    canSkipFromThisPoint: 0
+    CutSceneImageName: 
+  - nodeGuid: ebb360b7-81b0-4c61-9505-d7b18f5776a7
+    dialogueText: "This is frustrating! They were so adamant about this being a simple
+      crime, but I know Cornelia couldn\u2019t have lost a fight to some bum with
+      a knife! She\u2019s a police investigator, for Crust\u2019s sake. "
+    position: {x: 3082, y: -3}
+    SpeakerName: Milton
+    SpeakerNameLocation: Speaker Name Left
+    SpeakerSpriteLeft: M1
+    SpeakerSpriteRight: D1
+    ItemPortCombis: []
+    QuestionAnswerPortCombis: []
+    SkipPorts: []
+    canSkipFromThisPoint: 0
+    CutSceneImageName: 
+  - nodeGuid: 22cfec91-f19a-4512-9ebc-221cbd45688a
+    dialogueText: "I also can\u2019t stop thinking about the empty evidence cart.
+      I just don\u2019t believe that there were no leads at all! Have you noticed
+      anyone coming into Cornelia\u2019s house, by any chance?"
+    position: {x: 3445, y: -3}
+    SpeakerName: Milton
+    SpeakerNameLocation: Speaker Name Left
+    SpeakerSpriteLeft: M1
+    SpeakerSpriteRight: D1
+    ItemPortCombis: []
+    QuestionAnswerPortCombis: []
+    SkipPorts: []
+    canSkipFromThisPoint: 0
+    CutSceneImageName: 
+  - nodeGuid: 9cefa1e3-8bc5-4fc4-8352-8506acb6beb4
+    dialogueText: "Perhaps she didn\u2019t know anything was going to happen?"
+    position: {x: 4548, y: 0}
+    SpeakerName: Tyrone
+    SpeakerNameLocation: Speaker Name Right
+    SpeakerSpriteLeft: M1
+    SpeakerSpriteRight: D1
+    ItemPortCombis: []
+    QuestionAnswerPortCombis: []
+    SkipPorts: []
+    canSkipFromThisPoint: 0
+    CutSceneImageName: 
+  - nodeGuid: 1309aff7-e20b-4582-bc5d-693411b1b3aa
+    dialogueText: "I\u2026 I don\u2019t think so. She seemed very worried yesterday.
+      Wait, but if she knew\u2026 Hmm\u2026"
+    position: {x: 4927, y: 0}
+    SpeakerName: Milton
+    SpeakerNameLocation: Speaker Name Left
+    SpeakerSpriteLeft: M1
+    SpeakerSpriteRight: D1
+    ItemPortCombis: []
+    QuestionAnswerPortCombis: []
+    SkipPorts: []
+    canSkipFromThisPoint: 0
+    CutSceneImageName: 
+  - nodeGuid: baf379ed-ccd5-46e6-b8b1-02e914d3a0da
+    dialogueText: Seems like you have an idea.
+    position: {x: 5315, y: 0}
+    SpeakerName: Tyrone
+    SpeakerNameLocation: Speaker Name Right
+    SpeakerSpriteLeft: M1
+    SpeakerSpriteRight: D1
+    ItemPortCombis: []
+    QuestionAnswerPortCombis: []
+    SkipPorts: []
+    canSkipFromThisPoint: 0
+    CutSceneImageName: 
+  - nodeGuid: eb0740a3-2f46-4b48-b0bb-9e066b196c05
+    dialogueText: "Well\u2026 Cornelia always kept notes on everything. If she knew
+      something she definitely would\u2019ve written it down. If we just look in
+      her apartment\u2026"
+    position: {x: 5662, y: 0}
+    SpeakerName: Milton
+    SpeakerNameLocation: Speaker Name Left
+    SpeakerSpriteLeft: M1
+    SpeakerSpriteRight: D1
+    ItemPortCombis: []
+    QuestionAnswerPortCombis: []
+    SkipPorts: []
+    canSkipFromThisPoint: 0
+    CutSceneImageName: 
+  - nodeGuid: 267065b2-015d-47c7-b1b2-6ab59492f780
+    dialogueText: "I am. She entrusted me with a key to her house, so it\u2019s not
+      like I\u2019m breaking in. And I\u2019m not going to leave her murder as it
+      is."
+    position: {x: 6389, y: 0}
+    SpeakerName: Milton
+    SpeakerNameLocation: Speaker Name Left
+    SpeakerSpriteLeft: M1
+    SpeakerSpriteRight: D1
+    ItemPortCombis: []
+    QuestionAnswerPortCombis: []
+    SkipPorts: []
+    canSkipFromThisPoint: 0
+    CutSceneImageName: 
+  - nodeGuid: 341e59f8-019c-4c55-a70c-5ae6195e3c60
+    dialogueText: "Well\u2026 Fine, if you\u2019re so determined about it. But I
+      am not going in there without a proper warrant! In any case, I have a different
+      investigation I\u2019m busy with right now."
+    position: {x: 6747, y: 0}
+    SpeakerName: Tyrone
+    SpeakerNameLocation: Speaker Name Right
+    SpeakerSpriteLeft: M1
+    SpeakerSpriteRight: D1
+    ItemPortCombis: []
+    QuestionAnswerPortCombis: []
+    SkipPorts: []
+    canSkipFromThisPoint: 0
+    CutSceneImageName: 
+  - nodeGuid: 9044e8e1-94b1-4971-9390-1e976fa29954
+    dialogueText: "Take this. It\u2019s a journal I use to keep track of all the
+      facts and clues I find during my cases. Sometimes it can get difficult to remember
+      everything\u2026 I wrote a couple important questions for you to start off
+      of, so try to answer those, if you can. "
+    position: {x: 7109, y: 0}
+    SpeakerName: Tyrone
+    SpeakerNameLocation: Speaker Name Right
+    SpeakerSpriteLeft: M1
+    SpeakerSpriteRight: D1
+    ItemPortCombis: []
+    QuestionAnswerPortCombis: []
+    SkipPorts: []
+    canSkipFromThisPoint: 0
+    CutSceneImageName: 
+  - nodeGuid: cc91571d-7588-42c9-8efd-060bdd4fa96f
+    dialogueText: "In a couple of minutes, I\u2019m going to leave for a different
+      case, so you won\u2019t be able to see me for a bit. Please be careful. And
+      be quick. The police could come back with a search warrant, and I doubt they\u2019d
+      be kind to you, rummaging through a dead person\u2019s house. Good luck."
+    position: {x: 7513, y: 0}
+    SpeakerName: Tyrone
+    SpeakerNameLocation: Speaker Name Right
+    SpeakerSpriteLeft: M1
+    SpeakerSpriteRight: D1
+    ItemPortCombis: []
+    QuestionAnswerPortCombis: []
+    SkipPorts: []
+    canSkipFromThisPoint: 0
+    CutSceneImageName: 
+  - nodeGuid: 9b26da68-7fa7-4e04-9b60-c8b08bdd4707
+    dialogueText: Wait, look where?! Are you suggesting we go into her house on our
+      own? Without a search warrant?!
+    position: {x: 6037, y: 0}
+    SpeakerName: Tyrone
+    SpeakerNameLocation: Speaker Name Right
+    SpeakerSpriteLeft: M1
+    SpeakerSpriteRight: D1
+    ItemPortCombis: []
+    QuestionAnswerPortCombis: []
+    SkipPorts: []
+    canSkipFromThisPoint: 0
+    CutSceneImageName: 
+  - nodeGuid: 6ee1856f-3a51-4d51-8ddd-16a68e3d5320
+    dialogueText: "The mafia?! Oh, Cornelia, if only she ever told me anything about
+      what was happening to her, or at least left any hints! Why didn\u2019t she
+      say anything yesterday?!"
+    position: {x: 4168, y: 0}
+    SpeakerName: Milton
+    SpeakerNameLocation: Speaker Name Left
+    SpeakerSpriteLeft: M1
+    SpeakerSpriteRight: D1
+    ItemPortCombis: []
+    QuestionAnswerPortCombis: []
+    SkipPorts: []
+    canSkipFromThisPoint: 0
+    CutSceneImageName: 
+  - nodeGuid: af5255af-f6da-417b-9517-0c49674d45fc
+    dialogueText: "\u2026no, I have not. Weird. You know\u2026 lack of clues, a melt
+      scar, the police being so dismissive\u2026 and with the last case Cornelia
+      worked on. I can\u2019t say for sure but I wouldn\u2019t be surprised if the
+      mafia was involved. "
+    position: {x: 3813, y: 0}
+    SpeakerName: Tyrone
+    SpeakerNameLocation: Speaker Name Right
+    SpeakerSpriteLeft: M1
+    SpeakerSpriteRight: D1
+    ItemPortCombis: []
+    QuestionAnswerPortCombis: []
+    SkipPorts: []
+    canSkipFromThisPoint: 0
+    CutSceneImageName: 
+  DialogueEndNodeData: []
+  ExposedProperties:
+  - PropertyName: Ignore
+    PropertyValue: New Value
+  - PropertyName: Milton
+    PropertyValue: New Value
+  - PropertyName: Tyrone
+    PropertyValue: New Value
+  CommentBlockData: []

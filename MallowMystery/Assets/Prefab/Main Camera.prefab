@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2039095282217084618}
   - component: {fileID: 1940762248258712902}
   - component: {fileID: 1684375949760401673}
+  - component: {fileID: 440990902106544134}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -72,11 +73,11 @@ Camera:
   far clip plane: 300
   field of view: 60
   orthographic: 1
-  orthographic size: 15
+  orthographic size: 7
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 33554495
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -108,7 +109,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_RenderShadows: 1
+  m_RenderShadows: 0
   m_RequiresDepthTextureOption: 2
   m_RequiresOpaqueTextureOption: 2
   m_CameraType: 0
@@ -172,6 +173,34 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 8
+--- !u!114 &440990902106544134
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6362611275507629805}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: beb9efe6b50563648ac95ddbc87df5f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: d8f64753e544c3941bf94d783353f7b7, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1940762248258712902}
+        m_TargetAssemblyTypeName: Follow_Player, Assembly-CSharp
+        m_MethodName: setFollowPlayer
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &7987353465741172764
 GameObject:
   m_ObjectHideFlags: 0
@@ -184,12 +213,12 @@ GameObject:
   - component: {fileID: 4774187085892330888}
   - component: {fileID: 2889197390788210615}
   m_Layer: 0
-  m_Name: CutSceneCamera
-  m_TagString: MainCamera
+  m_Name: DialogueCamera
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1428577423033380530
 Transform:
   m_ObjectHideFlags: 0

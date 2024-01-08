@@ -48,7 +48,6 @@ public class ListOfSprites : MonoBehaviour
 
             if (mismatch) {
                 characterSprites = newSprites;
-                Debug.Log($"{name} sprite list updated.");
             }        
         }
 
@@ -74,13 +73,12 @@ public class ListOfSprites : MonoBehaviour
 
             if (mismatch) {
                 cutSceneImages = newCutSceneImages;
-                Debug.Log($"{name} sprite list updated.");
             } 
         }
         
     }
 #endif
-    private Sprite[] characterSprites;
+    [SerializeField] private Sprite[] characterSprites;
     
     [SerializeField] private Image leftImage;
     [SerializeField] private Image rightImage;
@@ -103,11 +101,15 @@ public class ListOfSprites : MonoBehaviour
         }  
     }
 
-    private Sprite[] cutSceneImages;
-    [SerializeField] private Image CutSceneImage;
+    [SerializeField] private Sprite[] cutSceneImages;
+    [SerializeField] private Image cutSceneImage;
     
     public void CutSceneImageSetter(string currentNodeCutSceneImageName) {
-        CutSceneImage.sprite =
-            cutSceneImages.FirstOrDefault(sprite => sprite.name.Equals(currentNodeCutSceneImageName));
+        var cutsceneImage = cutSceneImages.FirstOrDefault(sprite => sprite.name.Equals(currentNodeCutSceneImageName));
+        if (cutsceneImage != null) {
+            cutSceneImage.sprite = cutsceneImage;
+        } else {
+            cutSceneImage.sprite = cutSceneImages.FirstOrDefault(sprite => sprite.name.Equals("BlackBackground"));;
+        }
     }
 }

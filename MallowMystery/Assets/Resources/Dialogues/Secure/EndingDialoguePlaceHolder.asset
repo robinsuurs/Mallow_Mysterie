@@ -1,0 +1,795 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78b3fd9154634ebdb8c8a48960b9a16a, type: 3}
+  m_Name: EndingDialoguePlaceHolder
+  m_EditorClassIdentifier: 
+  alreadyHadConversation: 0
+  NodeLinks:
+  - BaseNodeGUID: f0fee4f7-cad5-4a5b-9cbd-8de43fdec57e
+    PortName: Next
+    TargetNodeGUID: 2262528b-b9c4-427d-88f9-cc048bebd852
+  - BaseNodeGUID: 2262528b-b9c4-427d-88f9-cc048bebd852
+    PortName: Option 1
+    TargetNodeGUID: 6be61638-f05c-4b3c-8ddd-590239bc5149
+  - BaseNodeGUID: bd0fa5ae-8802-4dde-8ec5-5d77e9ee56e9
+    PortName: Option 1
+    TargetNodeGUID: a554c471-d58c-4c1d-8d7c-4f5f50d87df6
+  - BaseNodeGUID: a554c471-d58c-4c1d-8d7c-4f5f50d87df6
+    PortName: Option 1
+    TargetNodeGUID: e834b980-0d9f-46a7-a342-4b3a6f2d05e1
+  - BaseNodeGUID: bbbe3dc2-991c-481f-ba7c-90ac8ac7a178
+    PortName: Option 1
+    TargetNodeGUID: c73cc684-5045-4395-9623-f68808d1726b
+  - BaseNodeGUID: c73cc684-5045-4395-9623-f68808d1726b
+    PortName: Option 1
+    TargetNodeGUID: ab9649d4-a4a1-4d89-a7c7-39626b8f73d1
+  - BaseNodeGUID: ab9649d4-a4a1-4d89-a7c7-39626b8f73d1
+    PortName: Option 1
+    TargetNodeGUID: 8ad2f569-bc8d-4cb8-ba6c-2895b2677f95
+  - BaseNodeGUID: bcf477b4-0a4b-4fa2-9cd7-32bd9681c2c8
+    PortName: Option 1
+    TargetNodeGUID: 85ed38eb-4d0e-4632-8c69-1900b7eca741
+  - BaseNodeGUID: 8ad2f569-bc8d-4cb8-ba6c-2895b2677f95
+    PortName: Well... I don't really have anything, no...
+    TargetNodeGUID: 272d7811-4178-4ce4-8878-9f322ac039ad
+  - BaseNodeGUID: 8ad2f569-bc8d-4cb8-ba6c-2895b2677f95
+    PortName: I don't have anything, no... but maybe I can be of use to the family
+      and earn my information that way?
+    TargetNodeGUID: bcf477b4-0a4b-4fa2-9cd7-32bd9681c2c8
+  - BaseNodeGUID: 472e96d2-b4f3-4f2f-8617-eb9b717fba0e
+    PortName: Option 1
+    TargetNodeGUID: b193ed6b-c592-4627-963c-6cf31497629a
+  - BaseNodeGUID: b193ed6b-c592-4627-963c-6cf31497629a
+    PortName: Option 1
+    TargetNodeGUID: edc9ff54-20ea-454b-8cbc-5eee8ec2687c
+  - BaseNodeGUID: edc9ff54-20ea-454b-8cbc-5eee8ec2687c
+    PortName: Option 1
+    TargetNodeGUID: 2c31d37e-74c2-40f1-bcc8-f7ef0f56a248
+  - BaseNodeGUID: 2c31d37e-74c2-40f1-bcc8-f7ef0f56a248
+    PortName: Option 1
+    TargetNodeGUID: bc51eda2-539a-4b81-b7d8-285021092cf3
+  - BaseNodeGUID: bc51eda2-539a-4b81-b7d8-285021092cf3
+    PortName: Option 1
+    TargetNodeGUID: e64da4de-6bcb-4919-af07-392927b4596d
+  - BaseNodeGUID: a495b2e0-6ea9-4fe6-988b-776be8eb1826
+    PortName: Option 1
+    TargetNodeGUID: 80b8ab2f-70e1-497e-8f8b-d3a5059e1887
+  - BaseNodeGUID: 80b8ab2f-70e1-497e-8f8b-d3a5059e1887
+    PortName: Option 1
+    TargetNodeGUID: 65cd8904-046d-41ba-9a76-cce45a2aa139
+  - BaseNodeGUID: 65cd8904-046d-41ba-9a76-cce45a2aa139
+    PortName: Option 1
+    TargetNodeGUID: f9508c17-c04d-4b5a-9f3d-e7c55bef5dab
+  - BaseNodeGUID: f9508c17-c04d-4b5a-9f3d-e7c55bef5dab
+    PortName: Ask for his real name first.
+    TargetNodeGUID: 6a2e262d-af27-497d-a3d7-aba79d015182
+  - BaseNodeGUID: f9508c17-c04d-4b5a-9f3d-e7c55bef5dab
+    PortName: Introduce yourself.
+    TargetNodeGUID: bee73519-b5c1-4c19-9046-0fde18f72b32
+  - BaseNodeGUID: 6a2e262d-af27-497d-a3d7-aba79d015182
+    PortName: Option 1
+    TargetNodeGUID: bee73519-b5c1-4c19-9046-0fde18f72b32
+  - BaseNodeGUID: bee73519-b5c1-4c19-9046-0fde18f72b32
+    PortName: Option 1
+    TargetNodeGUID: 154b1773-a05a-4119-ad65-34bf6f3c027c
+  - BaseNodeGUID: 154b1773-a05a-4119-ad65-34bf6f3c027c
+    PortName: Option 1
+    TargetNodeGUID: 0b5f527f-074a-4416-8cb4-890a9c4042a2
+  - BaseNodeGUID: 0b5f527f-074a-4416-8cb4-890a9c4042a2
+    PortName: Option 1
+    TargetNodeGUID: 73548ab9-3e08-4430-b345-ccd4a0a0d584
+  - BaseNodeGUID: d177e72c-f709-4006-b265-de6a272ba8f0
+    PortName: Option 1
+    TargetNodeGUID: 83a14a89-25c4-4616-9465-1b22849d402b
+  - BaseNodeGUID: 83a14a89-25c4-4616-9465-1b22849d402b
+    PortName: Option 1
+    TargetNodeGUID: 552552b8-f55d-4365-93db-2c4ac7a8ebac
+  - BaseNodeGUID: 73548ab9-3e08-4430-b345-ccd4a0a0d584
+    PortName: Option 1
+    TargetNodeGUID: e3e1d69d-05dd-4bcf-bd53-1722e4ece61f
+  - BaseNodeGUID: e3e1d69d-05dd-4bcf-bd53-1722e4ece61f
+    PortName: Option 1
+    TargetNodeGUID: d177e72c-f709-4006-b265-de6a272ba8f0
+  - BaseNodeGUID: 552552b8-f55d-4365-93db-2c4ac7a8ebac
+    PortName: Option 1
+    TargetNodeGUID: 11f22f11-254f-45ce-8249-5e7119006989
+  - BaseNodeGUID: 11f22f11-254f-45ce-8249-5e7119006989
+    PortName: Leave the bar
+    TargetNodeGUID: cd3b1eb6-90b3-49a1-ae8d-87b6ddcbb44c
+  - BaseNodeGUID: 11f22f11-254f-45ce-8249-5e7119006989
+    PortName: Although, before I leave... do you know anything about what this is?
+      *Show him the liquor bottle*
+    TargetNodeGUID: a8158a2a-4e56-4515-bc9a-dc14cb0b7a00
+  - BaseNodeGUID: a8158a2a-4e56-4515-bc9a-dc14cb0b7a00
+    PortName: Option 1
+    TargetNodeGUID: df97e15f-11f7-4141-b66d-525c657676ef
+  - BaseNodeGUID: df97e15f-11f7-4141-b66d-525c657676ef
+    PortName: Option 1
+    TargetNodeGUID: 2b275616-9527-48c0-b439-b751977301b6
+  - BaseNodeGUID: 2b275616-9527-48c0-b439-b751977301b6
+    PortName: Option 1
+    TargetNodeGUID: 003ca35e-f9ac-4ca7-bef5-7bea9ab394d3
+  - BaseNodeGUID: 003ca35e-f9ac-4ca7-bef5-7bea9ab394d3
+    PortName: Option 1
+    TargetNodeGUID: 0825fea2-3484-4f36-a840-de638b59462d
+  - BaseNodeGUID: 0825fea2-3484-4f36-a840-de638b59462d
+    PortName: Option 1
+    TargetNodeGUID: 8d6cbf15-7ca9-42bb-9659-5926433976ac
+  - BaseNodeGUID: 8d6cbf15-7ca9-42bb-9659-5926433976ac
+    PortName: Option 1
+    TargetNodeGUID: 12089a73-c2fd-4b5c-a0cf-bae1ab42c865
+  - BaseNodeGUID: 12089a73-c2fd-4b5c-a0cf-bae1ab42c865
+    PortName: Option 1
+    TargetNodeGUID: e5afc03a-4bc1-4dd4-9091-87e6bc753e1f
+  - BaseNodeGUID: e5afc03a-4bc1-4dd4-9091-87e6bc753e1f
+    PortName: Option 1
+    TargetNodeGUID: 3b82dc4e-d298-49b8-a198-09948e03e6d1
+  - BaseNodeGUID: 3b82dc4e-d298-49b8-a198-09948e03e6d1
+    PortName: Option 1
+    TargetNodeGUID: adda3740-1e34-42b5-8caa-ebe77e698761
+  - BaseNodeGUID: f97452ca-a1c8-47f9-b161-7c659c34a474
+    PortName: Option 1
+    TargetNodeGUID: a495b2e0-6ea9-4fe6-988b-776be8eb1826
+  - BaseNodeGUID: 6be61638-f05c-4b3c-8ddd-590239bc5149
+    PortName: Option 6
+    TargetNodeGUID: bd0fa5ae-8802-4dde-8ec5-5d77e9ee56e9
+  - BaseNodeGUID: 6be61638-f05c-4b3c-8ddd-590239bc5149
+    PortName: Option 5
+    TargetNodeGUID: a4f842fd-cf5c-454d-9d0e-033a0fa1495f
+  - BaseNodeGUID: 6be61638-f05c-4b3c-8ddd-590239bc5149
+    PortName: Option 4
+    TargetNodeGUID: a4f842fd-cf5c-454d-9d0e-033a0fa1495f
+  - BaseNodeGUID: 6be61638-f05c-4b3c-8ddd-590239bc5149
+    PortName: Option 3
+    TargetNodeGUID: a4f842fd-cf5c-454d-9d0e-033a0fa1495f
+  - BaseNodeGUID: 6be61638-f05c-4b3c-8ddd-590239bc5149
+    PortName: Option 2
+    TargetNodeGUID: 472e96d2-b4f3-4f2f-8617-eb9b717fba0e
+  - BaseNodeGUID: 6be61638-f05c-4b3c-8ddd-590239bc5149
+    PortName: Option 1
+    TargetNodeGUID: f97452ca-a1c8-47f9-b161-7c659c34a474
+  - BaseNodeGUID: a4f842fd-cf5c-454d-9d0e-033a0fa1495f
+    PortName: Option 1
+    TargetNodeGUID: bbbe3dc2-991c-481f-ba7c-90ac8ac7a178
+  DialogueNodeData:
+  - nodeGuid: 2262528b-b9c4-427d-88f9-cc048bebd852
+    dialogueText: "Ey there, I ain\u2019t seen you \u2018ere before! Ya want something
+      from me? Wanna get some of the good stuff?"
+    position: {x: 185, y: 200}
+    SpeakerName: Sleezy man
+    SpeakerNameLocation: Speaker Name Left
+    SpeakerSpriteLeft: 
+    SpeakerSpriteRight: 
+    ItemPortCombis: []
+    QuestionAnswerPortCombis: []
+    SkipPorts: []
+    canSkipFromThisPoint: 0
+    CutSceneImageName: 
+  - nodeGuid: bd0fa5ae-8802-4dde-8ec5-5d77e9ee56e9
+    dialogueText: As you lean in closer to speak more privately, you notice the man
+      taking a closer look and assessing you.
+    position: {x: 987, y: 645}
+    SpeakerName: 
+    SpeakerNameLocation: None
+    SpeakerSpriteLeft: 
+    SpeakerSpriteRight: 
+    ItemPortCombis: []
+    QuestionAnswerPortCombis: []
+    SkipPorts: []
+    canSkipFromThisPoint: 0
+    CutSceneImageName: 
+  - nodeGuid: a554c471-d58c-4c1d-8d7c-4f5f50d87df6
+    dialogueText: Ah, you're a tough one, I see. I think we should go speak in private...
+      Lots of ears around 'ere, y'know?
+    position: {x: 1340, y: 645}
+    SpeakerName: Sleezy man
+    SpeakerNameLocation: Speaker Name Right
+    SpeakerSpriteLeft: 
+    SpeakerSpriteRight: 
+    ItemPortCombis: []
+    QuestionAnswerPortCombis: []
+    SkipPorts: []
+    canSkipFromThisPoint: 0
+    CutSceneImageName: 
+  - nodeGuid: bbbe3dc2-991c-481f-ba7c-90ac8ac7a178
+    dialogueText: Something else, ey? Well, you sure don't look like a rusher, so
+      what brings you 'ere?
+    position: {x: 1366, y: 268}
+    SpeakerName: Sleezy man
+    SpeakerNameLocation: Speaker Name Right
+    SpeakerSpriteLeft: 
+    SpeakerSpriteRight: 
+    ItemPortCombis: []
+    QuestionAnswerPortCombis: []
+    SkipPorts: []
+    canSkipFromThisPoint: 0
+    CutSceneImageName: 
+  - nodeGuid: c73cc684-5045-4395-9623-f68808d1726b
+    dialogueText: I, uh-... I am here for some information.
+    position: {x: 1729, y: 268}
+    SpeakerName: Milton
+    SpeakerNameLocation: Speaker Name Left
+    SpeakerSpriteLeft: 
+    SpeakerSpriteRight: 
+    ItemPortCombis: []
+    QuestionAnswerPortCombis: []
+    SkipPorts: []
+    canSkipFromThisPoint: 0
+    CutSceneImageName: 
+  - nodeGuid: ab9649d4-a4a1-4d89-a7c7-39626b8f73d1
+    dialogueText: Woah, information? You're one interesting fella, huh? See, getting
+      information from the family isn't as easy as just coming up and asking. Surely
+      you've got something in return?
+    position: {x: 2088, y: 268}
+    SpeakerName: Sleezy man
+    SpeakerNameLocation: Speaker Name Right
+    SpeakerSpriteLeft: 
+    SpeakerSpriteRight: 
+    ItemPortCombis: []
+    QuestionAnswerPortCombis: []
+    SkipPorts: []
+    canSkipFromThisPoint: 0
+    CutSceneImageName: 
+  - nodeGuid: bcf477b4-0a4b-4fa2-9cd7-32bd9681c2c8
+    dialogueText: Well, see, if you don't have any money or any other info, there's
+      not that much I can help 'ya with. Maybe if you were in the family, we could've
+      given you a task or somethin', but that would be a big gamble, which is not
+      something we usually do.
+    position: {x: 2825, y: 387}
+    SpeakerName: Sleezy man
+    SpeakerNameLocation: Speaker Name Right
+    SpeakerSpriteLeft: 
+    SpeakerSpriteRight: 
+    ItemPortCombis: []
+    QuestionAnswerPortCombis: []
+    SkipPorts: []
+    canSkipFromThisPoint: 0
+    CutSceneImageName: 
+  - nodeGuid: 8ad2f569-bc8d-4cb8-ba6c-2895b2677f95
+    dialogueText: Buttons
+    position: {x: 2449, y: 268}
+    SpeakerName: 
+    SpeakerNameLocation: None
+    SpeakerSpriteLeft: 
+    SpeakerSpriteRight: 
+    ItemPortCombis: []
+    QuestionAnswerPortCombis: []
+    SkipPorts: []
+    canSkipFromThisPoint: 0
+    CutSceneImageName: 
+  - nodeGuid: 85ed38eb-4d0e-4632-8c69-1900b7eca741
+    dialogueText: Look, pal, I'm in a good mood today. You seem harmless, and as
+      confused as I am, so I'm not gonna question 'ya about how you found this place
+      or who even gave 'ya the bright idea to go here and ask, but if you don't leave
+      right now - things are gonna get messy. Oh, and don't speak about this ever
+      again to anyone. Or we will find you and we will kill you, 'ya probably know
+      the gist. Now scrum, I've got work to do.
+    position: {x: 3189, y: 387}
+    SpeakerName: Sleezy man
+    SpeakerNameLocation: Speaker Name Right
+    SpeakerSpriteLeft: 
+    SpeakerSpriteRight: 
+    ItemPortCombis: []
+    QuestionAnswerPortCombis: []
+    SkipPorts: []
+    canSkipFromThisPoint: 0
+    CutSceneImageName: 
+  - nodeGuid: 472e96d2-b4f3-4f2f-8617-eb9b717fba0e
+    dialogueText: As you lean in closer to speak more privately, you notice the man
+      taking a closer look and assessing you. He seems to have noticed the ring you're
+      wearing.
+    position: {x: 1004, y: -44}
+    SpeakerName: 
+    SpeakerNameLocation: None
+    SpeakerSpriteLeft: 
+    SpeakerSpriteRight: 
+    ItemPortCombis: []
+    QuestionAnswerPortCombis: []
+    SkipPorts: []
+    canSkipFromThisPoint: 0
+    CutSceneImageName: 
+  - nodeGuid: b193ed6b-c592-4627-963c-6cf31497629a
+    dialogueText: Heh, heh... Well, and what is that you want, pal? C'mon, tell me.
+    position: {x: 1355, y: -44}
+    SpeakerName: Sleezy man
+    SpeakerNameLocation: Speaker Name Right
+    SpeakerSpriteLeft: 
+    SpeakerSpriteRight: 
+    ItemPortCombis: []
+    QuestionAnswerPortCombis: []
+    SkipPorts: []
+    canSkipFromThisPoint: 0
+    CutSceneImageName: 
+  - nodeGuid: edc9ff54-20ea-454b-8cbc-5eee8ec2687c
+    dialogueText: I, uh... I need information
+    position: {x: 1692, y: -41}
+    SpeakerName: Milton
+    SpeakerNameLocation: Speaker Name Left
+    SpeakerSpriteLeft: 
+    SpeakerSpriteRight: 
+    ItemPortCombis: []
+    QuestionAnswerPortCombis: []
+    SkipPorts: []
+    canSkipFromThisPoint: 0
+    CutSceneImageName: 
+  - nodeGuid: 2c31d37e-74c2-40f1-bcc8-f7ef0f56a248
+    dialogueText: Ah, information, of course. Well, lemme give ya some information.
+    position: {x: 2033, y: -41}
+    SpeakerName: Sleezy man
+    SpeakerNameLocation: Speaker Name Right
+    SpeakerSpriteLeft: 
+    SpeakerSpriteRight: 
+    ItemPortCombis: []
+    QuestionAnswerPortCombis: []
+    SkipPorts: []
+    canSkipFromThisPoint: 0
+    CutSceneImageName: 
+  - nodeGuid: bc51eda2-539a-4b81-b7d8-285021092cf3
+    dialogueText: Suddenly, the man in pink lunges over the table and grabs you by
+      the wrist with a surprising amount of force.
+    position: {x: 2378, y: -41}
+    SpeakerName: 
+    SpeakerNameLocation: Speaker Name Left
+    SpeakerSpriteLeft: 
+    SpeakerSpriteRight: 
+    ItemPortCombis: []
+    QuestionAnswerPortCombis: []
+    SkipPorts: []
+    canSkipFromThisPoint: 0
+    CutSceneImageName: 
+  - nodeGuid: 272d7811-4178-4ce4-8878-9f322ac039ad
+    dialogueText: endingPlaceholder
+    position: {x: 2825, y: 104}
+    SpeakerName: 
+    SpeakerNameLocation: None
+    SpeakerSpriteLeft: 
+    SpeakerSpriteRight: 
+    ItemPortCombis: []
+    QuestionAnswerPortCombis: []
+    SkipPorts: []
+    canSkipFromThisPoint: 0
+    CutSceneImageName: 
+  - nodeGuid: e64da4de-6bcb-4919-af07-392927b4596d
+    dialogueText: Now, listen here, chum. I don't know who told'ya about this place
+      or what brought you here, but I suggest ya take your little legs and stroll
+      right out. Pretend like you've never been here and don't know nothing about
+      any rings business, capiche?
+    position: {x: 2736, y: -262}
+    SpeakerName: Sleezy man
+    SpeakerNameLocation: Speaker Name Right
+    SpeakerSpriteLeft: 
+    SpeakerSpriteRight: 
+    ItemPortCombis: []
+    QuestionAnswerPortCombis: []
+    SkipPorts: []
+    canSkipFromThisPoint: 0
+    CutSceneImageName: 
+  - nodeGuid: a495b2e0-6ea9-4fe6-988b-776be8eb1826
+    dialogueText: Oh, hey, wait, you're one of ours! Why didn't 'cha tell me? Come,
+      come, take a seat.
+    position: {x: 1341, y: -497}
+    SpeakerName: Sleezy man
+    SpeakerNameLocation: Speaker Name Right
+    SpeakerSpriteLeft: 
+    SpeakerSpriteRight: 
+    ItemPortCombis: []
+    QuestionAnswerPortCombis: []
+    SkipPorts: []
+    canSkipFromThisPoint: 0
+    CutSceneImageName: 
+  - nodeGuid: 80b8ab2f-70e1-497e-8f8b-d3a5059e1887
+    dialogueText: The man gestures to the opposite side of the table and you hesitate
+      for a moment before sitting down.
+    position: {x: 1667, y: -497}
+    SpeakerName: 
+    SpeakerNameLocation: None
+    SpeakerSpriteLeft: 
+    SpeakerSpriteRight: 
+    ItemPortCombis: []
+    QuestionAnswerPortCombis: []
+    SkipPorts: []
+    canSkipFromThisPoint: 0
+    CutSceneImageName: 
+  - nodeGuid: 65cd8904-046d-41ba-9a76-cce45a2aa139
+    dialogueText: Now then, why don't we start with introductions? Name's Lil' Dude,
+      or at least that's what they call me 'round here. Pleasure to meet'cha. And
+      you are...?
+    position: {x: 1993, y: -497}
+    SpeakerName: Lil' Dude
+    SpeakerNameLocation: Speaker Name Right
+    SpeakerSpriteLeft: 
+    SpeakerSpriteRight: 
+    ItemPortCombis: []
+    QuestionAnswerPortCombis: []
+    SkipPorts: []
+    canSkipFromThisPoint: 0
+    CutSceneImageName: 
+  - nodeGuid: f9508c17-c04d-4b5a-9f3d-e7c55bef5dab
+    dialogueText: Buttons
+    position: {x: 2319, y: -497}
+    SpeakerName: 
+    SpeakerNameLocation: None
+    SpeakerSpriteLeft: 
+    SpeakerSpriteRight: 
+    ItemPortCombis: []
+    QuestionAnswerPortCombis: []
+    SkipPorts: []
+    canSkipFromThisPoint: 0
+    CutSceneImageName: 
+  - nodeGuid: 6a2e262d-af27-497d-a3d7-aba79d015182
+    dialogueText: Now, now, hold your horses, chum. That's classified and, regardless,
+      that's not something you need to know. Now, YOUR name, if you'd be so kind.
+    position: {x: 2660, y: -934}
+    SpeakerName: Lil' Dude
+    SpeakerNameLocation: Speaker Name Right
+    SpeakerSpriteLeft: 
+    SpeakerSpriteRight: 
+    ItemPortCombis: []
+    QuestionAnswerPortCombis: []
+    SkipPorts: []
+    canSkipFromThisPoint: 0
+    CutSceneImageName: 
+  - nodeGuid: 154b1773-a05a-4119-ad65-34bf6f3c027c
+    dialogueText: "Milton, huh? Milton Brown... Yea, doesn't ring a bell at all.
+      They do be takin\u2019 a lot more new folk in ever since the incident, it seems.
+      So, Milton. What d\u2019ya want? Murder? Revenge? Info? Drugs? Tell me and
+      I see how I can help \u2018ya."
+    position: {x: 3362, y: -592}
+    SpeakerName: Lil' Dude
+    SpeakerNameLocation: Speaker Name Right
+    SpeakerSpriteLeft: 
+    SpeakerSpriteRight: 
+    ItemPortCombis: []
+    QuestionAnswerPortCombis: []
+    SkipPorts: []
+    canSkipFromThisPoint: 0
+    CutSceneImageName: 
+  - nodeGuid: 0b5f527f-074a-4416-8cb4-890a9c4042a2
+    dialogueText: Drugs?! No, no, none of that..! I just need information.
+    position: {x: 3688, y: -592}
+    SpeakerName: Lil' Dude
+    SpeakerNameLocation: Speaker Name Right
+    SpeakerSpriteLeft: 
+    SpeakerSpriteRight: 
+    ItemPortCombis: []
+    QuestionAnswerPortCombis: []
+    SkipPorts: []
+    canSkipFromThisPoint: 0
+    CutSceneImageName: 
+  - nodeGuid: d177e72c-f709-4006-b265-de6a272ba8f0
+    dialogueText: Hah! Well ain't you an interesting fella! Never woulda thought
+      someone as innocent-lookin' as you would just come up and ask for a mission
+      directly like that. Unfortunately for you, that's not exactly how things work
+      'round here.
+    position: {x: 4666, y: -592}
+    SpeakerName: Lil' Dude
+    SpeakerNameLocation: Speaker Name Right
+    SpeakerSpriteLeft: 
+    SpeakerSpriteRight: 
+    ItemPortCombis: []
+    QuestionAnswerPortCombis: []
+    SkipPorts: []
+    canSkipFromThisPoint: 0
+    CutSceneImageName: 
+  - nodeGuid: 83a14a89-25c4-4616-9465-1b22849d402b
+    dialogueText: I'd certainly love to give 'ya a mission, but we don't really give
+      them on request, 'ya see? If we need 'ya, we'll reach out on our own. That's
+      how it always works when you're one of us, so best I can do is advise 'ya to
+      wait.
+    position: {x: 4992, y: -592}
+    SpeakerName: Lil' Dude
+    SpeakerNameLocation: Speaker Name Right
+    SpeakerSpriteLeft: 
+    SpeakerSpriteRight: 
+    ItemPortCombis: []
+    QuestionAnswerPortCombis: []
+    SkipPorts: []
+    canSkipFromThisPoint: 0
+    CutSceneImageName: 
+  - nodeGuid: 73548ab9-3e08-4430-b345-ccd4a0a0d584
+    dialogueText: "Ya know how they say \u201CAn eye for an eye?\u201D. Well, that\u2019s
+      how info works in the family. 'Ya got anything to tell or show? Or, ya\u2019know\u2026
+      money, at the very least? Then we can help. Otherwise... eh, not exactly sure."
+    position: {x: 4014, y: -592}
+    SpeakerName: Lil' Dude
+    SpeakerNameLocation: Speaker Name Right
+    SpeakerSpriteLeft: 
+    SpeakerSpriteRight: 
+    ItemPortCombis: []
+    QuestionAnswerPortCombis: []
+    SkipPorts: []
+    canSkipFromThisPoint: 0
+    CutSceneImageName: 
+  - nodeGuid: e3e1d69d-05dd-4bcf-bd53-1722e4ece61f
+    dialogueText: Hmm... yes, I don't really have money, and I don't think I know
+      anything that you would consider interesting. But is there, perhaps, any other
+      way in which I can be useful to the family? I'm not the strongest or the smartest
+      of the bunch, but I'm sure the family has missions for someone like me as well?
+    position: {x: 4340, y: -592}
+    SpeakerName: Milton
+    SpeakerNameLocation: Speaker Name Left
+    SpeakerSpriteLeft: 
+    SpeakerSpriteRight: 
+    ItemPortCombis: []
+    QuestionAnswerPortCombis: []
+    SkipPorts: []
+    canSkipFromThisPoint: 0
+    CutSceneImageName: 
+  - nodeGuid: 552552b8-f55d-4365-93db-2c4ac7a8ebac
+    dialogueText: Oh... I see. Well, I suppose I'll have to wait then. I'll be on
+      my way.
+    position: {x: 5318, y: -592}
+    SpeakerName: Milton
+    SpeakerNameLocation: Speaker Name Left
+    SpeakerSpriteLeft: 
+    SpeakerSpriteRight: 
+    ItemPortCombis: []
+    QuestionAnswerPortCombis: []
+    SkipPorts: []
+    canSkipFromThisPoint: 0
+    CutSceneImageName: 
+  - nodeGuid: 11f22f11-254f-45ce-8249-5e7119006989
+    dialogueText: Buttons
+    position: {x: 5644, y: -592}
+    SpeakerName: 
+    SpeakerNameLocation: None
+    SpeakerSpriteLeft: 
+    SpeakerSpriteRight: 
+    ItemPortCombis: []
+    QuestionAnswerPortCombis: []
+    SkipPorts: []
+    canSkipFromThisPoint: 0
+    CutSceneImageName: 
+  - nodeGuid: cd3b1eb6-90b3-49a1-ae8d-87b6ddcbb44c
+    dialogueText: 
+    position: {x: 5997, y: -875}
+    SpeakerName: 
+    SpeakerNameLocation: None
+    SpeakerSpriteLeft: 
+    SpeakerSpriteRight: 
+    ItemPortCombis: []
+    QuestionAnswerPortCombis: []
+    SkipPorts: []
+    canSkipFromThisPoint: 0
+    CutSceneImageName: 
+  - nodeGuid: a8158a2a-4e56-4515-bc9a-dc14cb0b7a00
+    dialogueText: Oh, uh... sure, I s'pose. What've you got there? A liquor bottle?
+      Oh, yeah, it kinda looks like-...
+    position: {x: 5997, y: -473}
+    SpeakerName: Lil' Dude
+    SpeakerNameLocation: Speaker Name Right
+    SpeakerSpriteLeft: 
+    SpeakerSpriteRight: 
+    ItemPortCombis: []
+    QuestionAnswerPortCombis: []
+    SkipPorts: []
+    canSkipFromThisPoint: 0
+    CutSceneImageName: 
+  - nodeGuid: df97e15f-11f7-4141-b66d-525c657676ef
+    dialogueText: Suddenly, you see Lil' Dude freeze, as color starts to leave his
+      face. He looks at you, almost a little bit scared, and looks around to see
+      if anyone's listening in to your conversation. A second after, he makes a gesture
+      with his hand, and you see a couple bodyguards leave the room.
+    position: {x: 6343, y: -470}
+    SpeakerName: 
+    SpeakerNameLocation: None
+    SpeakerSpriteLeft: 
+    SpeakerSpriteRight: 
+    ItemPortCombis: []
+    QuestionAnswerPortCombis: []
+    SkipPorts: []
+    canSkipFromThisPoint: 0
+    CutSceneImageName: 
+  - nodeGuid: 2b275616-9527-48c0-b439-b751977301b6
+    dialogueText: OH, SHI-... I mean, heh-heh, I... I, um, really apologise for my
+      prior behaviour. See, I didn't know you were an esteemed guest! P-please, please,
+      sit back down, I really shouldn't have been so harsh!
+    position: {x: 6669, y: -470}
+    SpeakerName: Lil' Dude
+    SpeakerNameLocation: Speaker Name Right
+    SpeakerSpriteLeft: 
+    SpeakerSpriteRight: 
+    ItemPortCombis: []
+    QuestionAnswerPortCombis: []
+    SkipPorts: []
+    canSkipFromThisPoint: 0
+    CutSceneImageName: 
+  - nodeGuid: 003ca35e-f9ac-4ca7-bef5-7bea9ab394d3
+    dialogueText: 'Now, what did you say you need, Mr. Brown? Information? Uh, sure,
+      sure... Do you want to ask a question to me, or would you like to speak to
+      the Big Lady? It''s, uh... been quite difficult to organise an audience with
+      her ever since she took the Big Man''s place after he''s been arrested, - I''m
+      sure you know the gist, - but we could always figure something out! '
+    position: {x: 6995, y: -470}
+    SpeakerName: Lil' Dude
+    SpeakerNameLocation: Speaker Name Right
+    SpeakerSpriteLeft: 
+    SpeakerSpriteRight: 
+    ItemPortCombis: []
+    QuestionAnswerPortCombis: []
+    SkipPorts: []
+    canSkipFromThisPoint: 0
+    CutSceneImageName: 
+  - nodeGuid: 0825fea2-3484-4f36-a840-de638b59462d
+    dialogueText: O-oh... well, if it's like that... yeah, sure, I'd love to speak
+      to the Boss directly. Please do help me arrange that.
+    position: {x: 7321, y: -470}
+    SpeakerName: Milton
+    SpeakerNameLocation: Speaker Name Left
+    SpeakerSpriteLeft: 
+    SpeakerSpriteRight: 
+    ItemPortCombis: []
+    QuestionAnswerPortCombis: []
+    SkipPorts: []
+    canSkipFromThisPoint: 0
+    CutSceneImageName: 
+  - nodeGuid: 8d6cbf15-7ca9-42bb-9659-5926433976ac
+    dialogueText: O-of course! Give me just a second...
+    position: {x: 7647, y: -470}
+    SpeakerName: Lil' Dude
+    SpeakerNameLocation: Speaker Name Right
+    SpeakerSpriteLeft: 
+    SpeakerSpriteRight: 
+    ItemPortCombis: []
+    QuestionAnswerPortCombis: []
+    SkipPorts: []
+    canSkipFromThisPoint: 0
+    CutSceneImageName: 
+  - nodeGuid: 12089a73-c2fd-4b5c-a0cf-bae1ab42c865
+    dialogueText: Lil' Dude puts on some pink round glasses and hastily pulls out
+      a comically large planning book almost out of nowhere.
+    position: {x: 7973, y: -470}
+    SpeakerName: 
+    SpeakerNameLocation: None
+    SpeakerSpriteLeft: 
+    SpeakerSpriteRight: 
+    ItemPortCombis: []
+    QuestionAnswerPortCombis: []
+    SkipPorts: []
+    canSkipFromThisPoint: 0
+    CutSceneImageName: 
+  - nodeGuid: e5afc03a-4bc1-4dd4-9091-87e6bc753e1f
+    dialogueText: Now, let me see here... Oh, well ain't you a lucky one! One of
+      our agents was s'posed to have a meeting with her tomorrow at 6pm, but he seems
+      to have kicked the bucket while out on a mission. That time window's totally
+      free now! Would 'ya like me to sign you up for then, Mr. Brown?
+    position: {x: 8299, y: -470}
+    SpeakerName: Lil' Dude
+    SpeakerNameLocation: Speaker Name Right
+    SpeakerSpriteLeft: 
+    SpeakerSpriteRight: 
+    ItemPortCombis: []
+    QuestionAnswerPortCombis: []
+    SkipPorts: []
+    canSkipFromThisPoint: 0
+    CutSceneImageName: 
+  - nodeGuid: 3b82dc4e-d298-49b8-a198-09948e03e6d1
+    dialogueText: Sure. That would work.
+    position: {x: 8625, y: -470}
+    SpeakerName: Milton
+    SpeakerNameLocation: Speaker Name Left
+    SpeakerSpriteLeft: 
+    SpeakerSpriteRight: 
+    ItemPortCombis: []
+    QuestionAnswerPortCombis: []
+    SkipPorts: []
+    canSkipFromThisPoint: 0
+    CutSceneImageName: 
+  - nodeGuid: adda3740-1e34-42b5-8caa-ebe77e698761
+    dialogueText: Perfect! 'Ya can come to the usual place tomorrow at 6 and tell
+      them I sent 'ya so that they let you in. Or, well, ya'know, just show them
+      that lil' thing you got, I'm sure they won't push back. Uh, alright then! And
+      have a great evening!
+    position: {x: 8951, y: -470}
+    SpeakerName: Lil' Dude
+    SpeakerNameLocation: Speaker Name Right
+    SpeakerSpriteLeft: 
+    SpeakerSpriteRight: 
+    ItemPortCombis: []
+    QuestionAnswerPortCombis: []
+    SkipPorts: []
+    canSkipFromThisPoint: 0
+    CutSceneImageName: 
+  - nodeGuid: e834b980-0d9f-46a7-a342-4b3a6f2d05e1
+    dialogueText: The man takes you through a door in the back and outside to a dark
+      alleyway.
+    position: {x: 1700, y: 645}
+    SpeakerName: 
+    SpeakerNameLocation: None
+    SpeakerSpriteLeft: 
+    SpeakerSpriteRight: 
+    ItemPortCombis: []
+    QuestionAnswerPortCombis: []
+    SkipPorts: []
+    canSkipFromThisPoint: 0
+    CutSceneImageName: 
+  - nodeGuid: f97452ca-a1c8-47f9-b161-7c659c34a474
+    dialogueText: As you lean in closer to speak more privately, you notice the man
+      taking a closer look and assessing you. He seems to have noticed the ring you're
+      wearing.
+    position: {x: 1004, y: -497}
+    SpeakerName: 
+    SpeakerNameLocation: None
+    SpeakerSpriteLeft: 
+    SpeakerSpriteRight: 
+    ItemPortCombis: []
+    QuestionAnswerPortCombis: []
+    SkipPorts: []
+    canSkipFromThisPoint: 0
+    CutSceneImageName: 
+  - nodeGuid: 6be61638-f05c-4b3c-8ddd-590239bc5149
+    dialogueText: "No, no\u2026 I want something else."
+    position: {x: 553, y: 200}
+    SpeakerName: Milton
+    SpeakerNameLocation: Speaker Name Left
+    SpeakerSpriteLeft: 
+    SpeakerSpriteRight: 
+    ItemPortCombis: []
+    QuestionAnswerPortCombis:
+    - portname: Option 1
+      questionUID: 8797b49d169fa3341af54953922e3949
+      answerUID: 2b5609fbde8eb4f4da459a23948aac82
+    - portname: Option 2
+      questionUID: 8797b49d169fa3341af54953922e3949
+      answerUID: a12a74f52afa3714eaf012fa428802f9
+    - portname: Option 3
+      questionUID: 8797b49d169fa3341af54953922e3949
+      answerUID: 63c4298ff019888468984603a63ccb98
+    - portname: Option 4
+      questionUID: 8797b49d169fa3341af54953922e3949
+      answerUID: e12203fb6c69c02448ec0a65014fca8f
+    - portname: Option 5
+      questionUID: 8797b49d169fa3341af54953922e3949
+      answerUID: 08ba641eeeff5254c881e13a99ed25af
+    - portname: Option 6
+      questionUID: 8797b49d169fa3341af54953922e3949
+      answerUID: 32e09a290018ae442a887fbac6f3aacb
+    SkipPorts: []
+    canSkipFromThisPoint: 0
+    CutSceneImageName: 
+  - nodeGuid: a4f842fd-cf5c-454d-9d0e-033a0fa1495f
+    dialogueText: As you lean in closer to speak more privately, you notice the man
+      taking a closer look at you, almost evaluating, trying to understand who you
+      are.
+    position: {x: 1004, y: 298}
+    SpeakerName: 
+    SpeakerNameLocation: None
+    SpeakerSpriteLeft: 
+    SpeakerSpriteRight: 
+    ItemPortCombis: []
+    QuestionAnswerPortCombis: []
+    SkipPorts: []
+    canSkipFromThisPoint: 0
+    CutSceneImageName: 
+  - nodeGuid: bee73519-b5c1-4c19-9046-0fde18f72b32
+    dialogueText: Uh... Milton. Milton Brown.
+    position: {x: 3036, y: -595}
+    SpeakerName: Milton
+    SpeakerNameLocation: Speaker Name Left
+    SpeakerSpriteLeft: 
+    SpeakerSpriteRight: 
+    ItemPortCombis: []
+    QuestionAnswerPortCombis: []
+    SkipPorts: []
+    canSkipFromThisPoint: 0
+    CutSceneImageName: 
+  DialogueEndNodeData: []
+  ExposedProperties:
+  - PropertyName: Ignore
+    PropertyValue: New Value
+  - PropertyName: Milton
+    PropertyValue: New Value
+  - PropertyName: Lil' Dude
+    PropertyValue: New Value
+  - PropertyName: Sleezy man
+    PropertyValue: New Value
+  CommentBlockData: []
