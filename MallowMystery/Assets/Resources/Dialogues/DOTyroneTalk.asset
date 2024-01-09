@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 78b3fd9154634ebdb8c8a48960b9a16a, type: 3}
-  m_Name: Dialogue 1
+  m_Name: DOTyroneTalk
   m_EditorClassIdentifier: 
   alreadyHadConversation: 0
   NodeLinks:
@@ -29,12 +29,12 @@ MonoBehaviour:
   - BaseNodeGUID: 765becea-0233-40ce-a464-8c993f9b4ed2
     PortName: Option 1
     TargetNodeGUID: cff27f5d-d4df-402a-b28b-cf01a0701474
-  - BaseNodeGUID: cff27f5d-d4df-402a-b28b-cf01a0701474
-    PortName: Option 1
-    TargetNodeGUID: bb840e83-87df-4c27-9b63-d17c07e078a2
   - BaseNodeGUID: bb840e83-87df-4c27-9b63-d17c07e078a2
     PortName: Option 1
     TargetNodeGUID: 61ab75fe-d672-4e18-b362-c8fcb28a845a
+  - BaseNodeGUID: cff27f5d-d4df-402a-b28b-cf01a0701474
+    PortName: Option 1
+    TargetNodeGUID: bb840e83-87df-4c27-9b63-d17c07e078a2
   - BaseNodeGUID: 61ab75fe-d672-4e18-b362-c8fcb28a845a
     PortName: Option 1
     TargetNodeGUID: 570a090a-f004-48a4-86d2-f624132c035f
@@ -50,12 +50,6 @@ MonoBehaviour:
   - BaseNodeGUID: 22cfec91-f19a-4512-9ebc-221cbd45688a
     PortName: Option 1
     TargetNodeGUID: af5255af-f6da-417b-9517-0c49674d45fc
-  - BaseNodeGUID: af5255af-f6da-417b-9517-0c49674d45fc
-    PortName: Option 1
-    TargetNodeGUID: 6ee1856f-3a51-4d51-8ddd-16a68e3d5320
-  - BaseNodeGUID: 6ee1856f-3a51-4d51-8ddd-16a68e3d5320
-    PortName: Option 1
-    TargetNodeGUID: 9cefa1e3-8bc5-4fc4-8352-8506acb6beb4
   - BaseNodeGUID: 9cefa1e3-8bc5-4fc4-8352-8506acb6beb4
     PortName: Option 1
     TargetNodeGUID: 1309aff7-e20b-4582-bc5d-693411b1b3aa
@@ -68,9 +62,6 @@ MonoBehaviour:
   - BaseNodeGUID: eb0740a3-2f46-4b48-b0bb-9e066b196c05
     PortName: Option 1
     TargetNodeGUID: 9b26da68-7fa7-4e04-9b60-c8b08bdd4707
-  - BaseNodeGUID: 9b26da68-7fa7-4e04-9b60-c8b08bdd4707
-    PortName: Option 1
-    TargetNodeGUID: 267065b2-015d-47c7-b1b2-6ab59492f780
   - BaseNodeGUID: 267065b2-015d-47c7-b1b2-6ab59492f780
     PortName: Option 1
     TargetNodeGUID: 341e59f8-019c-4c55-a70c-5ae6195e3c60
@@ -80,6 +71,18 @@ MonoBehaviour:
   - BaseNodeGUID: 9044e8e1-94b1-4971-9390-1e976fa29954
     PortName: Option 1
     TargetNodeGUID: cc91571d-7588-42c9-8efd-060bdd4fa96f
+  - BaseNodeGUID: 9b26da68-7fa7-4e04-9b60-c8b08bdd4707
+    PortName: Option 1
+    TargetNodeGUID: 267065b2-015d-47c7-b1b2-6ab59492f780
+  - BaseNodeGUID: 6ee1856f-3a51-4d51-8ddd-16a68e3d5320
+    PortName: Option 1
+    TargetNodeGUID: 9cefa1e3-8bc5-4fc4-8352-8506acb6beb4
+  - BaseNodeGUID: af5255af-f6da-417b-9517-0c49674d45fc
+    PortName: Option 1
+    TargetNodeGUID: 6ee1856f-3a51-4d51-8ddd-16a68e3d5320
+  - BaseNodeGUID: cc91571d-7588-42c9-8efd-060bdd4fa96f
+    PortName: Option 1
+    TargetNodeGUID: 070522d6-3c10-4261-835b-537b28be8ad9
   DialogueNodeData:
   - nodeGuid: 4f83f30e-cb5a-4ae4-a8bc-c3b8887ce822
     dialogueText: "Oh, you\u2019re still here? Did you want to ask something?"
@@ -215,7 +218,8 @@ MonoBehaviour:
   - nodeGuid: 22cfec91-f19a-4512-9ebc-221cbd45688a
     dialogueText: "I also can\u2019t stop thinking about the empty evidence cart.
       I just don\u2019t believe that there were no leads at all! Have you noticed
-      anyone coming into Cornelia\u2019s house, by any chance?"
+      anyone coming into Cornelia\u2019s house, by any chance? It's the one by the
+      flower shop."
     position: {x: 3445, y: -3}
     SpeakerName: Milton
     SpeakerNameLocation: Speaker Name Left
@@ -322,9 +326,7 @@ MonoBehaviour:
     CutSceneImageName: 
   - nodeGuid: cc91571d-7588-42c9-8efd-060bdd4fa96f
     dialogueText: "In a couple of minutes, I\u2019m going to leave for a different
-      case, so you won\u2019t be able to see me for a bit. Please be careful. And
-      be quick. The police could come back with a search warrant, and I doubt they\u2019d
-      be kind to you, rummaging through a dead person\u2019s house. Good luck."
+      case, so you won\u2019t be able to see me for a bit. "
     position: {x: 7513, y: 0}
     SpeakerName: Tyrone
     SpeakerNameLocation: Speaker Name Right
@@ -368,6 +370,20 @@ MonoBehaviour:
       worked on. I can\u2019t say for sure but I wouldn\u2019t be surprised if the
       mafia was involved. "
     position: {x: 3813, y: 0}
+    SpeakerName: Tyrone
+    SpeakerNameLocation: Speaker Name Right
+    SpeakerSpriteLeft: M1
+    SpeakerSpriteRight: D1
+    ItemPortCombis: []
+    QuestionAnswerPortCombis: []
+    SkipPorts: []
+    canSkipFromThisPoint: 0
+    CutSceneImageName: 
+  - nodeGuid: 070522d6-3c10-4261-835b-537b28be8ad9
+    dialogueText: "Please be careful. And be quick. The police could come back with
+      a search warrant, and I doubt they\u2019d be kind to you, rummaging through
+      a dead person\u2019s house. Good luck."
+    position: {x: 7875, y: 0}
     SpeakerName: Tyrone
     SpeakerNameLocation: Speaker Name Right
     SpeakerSpriteLeft: M1
