@@ -140,10 +140,6 @@ public class DataPersistenceManager : MonoBehaviour {
         _levelManager.sceneSwitchData = null;
     }
 
-    public GameData getGameData() {
-        return _gameData;
-    }
-
     public void setEndingStringList(EndingStringList endingStringList) {
         this.endingStringList = endingStringList;
     }

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028331, g: 0.2257133, b: 0.3069217, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.3069224, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -461,12 +461,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1851968893919420778, guid: 312bea23fa0362245a7d0cb42eb217da,
-        type: 3}
-      propertyPath: clueInv
-      value: 
-      objectReference: {fileID: 11400000, guid: 8895089aba195f845951a72f3a516262,
-        type: 2}
     - target: {fileID: 4199459121684761797, guid: 312bea23fa0362245a7d0cb42eb217da,
         type: 3}
       propertyPath: m_Name
@@ -1205,12 +1199,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2593627881289590755, guid: 528fd1b6223d4af37b5c769ac236b1f9,
-        type: 3}
-      propertyPath: closeUI
-      value: 
-      objectReference: {fileID: 11400000, guid: 69d7377665b4b24479999fc5374c02e9,
-        type: 2}
     - target: {fileID: 3004372380984215479, guid: 528fd1b6223d4af37b5c769ac236b1f9,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -1334,58 +1322,8 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 7167250484634944375, guid: 528fd1b6223d4af37b5c769ac236b1f9,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 452374779}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 528fd1b6223d4af37b5c769ac236b1f9, type: 3}
---- !u!114 &452374777 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2593627881289590755, guid: 528fd1b6223d4af37b5c769ac236b1f9,
-    type: 3}
-  m_PrefabInstance: {fileID: 452374776}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 452374778}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bac7f139108a950a5b95d538cd9785ba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!1 &452374778 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7167250484634944375, guid: 528fd1b6223d4af37b5c769ac236b1f9,
-    type: 3}
-  m_PrefabInstance: {fileID: 452374776}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &452374779
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 452374778}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa3169ad095a4be5a43f2f92d175c067, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Event: {fileID: 11400000, guid: a708b7c51e830a344a09a5b2664eab14, type: 2}
-  response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 452374777}
-        m_TargetAssemblyTypeName: newCanvasManager, Assembly-CSharp
-        m_MethodName: openJournalPage
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!1001 &455788798
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2298,8 +2236,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 898871110}
         m_TargetAssemblyTypeName: ItemLoadScene, Assembly-CSharp
-        m_MethodName: PickUpObject
-        m_Mode: 6
+        m_MethodName: InteractWithItem
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2349,7 +2287,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemData: {fileID: 11400000, guid: 504c2fbac631dda4eb3fdfab78a1b531, type: 2}
-  _inventory: {fileID: 11400000, guid: 9b88e5fd99f1886478c294c52675e601, type: 2}
+  itemDataEvent: {fileID: 11400000, guid: 04ddfae70622f3a429b5933eb8e1961f, type: 2}
 --- !u!1 &899083991 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 61b317c283cd73e49ad6328d669e7e7d,
@@ -2882,7 +2820,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemData: {fileID: 11400000, guid: a9a2de3b2e6ffcc41a41828ccf5f325c, type: 2}
-  _inventory: {fileID: 11400000, guid: 9b88e5fd99f1886478c294c52675e601, type: 2}
+  itemDataEvent: {fileID: 11400000, guid: 04ddfae70622f3a429b5933eb8e1961f, type: 2}
 --- !u!4 &1037778531 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 1bcd221bcc52b70409354c6a4f68004a,
@@ -2907,8 +2845,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1037778530}
         m_TargetAssemblyTypeName: ItemLoadScene, Assembly-CSharp
-        m_MethodName: PickUpObject
-        m_Mode: 6
+        m_MethodName: InteractWithItem
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -3039,8 +2977,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1055323473}
         m_TargetAssemblyTypeName: ItemLoadScene, Assembly-CSharp
-        m_MethodName: PickUpObject
-        m_Mode: 6
+        m_MethodName: InteractWithItem
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -3062,7 +3000,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemData: {fileID: 11400000, guid: 1faf0cf6e2db3764c853d09592f88f27, type: 2}
-  _inventory: {fileID: 11400000, guid: 9b88e5fd99f1886478c294c52675e601, type: 2}
+  itemDataEvent: {fileID: 11400000, guid: 04ddfae70622f3a429b5933eb8e1961f, type: 2}
 --- !u!1 &1061172653 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: beca4915e5a019443a305fec01135643,
@@ -4010,8 +3948,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1595840477}
         m_TargetAssemblyTypeName: ItemLoadScene, Assembly-CSharp
-        m_MethodName: PickUpObject
-        m_Mode: 6
+        m_MethodName: InteractWithItem
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -4033,7 +3971,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemData: {fileID: 11400000, guid: 9215cb9a8b7f0f743a8a155745d30e7c, type: 2}
-  _inventory: {fileID: 11400000, guid: 9b88e5fd99f1886478c294c52675e601, type: 2}
+  itemDataEvent: {fileID: 11400000, guid: 04ddfae70622f3a429b5933eb8e1961f, type: 2}
 --- !u!1 &1599832537 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: b8aaa9f285298364b8a53f1d48083c4c,
@@ -5140,8 +5078,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1882208093}
         m_TargetAssemblyTypeName: ItemLoadScene, Assembly-CSharp
-        m_MethodName: PickUpObject
-        m_Mode: 6
+        m_MethodName: InteractWithItem
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -5163,7 +5101,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemData: {fileID: 11400000, guid: b822fc87d6a08394b845266d8764b7df, type: 2}
-  _inventory: {fileID: 11400000, guid: 9b88e5fd99f1886478c294c52675e601, type: 2}
+  itemDataEvent: {fileID: 11400000, guid: 04ddfae70622f3a429b5933eb8e1961f, type: 2}
 --- !u!1001 &1898307280
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5470,7 +5408,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemData: {fileID: 11400000, guid: b345000ddf2b98b4f89234aac489f47f, type: 2}
-  _inventory: {fileID: 11400000, guid: 9b88e5fd99f1886478c294c52675e601, type: 2}
+  itemDataEvent: {fileID: 11400000, guid: 04ddfae70622f3a429b5933eb8e1961f, type: 2}
 --- !u!4 &1914342806 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: c3b7efcc988eb5c4b908629626b86a39,
@@ -5495,8 +5433,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1914342805}
         m_TargetAssemblyTypeName: ItemLoadScene, Assembly-CSharp
-        m_MethodName: PickUpObject
-        m_Mode: 6
+        m_MethodName: InteractWithItem
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -5632,8 +5570,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1950682908}
         m_TargetAssemblyTypeName: ItemLoadScene, Assembly-CSharp
-        m_MethodName: PickUpObject
-        m_Mode: 6
+        m_MethodName: InteractWithItem
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -5683,7 +5621,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemData: {fileID: 11400000, guid: 09f249f8c3f0bf1468fa25188c874188, type: 2}
-  _inventory: {fileID: 11400000, guid: 9b88e5fd99f1886478c294c52675e601, type: 2}
+  itemDataEvent: {fileID: 11400000, guid: 04ddfae70622f3a429b5933eb8e1961f, type: 2}
 --- !u!1 &1957776883
 GameObject:
   m_ObjectHideFlags: 0
@@ -5983,6 +5921,11 @@ PrefabInstance:
     - target: {fileID: 950788863271735146, guid: 90da51a3f4e823048af2b52f7fce6253,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1967956138881784765, guid: 90da51a3f4e823048af2b52f7fce6253,
+        type: 3}
+      propertyPath: startFresh
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4117460809587361749, guid: 90da51a3f4e823048af2b52f7fce6253,
@@ -9006,6 +8949,74 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 3116975189397924673}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &3149431820571632921
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4123720280014789804, guid: 3378d7ef4d30d8a4d8cc57547070d4f3,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 17.622906
+      objectReference: {fileID: 0}
+    - target: {fileID: 4123720280014789804, guid: 3378d7ef4d30d8a4d8cc57547070d4f3,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -6.806469
+      objectReference: {fileID: 0}
+    - target: {fileID: 4123720280014789804, guid: 3378d7ef4d30d8a4d8cc57547070d4f3,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.3179932
+      objectReference: {fileID: 0}
+    - target: {fileID: 4123720280014789804, guid: 3378d7ef4d30d8a4d8cc57547070d4f3,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4123720280014789804, guid: 3378d7ef4d30d8a4d8cc57547070d4f3,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4123720280014789804, guid: 3378d7ef4d30d8a4d8cc57547070d4f3,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4123720280014789804, guid: 3378d7ef4d30d8a4d8cc57547070d4f3,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4123720280014789804, guid: 3378d7ef4d30d8a4d8cc57547070d4f3,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4123720280014789804, guid: 3378d7ef4d30d8a4d8cc57547070d4f3,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4123720280014789804, guid: 3378d7ef4d30d8a4d8cc57547070d4f3,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5669663848851866635, guid: 3378d7ef4d30d8a4d8cc57547070d4f3,
+        type: 3}
+      propertyPath: m_Name
+      value: ItemPopUp
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3378d7ef4d30d8a4d8cc57547070d4f3, type: 3}
 --- !u!1001 &3150992441160689636
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12074,7 +12085,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemData: {fileID: 11400000, guid: 5877be8e20450184a9659182afaf13e9, type: 2}
-  _inventory: {fileID: 11400000, guid: 9b88e5fd99f1886478c294c52675e601, type: 2}
+  itemDataEvent: {fileID: 11400000, guid: 04ddfae70622f3a429b5933eb8e1961f, type: 2}
 --- !u!114 &6324013446330779656
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12121,8 +12132,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 6324013446330779653}
         m_TargetAssemblyTypeName: ItemLoadScene, Assembly-CSharp
-        m_MethodName: PickUpObject
-        m_Mode: 6
+        m_MethodName: InteractWithItem
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -12861,7 +12872,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemData: {fileID: 0}
-  _inventory: {fileID: 11400000, guid: 9b88e5fd99f1886478c294c52675e601, type: 2}
+  itemDataEvent: {fileID: 11400000, guid: 04ddfae70622f3a429b5933eb8e1961f, type: 2}
 --- !u!114 &6670690219168387662
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12878,10 +12889,10 @@ MonoBehaviour:
   response:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6670690219168387660}
+      - m_Target: {fileID: 898871110}
         m_TargetAssemblyTypeName: ItemLoadScene, Assembly-CSharp
-        m_MethodName: PickUpObject
-        m_Mode: 6
+        m_MethodName: InteractWithItem
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -14460,7 +14471,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemData: {fileID: 0}
-  _inventory: {fileID: 11400000, guid: 9b88e5fd99f1886478c294c52675e601, type: 2}
+  itemDataEvent: {fileID: 0}
 --- !u!114 &8297544784742525507
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15485,3 +15496,4 @@ SceneRoots:
   - {fileID: 339158904}
   - {fileID: 7332904897825101443}
   - {fileID: 1146024618}
+  - {fileID: 3149431820571632921}

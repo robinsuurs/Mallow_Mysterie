@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using ExampleEventScriptAble;
 using ScriptObjects;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ShowSpritePlayer : MonoBehaviour {
 
@@ -12,7 +13,9 @@ public class ShowSpritePlayer : MonoBehaviour {
     private bool showSprite = false;
     
     public void setSpriteRotation() {
-        playerCanvas.transform.rotation = Quaternion.LookRotation(playerCanvas.transform.position - Camera.main.transform.position);
+        if (!SceneManager.GetActiveScene().name.Equals("DetectiveRoom")) {
+            playerCanvas.transform.rotation = Quaternion.LookRotation(playerCanvas.transform.position - Camera.main.transform.position);
+        }
     }
 
     private void showInteractableSprite() {
@@ -22,7 +25,7 @@ public class ShowSpritePlayer : MonoBehaviour {
 
     public void Update() {
         if ((interactListener.GetListenersList().Count != 0 && !showSprite) || (interactListener.GetListenersList().Count == 0 && showSprite)) {
-            playerCanvas.transform.rotation = Quaternion.LookRotation(playerCanvas.transform.position - Camera.main.transform.position);
+            setSpriteRotation();
             showInteractableSprite();
         }
     }
