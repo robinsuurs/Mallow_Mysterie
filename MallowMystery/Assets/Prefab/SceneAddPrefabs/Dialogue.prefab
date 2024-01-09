@@ -1431,10 +1431,8 @@ MonoBehaviour:
   DialogueBoxUI: {fileID: 9216329478776151849}
   SpeakerNameBoxLeft: {fileID: 7134112950222830717}
   SpeakerNameLeftNameBox: {fileID: 8099864943875966527}
-  SpeakerSpriteLeft: {fileID: 2547965502671112827}
   SpeakerNameBoxRight: {fileID: 5257298708922272643}
   SpeakerNameRightNameBox: {fileID: 7518658196248053215}
-  SpeakerSpriteRight: {fileID: 8545262045179447377}
   ChoicesButton: {fileID: 3102500559854669817, guid: c718deec6618370409fd88fff6387927,
     type: 3}
   buttonContainer: {fileID: 1967769204056838660}
@@ -1442,6 +1440,8 @@ MonoBehaviour:
   _listOfSprites: {fileID: 7504501768001522476}
   _inputAction: {fileID: -944628639613478452, guid: 59907ebbc6858584b81c7a48c17517a6,
     type: 3}
+  fadeToBlack: {fileID: 11400000, guid: bdd230c80312f6446812a49e8702efc7, type: 2}
+  fadeToNormal: {fileID: 11400000, guid: e02ad884b8c6edd439d9fc8657f897c9, type: 2}
   currentDialogue: 
   audioSource: {fileID: 7132017482037310979}
   audioClipArray:

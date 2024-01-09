@@ -107,9 +107,11 @@ public class ListOfSprites : MonoBehaviour
     public void CutSceneImageSetter(string currentNodeCutSceneImageName) {
         var cutsceneImage = cutSceneImages.FirstOrDefault(sprite => sprite.name.Equals(currentNodeCutSceneImageName));
         if (cutsceneImage != null) {
+            cutSceneImage.gameObject.SetActive(true);
             cutSceneImage.sprite = cutsceneImage;
         } else {
-            cutSceneImage.sprite = cutSceneImages.FirstOrDefault(sprite => sprite.name.Equals("BlackBackground"));;
+            cutSceneImage.gameObject.SetActive(false);
+            cutSceneImage.sprite = null;
         }
     }
 }

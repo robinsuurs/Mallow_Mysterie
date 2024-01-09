@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using ScriptObjects;
 using TMPro;
 using UnityEngine;
@@ -12,6 +13,9 @@ public class ItemPopUpManager : MonoBehaviour {
     [SerializeField] private TextMeshProUGUI ItemName;
     [SerializeField] private TextMeshProUGUI itemShortDescription;
     [SerializeField] private InputActionAsset _inputAction;
+    
+    [SerializeField] private FadeToBlackEvent fadeToBlackEvent;
+    
     [SerializeField] private UnityEvent openUI;
     [SerializeField] private UnityEvent<ItemData> showInv;
     private ItemData _itemData;
@@ -21,6 +25,7 @@ public class ItemPopUpManager : MonoBehaviour {
         ItemImage.sprite = itemData.icon;
         ItemName.text = itemData.itemName;
         itemShortDescription.text = itemData.shortDescription;
+        fadeToBlackEvent.Raise();
         ItemPopUpScreen.SetActive(true);
         _inputAction.Disable();
     }
@@ -29,7 +34,7 @@ public class ItemPopUpManager : MonoBehaviour {
         ItemPopUpScreen.SetActive(false);
         _inputAction.Enable();
     }
-
+    
     public void seeInInventory() {
         closePopUp();
         openUI.Invoke();

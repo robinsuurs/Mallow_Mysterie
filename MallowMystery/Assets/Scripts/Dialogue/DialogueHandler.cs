@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Dialogue.Runtime;
 using Dialogue.RunTime;
+using ScriptObjects;
 using UnityEngine;
 using TMPro;
 using UnityEngine.InputSystem;
@@ -15,15 +16,16 @@ public class DialogueHandler : MonoBehaviour {
     [SerializeField] private TextMeshProUGUI DialogueBoxUI;
     [SerializeField] private TextMeshProUGUI SpeakerNameBoxLeft;
     [SerializeField] private GameObject SpeakerNameLeftNameBox;
-    [SerializeField] private Image SpeakerSpriteLeft;
     [SerializeField] private TextMeshProUGUI SpeakerNameBoxRight;
     [SerializeField] private GameObject SpeakerNameRightNameBox;
-    [SerializeField] private Image SpeakerSpriteRight;
     [SerializeField] private Button ChoicesButton;
     [SerializeField] private Transform buttonContainer;
     [SerializeField] private float textspeed;
     [SerializeField] private ListOfSprites _listOfSprites;
     [SerializeField] private InputActionAsset _inputAction;
+
+    [SerializeField] private FadeToBlackEvent fadeToBlack;
+    [SerializeField] private FadeToBlackEvent fadeToNormal;
 
     private string overwriteGUID;
     private bool overwrite;
@@ -51,6 +53,7 @@ public class DialogueHandler : MonoBehaviour {
             ProceedToNarrative(narrativeData);
             inDialogue = true;
             disableInputActions();
+            fadeToBlack.Raise();
         }
     }
 
@@ -64,6 +67,7 @@ public class DialogueHandler : MonoBehaviour {
         SpeakerNameBoxRight.text = "";
         dialogueCanvas.SetActive(false);
         enableInputActions();
+        fadeToNormal.Raise();
     }
     
     void Update()
