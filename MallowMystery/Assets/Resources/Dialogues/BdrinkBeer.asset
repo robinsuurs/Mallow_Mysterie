@@ -12,24 +12,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78b3fd9154634ebdb8c8a48960b9a16a, type: 3}
   m_Name: BdrinkBeer
   m_EditorClassIdentifier: 
-  alreadyHadConversation: 0
+  alreadyHadConversation: 1
   NodeLinks:
   - BaseNodeGUID: 73ea5cc4-e730-4ad0-9bee-b565380954d2
     PortName: Next
     TargetNodeGUID: 3130573f-ee57-4ac7-8c05-e9e1a2cc386e
   - BaseNodeGUID: 3130573f-ee57-4ac7-8c05-e9e1a2cc386e
-    PortName: Yes please
-    TargetNodeGUID: a8025856-c2ca-4492-9206-7db215b658f6
-  - BaseNodeGUID: 3130573f-ee57-4ac7-8c05-e9e1a2cc386e
-    PortName: No thanks
-    TargetNodeGUID: 0835b63f-122e-4f9e-9f69-ca85cb3bb083
-  - BaseNodeGUID: a8025856-c2ca-4492-9206-7db215b658f6
-    PortName: Option 1
+    PortName: Yes, please.
     TargetNodeGUID: d42fd59d-d409-49ac-8f28-d1dd7535e91f
+  - BaseNodeGUID: 3130573f-ee57-4ac7-8c05-e9e1a2cc386e
+    PortName: No, thanks.
+    TargetNodeGUID: bebc9a81-1eab-475e-9fd6-929f424fef9a
   DialogueNodeData:
   - nodeGuid: 3130573f-ee57-4ac7-8c05-e9e1a2cc386e
-    dialogueText: Ello would you like a beer?
-    position: {x: 222, y: 200}
+    dialogueText: Wanna drink?
+    position: {x: 246.4, y: 220}
     SpeakerName: Bartender
     SpeakerNameLocation: Speaker Name Right
     SpeakerSpriteLeft: 
@@ -39,21 +36,9 @@ MonoBehaviour:
     SkipPorts: []
     canSkipFromThisPoint: 0
     CutSceneImageName: 
-  - nodeGuid: a8025856-c2ca-4492-9206-7db215b658f6
-    dialogueText: Thanks
-    position: {x: 675, y: 67}
-    SpeakerName: Milton
-    SpeakerNameLocation: Speaker Name Left
-    SpeakerSpriteLeft: 
-    SpeakerSpriteRight: 
-    ItemPortCombis: []
-    QuestionAnswerPortCombis: []
-    SkipPorts: []
-    canSkipFromThisPoint: 0
-    CutSceneImageName: 
-  - nodeGuid: 0835b63f-122e-4f9e-9f69-ca85cb3bb083
+  - nodeGuid: bebc9a81-1eab-475e-9fd6-929f424fef9a
     dialogueText: 
-    position: {x: 675, y: 377}
+    position: {x: 697.6, y: 347.2}
     SpeakerName: 
     SpeakerNameLocation: Speaker Name Left
     SpeakerSpriteLeft: 

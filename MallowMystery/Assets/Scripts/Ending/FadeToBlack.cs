@@ -16,7 +16,7 @@ public class FadeToBlack : MonoBehaviour
     public void FadeToBlackSequence(float fadeSpeed, float opacity, bool goToEndScreen) {
         endCanvas.SetActive(true);
         StartCoroutine(FadeToBlackTime(fadeSpeed, opacity, b => {
-            if (!b || !goToEndScreen) return;
+            if (!goToEndScreen) return;
             inputAction.Enable();
             unityEvent.Invoke();
         }));
@@ -34,11 +34,13 @@ public class FadeToBlack : MonoBehaviour
         Color objectColor = blackBackground.color;
         float fadeAmount;
         
-        while (blackBackground.color.a < opacity) {
+        while (blackBackground.color.a < opacity - 0.000001) {
             fadeAmount = objectColor.a + (fadeSpeed * Time.deltaTime);
 
             if (fadeAmount > opacity) {
-                fadeAmount = opacity;
+                objectColor = new Color(objectColor.r, objectColor.g, objectColor.b, opacity);
+                blackBackground.color = objectColor;
+                break;
             }
     
             objectColor = new Color(objectColor.r, objectColor.g, objectColor.b, fadeAmount);

@@ -935,7 +935,6 @@ MonoBehaviour:
   deductionButton: {fileID: 4484028404460227243}
   mapButton: {fileID: 1727930577769049987}
   settingsButton: {fileID: 2422498137987467032}
-  closeUI: {fileID: 11400000, guid: 69d7377665b4b24479999fc5374c02e9, type: 2}
   isOpen: 0
   currentPage: 0
 --- !u!1 &3169615796761441888
@@ -1328,7 +1327,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a37bc68910538743afb84b9f6424e85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventory: {fileID: 11400000, guid: 8895089aba195f845951a72f3a516262, type: 2}
+  inventory: {fileID: 11400000, guid: 9b88e5fd99f1886478c294c52675e601, type: 2}
   inventoryPlaceholders:
   - {fileID: 6037628419080401914}
   - {fileID: 7389078608396984468}
@@ -2610,7 +2609,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvas: {fileID: 5909514107305063296}
   Journal: {fileID: 585625114812007368}
-  closeUI: {fileID: 11400000, guid: 69d7377665b4b24479999fc5374c02e9, type: 2}
+  closeUI:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: e02ad884b8c6edd439d9fc8657f897c9, type: 2}
+        m_TargetAssemblyTypeName: ScriptObjects.FadeToBlackEvent, Assembly-CSharp
+        m_MethodName: Raise
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: 69d7377665b4b24479999fc5374c02e9, type: 2}
+        m_TargetAssemblyTypeName: GameEventStandardAdd, Assembly-CSharp
+        m_MethodName: Raise
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  fadeEvent: {fileID: 11400000, guid: bdd230c80312f6446812a49e8702efc7, type: 2}
   ui: {fileID: 4853743843108991575}
 --- !u!114 &4853743843108991575
 MonoBehaviour:

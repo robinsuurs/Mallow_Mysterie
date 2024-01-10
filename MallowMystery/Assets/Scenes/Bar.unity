@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.3069224, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028331, g: 0.2257133, b: 0.3069217, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -226,64 +226,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SaveAndLoadManager
-      objectReference: {fileID: 0}
-    - target: {fileID: 5429105792244389119, guid: 90da51a3f4e823048af2b52f7fce6253,
-        type: 3}
-      propertyPath: inputAction
-      value: 
-      objectReference: {fileID: -944628639613478452, guid: 59907ebbc6858584b81c7a48c17517a6,
-        type: 3}
-    - target: {fileID: 5429105792244389119, guid: 90da51a3f4e823048af2b52f7fce6253,
-        type: 3}
-      propertyPath: inputAction.m_Id
-      value: 8d351ca7-e3b8-4323-9fd1-2129320d4ca5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5429105792244389119, guid: 90da51a3f4e823048af2b52f7fce6253,
-        type: 3}
-      propertyPath: inputAction.m_Name
-      value: Input
-      objectReference: {fileID: 0}
-    - target: {fileID: 5429105792244389119, guid: 90da51a3f4e823048af2b52f7fce6253,
-        type: 3}
-      propertyPath: unityEvent.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5429105792244389119, guid: 90da51a3f4e823048af2b52f7fce6253,
-        type: 3}
-      propertyPath: unityEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5429105792244389119, guid: 90da51a3f4e823048af2b52f7fce6253,
-        type: 3}
-      propertyPath: unityEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Target
-      value: 
-      objectReference: {fileID: -4171857911237774402, guid: 59907ebbc6858584b81c7a48c17517a6,
-        type: 3}
-    - target: {fileID: 5429105792244389119, guid: 90da51a3f4e823048af2b52f7fce6253,
-        type: 3}
-      propertyPath: unityEvent.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5429105792244389119, guid: 90da51a3f4e823048af2b52f7fce6253,
-        type: 3}
-      propertyPath: unityEvent.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: LoadNextScene
-      objectReference: {fileID: 0}
-    - target: {fileID: 5429105792244389119, guid: 90da51a3f4e823048af2b52f7fce6253,
-        type: 3}
-      propertyPath: unityEvent.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: LevelManager, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 5429105792244389119, guid: 90da51a3f4e823048af2b52f7fce6253,
-        type: 3}
-      propertyPath: unityEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgument
-      value: 
-      objectReference: {fileID: 11400000, guid: 59a45ef3d08b26a4a916832b7e3b89b8,
-        type: 2}
-    - target: {fileID: 5429105792244389119, guid: 90da51a3f4e823048af2b52f7fce6253,
-        type: 3}
-      propertyPath: unityEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: ScriptObjects.SceneSwitchData, Assembly-CSharp
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7810,139 +7752,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -5804468403629311773, guid: 519d6739a98fefe4d95d6848bf9c08c0, type: 3}
---- !u!1 &1815941248 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3923792818153000638, guid: e400d3bd6e0962a4181ceb7cf89ce309,
-    type: 3}
-  m_PrefabInstance: {fileID: 37460234115380362}
-  m_PrefabAsset: {fileID: 0}
---- !u!65 &1815941249
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1815941248}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.2850449, y: 0.45683417, z: 0.31092414}
-  m_Center: {x: -0.044264495, y: -0.15554607, z: 0.05372468}
---- !u!114 &1815941250
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1815941248}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa55f38c52520ed4ba5e1d921233f98c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Event: {fileID: 11400000, guid: 4ed36360354325242838f9c14d5a3500, type: 2}
-  response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1815941254}
-        m_TargetAssemblyTypeName: BeerCounter, Assembly-CSharp
-        m_MethodName: askBartender
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &1815941254
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1815941248}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 568a8562e2651b148a14a40840e58c17, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  beerDrunk: 0
-  dialogueContainers:
-  - {fileID: 11400000, guid: fb949a5b34680624bba5e4dcaa36639e, type: 2}
-  - {fileID: 11400000, guid: fb949a5b34680624bba5e4dcaa36639e, type: 2}
-  - {fileID: 11400000, guid: fb949a5b34680624bba5e4dcaa36639e, type: 2}
-  - {fileID: 11400000, guid: fb949a5b34680624bba5e4dcaa36639e, type: 2}
-  - {fileID: 11400000, guid: fb949a5b34680624bba5e4dcaa36639e, type: 2}
-  _event:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 11400000, guid: e10444a92f7652f478e5f8decfb2daf1, type: 2}
-        m_TargetAssemblyTypeName: DialogueEvent, Assembly-CSharp
-        m_MethodName: Raise
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  endingEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 11400000, guid: a600bb442a36d3b4e8da2a90dc63f7ae, type: 2}
-        m_TargetAssemblyTypeName: EndingEvent, Assembly-CSharp
-        m_MethodName: Raise
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: 4820cccbec83e354785dd47bac462d13,
-            type: 2}
-          m_ObjectArgumentAssemblyTypeName: EndingStringList, Assembly-CSharp
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &1815941255
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1815941248}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: beb9efe6b50563648ac95ddbc87df5f5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Event: {fileID: 11400000, guid: f9f4ffe52363dce4580b9d89ff893e36, type: 2}
-  response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1815941254}
-        m_TargetAssemblyTypeName: BeerCounter, Assembly-CSharp
-        m_MethodName: beerDrunkAdd
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!1001 &1823232954
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9603,23 +9412,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 3923792818153000638, guid: e400d3bd6e0962a4181ceb7cf89ce309,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1815941250}
-    - targetCorrespondingSourceObject: {fileID: 3923792818153000638, guid: e400d3bd6e0962a4181ceb7cf89ce309,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1815941254}
-    - targetCorrespondingSourceObject: {fileID: 3923792818153000638, guid: e400d3bd6e0962a4181ceb7cf89ce309,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1815941249}
-    - targetCorrespondingSourceObject: {fileID: 3923792818153000638, guid: e400d3bd6e0962a4181ceb7cf89ce309,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1815941255}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e400d3bd6e0962a4181ceb7cf89ce309, type: 3}
 --- !u!1001 &2599311910918179453
 PrefabInstance:
