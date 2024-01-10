@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.3069224, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028331, g: 0.2257133, b: 0.3069217, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -341,6 +341,31 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 600205601586487068, guid: 5a26d5299007e7841b68729c8161b4cf,
+        type: 3}
+      propertyPath: m_fontColor.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 600205601586487068, guid: 5a26d5299007e7841b68729c8161b4cf,
+        type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 16777215
+      objectReference: {fileID: 0}
+    - target: {fileID: 664095982620532008, guid: 5a26d5299007e7841b68729c8161b4cf,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3896427078156470080, guid: 5a26d5299007e7841b68729c8161b4cf,
+        type: 3}
+      propertyPath: thankYou.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3896427078156470080, guid: 5a26d5299007e7841b68729c8161b4cf,
+        type: 3}
+      propertyPath: thankYou.Array.data[0]
+      value: 
+      objectReference: {fileID: 937182371}
     - target: {fileID: 4845668896686031991, guid: 5a26d5299007e7841b68729c8161b4cf,
         type: 3}
       propertyPath: m_Name
@@ -401,6 +426,18 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5a26d5299007e7841b68729c8161b4cf, type: 3}
+--- !u!114 &937182371 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 600205601586487068, guid: 5a26d5299007e7841b68729c8161b4cf,
+    type: 3}
+  m_PrefabInstance: {fileID: 937182370}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
