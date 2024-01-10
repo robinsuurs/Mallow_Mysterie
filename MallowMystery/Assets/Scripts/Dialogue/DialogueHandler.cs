@@ -8,12 +8,13 @@ using ScriptObjects;
 using UnityEngine;
 using TMPro;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
 public class DialogueHandler : MonoBehaviour {
     [SerializeField] private GameObject dialogueCanvas;
-    [SerializeField] private TextMeshProUGUI DialogueBoxUI;
+    [SerializeField] private TextMeshProUGUI dialogueBoxUIText;
     [SerializeField] private TextMeshProUGUI SpeakerNameBoxLeft;
     [SerializeField] private GameObject SpeakerNameLeftNameBox;
     [SerializeField] private TextMeshProUGUI SpeakerNameBoxRight;
@@ -23,6 +24,10 @@ public class DialogueHandler : MonoBehaviour {
     [SerializeField] private float textspeed;
     [SerializeField] private ListOfSprites _listOfSprites;
     [SerializeField] private InputActionAsset _inputAction;
+    
+    [SerializeField] private GameObject imageRight;
+    [SerializeField] private GameObject imageLeft;
+    [SerializeField] private GameObject DialogueBoxUI;
 
     [SerializeField] private FadeToBlackEvent fadeToBlack;
     [SerializeField] private FadeToBlackEvent fadeToNormal;
@@ -62,7 +67,7 @@ public class DialogueHandler : MonoBehaviour {
         currentDialogue = null;
         singleOption = false;
         inDialogue = false;
-        DialogueBoxUI.text = "";
+        dialogueBoxUIText.text = "";
         SpeakerNameBoxLeft.text = "";
         SpeakerNameBoxRight.text = "";
         dialogueCanvas.SetActive(false);
@@ -73,7 +78,7 @@ public class DialogueHandler : MonoBehaviour {
     void Update()
     {
         if (inDialogue && (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Space))) {
-            if (DialogueBoxUI.text == currentDialogue) {
+            if (dialogueBoxUIText.text == currentDialogue) {
                 if (!choices.Any()) {
                     EndDialogue();
                 } else if (overwrite) {
@@ -84,7 +89,7 @@ public class DialogueHandler : MonoBehaviour {
                 }
             } else {
                 StopAllCoroutines();
-                DialogueBoxUI.text = currentDialogue;
+                dialogueBoxUIText.text = currentDialogue;
             }
         }
     }
@@ -101,7 +106,7 @@ public class DialogueHandler : MonoBehaviour {
         } else {
             choices = dialogue.NodeLinks.Where(x => x.BaseNodeGUID == narrativeDataGUID).ToList();
             currentDialogue = ProcessProperties(currentNode.dialogueText);
-            DialogueBoxUI.text = "";
+            dialogueBoxUIText.text = "";
             StartCoroutine(TypeLine());
             var buttons = buttonContainer.GetComponentsInChildren<Button>();
         
@@ -114,9 +119,17 @@ public class DialogueHandler : MonoBehaviour {
             _listOfSprites.CharacterSetter(currentNode.SpeakerSpriteLeft, currentNode.SpeakerSpriteRight);
             
             setSpeakers(currentNode);
-            
-            _listOfSprites.CutSceneImageSetter(currentNode.CutSceneImageName);
-            
+
+            if (!dialogue.alreadyHadConversation) {
+                if (currentNode.CutSceneImageName != "") {
+                    _listOfSprites.CutSceneImageSetter(currentNode.CutSceneImageName);
+                    CutSceneSetObjects(false);
+                }
+                else {
+                    CutSceneSetObjects(true);
+                }
+                
+            }
 
             if (choices.Any(choice => currentNode.QuestionAnswerPortCombis.Any(x => x.portname.Equals(choice.PortName)))) {
                 overwrite = true;
@@ -174,6 +187,14 @@ public class DialogueHandler : MonoBehaviour {
         }
     }
 
+    private void CutSceneSetObjects(bool offOn) {
+        SpeakerNameLeftNameBox.SetActive(offOn);
+        SpeakerNameRightNameBox.SetActive(offOn);
+        imageRight.SetActive(offOn);
+        imageLeft.SetActive(offOn);
+        DialogueBoxUI.SetActive(offOn);
+    }
+
     private bool CanSkip(DialogueNodeData dialogueNodeData, IEnumerable<NodeLinkData> nodeLinkDatas) {
         if (dialogueNodeData.SkipPorts.Count() != 0) {
             bool test = nodeLinkDatas.Any(choice => dialogueNodeData.SkipPorts.Any(x => x.Equals(choice.PortName)));
@@ -191,7 +212,7 @@ public class DialogueHandler : MonoBehaviour {
     IEnumerator TypeLine() {
         var textArray = currentDialogue.ToCharArray();
         for (var c = 0; c < textArray.Length; c++) {
-            DialogueBoxUI.text += textArray[c];
+            dialogueBoxUIText.text += textArray[c];
             if (c % 2 == 0) {
                 audioSource.pitch = Random.Range(0.75f, 1.15f);
                 audioSource.PlayOneShot(RandomClip());
