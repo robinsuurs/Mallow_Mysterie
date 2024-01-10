@@ -7,7 +7,7 @@ using UnityEngine.Events;
 public class FadeToBlackListener : MonoBehaviour
 {
     public List<FadeToBlackEvent> events;
-    public UnityEvent<float, int, bool> response;
+    public UnityEvent<float, float, bool> response;
         
 
     private void OnEnable()
@@ -24,7 +24,7 @@ public class FadeToBlackListener : MonoBehaviour
         }
     }
 
-    public void OnEventTriggered(float fadespeed, int opacity, bool goToEndScreen)
+    public void OnEventTriggered(float fadespeed, float opacity, bool goToEndScreen)
     {
         response.Invoke(fadespeed, opacity, goToEndScreen);
     }

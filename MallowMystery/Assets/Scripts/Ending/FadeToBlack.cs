@@ -13,7 +13,7 @@ public class FadeToBlack : MonoBehaviour
     [SerializeField] private UnityEvent unityEvent;
     [SerializeField] private InputActionAsset inputAction;
 
-    public void FadeToBlackSequence(float fadeSpeed, int opacity, bool goToEndScreen) {
+    public void FadeToBlackSequence(float fadeSpeed, float opacity, bool goToEndScreen) {
         endCanvas.SetActive(true);
         StartCoroutine(FadeToBlackTime(fadeSpeed, opacity, b => {
             if (!b || !goToEndScreen) return;
@@ -22,7 +22,7 @@ public class FadeToBlack : MonoBehaviour
         }));
     }
 
-    public void FadeToNormal(float fadeSpeed, int opacity, bool goToEndScreen) {
+    public void FadeToNormal(float fadeSpeed, float opacity, bool goToEndScreen) {
         StartCoroutine(FadeToNormalTime(fadeSpeed, b => {
             if (b) {
                 endCanvas.SetActive(!b);
@@ -30,13 +30,16 @@ public class FadeToBlack : MonoBehaviour
         }));
     }
 
-    private IEnumerator FadeToBlackTime(float fadeSpeed, int opactity, Action<bool> callback) {
+    private IEnumerator FadeToBlackTime(float fadeSpeed, float opacity, Action<bool> callback) {
         Color objectColor = blackBackground.color;
         float fadeAmount;
-        float newOpacity = 1f / 255f * opactity;
         
-        while (blackBackground.color.a < newOpacity) {
+        while (blackBackground.color.a < opacity) {
             fadeAmount = objectColor.a + (fadeSpeed * Time.deltaTime);
+
+            if (fadeAmount > opacity) {
+                fadeAmount = opacity;
+            }
     
             objectColor = new Color(objectColor.r, objectColor.g, objectColor.b, fadeAmount);
             blackBackground.color = objectColor;

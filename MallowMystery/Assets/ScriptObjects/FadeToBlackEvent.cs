@@ -8,8 +8,8 @@ namespace ScriptObjects {
         private readonly List<FadeToBlackListener> _listeners = new List<FadeToBlackListener>();
 
         [SerializeField] private float fadeSpeed;
-        [Range(0, 255)]
-        [SerializeField] private int opacity;
+        [Range(0, 1)]
+        [SerializeField] private float opacity;
 
         [SerializeField] private bool goToEndScreen;
 

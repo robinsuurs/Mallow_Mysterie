@@ -24,13 +24,14 @@ public class DialogueHandler : MonoBehaviour {
     [SerializeField] private float textspeed;
     [SerializeField] private ListOfSprites _listOfSprites;
     [SerializeField] private InputActionAsset _inputAction;
-    
-    [SerializeField] private GameObject imageRight;
-    [SerializeField] private GameObject imageLeft;
-    [SerializeField] private GameObject DialogueBoxUI;
 
+    [SerializeField] private GameObject turnOffCutscene;
+    [SerializeField] private GameObject cutSceneImageObject;
+    [SerializeField] private GameObject cutSceneGameObject;
+    [SerializeField] private TextMeshProUGUI cutSceneText;
     [SerializeField] private FadeToBlackEvent fadeToBlack;
     [SerializeField] private FadeToBlackEvent fadeToNormal;
+    private TextMeshProUGUI currentUsingTextBox;
 
     private string overwriteGUID;
     private bool overwrite;
@@ -52,6 +53,7 @@ public class DialogueHandler : MonoBehaviour {
 
     public void StartDialogue(DialogueContainer dialogueContainer) {
         if (!inDialogue) {
+            currentUsingTextBox = dialogueBoxUIText;
             dialogue = dialogueContainer;
             dialogueCanvas.SetActive(true);
             var narrativeData = dialogueContainer.NodeLinks.Where(x => x.PortName.Equals("Next")).ToList()[0].TargetNodeGUID;
@@ -78,7 +80,7 @@ public class DialogueHandler : MonoBehaviour {
     void Update()
     {
         if (inDialogue && (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Space))) {
-            if (dialogueBoxUIText.text == currentDialogue) {
+            if (currentUsingTextBox.text == currentDialogue) {
                 if (!choices.Any()) {
                     EndDialogue();
                 } else if (overwrite) {
@@ -89,7 +91,7 @@ public class DialogueHandler : MonoBehaviour {
                 }
             } else {
                 StopAllCoroutines();
-                dialogueBoxUIText.text = currentDialogue;
+                currentUsingTextBox.text = currentDialogue;
             }
         }
     }
@@ -106,31 +108,42 @@ public class DialogueHandler : MonoBehaviour {
         } else {
             choices = dialogue.NodeLinks.Where(x => x.BaseNodeGUID == narrativeDataGUID).ToList();
             currentDialogue = ProcessProperties(currentNode.dialogueText);
-            dialogueBoxUIText.text = "";
-            StartCoroutine(TypeLine());
+            currentUsingTextBox.text = "";
+            
+            
             var buttons = buttonContainer.GetComponentsInChildren<Button>();
         
             foreach (var t in buttons) {
                 Destroy(t.gameObject);
             }
             
+            if (!dialogue.alreadyHadConversation) {
+                if (currentNode.CutSceneImageName != "") {
+                    cutSceneText.gameObject.SetActive(true);
+                    currentUsingTextBox = cutSceneText;
+                    _listOfSprites.CutSceneImageSetter(currentNode.CutSceneImageName);
+                    cutSceneImageObject.SetActive(true);
+                    turnOffCutscene.SetActive(false);
+                    cutSceneGameObject.SetActive(true);
+                    StartCoroutine(TypeLine());
+                    return;
+                }
+
+                cutSceneGameObject.SetActive(false);
+                currentUsingTextBox = dialogueBoxUIText;
+                cutSceneText.gameObject.SetActive(false);
+                cutSceneImageObject.SetActive(false);
+                turnOffCutscene.SetActive(true);
+            }
+            
+            StartCoroutine(TypeLine());
+            
             buttonContainer.gameObject.SetActive(false);
         
             _listOfSprites.CharacterSetter(currentNode.SpeakerSpriteLeft, currentNode.SpeakerSpriteRight);
             
             setSpeakers(currentNode);
-
-            if (!dialogue.alreadyHadConversation) {
-                if (currentNode.CutSceneImageName != "") {
-                    _listOfSprites.CutSceneImageSetter(currentNode.CutSceneImageName);
-                    CutSceneSetObjects(false);
-                }
-                else {
-                    CutSceneSetObjects(true);
-                }
-                
-            }
-
+            
             if (choices.Any(choice => currentNode.QuestionAnswerPortCombis.Any(x => x.portname.Equals(choice.PortName)))) {
                 overwrite = true;
                 
@@ -187,14 +200,6 @@ public class DialogueHandler : MonoBehaviour {
         }
     }
 
-    private void CutSceneSetObjects(bool offOn) {
-        SpeakerNameLeftNameBox.SetActive(offOn);
-        SpeakerNameRightNameBox.SetActive(offOn);
-        imageRight.SetActive(offOn);
-        imageLeft.SetActive(offOn);
-        DialogueBoxUI.SetActive(offOn);
-    }
-
     private bool CanSkip(DialogueNodeData dialogueNodeData, IEnumerable<NodeLinkData> nodeLinkDatas) {
         if (dialogueNodeData.SkipPorts.Count() != 0) {
             bool test = nodeLinkDatas.Any(choice => dialogueNodeData.SkipPorts.Any(x => x.Equals(choice.PortName)));
@@ -212,7 +217,7 @@ public class DialogueHandler : MonoBehaviour {
     IEnumerator TypeLine() {
         var textArray = currentDialogue.ToCharArray();
         for (var c = 0; c < textArray.Length; c++) {
-            dialogueBoxUIText.text += textArray[c];
+            currentUsingTextBox.text += textArray[c];
             if (c % 2 == 0) {
                 audioSource.pitch = Random.Range(0.75f, 1.15f);
                 audioSource.PlayOneShot(RandomClip());
