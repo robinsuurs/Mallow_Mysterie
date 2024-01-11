@@ -18,13 +18,17 @@ public class LevelManager : ScriptableObject {
         bool spawnedPlayer = false;
         List<GameObject> spawnLocations = GameObject.FindGameObjectsWithTag("SpawnLocation").ToList();
         if (sceneSwitchData != null) {
-            foreach (var spawn in spawnLocations.Where(spawn => spawn.name.Equals(sceneSwitchData.playerSpawnLocationName))) {
-                instantiate(spawn.gameObject.transform.position);
+            if (sceneSwitchData.playerSpawnLocationName != "") {
+                foreach (var spawn in spawnLocations.Where(spawn => spawn.name.Equals(sceneSwitchData.playerSpawnLocationName))) {
+                    instantiate(spawn.gameObject.transform.position);
+                    spawnedPlayer = true;
+                    break;
+                }
+            } else {
                 spawnedPlayer = true;
-                break;
+                Debug.Log("No spawnLocationSetForPlayer set in sceneSwitchData so not spawning player");
             }
-        }
-        else {
+        } else {
             //If testing and the scene doesn't correspond to the saved scene name
             if (!gameData.sceneName.Equals(SceneManager.GetActiveScene().name)) {
                 if (spawnLocations.Exists(spawn => spawn.name.Equals("TestSpawn"))) {

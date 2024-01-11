@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 using UnityEngine.Serialization;
 
@@ -16,7 +17,6 @@ public class JournalManager : MonoBehaviour
     [SerializeField] private TabButt deductionButton;
     [SerializeField] private TabButt mapButton;
     [SerializeField] private TabButt settingsButton;
-    [SerializeField] private GameEventStandardAdd closeUI;
     public bool isOpen = false;
     public UIPage currentPage;
 
@@ -30,7 +30,6 @@ public class JournalManager : MonoBehaviour
             {
                 page.SetActive(false);
             }
-            closeUI.Raise();
             isOpen = false;
         }
         Journal.SetActive(false);

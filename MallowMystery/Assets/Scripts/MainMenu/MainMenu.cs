@@ -10,6 +10,7 @@ public class MainMenu : MonoBehaviour {
     [Header("Menu Buttons")] 
     [SerializeField] private Button newGameButton;
     [SerializeField] private Button continueGameButton;
+    [SerializeField] private Button settingsButton;
     [SerializeField] private Button exitGame;
     //Video: https://www.youtube.com/watch?v=ijVA5Z-Mbh8
 
@@ -40,6 +41,7 @@ public class MainMenu : MonoBehaviour {
     private void DisableMenuButtons() {
         newGameButton.interactable = false;
         continueGameButton.interactable = false;
+        settingsButton.interactable = false;
         exitGame.interactable = false;
     }
 }

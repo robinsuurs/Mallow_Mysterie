@@ -10,23 +10,24 @@ using UnityEngine.UI;
 public class InventoryScreen : MonoBehaviour {
 
     private int pageNumber;
+    [SerializeField] private Inventory inventory;
     private List<ItemData> pickedUpItems;
     
     [SerializeField] private List<GameObject> inventoryPlaceholders;
     [SerializeField] private GameObject selectedImageLoc;
     [SerializeField] private TextMeshProUGUI currentPage;
+    [SerializeField] private Image closeUpImageClue;
+    [SerializeField] private TextMeshProUGUI clueName;
+    [SerializeField] private TextMeshProUGUI locationClue;
+    [SerializeField] private TextMeshProUGUI clueDescription;
 
-    private void Start()
-    {
-        setPage();
-        itemCloseUp(0);
+    private void Start() {
+        itemCloseUp(-1);
     }
 
     public void setInventoryItems(int pageNumber) {
         this.pageNumber = pageNumber;
-        pickedUpItems = Resources.LoadAll("Clues/ClueInventory", typeof(Inventory))
-            .Cast<Inventory>().FirstOrDefault(inventoryArray => inventoryArray.name.Equals("ClueInventory"))
-            ?.items.Where(itemData => itemData.hasBeenPickedUp).OrderBy(data => data.pickedUpNumber).ToList();
+        pickedUpItems = inventory?.items.Where(itemData => itemData.hasBeenPickedUp).OrderBy(data => data.pickedUpNumber).ToList();
         setPage();
     }
 
@@ -48,21 +49,29 @@ public class InventoryScreen : MonoBehaviour {
         currentPage.text = (pageNumber + 1).ToString();
         for (int i = 0; i < 6; i++) {
             if (i + pageNumber * 6 < pickedUpItems.Count) {
+                inventoryPlaceholders[i].SetActive(true);
                 inventoryPlaceholders[i].transform.Find("Image").gameObject.GetComponent<Image>().sprite = pickedUpItems[i + pageNumber * 6].icon;
                 inventoryPlaceholders[i].transform.Find("ItemName").gameObject.GetComponent<TextMeshProUGUI>().text = pickedUpItems[i + pageNumber * 6].itemName;
                 inventoryPlaceholders[i].GetComponent<Button>().enabled = true;
             } else {
-                inventoryPlaceholders[i].transform.Find("Image").gameObject.GetComponent<Image>().sprite = null;
-                inventoryPlaceholders[i].transform.Find("ItemName").gameObject.GetComponent<TextMeshProUGUI>().text = "";
-                inventoryPlaceholders[i].GetComponent<Button>().enabled = false;
+                inventoryPlaceholders[i].SetActive(false);
             }
         }
     }
     
     public void itemCloseUp(int clickedItemNumber) {
-        selectedImageLoc.transform.Find("ClueImage").GetComponent<Image>().sprite = pickedUpItems[clickedItemNumber + pageNumber * 6].icon;
-        selectedImageLoc.transform.Find("ClueName").GetComponent<TextMeshProUGUI>().text = pickedUpItems[clickedItemNumber + pageNumber * 6].itemName;
-        selectedImageLoc.transform.Find("ClueDescription").GetComponent<TextMeshProUGUI>().text = pickedUpItems[clickedItemNumber + pageNumber * 6].description;
+        if (clickedItemNumber == -1) {
+            closeUpImageClue.sprite = null;
+            clueDescription.text = "";
+            clueName.text = "";
+            locationClue.text = "";
+        } else {
+            int itemNumber = clickedItemNumber + pageNumber * 6;
+            closeUpImageClue.sprite = pickedUpItems[itemNumber].icon;
+            clueName.text = pickedUpItems[itemNumber].itemName;
+            clueDescription.text = pickedUpItems[itemNumber].description;
+            locationClue.text = pickedUpItems[itemNumber].locationFound;
+        }
     }
 
     public void newItemPickUp(ItemData pickedUpItem) {

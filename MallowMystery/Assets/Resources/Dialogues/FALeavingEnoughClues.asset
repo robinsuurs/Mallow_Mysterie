@@ -1,0 +1,86 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78b3fd9154634ebdb8c8a48960b9a16a, type: 3}
+  m_Name: FALeavingEnoughClues
+  m_EditorClassIdentifier: 
+  alreadyHadConversation: 0
+  NodeLinks:
+  - BaseNodeGUID: a2850609-85d2-4b6f-a688-2a9eb007df79
+    PortName: Next
+    TargetNodeGUID: 0684f0fc-d610-42fc-a056-6cd96299d875
+  - BaseNodeGUID: 0684f0fc-d610-42fc-a056-6cd96299d875
+    PortName: Option 1
+    TargetNodeGUID: 4c72930d-7fe3-4743-96c1-c4b170fab9ee
+  - BaseNodeGUID: 4c72930d-7fe3-4743-96c1-c4b170fab9ee
+    PortName: "Yes, let\u2019s go"
+    TargetNodeGUID: 770107b3-64fc-432d-8814-a3c8fed9658a
+  - BaseNodeGUID: 4c72930d-7fe3-4743-96c1-c4b170fab9ee
+    PortName: No, I should keep searching
+    TargetNodeGUID: bdc7438b-fd7a-4b9f-ab49-e894fa24b878
+  DialogueNodeData:
+  - nodeGuid: 0684f0fc-d610-42fc-a056-6cd96299d875
+    dialogueText: "If I go right now, I won\u2019t be able to return\u2026 The police
+      could be here any second."
+    position: {x: 248, y: 200}
+    SpeakerName: Milton
+    SpeakerNameLocation: Speaker Name Left
+    SpeakerSpriteLeft: M1
+    SpeakerSpriteRight: 
+    ItemPortCombis: []
+    QuestionAnswerPortCombis: []
+    SkipPorts: []
+    canSkipFromThisPoint: 0
+    CutSceneImageName: 
+  - nodeGuid: 4c72930d-7fe3-4743-96c1-c4b170fab9ee
+    dialogueText: Did I really find everything?
+    position: {x: 619, y: 212}
+    SpeakerName: Milton
+    SpeakerNameLocation: Speaker Name Left
+    SpeakerSpriteLeft: M1
+    SpeakerSpriteRight: 
+    ItemPortCombis: []
+    QuestionAnswerPortCombis: []
+    SkipPorts: []
+    canSkipFromThisPoint: 0
+    CutSceneImageName: 
+  DialogueEndNodeData:
+  - nodeGuid: 770107b3-64fc-432d-8814-a3c8fed9658a
+    dialogueText: Leave
+    position: {x: 1025, y: 177}
+    DialogueEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 11400000, guid: f2dcac3b8a0602646b9b89ef2c5c3729, type: 2}
+          m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
+          m_MethodName: LoadNextScene
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 11400000, guid: fd04759f9e80bba428967f6971b0ff36,
+              type: 2}
+            m_ObjectArgumentAssemblyTypeName: ScriptObjects.SceneSwitchData, Assembly-CSharp
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - nodeGuid: bdc7438b-fd7a-4b9f-ab49-e894fa24b878
+    dialogueText: Stay
+    position: {x: 1025, y: 296}
+    DialogueEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  ExposedProperties:
+  - PropertyName: Ignore
+    PropertyValue: New Value
+  - PropertyName: Milton
+    PropertyValue: New Value
+  CommentBlockData: []

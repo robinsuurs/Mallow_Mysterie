@@ -13,6 +13,7 @@ public class GameData {
     public float timeRun;
     public string sceneName;
     public Vector3 playerLocation;
+    public int beerDrunk;
 
     public bool cameraHasPanned;
 
@@ -54,6 +55,8 @@ public class GameData {
         timeRun = 0;
 
         cameraHasPanned = false;
+
+        beerDrunk = 0;
         
         sceneName = "DetectiveRoom";
         playerLocation = new Vector3(-0.5f, 0.2433f, 0.2f);

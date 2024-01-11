@@ -22,4 +22,11 @@ public class UIEvent : ScriptableObject
     {
         _listeners.Remove(listener);
     }
+    
+    public void RaiseClues() => Raise(UIPage.Clues);
+    public void RaiseDeduction() => Raise(UIPage.Deduction);
+    public void RaiseSettings() => Raise(UIPage.Settings);
+    public void RaiseMap() => Raise(UIPage.Map);
+    public void RaiseFolder() => Raise(UIPage.Folder);
+    public void RaisePinboard() => Raise(UIPage.Pinboard);
 }

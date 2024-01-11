@@ -1,39 +1,48 @@
 ﻿using System;
+using System.Collections;
 using ScriptObjects;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class ItemPopUpManager : MonoBehaviour {
     [SerializeField] private GameObject ItemPopUpScreen;
+    [SerializeField] private Image ItemImage;
+    [SerializeField] private TextMeshProUGUI ItemName;
+    [SerializeField] private TextMeshProUGUI itemShortDescription;
     [SerializeField] private InputActionAsset _inputAction;
+    
+    [SerializeField] private FadeToBlackEvent fadeToBlackEvent;
+    
+    [SerializeField] private UnityEvent openUI;
+    [SerializeField] private UnityEvent<ItemData> showInv;
     private ItemData _itemData;
         
     public void showPopUp(ItemData itemData) {
-        Time.timeScale = 0;
         this._itemData = itemData;
-        GameObject itemHolder = ItemPopUpScreen.transform.Find("ItemHolder").gameObject;
-        itemHolder.transform.Find("ItemImage").gameObject.GetComponent<Image>().sprite = itemData.icon;
-        itemHolder.transform.Find("ItemName").gameObject.GetComponent<TextMeshProUGUI>().text = itemData.itemName;
+        ItemImage.sprite = itemData.icon;
+        ItemName.text = itemData.itemName;
+        itemShortDescription.text = itemData.shortDescription;
+        fadeToBlackEvent.Raise();
         ItemPopUpScreen.SetActive(true);
         _inputAction.Disable();
     }
 
     public void closePopUp() {
         ItemPopUpScreen.SetActive(false);
-        Time.timeScale = 1;
         _inputAction.Enable();
     }
-
+    
     public void seeInInventory() {
         closePopUp();
-        GameObject.FindWithTag("CanvasManager").gameObject.transform.Find("SettingsScreen").gameObject.GetComponent<SettingsScreenManager>().showSettingsScreen("Inventory");
-        GameObject.FindWithTag("CanvasManager").gameObject.transform.Find("SettingsScreen").gameObject.transform.Find("MenuContainer").transform.Find("Inventory").GetComponent<InventoryScreen>().newItemPickUp(_itemData);
+        openUI.Invoke();
+        showInv.Invoke(_itemData);
     }
 
     private void Update() {
-        if (this.isActiveAndEnabled && (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Space))) {
+        if (ItemPopUpScreen.activeSelf && (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Space))) {
             closePopUp();
         }
     }
