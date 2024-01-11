@@ -1061,12 +1061,6 @@ PrefabInstance:
       propertyPath: audioEnum
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 6783028498950262819, guid: 729994eba988d33eea67c4d748f9af60,
-        type: 3}
-      propertyPath: audioMixer
-      value: 
-      objectReference: {fileID: 24100000, guid: abb4bd9425dbbd9498f4d6c97ad50fd6,
-        type: 2}
     - target: {fileID: 7542619957624910959, guid: 729994eba988d33eea67c4d748f9af60,
         type: 3}
       propertyPath: m_text
@@ -1478,6 +1472,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 24100000, guid: abb4bd9425dbbd9498f4d6c97ad50fd6,
         type: 2}
+    - target: {fileID: 6783028498950262819, guid: 729994eba988d33eea67c4d748f9af60,
+        type: 3}
+      propertyPath: audioMixerOutput
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7644172288988539843, guid: 729994eba988d33eea67c4d748f9af60,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -1743,6 +1742,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 24100000, guid: abb4bd9425dbbd9498f4d6c97ad50fd6,
         type: 2}
+    - target: {fileID: 6783028498950262819, guid: 729994eba988d33eea67c4d748f9af60,
+        type: 3}
+      propertyPath: audioMixerOutput
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7542619957624910959, guid: 729994eba988d33eea67c4d748f9af60,
         type: 3}
       propertyPath: m_text

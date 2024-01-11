@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78b3fd9154634ebdb8c8a48960b9a16a, type: 3}
+  m_Name: ROLockedDoorGeneric
+  m_EditorClassIdentifier: 
+  alreadyHadConversation: 0
+  NodeLinks:
+  - BaseNodeGUID: 7aeac74d-15ae-4796-87e1-2c39e8e2e536
+    PortName: Next
+    TargetNodeGUID: 3b09ef1a-a3e8-4390-8c30-31e968823204
+  DialogueNodeData:
+  - nodeGuid: 3b09ef1a-a3e8-4390-8c30-31e968823204
+    dialogueText: Loot?
+    position: {x: 226.4, y: 200}
+    SpeakerName: Milton
+    SpeakerNameLocation: Speaker Name Left
+    SpeakerSpriteLeft: M1
+    SpeakerSpriteRight: 
+    ItemPortCombis: []
+    QuestionAnswerPortCombis: []
+    SkipPorts: []
+    canSkipFromThisPoint: 0
+    CutSceneImageName: 
+  DialogueEndNodeData: []
+  ExposedProperties:
+  - PropertyName: Ignore
+    PropertyValue: New Value
+  - PropertyName: Milton
+    PropertyValue: New Value
+  CommentBlockData: []
