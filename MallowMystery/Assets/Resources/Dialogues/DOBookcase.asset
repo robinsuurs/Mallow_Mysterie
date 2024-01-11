@@ -10,19 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 78b3fd9154634ebdb8c8a48960b9a16a, type: 3}
-  m_Name: ORTramNotRiding
+  m_Name: DOBookcase
   m_EditorClassIdentifier: 
-  alreadyHadConversation: 1
+  alreadyHadConversation: 0
   NodeLinks:
-  - BaseNodeGUID: a69971b9-bf7d-49e8-96bc-4ef71aec33dd
+  - BaseNodeGUID: 9a50f065-751e-4255-9a22-67f6facb0dba
     PortName: Next
-    TargetNodeGUID: 5c5eceeb-8287-4898-a2f0-4ea0d78b230c
+    TargetNodeGUID: f91179ba-b81e-4c8e-87b8-b6f1788f4cb5
   DialogueNodeData:
-  - nodeGuid: 5c5eceeb-8287-4898-a2f0-4ea0d78b230c
-    dialogueText: Looks like the tram isn't here yet
-    position: {x: 219.2, y: 200}
+  - nodeGuid: f91179ba-b81e-4c8e-87b8-b6f1788f4cb5
+    dialogueText: "It\u2019s a totally unorganized bookcase filled with detective
+      novels, as well as scattered case folders. You pull out a random book. It\u2019s
+      called \u201CThe Murder on the Lokum Express\u201D by Amara Crumbie."
+    position: {x: 230.4, y: 200}
     SpeakerName: 
-    SpeakerNameLocation: Speaker Name Left
+    SpeakerNameLocation: None
     SpeakerSpriteLeft: 
     SpeakerSpriteRight: 
     ItemPortCombis: []
@@ -33,7 +35,5 @@ MonoBehaviour:
   DialogueEndNodeData: []
   ExposedProperties:
   - PropertyName: Ignore
-    PropertyValue: New Value
-  - PropertyName: Milton
     PropertyValue: New Value
   CommentBlockData: []

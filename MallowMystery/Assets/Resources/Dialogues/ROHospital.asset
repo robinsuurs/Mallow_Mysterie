@@ -10,20 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 78b3fd9154634ebdb8c8a48960b9a16a, type: 3}
-  m_Name: ORTramNotRiding
+  m_Name: ROHospital
   m_EditorClassIdentifier: 
-  alreadyHadConversation: 1
+  alreadyHadConversation: 0
   NodeLinks:
-  - BaseNodeGUID: a69971b9-bf7d-49e8-96bc-4ef71aec33dd
+  - BaseNodeGUID: 3f244454-1f3f-4e5b-940c-e63a6454443d
     PortName: Next
-    TargetNodeGUID: 5c5eceeb-8287-4898-a2f0-4ea0d78b230c
+    TargetNodeGUID: 5822a4ea-f795-4735-9adf-34bcd7dc711d
   DialogueNodeData:
-  - nodeGuid: 5c5eceeb-8287-4898-a2f0-4ea0d78b230c
-    dialogueText: Looks like the tram isn't here yet
-    position: {x: 219.2, y: 200}
-    SpeakerName: 
+  - nodeGuid: 5822a4ea-f795-4735-9adf-34bcd7dc711d
+    dialogueText: "I wonder if the hospital might let me look at the results of Cornelia\u2019s
+      autopsy... Oh, who am I kidding?"
+    position: {x: 238.4, y: 200}
+    SpeakerName: Milton
     SpeakerNameLocation: Speaker Name Left
-    SpeakerSpriteLeft: 
+    SpeakerSpriteLeft: M1
     SpeakerSpriteRight: 
     ItemPortCombis: []
     QuestionAnswerPortCombis: []
@@ -33,6 +34,8 @@ MonoBehaviour:
   DialogueEndNodeData: []
   ExposedProperties:
   - PropertyName: Ignore
+    PropertyValue: New Value
+  - PropertyName: Sign
     PropertyValue: New Value
   - PropertyName: Milton
     PropertyValue: New Value

@@ -10,20 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 78b3fd9154634ebdb8c8a48960b9a16a, type: 3}
-  m_Name: ORTramNotRiding
+  m_Name: ROItalian
   m_EditorClassIdentifier: 
   alreadyHadConversation: 1
   NodeLinks:
-  - BaseNodeGUID: a69971b9-bf7d-49e8-96bc-4ef71aec33dd
+  - BaseNodeGUID: 3f244454-1f3f-4e5b-940c-e63a6454443d
     PortName: Next
-    TargetNodeGUID: 5c5eceeb-8287-4898-a2f0-4ea0d78b230c
+    TargetNodeGUID: 7c2c41b7-ff2a-4ea8-a232-cdec38b547d7
   DialogueNodeData:
-  - nodeGuid: 5c5eceeb-8287-4898-a2f0-4ea0d78b230c
-    dialogueText: Looks like the tram isn't here yet
-    position: {x: 219.2, y: 200}
-    SpeakerName: 
-    SpeakerNameLocation: Speaker Name Left
-    SpeakerSpriteLeft: 
+  - nodeGuid: 7c2c41b7-ff2a-4ea8-a232-cdec38b547d7
+    dialogueText: "No, this Italian restaurant is not a mafia money laundering spot.
+      It\u2019s just a bit run-down."
+    position: {x: 216.8, y: 200}
+    SpeakerName: Sign
+    SpeakerNameLocation: Speaker Name Right
+    SpeakerSpriteLeft: M1
     SpeakerSpriteRight: 
     ItemPortCombis: []
     QuestionAnswerPortCombis: []
@@ -34,6 +35,6 @@ MonoBehaviour:
   ExposedProperties:
   - PropertyName: Ignore
     PropertyValue: New Value
-  - PropertyName: Milton
+  - PropertyName: Sign
     PropertyValue: New Value
   CommentBlockData: []

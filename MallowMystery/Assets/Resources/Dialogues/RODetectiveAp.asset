@@ -14,13 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   alreadyHadConversation: 0
   NodeLinks:
-  - BaseNodeGUID: 22b7afd7-f2cb-44c8-a44a-962eaf094c61
+  - BaseNodeGUID: 3f244454-1f3f-4e5b-940c-e63a6454443d
     PortName: Next
-    TargetNodeGUID: 79f1347c-bcac-4784-9a63-bda2e0278224
+    TargetNodeGUID: 5822a4ea-f795-4735-9adf-34bcd7dc711d
   DialogueNodeData:
-  - nodeGuid: 79f1347c-bcac-4784-9a63-bda2e0278224
-    dialogueText: Oh, it's locked. Seems like Tyrone left already.
-    position: {x: 216, y: 200}
+  - nodeGuid: 5822a4ea-f795-4735-9adf-34bcd7dc711d
+    dialogueText: Tyrone seems to have locked the door behind my back. Rude.
+    position: {x: 238.4, y: 200}
     SpeakerName: Milton
     SpeakerNameLocation: Speaker Name Left
     SpeakerSpriteLeft: M1
@@ -33,6 +33,8 @@ MonoBehaviour:
   DialogueEndNodeData: []
   ExposedProperties:
   - PropertyName: Ignore
+    PropertyValue: New Value
+  - PropertyName: Sign
     PropertyValue: New Value
   - PropertyName: Milton
     PropertyValue: New Value
