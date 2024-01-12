@@ -10,20 +10,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 78b3fd9154634ebdb8c8a48960b9a16a, type: 3}
-  m_Name: StripperBeforeNaked
+  m_Name: ROMiltonHome
   m_EditorClassIdentifier: 
   alreadyHadConversation: 1
   NodeLinks:
-  - BaseNodeGUID: affb11da-e0b3-44b4-80b7-21f0cb0690b2
+  - BaseNodeGUID: 3f244454-1f3f-4e5b-940c-e63a6454443d
     PortName: Next
-    TargetNodeGUID: 61e82f98-f62a-4d99-bdca-ee3b175030bc
+    TargetNodeGUID: 7c2c41b7-ff2a-4ea8-a232-cdec38b547d7
   DialogueNodeData:
-  - nodeGuid: 61e82f98-f62a-4d99-bdca-ee3b175030bc
-    dialogueText: Nakey
-    position: {x: 211.2, y: 200}
-    SpeakerName: None
+  - nodeGuid: 7c2c41b7-ff2a-4ea8-a232-cdec38b547d7
+    dialogueText: "A lot of people think that you live here. How stereotypical! Just
+      because you\u2019re a lava cake doesn\u2019t mean you have to live in a lava
+      cake house."
+    position: {x: 216.8, y: 200}
+    SpeakerName: Ignore
     SpeakerNameLocation: None
-    SpeakerSpriteLeft: 
+    SpeakerSpriteLeft: M1
     SpeakerSpriteRight: 
     ItemPortCombis: []
     QuestionAnswerPortCombis: []
@@ -34,6 +36,6 @@ MonoBehaviour:
   ExposedProperties:
   - PropertyName: Ignore
     PropertyValue: New Value
-  - PropertyName: None
+  - PropertyName: Sign
     PropertyValue: New Value
   CommentBlockData: []

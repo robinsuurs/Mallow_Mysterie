@@ -21,6 +21,8 @@ public class DialogueHandler : MonoBehaviour {
     [SerializeField] private GameObject SpeakerNameRightNameBox;
     [SerializeField] private Button ChoicesButton;
     [SerializeField] private Transform buttonContainer;
+    [SerializeField] private EventSound eventSound;
+    [SerializeField] private AudioClip poppingSound;
     [SerializeField] private float textspeed;
     [SerializeField] private ListOfSprites _listOfSprites;
     [SerializeField] private InputActionAsset _inputAction;
@@ -43,8 +45,8 @@ public class DialogueHandler : MonoBehaviour {
     private bool singleOption;
     private bool inDialogue;
     
-    public AudioSource audioSource;
-    public AudioClip[] audioClipArray;
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip[] audioClipArray;
     AudioClip _lastClip;
     
     private void Start() {
@@ -173,6 +175,7 @@ public class DialogueHandler : MonoBehaviour {
             button.GetComponentInChildren<Text>().text = ProcessProperties(choice.PortName);
             button.GetComponentInChildren<Text>().fontSize = 24;
             button.onClick.AddListener(() => ProceedToNarrative(choice.TargetNodeGUID));
+            button.onClick.AddListener(() => eventSound.Raise(poppingSound));
         }
     }
 

@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class TabGroup : MonoBehaviour
@@ -12,6 +13,8 @@ public class TabGroup : MonoBehaviour
     private Color tabActive;
 
     private TabButt selectedTab;
+
+    [SerializeField] private UnityEvent switchTab;
 
     // private void Start()
     // {
@@ -53,6 +56,7 @@ public class TabGroup : MonoBehaviour
         selectedTab?.deactivate();
         selectedTab = button;
         selectedTab?.activate();
+        switchTab.Invoke();
         resetTabs();
         button.ColorActive();
     }

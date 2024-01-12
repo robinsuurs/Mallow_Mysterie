@@ -30,6 +30,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: 675210fa54e71e34c989e0642a8bbde4, type: 2}
+        m_TargetAssemblyTypeName: ScriptObjects.EventSound, Assembly-CSharp
+        m_MethodName: Raise
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: 841205c2dc248f84ca507d08c3fab00a,
+            type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   notPermitted:
     m_PersistentCalls:
       m_Calls:
@@ -41,6 +54,19 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 11400000, guid: 470bae2411c45e34199ca67f41d46132,
             type: 2}
           m_ObjectArgumentAssemblyTypeName: Dialogue.RunTime.DialogueContainer, Runtime
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: 23c3d31cc3435c04ebc29b80106475e1, type: 2}
+        m_TargetAssemblyTypeName: ScriptObjects.EventSound, Assembly-CSharp
+        m_MethodName: Raise
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: 932ae530ade94bc4887ae19ee594d7ab,
+            type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
