@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using ScriptObjects;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -8,6 +9,8 @@ public class PinboardManager : MonoBehaviour
 {
     [SerializeField] private InputActionAsset input;
     [SerializeField] private GameObject pinboard;
+    [SerializeField] private List<ItemData> containedClues;
+    [SerializeField] private GameEventStandardAdd closePinBoard;
     private InputAction moveAction;
     private InputAction interactAction;
     
@@ -23,6 +26,7 @@ public class PinboardManager : MonoBehaviour
     public void closeBoard(){
     	pinboard.SetActive(false);
         activateInput();
+        closePinBoard.Raise();
     }
     public void activateInput() {moveAction.Enable(); interactAction.Enable();}
     public void deactivateInput() {moveAction.Disable(); interactAction.Disable();}
