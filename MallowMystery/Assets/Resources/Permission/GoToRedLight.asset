@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: GoToRedLight
   m_EditorClassIdentifier: 
   UID: 1cc20a764378b944b975acfc2cdf150d
-  permission: 1
+  permission: 0
   permitted:
     m_PersistentCalls:
       m_Calls:
@@ -22,7 +22,7 @@ MonoBehaviour:
         m_MethodName: LoadNextScene
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: 249c94a5ce92a1342be275e5dd5c13fe,
+          m_ObjectArgument: {fileID: 11400000, guid: ea0f9aa3650894f4795f108692540206,
             type: 2}
           m_ObjectArgumentAssemblyTypeName: ScriptObjects.SceneSwitchData, Assembly-CSharp
           m_IntArgument: 0

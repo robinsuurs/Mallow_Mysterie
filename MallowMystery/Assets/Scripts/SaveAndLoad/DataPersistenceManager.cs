@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 using Dialogue.RunTime;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
 
@@ -12,7 +13,7 @@ public class DataPersistenceManager : MonoBehaviour {
     [SerializeField] private string fileName;
     [SerializeField] private bool startFresh;
     [SerializeField] private bool encryptData;
-    [SerializeField] private GameEventStandardAdd endSceneLoaded;
+    [SerializeField] private UnityEvent endLoading;
     [SerializeField] private LevelManager _levelManager;
     [SerializeField] private EndingStringList endingStringList;
     private GameData _gameData;
@@ -49,8 +50,8 @@ public class DataPersistenceManager : MonoBehaviour {
     private void OnSceneLoaded (Scene scene, LoadSceneMode mode) {
         if (!SceneManager.GetActiveScene().name.Equals("MainMenu")) {
             _levelManager.SpawnPlayer(_gameData);
-            endSceneLoaded.Raise();
         }
+        endLoading.Invoke();
         if (!SceneManager.GetActiveScene().name.Equals("MainMenu") && !SceneManager.GetActiveScene().name.Equals("DetectiveRoom") && !SceneManager.GetActiveScene().name.Equals("EndingScene")) {
             Camera.main.gameObject.GetComponent<Follow_Player>().setFollowPlayer();
         }
@@ -68,7 +69,7 @@ public class DataPersistenceManager : MonoBehaviour {
 
     public void NewGame() {
         this._gameData = new GameData("");
-        SaveGame();
+        // SaveGame();
     }
 
     public void LoadGame() {

@@ -14,6 +14,7 @@ public class ItemLoadScene : MonoBehaviour {
     
     public void ShowObjectOrNot() {
         if (itemData.hasBeenPickedUp) {
+            itemData.setPickUp();
             CheckShowObject();
         }
     }

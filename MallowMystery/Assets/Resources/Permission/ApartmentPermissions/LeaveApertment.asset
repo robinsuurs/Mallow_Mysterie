@@ -17,18 +17,17 @@ MonoBehaviour:
   permitted:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11400000, guid: f2dcac3b8a0602646b9b89ef2c5c3729, type: 2}
-        m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
-        m_MethodName: LoadNextScene
-        m_Mode: 2
+      - m_Target: {fileID: 11400000, guid: 8cd868260cb78784fb4e1319c9e36049, type: 2}
+        m_TargetAssemblyTypeName: PermissionCheck, Assembly-CSharp
+        m_MethodName: setPermission
+        m_Mode: 6
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: fd04759f9e80bba428967f6971b0ff36,
-            type: 2}
-          m_ObjectArgumentAssemblyTypeName: ScriptObjects.SceneSwitchData, Assembly-CSharp
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
+          m_BoolArgument: 1
         m_CallState: 2
       - m_Target: {fileID: 11400000, guid: 675210fa54e71e34c989e0642a8bbde4, type: 2}
         m_TargetAssemblyTypeName: ScriptObjects.EventSound, Assembly-CSharp
@@ -38,6 +37,19 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 8300000, guid: 841205c2dc248f84ca507d08c3fab00a,
             type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: f2dcac3b8a0602646b9b89ef2c5c3729, type: 2}
+        m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
+        m_MethodName: LoadNextScene
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: fd04759f9e80bba428967f6971b0ff36,
+            type: 2}
+          m_ObjectArgumentAssemblyTypeName: ScriptObjects.SceneSwitchData, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
