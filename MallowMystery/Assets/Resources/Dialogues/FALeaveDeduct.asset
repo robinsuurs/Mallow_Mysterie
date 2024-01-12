@@ -14,6 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   alreadyHadConversation: 0
   NodeLinks:
+  - BaseNodeGUID: 0d4b50bc-3e24-4f08-9aa4-4eb372392075
+    PortName: Option 1
+    TargetNodeGUID: 3a9ba92e-435d-4b4d-b12e-b7f4ba636a81
+  - BaseNodeGUID: 7e9ecfc7-f6b4-48e3-88ff-b9eec560a024
+    PortName: Option 1
+    TargetNodeGUID: fbbf45a2-02ad-46be-8544-8cc771492deb
   - BaseNodeGUID: 4c5d4317-5a23-4af9-92b3-06390378c3b5
     PortName: Next
     TargetNodeGUID: 7e9ecfc7-f6b4-48e3-88ff-b9eec560a024
@@ -23,8 +29,8 @@ MonoBehaviour:
   DialogueNodeData:
   - nodeGuid: 7e9ecfc7-f6b4-48e3-88ff-b9eec560a024
     dialogueText: Maybe i should take a look at my deductions
-    position: {x: 204.8, y: 200}
-    SpeakerName: 
+    position: {x: 205, y: 200}
+    SpeakerName: Milton
     SpeakerNameLocation: Speaker Name Left
     SpeakerSpriteLeft: 
     SpeakerSpriteRight: 
