@@ -28,8 +28,13 @@ public class DataPersistenceManager : MonoBehaviour {
         }
         
         instance = this;
-        DontDestroyOnLoad(this.gameObject);
-        this.dataHandler = new FileDataHandler(Application.persistentDataPath, fileName, encryptData);
+        DontDestroyOnLoad(gameObject);
+        dataHandler = new FileDataHandler(Application.persistentDataPath, fileName, encryptData);
+        if (_gameData == null) {
+            _gameData = dataHandler.Load();
+        } else {
+            NewGame();
+        }
         _levelManager.sceneSwitchData = null;
     }
 
@@ -42,8 +47,10 @@ public class DataPersistenceManager : MonoBehaviour {
     }
 
     private void OnSceneLoaded (Scene scene, LoadSceneMode mode) {
-        this.dataPersistences = FindAllDataPersistenceObjects();
-        LoadGame();
+        if (!SceneManager.GetActiveScene().name.Equals("MainMenu")) {
+            _levelManager.SpawnPlayer(_gameData);
+            endSceneLoaded.Raise();
+        }
         if (!SceneManager.GetActiveScene().name.Equals("MainMenu") && !SceneManager.GetActiveScene().name.Equals("DetectiveRoom") && !SceneManager.GetActiveScene().name.Equals("EndingScene")) {
             Camera.main.gameObject.GetComponent<Follow_Player>().setFollowPlayer();
         }
@@ -61,27 +68,21 @@ public class DataPersistenceManager : MonoBehaviour {
 
     public void NewGame() {
         this._gameData = new GameData("");
+        SaveGame();
     }
 
-    private void LoadGame() {
-        if (this._gameData == null) {
-            this._gameData = dataHandler.Load();
-        }
+    public void LoadGame() {
         if (this._gameData == null || startFresh) {
             Debug.Log("No GameData found. A new Game needs to be created");
             NewGame();
         }
         else {
+            dataPersistences = FindAllDataPersistenceObjects();
             foreach (IDataPersistence dataPersistenceObj in dataPersistences) {
                 dataPersistenceObj.LoadData(_gameData);
             }
 
             LoadDialogueStates();
-        }
-
-        if (!SceneManager.GetActiveScene().name.Equals("MainMenu")) {
-            _levelManager.SpawnPlayer(_gameData);
-            endSceneLoaded.Raise();
         }
     }
 
@@ -103,6 +104,7 @@ public class DataPersistenceManager : MonoBehaviour {
             return;
         }
 
+        dataPersistences = FindAllDataPersistenceObjects();
         foreach (IDataPersistence dataPersistenceObj in dataPersistences) {
             dataPersistenceObj.SaveData(ref _gameData);
         }

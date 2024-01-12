@@ -13,11 +13,14 @@ public class FadeToBlack : MonoBehaviour
     [SerializeField] private UnityEvent unityEvent;
     [SerializeField] private InputActionAsset inputAction;
 
+    private bool changing = false;
+
     public void FadeToBlackSequence(float fadeSpeed, float opacity, bool goToEndScreen) {
         endCanvas.SetActive(true);
         StartCoroutine(FadeToBlackTime(fadeSpeed, opacity, b => {
-            if (!goToEndScreen) return;
+            if (!goToEndScreen || changing) return;
             inputAction.Enable();
+            changing = true;
             unityEvent.Invoke();
         }));
     }
@@ -40,15 +43,16 @@ public class FadeToBlack : MonoBehaviour
             if (fadeAmount > opacity) {
                 objectColor = new Color(objectColor.r, objectColor.g, objectColor.b, opacity);
                 blackBackground.color = objectColor;
-                break;
+                
+            } else {
+                objectColor = new Color(objectColor.r, objectColor.g, objectColor.b, fadeAmount);
+                blackBackground.color = objectColor;
+                yield return null;
             }
-    
-            objectColor = new Color(objectColor.r, objectColor.g, objectColor.b, fadeAmount);
-            blackBackground.color = objectColor;
-            yield return null;
         }
         
         callback.Invoke(true);
+        yield return null;
     }
 
     private IEnumerator FadeToNormalTime(float speed, Action<bool> cal) {
