@@ -41,6 +41,12 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4123720280014789804}
     m_Modifications:
+    - target: {fileID: 1084907287744686534, guid: 7cadc8598a9021644a87ed436315d24d,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: dcaa540dddfae474da7f96b87ce4ae1e,
+        type: 3}
     - target: {fileID: 1154388237083612737, guid: 7cadc8598a9021644a87ed436315d24d,
         type: 3}
       propertyPath: m_Name
@@ -55,6 +61,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_VerticalAlignment
       value: 256
+      objectReference: {fileID: 0}
+    - target: {fileID: 1582877328506116872, guid: 7cadc8598a9021644a87ed436315d24d,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 64
+      objectReference: {fileID: 0}
+    - target: {fileID: 1582877328506116872, guid: 7cadc8598a9021644a87ed436315d24d,
+        type: 3}
+      propertyPath: m_fontSizeBase
+      value: 64
       objectReference: {fileID: 0}
     - target: {fileID: 2730676674865697738, guid: 7cadc8598a9021644a87ed436315d24d,
         type: 3}
@@ -340,8 +356,40 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6995049794277175506, guid: 7cadc8598a9021644a87ed436315d24d,
         type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: ccdba6533b8f02e428014266df2ffdef,
+        type: 2}
+    - target: {fileID: 6995049794277175506, guid: 7cadc8598a9021644a87ed436315d24d,
+        type: 3}
+      propertyPath: m_fontColor.b
+      value: 0.46274513
+      objectReference: {fileID: 0}
+    - target: {fileID: 6995049794277175506, guid: 7cadc8598a9021644a87ed436315d24d,
+        type: 3}
+      propertyPath: m_fontColor.g
+      value: 0.2784314
+      objectReference: {fileID: 0}
+    - target: {fileID: 6995049794277175506, guid: 7cadc8598a9021644a87ed436315d24d,
+        type: 3}
+      propertyPath: m_fontColor.r
+      value: 0.6666667
+      objectReference: {fileID: 0}
+    - target: {fileID: 6995049794277175506, guid: 7cadc8598a9021644a87ed436315d24d,
+        type: 3}
       propertyPath: m_fontSizeBase
       value: 112
+      objectReference: {fileID: 0}
+    - target: {fileID: 6995049794277175506, guid: 7cadc8598a9021644a87ed436315d24d,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 3198406054962967535, guid: ccdba6533b8f02e428014266df2ffdef,
+        type: 2}
+    - target: {fileID: 6995049794277175506, guid: 7cadc8598a9021644a87ed436315d24d,
+        type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4285941674
       objectReference: {fileID: 0}
     - target: {fileID: 8266545847788350933, guid: 7cadc8598a9021644a87ed436315d24d,
         type: 3}
@@ -445,6 +493,12 @@ PrefabInstance:
       propertyPath: fadeSpeed
       value: 6.3
       objectReference: {fileID: 0}
+    - target: {fileID: 1352229987384851720, guid: 503b2f6063621ad469da98920854b35c,
+        type: 3}
+      propertyPath: normalBlack
+      value: 
+      objectReference: {fileID: 11400000, guid: e02ad884b8c6edd439d9fc8657f897c9,
+        type: 2}
     - target: {fileID: 1352229987384851720, guid: 503b2f6063621ad469da98920854b35c,
         type: 3}
       propertyPath: ItemPopUpScreen

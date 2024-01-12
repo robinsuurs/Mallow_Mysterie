@@ -33,6 +33,10 @@ public class FadeToBlack : MonoBehaviour
         }));
     }
 
+    public void voidImageAClear() {
+        blackBackground.color = new Color(blackBackground.color.r, blackBackground.color.g, blackBackground.color.b, 0);
+    }
+
     private IEnumerator FadeToBlackTime(float fadeSpeed, float opacity, Action<bool> callback) {
         Color objectColor = blackBackground.color;
         float fadeAmount;

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.3069224, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028331, g: 0.2257133, b: 0.3069217, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2438,7 +2438,7 @@ Transform:
   m_GameObject: {fileID: 503673221}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 48.61, y: 2, z: -5.69}
+  m_LocalPosition: {x: 48.61, y: -0.5, z: -5.08}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4677,7 +4677,7 @@ Transform:
   m_GameObject: {fileID: 1167685260}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 38.42, y: 2, z: 33.08}
+  m_LocalPosition: {x: 38.42, y: -0.5, z: 33.08}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5280,6 +5280,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5698025407576117447, guid: 12905d508f1f76440b154aca4e1148f6,
+        type: 3}
+      propertyPath: response.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 11400000, guid: cbf03ab1078e7be4dafc3a6511f47315,
+        type: 2}
     - target: {fileID: 7855430178730911990, guid: 12905d508f1f76440b154aca4e1148f6,
         type: 3}
       propertyPath: m_Size.x

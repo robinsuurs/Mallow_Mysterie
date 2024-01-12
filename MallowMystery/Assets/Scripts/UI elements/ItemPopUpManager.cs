@@ -15,6 +15,7 @@ public class ItemPopUpManager : MonoBehaviour {
     [SerializeField] private InputActionAsset _inputAction;
     
     [SerializeField] private FadeToBlackEvent fadeToBlackEvent;
+    [SerializeField] private FadeToBlackEvent normalBlack;
     
     [SerializeField] private UnityEvent openUI;
     [SerializeField] private UnityEvent<ItemData> showInv;
@@ -43,6 +44,7 @@ public class ItemPopUpManager : MonoBehaviour {
 
     private void Update() {
         if (ItemPopUpScreen.activeSelf && (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Space))) {
+            normalBlack.Raise();
             closePopUp();
         }
     }

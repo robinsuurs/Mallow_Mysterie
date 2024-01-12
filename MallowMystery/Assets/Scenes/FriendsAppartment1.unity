@@ -944,6 +944,47 @@ PrefabInstance:
       propertyPath: m_Name
       value: SceneSpecificFriendsApartment
       objectReference: {fileID: 0}
+    - target: {fileID: 4210778213775951190, guid: 312bea23fa0362245a7d0cb42eb217da,
+        type: 3}
+      propertyPath: response.m_PersistentCalls.m_Calls.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4210778213775951190, guid: 312bea23fa0362245a7d0cb42eb217da,
+        type: 3}
+      propertyPath: response.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4210778213775951190, guid: 312bea23fa0362245a7d0cb42eb217da,
+        type: 3}
+      propertyPath: response.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 11400000, guid: a131501bd2c43f04db1c4f3f04801923,
+        type: 2}
+    - target: {fileID: 4210778213775951190, guid: 312bea23fa0362245a7d0cb42eb217da,
+        type: 3}
+      propertyPath: response.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4210778213775951190, guid: 312bea23fa0362245a7d0cb42eb217da,
+        type: 3}
+      propertyPath: response.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: setPermission
+      objectReference: {fileID: 0}
+    - target: {fileID: 4210778213775951190, guid: 312bea23fa0362245a7d0cb42eb217da,
+        type: 3}
+      propertyPath: response.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: PermissionCheck, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4210778213775951190, guid: 312bea23fa0362245a7d0cb42eb217da,
+        type: 3}
+      propertyPath: response.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_BoolArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4210778213775951190, guid: 312bea23fa0362245a7d0cb42eb217da,
+        type: 3}
+      propertyPath: response.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 5312369031427677551, guid: 312bea23fa0362245a7d0cb42eb217da,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3935,6 +3976,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Clue_badge
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 4c08258371063e346bb7e1ed57b84a75,
+        type: 3}
+      propertyPath: m_Layer
+      value: 25
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4458,6 +4504,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6341072588281528486, guid: 729a8cd5f6db98445a0c43d7ff0ad153,
+        type: 3}
+      propertyPath: backgroundMusic
+      value: 
+      objectReference: {fileID: 8300000, guid: 060c4d872e11d274e8839558e279119f, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7652,11 +7703,6 @@ PrefabInstance:
     - target: {fileID: 950788863271735146, guid: 90da51a3f4e823048af2b52f7fce6253,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1967956138881784765, guid: 90da51a3f4e823048af2b52f7fce6253,
-        type: 3}
-      propertyPath: startFresh
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4117460809587361749, guid: 90da51a3f4e823048af2b52f7fce6253,

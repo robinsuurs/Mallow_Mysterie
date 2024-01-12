@@ -10,21 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 78b3fd9154634ebdb8c8a48960b9a16a, type: 3}
-  m_Name: DOblockExitDetective
+  m_Name: PAGarageDockWorker
   m_EditorClassIdentifier: 
-  alreadyHadConversation: 1
+  alreadyHadConversation: 0
   NodeLinks:
-  - BaseNodeGUID: c62f53ec-46b5-4570-877a-e545759aeed2
+  - BaseNodeGUID: d0bde1f0-8c50-4b8a-b4c4-0800ad837e5f
     PortName: Next
-    TargetNodeGUID: ee9b4793-f5cd-4b97-bb74-d5dde301330e
+    TargetNodeGUID: 60593912-ac52-49de-b0df-bc3efedcd259
   DialogueNodeData:
-  - nodeGuid: ee9b4793-f5cd-4b97-bb74-d5dde301330e
-    dialogueText: I just came here. I should at least speak to Tyrone first before
-      leaving.
-    position: {x: 296, y: 174}
-    SpeakerName: Milton
-    SpeakerNameLocation: Speaker Name Left
-    SpeakerSpriteLeft: M1
+  - nodeGuid: 60593912-ac52-49de-b0df-bc3efedcd259
+    dialogueText: "Oi, quit loitering around! I\u2019m working \u2018ere!"
+    position: {x: 202.4, y: 200}
+    SpeakerName: Dock Worker
+    SpeakerNameLocation: Speaker Name Right
+    SpeakerSpriteLeft: 
     SpeakerSpriteRight: 
     ItemPortCombis: []
     QuestionAnswerPortCombis: []
@@ -35,6 +34,6 @@ MonoBehaviour:
   ExposedProperties:
   - PropertyName: Ignore
     PropertyValue: New Value
-  - PropertyName: Milton
+  - PropertyName: Dock Worker
     PropertyValue: New Value
   CommentBlockData: []
