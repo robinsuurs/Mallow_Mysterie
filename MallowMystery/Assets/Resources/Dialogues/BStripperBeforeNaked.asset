@@ -14,13 +14,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   alreadyHadConversation: 0
   NodeLinks:
+  - BaseNodeGUID: 3130573f-ee57-4ac7-8c05-e9e1a2cc386e
+    PortName: Yes, please.
+    TargetNodeGUID: d42fd59d-d409-49ac-8f28-d1dd7535e91f
   - BaseNodeGUID: affb11da-e0b3-44b4-80b7-21f0cb0690b2
     PortName: Next
     TargetNodeGUID: 61e82f98-f62a-4d99-bdca-ee3b175030bc
   DialogueNodeData:
   - nodeGuid: 61e82f98-f62a-4d99-bdca-ee3b175030bc
-    dialogueText: Nakey
-    position: {x: 211.2, y: 200}
+    dialogueText: Hey there, honey. Wanna see something fun?
+    position: {x: 211, y: 200}
     SpeakerName: Stripper
     SpeakerNameLocation: None
     SpeakerSpriteLeft: 
