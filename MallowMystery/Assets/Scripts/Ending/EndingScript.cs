@@ -28,6 +28,7 @@ public class EndingScript : MonoBehaviour {
     private int state = 0;
     private int stringListNumber = 0;
 
+    [SerializeField] private List<TextMeshProUGUI> thankYou;
     [SerializeField] private List<TextMeshProUGUI> endingText;
     [SerializeField] private List<TextMeshProUGUI> stats;
 
@@ -64,10 +65,15 @@ public class EndingScript : MonoBehaviour {
                     break;
                 case 1:
                     iconClick.SetActive(false);
-                    StartCoroutine(OpacityTimeFadeInOut(endingText, stats, null, textFadeSpeed, timeBetweenFadeOutFadeIn,
+                    StartCoroutine(OpacityTimeFadeInOut(endingText, thankYou, null, textFadeSpeed, timeBetweenFadeOutFadeIn,
                         b => { iconClick.SetActive(true); }));
                     break;
                 case 2:
+                    iconClick.SetActive(false);
+                    StartCoroutine(OpacityTimeFadeInOut(thankYou, stats, null, textFadeSpeed, timeBetweenFadeOutFadeIn,
+                        b => { iconClick.SetActive(true); }));
+                    break;
+                case 3:
                     StartCoroutine(OpacityTimeFadeInOut(stats, null, null, textFadeSpeed, timeBetweenFadeOutFadeIn, b => {
                         if (b) {
                             videoObject.SetActive(true);

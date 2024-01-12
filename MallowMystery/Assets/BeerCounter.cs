@@ -6,12 +6,12 @@ using UnityEngine.Events;
 
 public class BeerCounter : MonoBehaviour, IDataPersistence {
     [SerializeField] private int beerDrunk = 0;
-    [SerializeField] private List<DialogueContainer> dialogueContainers;
-    [SerializeField] private UnityEvent<DialogueContainer> _event;
+
+    [SerializeField] private UnityEvent _event;
     [SerializeField] private UnityEvent endingEvent;
 
     public void askBartender() {
-        _event.Invoke(dialogueContainers[beerDrunk]);
+        _event.Invoke();
     }
 
     public void beerDrunkAdd() {
@@ -20,7 +20,6 @@ public class BeerCounter : MonoBehaviour, IDataPersistence {
             endingEvent.Invoke();
         }
     }
-    
     
     public void LoadData(GameData data) {
         beerDrunk = data.beerDrunk;
