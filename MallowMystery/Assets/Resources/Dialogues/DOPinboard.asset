@@ -10,21 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 78b3fd9154634ebdb8c8a48960b9a16a, type: 3}
-  m_Name: DOblockExitDetective
+  m_Name: DOPinboard
   m_EditorClassIdentifier: 
-  alreadyHadConversation: 1
+  alreadyHadConversation: 0
   NodeLinks:
-  - BaseNodeGUID: c62f53ec-46b5-4570-877a-e545759aeed2
+  - BaseNodeGUID: 22564a3b-2292-4fb0-b629-b0af54c8f705
     PortName: Next
-    TargetNodeGUID: ee9b4793-f5cd-4b97-bb74-d5dde301330e
+    TargetNodeGUID: b3740a38-7e4c-4be2-b1ca-596433c0da65
   DialogueNodeData:
-  - nodeGuid: ee9b4793-f5cd-4b97-bb74-d5dde301330e
-    dialogueText: I just came here. I should at least speak to Tyrone first before
-      leaving.
-    position: {x: 296, y: 174}
-    SpeakerName: Milton
-    SpeakerNameLocation: Speaker Name Left
-    SpeakerSpriteLeft: M1
+  - nodeGuid: b3740a38-7e4c-4be2-b1ca-596433c0da65
+    dialogueText: "You try to piece together Tyrone\u2019s last case... But you drop
+      the effort because nobody but Tyrone himself can understand his notes."
+    position: {x: 234.4, y: 200}
+    SpeakerName: 
+    SpeakerNameLocation: None
+    SpeakerSpriteLeft: 
     SpeakerSpriteRight: 
     ItemPortCombis: []
     QuestionAnswerPortCombis: []
@@ -34,7 +34,5 @@ MonoBehaviour:
   DialogueEndNodeData: []
   ExposedProperties:
   - PropertyName: Ignore
-    PropertyValue: New Value
-  - PropertyName: Milton
     PropertyValue: New Value
   CommentBlockData: []
