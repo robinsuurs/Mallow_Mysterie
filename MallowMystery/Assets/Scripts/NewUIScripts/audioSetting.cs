@@ -6,6 +6,7 @@ using UnityEngine.TextCore.Text;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.Audio;
+using UnityEngine.Events;
 using UnityEngine.Serialization;
 
 public class audioSetting : MonoBehaviour

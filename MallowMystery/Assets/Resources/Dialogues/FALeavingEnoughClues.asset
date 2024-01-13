@@ -28,8 +28,7 @@ MonoBehaviour:
     TargetNodeGUID: bdc7438b-fd7a-4b9f-ab49-e894fa24b878
   DialogueNodeData:
   - nodeGuid: 0684f0fc-d610-42fc-a056-6cd96299d875
-    dialogueText: "If I go right now, I won\u2019t be able to return\u2026 The police
-      could be here any second."
+    dialogueText: "If I go right now, I won\u2019t be able to return..."
     position: {x: 248, y: 200}
     SpeakerName: Milton
     SpeakerNameLocation: Speaker Name Left
@@ -67,6 +66,19 @@ MonoBehaviour:
             m_ObjectArgument: {fileID: 11400000, guid: fd04759f9e80bba428967f6971b0ff36,
               type: 2}
             m_ObjectArgumentAssemblyTypeName: ScriptObjects.SceneSwitchData, Assembly-CSharp
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 11400000, guid: 675210fa54e71e34c989e0642a8bbde4, type: 2}
+          m_TargetAssemblyTypeName: ScriptObjects.EventSound, Assembly-CSharp
+          m_MethodName: Raise
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 8300000, guid: 841205c2dc248f84ca507d08c3fab00a,
+              type: 3}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 

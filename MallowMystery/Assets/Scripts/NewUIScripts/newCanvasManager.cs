@@ -1,15 +1,18 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using ScriptObjects;
 using UnityEngine.EventSystems;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 public class newCanvasManager : MonoBehaviour//, IPointerClickHandler
 {
     [SerializeField] private GameObject canvas;
     [SerializeField] private JournalManager Journal;
-    [SerializeField] private GameEventStandardAdd closeUI;
+    [SerializeField] private UnityEvent closeUI;
+    [SerializeField] private FadeToBlackEvent fadeEvent;
     
     [SerializeField] private UIControls ui;
 
@@ -26,6 +29,7 @@ public class newCanvasManager : MonoBehaviour//, IPointerClickHandler
         canvas.SetActive(true);
         ui.deactivateInput();
         Journal.activate();
+        fadeEvent.Raise();
     }
 
     public void DisableCanvas()
@@ -33,13 +37,13 @@ public class newCanvasManager : MonoBehaviour//, IPointerClickHandler
         Journal.closeJournal();
         ui.activateInput();
         canvas.SetActive(false);
-        closeUI.Raise();
+        closeUI.Invoke();
     }
 
     public void openJournalPage(UIPage page)
     {
         canvas.SetActive(true);
-        if (Journal.isOpen && Journal.currentPage == page)
+        if (Journal.isOpen && page == UIPage.Settings)
         {
             DisableCanvas();
             return;

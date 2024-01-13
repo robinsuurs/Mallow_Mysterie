@@ -19,16 +19,19 @@ MonoBehaviour:
     TargetNodeGUID: ee9b4793-f5cd-4b97-bb74-d5dde301330e
   DialogueNodeData:
   - nodeGuid: ee9b4793-f5cd-4b97-bb74-d5dde301330e
-    dialogueText: Maybe I should talk to Tyrone first
+    dialogueText: I just came here. I should at least speak to Tyrone first before
+      leaving.
     position: {x: 296, y: 174}
     SpeakerName: Milton
     SpeakerNameLocation: Speaker Name Left
     SpeakerSpriteLeft: M1
     SpeakerSpriteRight: 
     ItemPortCombis: []
+    QuestionAnswerPortCombis: []
     SkipPorts: []
     canSkipFromThisPoint: 0
     CutSceneImageName: 
+  DialogueEndNodeData: []
   ExposedProperties:
   - PropertyName: Ignore
     PropertyValue: New Value

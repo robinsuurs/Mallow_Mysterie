@@ -4,26 +4,36 @@ using System.Collections.Generic;
 using System.Linq;
 using Dialogue.Runtime;
 using Dialogue.RunTime;
+using ScriptObjects;
 using UnityEngine;
 using TMPro;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
 public class DialogueHandler : MonoBehaviour {
     [SerializeField] private GameObject dialogueCanvas;
-    [SerializeField] private TextMeshProUGUI DialogueBoxUI;
+    [SerializeField] private TextMeshProUGUI dialogueBoxUIText;
     [SerializeField] private TextMeshProUGUI SpeakerNameBoxLeft;
     [SerializeField] private GameObject SpeakerNameLeftNameBox;
-    [SerializeField] private Image SpeakerSpriteLeft;
     [SerializeField] private TextMeshProUGUI SpeakerNameBoxRight;
     [SerializeField] private GameObject SpeakerNameRightNameBox;
-    [SerializeField] private Image SpeakerSpriteRight;
     [SerializeField] private Button ChoicesButton;
     [SerializeField] private Transform buttonContainer;
+    [SerializeField] private EventSound eventSound;
+    [SerializeField] private AudioClip poppingSound;
     [SerializeField] private float textspeed;
     [SerializeField] private ListOfSprites _listOfSprites;
     [SerializeField] private InputActionAsset _inputAction;
+
+    [SerializeField] private GameObject turnOffCutscene;
+    [SerializeField] private GameObject cutSceneImageObject;
+    [SerializeField] private GameObject cutSceneGameObject;
+    [SerializeField] private TextMeshProUGUI cutSceneText;
+    [SerializeField] private FadeToBlackEvent fadeToBlack;
+    [SerializeField] private FadeToBlackEvent fadeToNormal;
+    private TextMeshProUGUI currentUsingTextBox;
 
     private string overwriteGUID;
     private bool overwrite;
@@ -35,8 +45,8 @@ public class DialogueHandler : MonoBehaviour {
     private bool singleOption;
     private bool inDialogue;
     
-    public AudioSource audioSource;
-    public AudioClip[] audioClipArray;
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip[] audioClipArray;
     AudioClip _lastClip;
     
     private void Start() {
@@ -45,12 +55,14 @@ public class DialogueHandler : MonoBehaviour {
 
     public void StartDialogue(DialogueContainer dialogueContainer) {
         if (!inDialogue) {
+            currentUsingTextBox = dialogueBoxUIText;
             dialogue = dialogueContainer;
             dialogueCanvas.SetActive(true);
             var narrativeData = dialogueContainer.NodeLinks.Where(x => x.PortName.Equals("Next")).ToList()[0].TargetNodeGUID;
             ProceedToNarrative(narrativeData);
             inDialogue = true;
             disableInputActions();
+            fadeToBlack.Raise();
         }
     }
 
@@ -59,17 +71,18 @@ public class DialogueHandler : MonoBehaviour {
         currentDialogue = null;
         singleOption = false;
         inDialogue = false;
-        DialogueBoxUI.text = "";
+        dialogueBoxUIText.text = "";
         SpeakerNameBoxLeft.text = "";
         SpeakerNameBoxRight.text = "";
         dialogueCanvas.SetActive(false);
         enableInputActions();
+        fadeToNormal.Raise();
     }
     
     void Update()
     {
         if (inDialogue && (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Space))) {
-            if (DialogueBoxUI.text == currentDialogue) {
+            if (currentUsingTextBox.text == currentDialogue) {
                 if (!choices.Any()) {
                     EndDialogue();
                 } else if (overwrite) {
@@ -80,7 +93,7 @@ public class DialogueHandler : MonoBehaviour {
                 }
             } else {
                 StopAllCoroutines();
-                DialogueBoxUI.text = currentDialogue;
+                currentUsingTextBox.text = currentDialogue;
             }
         }
     }
@@ -97,13 +110,35 @@ public class DialogueHandler : MonoBehaviour {
         } else {
             choices = dialogue.NodeLinks.Where(x => x.BaseNodeGUID == narrativeDataGUID).ToList();
             currentDialogue = ProcessProperties(currentNode.dialogueText);
-            DialogueBoxUI.text = "";
-            StartCoroutine(TypeLine());
+            currentUsingTextBox.text = "";
+            
+            
             var buttons = buttonContainer.GetComponentsInChildren<Button>();
         
             foreach (var t in buttons) {
                 Destroy(t.gameObject);
             }
+            
+            if (!dialogue.alreadyHadConversation) {
+                if (currentNode.CutSceneImageName != "") {
+                    cutSceneText.gameObject.SetActive(true);
+                    currentUsingTextBox = cutSceneText;
+                    _listOfSprites.CutSceneImageSetter(currentNode.CutSceneImageName);
+                    cutSceneImageObject.SetActive(true);
+                    turnOffCutscene.SetActive(false);
+                    cutSceneGameObject.SetActive(true);
+                    StartCoroutine(TypeLine());
+                    return;
+                }
+
+                cutSceneGameObject.SetActive(false);
+                currentUsingTextBox = dialogueBoxUIText;
+                cutSceneText.gameObject.SetActive(false);
+                cutSceneImageObject.SetActive(false);
+                turnOffCutscene.SetActive(true);
+            }
+            
+            StartCoroutine(TypeLine());
             
             buttonContainer.gameObject.SetActive(false);
         
@@ -111,9 +146,6 @@ public class DialogueHandler : MonoBehaviour {
             
             setSpeakers(currentNode);
             
-            _listOfSprites.CutSceneImageSetter(currentNode.CutSceneImageName);
-            
-
             if (choices.Any(choice => currentNode.QuestionAnswerPortCombis.Any(x => x.portname.Equals(choice.PortName)))) {
                 overwrite = true;
                 
@@ -143,6 +175,7 @@ public class DialogueHandler : MonoBehaviour {
             button.GetComponentInChildren<Text>().text = ProcessProperties(choice.PortName);
             button.GetComponentInChildren<Text>().fontSize = 24;
             button.onClick.AddListener(() => ProceedToNarrative(choice.TargetNodeGUID));
+            button.onClick.AddListener(() => eventSound.Raise(poppingSound));
         }
     }
 
@@ -187,7 +220,7 @@ public class DialogueHandler : MonoBehaviour {
     IEnumerator TypeLine() {
         var textArray = currentDialogue.ToCharArray();
         for (var c = 0; c < textArray.Length; c++) {
-            DialogueBoxUI.text += textArray[c];
+            currentUsingTextBox.text += textArray[c];
             if (c % 2 == 0) {
                 audioSource.pitch = Random.Range(0.75f, 1.15f);
                 audioSource.PlayOneShot(RandomClip());

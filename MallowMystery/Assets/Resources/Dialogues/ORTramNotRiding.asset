@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78b3fd9154634ebdb8c8a48960b9a16a, type: 3}
   m_Name: ORTramNotRiding
   m_EditorClassIdentifier: 
-  alreadyHadConversation: 0
+  alreadyHadConversation: 1
   NodeLinks:
   - BaseNodeGUID: a69971b9-bf7d-49e8-96bc-4ef71aec33dd
     PortName: Next
@@ -33,5 +33,7 @@ MonoBehaviour:
   DialogueEndNodeData: []
   ExposedProperties:
   - PropertyName: Ignore
+    PropertyValue: New Value
+  - PropertyName: Milton
     PropertyValue: New Value
   CommentBlockData: []

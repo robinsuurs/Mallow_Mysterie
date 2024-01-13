@@ -14,14 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   alreadyHadConversation: 0
   NodeLinks:
-  - BaseNodeGUID: 2b7c05bf-efc8-42ed-9cd1-119a923a001a
+  - BaseNodeGUID: 3f244454-1f3f-4e5b-940c-e63a6454443d
     PortName: Next
-    TargetNodeGUID: 69ecf48a-4467-4051-a8e7-cd5e75de01d0
+    TargetNodeGUID: 5822a4ea-f795-4735-9adf-34bcd7dc711d
   DialogueNodeData:
-  - nodeGuid: 69ecf48a-4467-4051-a8e7-cd5e75de01d0
+  - nodeGuid: 5822a4ea-f795-4735-9adf-34bcd7dc711d
     dialogueText: I shouldn't waste more time here. Who knows how much time I have
-      before the police comes to investigate?
-    position: {x: 223, y: 200}
+      before the police come to investigate?
+    position: {x: 238.5, y: 200}
     SpeakerName: Milton
     SpeakerNameLocation: Speaker Name Left
     SpeakerSpriteLeft: M1
@@ -34,6 +34,8 @@ MonoBehaviour:
   DialogueEndNodeData: []
   ExposedProperties:
   - PropertyName: Ignore
+    PropertyValue: New Value
+  - PropertyName: Sign
     PropertyValue: New Value
   - PropertyName: Milton
     PropertyValue: New Value

@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78b3fd9154634ebdb8c8a48960b9a16a, type: 3}
+  m_Name: BStripperBeforeNaked
+  m_EditorClassIdentifier: 
+  alreadyHadConversation: 0
+  NodeLinks:
+  - BaseNodeGUID: 3130573f-ee57-4ac7-8c05-e9e1a2cc386e
+    PortName: Yes, please.
+    TargetNodeGUID: d42fd59d-d409-49ac-8f28-d1dd7535e91f
+  - BaseNodeGUID: affb11da-e0b3-44b4-80b7-21f0cb0690b2
+    PortName: Next
+    TargetNodeGUID: 61e82f98-f62a-4d99-bdca-ee3b175030bc
+  DialogueNodeData:
+  - nodeGuid: 61e82f98-f62a-4d99-bdca-ee3b175030bc
+    dialogueText: Hey there, honey. Wanna see something fun?
+    position: {x: 211, y: 200}
+    SpeakerName: Stripper
+    SpeakerNameLocation: None
+    SpeakerSpriteLeft: 
+    SpeakerSpriteRight: 
+    ItemPortCombis: []
+    QuestionAnswerPortCombis: []
+    SkipPorts: []
+    canSkipFromThisPoint: 0
+    CutSceneImageName: 
+  DialogueEndNodeData: []
+  ExposedProperties:
+  - PropertyName: Ignore
+    PropertyValue: New Value
+  - PropertyName: Stripper
+    PropertyValue: New Value
+  CommentBlockData: []
