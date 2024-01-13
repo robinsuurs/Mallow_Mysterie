@@ -22,7 +22,8 @@ MonoBehaviour:
         m_MethodName: LoadNextScene
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgument: {fileID: 11400000, guid: ea0f9aa3650894f4795f108692540206,
+            type: 2}
           m_ObjectArgumentAssemblyTypeName: ScriptObjects.SceneSwitchData, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -31,4 +32,17 @@ MonoBehaviour:
         m_CallState: 2
   notPermitted:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: e10444a92f7652f478e5f8decfb2daf1, type: 2}
+        m_TargetAssemblyTypeName: DialogueEvent, Assembly-CSharp
+        m_MethodName: Raise
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: 376e23189e9d7f94d9e39847c5fe6e84,
+            type: 2}
+          m_ObjectArgumentAssemblyTypeName: Dialogue.RunTime.DialogueContainer, Runtime
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

@@ -1907,6 +1907,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a37bc68910538743afb84b9f6424e85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inventory: {fileID: 0}
   inventoryPlaceholders:
   - {fileID: 119606524196484280}
   - {fileID: 7491517535791994863}
@@ -1916,6 +1917,10 @@ MonoBehaviour:
   - {fileID: 2759111134229743374}
   selectedImageLoc: {fileID: 2895087750450430212}
   currentPage: {fileID: 6893873892837850776}
+  closeUpImageClue: {fileID: 0}
+  clueName: {fileID: 0}
+  locationClue: {fileID: 0}
+  clueDescription: {fileID: 0}
 --- !u!1 &1976885172255246504
 GameObject:
   m_ObjectHideFlags: 0
@@ -2430,9 +2435,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c99ee782f4da45e46935181fdfefa8ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  masterVolume: {fileID: 229705824612755716}
-  musicVolume: {fileID: 2657202966926646217}
-  effectVolume: {fileID: 7898443177902219509}
   masterMixer: {fileID: 24100000, guid: abb4bd9425dbbd9498f4d6c97ad50fd6, type: 2}
 --- !u!1 &2179464274146938699
 GameObject:
@@ -3575,14 +3577,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.9960785, g: 0.96470594, b: 0.9960785, a: 1}
+  m_Color: {r: 1, g: 0, b: 0.08614111, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 6ee305856af50da42b0c676915705dc9, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

@@ -13,10 +13,22 @@ MonoBehaviour:
   m_Name: DoorFriendApartment
   m_EditorClassIdentifier: 
   UID: 2de5b0a61ac078040a65cec62c3111ce
-  permission: 1
+  permission: 0
   permitted:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 11400000, guid: 8cd868260cb78784fb4e1319c9e36049, type: 2}
+        m_TargetAssemblyTypeName: PermissionCheck, Assembly-CSharp
+        m_MethodName: setPermission
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
       - m_Target: {fileID: 11400000, guid: 7aba493f38a49284aae0473b1f37da1e, type: 2}
         m_TargetAssemblyTypeName: PermissionCheck, Assembly-CSharp
         m_MethodName: raiseEvent

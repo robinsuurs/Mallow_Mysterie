@@ -21,7 +21,6 @@ public class CharacterAnimations : MonoBehaviour
 
     [SerializeField] private GameObject Player;
     [SerializeField] private InputActionAsset inpAsset;
-    private InputActionMap IAmap;
     private InputAction movementAction;
     // private InputSystem input;
 

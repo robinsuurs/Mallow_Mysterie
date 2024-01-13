@@ -2,28 +2,31 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class TabGroup : MonoBehaviour
 {
-    private List<TabButt> tabButtons;
+    [SerializeField] private List<TabButt> tabButtons;
     private Color tabIdle;
     private Color tabHover;
     private Color tabActive;
 
     private TabButt selectedTab;
 
-    private void Start()
-    {
-        // resetTabs();
+    [SerializeField] private UnityEvent switchTab;
 
-        foreach (TabButt butt in tabButtons)
-        {
-            butt.GetComponent<Image>().color = tabIdle;
-            butt.deactivate();
-        }
-        OnTabSelected(tabButtons[0]);
-    }
+    // private void Start()
+    // {
+    //     // resetTabs();
+    //
+    //     foreach (TabButt butt in tabButtons)
+    //     {
+    //         butt.GetComponent<Image>().color = tabIdle;
+    //         butt.deactivate();
+    //     }
+    //     // OnTabSelected(tabButtons[0]);
+    // }
 
 
     public void Subscribe(TabButt button)
@@ -53,6 +56,7 @@ public class TabGroup : MonoBehaviour
         selectedTab?.deactivate();
         selectedTab = button;
         selectedTab?.activate();
+        switchTab.Invoke();
         resetTabs();
         button.ColorActive();
     }

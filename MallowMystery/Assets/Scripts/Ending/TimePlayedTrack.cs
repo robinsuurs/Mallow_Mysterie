@@ -8,7 +8,7 @@ public class TimePlayedTrack : MonoBehaviour, IDataPersistence {
     private string currentSceneName;
     public static float currentTimeRun;
     private void Update() {
-        if (currentSceneName != "MainMenu") {
+        if (currentSceneName != "MainMenu" && currentSceneName != "EndingScene") {
             currentTimeRun += Time.unscaledDeltaTime;
         }
     }

@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78b3fd9154634ebdb8c8a48960b9a16a, type: 3}
+  m_Name: ROTimerRunOut
+  m_EditorClassIdentifier: 
+  alreadyHadConversation: 0
+  NodeLinks:
+  - BaseNodeGUID: 96cefc49-6579-41e4-a7eb-ea1ccdf65e2f
+    PortName: Next
+    TargetNodeGUID: 415dedd9-c52c-47a7-bd4c-d0b7f5a155da
+  - BaseNodeGUID: 415dedd9-c52c-47a7-bd4c-d0b7f5a155da
+    PortName: Option 1
+    TargetNodeGUID: ce583cb6-2fb4-453c-b29b-ba5faa568051
+  DialogueNodeData:
+  - nodeGuid: 415dedd9-c52c-47a7-bd4c-d0b7f5a155da
+    dialogueText: Hmmm... It feels like I'm missing something. I should take another
+      look at the clues.
+    position: {x: 231, y: 200}
+    SpeakerName: Milton
+    SpeakerNameLocation: Speaker Name Left
+    SpeakerSpriteLeft: M1
+    SpeakerSpriteRight: 
+    ItemPortCombis: []
+    QuestionAnswerPortCombis: []
+    SkipPorts: []
+    canSkipFromThisPoint: 0
+    CutSceneImageName: 
+  DialogueEndNodeData:
+  - nodeGuid: ce583cb6-2fb4-453c-b29b-ba5faa568051
+    dialogueText: 
+    position: {x: 617, y: 200}
+    DialogueEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  ExposedProperties:
+  - PropertyName: Ignore
+    PropertyValue: New Value
+  - PropertyName: Milton
+    PropertyValue: New Value
+  CommentBlockData: []

@@ -7,7 +7,7 @@ namespace ScriptObjects
 {
     [CreateAssetMenu]
     public class Inventory : ListOfStuff<ItemData> {
-        public int pickedUpItemNumber() {
+        public int PickedUpItemNumber() {
             return this.items.Count(item => item.hasBeenPickedUp);
         }
     }
