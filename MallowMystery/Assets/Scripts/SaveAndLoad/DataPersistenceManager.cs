@@ -70,7 +70,6 @@ public class DataPersistenceManager : MonoBehaviour {
 
     public void NewGame() {
         this._gameData = new GameData("");
-        // SaveGame();
     }
 
     public void LoadGame() {

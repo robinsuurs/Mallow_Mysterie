@@ -440,6 +440,11 @@ PrefabInstance:
       propertyPath: m_fontColor32.rgba
       value: 4285941674
       objectReference: {fileID: 0}
+    - target: {fileID: 8202402253830129921, guid: 7cadc8598a9021644a87ed436315d24d,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 8266545847788350933, guid: 7cadc8598a9021644a87ed436315d24d,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -550,6 +555,12 @@ PrefabInstance:
         type: 2}
     - target: {fileID: 1352229987384851720, guid: 503b2f6063621ad469da98920854b35c,
         type: 3}
+      propertyPath: pickUpSound
+      value: 
+      objectReference: {fileID: 11400000, guid: 085b440eda8bf7d478dbc868825e883f,
+        type: 2}
+    - target: {fileID: 1352229987384851720, guid: 503b2f6063621ad469da98920854b35c,
+        type: 3}
       propertyPath: openUIElement
       value: 
       objectReference: {fileID: 11400000, guid: 586637a485cfe74429939552c1764d03,
@@ -571,6 +582,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: bdd230c80312f6446812a49e8702efc7,
         type: 2}
+    - target: {fileID: 1352229987384851720, guid: 503b2f6063621ad469da98920854b35c,
+        type: 3}
+      propertyPath: pickUpSoundAudio
+      value: 
+      objectReference: {fileID: 8300000, guid: fd5a58ea46e75474da3bec18ee79246b, type: 3}
     - target: {fileID: 1352229987384851720, guid: 503b2f6063621ad469da98920854b35c,
         type: 3}
       propertyPath: itemShortDescription
