@@ -8,36 +8,25 @@ using UnityEngine.InputSystem;
 public class FolderManager : MonoBehaviour
 {
     [SerializeField] private List<GameObject> clues;
-    [SerializeField] private InputActionAsset input;
     [SerializeField] private GameObject folder;
     [SerializeField] private GameEventStandardAdd folderPickUpEvent;
-    private InputAction moveAction;
-    private InputAction interactAction;
-    private bool pickup;
+    [SerializeField] private GameEventStandardAdd openUIElement;
+    [SerializeField] private GameEventStandardAdd closeUIElement;
     
-    private void Awake()
-    {
-        moveAction = input.FindAction("Move");
-        interactAction = input.FindAction("Interact");
-    }
     public void openFolder(){
         folder.SetActive(true);
-        deactivateInput();
         foreach (GameObject clue in clues)
         {
             clue.GetComponent<ItemLoadScene>().ShowObjectOrNot();
         }
+        openUIElement.Raise();
     }
     public void closeFolder(){
-        activateInput();
         
         if (clues.All(clues => !clues.activeSelf)) {
             folderPickUpEvent.Raise();
         }
-        
+        closeUIElement.Raise();
         folder.SetActive(false);
     }
-    
-    public void activateInput() {moveAction.Enable(); interactAction.Enable();}
-    public void deactivateInput() {moveAction.Disable(); interactAction.Disable();}
 }

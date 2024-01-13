@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78b3fd9154634ebdb8c8a48960b9a16a, type: 3}
   m_Name: FAallItem
   m_EditorClassIdentifier: 
-  alreadyHadConversation: 0
+  alreadyHadConversation: 1
   NodeLinks:
   - BaseNodeGUID: 377f8d50-5dda-445d-9adb-ed16aca3ec3d
     PortName: Next
@@ -22,7 +22,7 @@ MonoBehaviour:
     dialogueText: I think I should go now, the police could be here any minute.
     position: {x: 333, y: 200}
     SpeakerName: 
-    SpeakerNameLocation: Speaker Name Left
+    SpeakerNameLocation: None
     SpeakerSpriteLeft: 
     SpeakerSpriteRight: 
     ItemPortCombis: []

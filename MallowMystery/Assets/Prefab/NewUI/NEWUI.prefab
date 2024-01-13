@@ -2835,18 +2835,6 @@ MonoBehaviour:
   closeUI:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11400000, guid: e02ad884b8c6edd439d9fc8657f897c9, type: 2}
-        m_TargetAssemblyTypeName: ScriptObjects.FadeToBlackEvent, Assembly-CSharp
-        m_MethodName: Raise
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 11400000, guid: 69d7377665b4b24479999fc5374c02e9, type: 2}
         m_TargetAssemblyTypeName: GameEventStandardAdd, Assembly-CSharp
         m_MethodName: Raise
@@ -2859,7 +2847,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  fadeEvent: {fileID: 11400000, guid: bdd230c80312f6446812a49e8702efc7, type: 2}
+  openUIElement: {fileID: 11400000, guid: 586637a485cfe74429939552c1764d03, type: 2}
+  closeUIElement: {fileID: 11400000, guid: 2d12d24d8e5153f42b8381e4a1ba9aec, type: 2}
   ui: {fileID: 4853743843108991575}
 --- !u!114 &4853743843108991575
 MonoBehaviour:

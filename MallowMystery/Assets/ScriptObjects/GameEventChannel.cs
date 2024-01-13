@@ -11,9 +11,12 @@ namespace ExampleEventScriptAble
     
         public void Raise()
         {
-            for (int i = _listeners.Count -1; i >= 0; i--)
-            {
-                _listeners[i].OnEventTriggered();
+            // for (int i = _listeners.Count -1; i >= 0; i--)
+            // {
+            //     _listeners[i].OnEventTriggered();
+            // }
+            if (_listeners.Count > 0) {
+                _listeners[0].OnEventTriggered();
             }
         }
         public void AddListener(GameEventListeners listener)

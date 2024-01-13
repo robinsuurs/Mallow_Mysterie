@@ -49,6 +49,7 @@ public class DataPersistenceManager : MonoBehaviour {
 
     private void OnSceneLoaded (Scene scene, LoadSceneMode mode) {
         if (!SceneManager.GetActiveScene().name.Equals("MainMenu")) {
+            LoadGame();
             _levelManager.SpawnPlayer(_gameData);
         }
         endLoading.Invoke();

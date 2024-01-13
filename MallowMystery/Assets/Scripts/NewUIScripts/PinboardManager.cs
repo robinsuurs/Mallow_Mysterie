@@ -7,27 +7,18 @@ using UnityEngine.InputSystem;
 
 public class PinboardManager : MonoBehaviour
 {
-    [SerializeField] private InputActionAsset input;
     [SerializeField] private GameObject pinboard;
-    [SerializeField] private List<ItemData> containedClues;
     [SerializeField] private GameEventStandardAdd closePinBoard;
-    private InputAction moveAction;
-    private InputAction interactAction;
-    
-    private void Awake()
-    {
-        moveAction = input.FindAction("Move");
-        interactAction = input.FindAction("Interact");
-    }
+    [SerializeField] private GameEventStandardAdd openUIElement;
+    [SerializeField] private GameEventStandardAdd closeUIElement;
+
     public void openBoard(){
     	pinboard.SetActive(true);
-        deactivateInput();
+        openUIElement.Raise();
     }
     public void closeBoard(){
     	pinboard.SetActive(false);
-        activateInput();
         closePinBoard.Raise();
+        closeUIElement.Raise();
     }
-    public void activateInput() {moveAction.Enable(); interactAction.Enable();}
-    public void deactivateInput() {moveAction.Disable(); interactAction.Disable();}
 }
