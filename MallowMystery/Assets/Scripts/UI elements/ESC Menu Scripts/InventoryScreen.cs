@@ -20,6 +20,8 @@ public class InventoryScreen : MonoBehaviour {
     [SerializeField] private TextMeshProUGUI clueName;
     [SerializeField] private TextMeshProUGUI locationClue;
     [SerializeField] private TextMeshProUGUI clueDescription;
+    private ItemData currentSelectedItemData;
+    [SerializeField] private ItemDataEvent zoomInClue;
 
     private void Start() {
         itemCloseUp(-1);
@@ -65,12 +67,20 @@ public class InventoryScreen : MonoBehaviour {
             clueDescription.text = "";
             clueName.text = "";
             locationClue.text = "";
+            currentSelectedItemData = null;
         } else {
             int itemNumber = clickedItemNumber + pageNumber * 6;
             closeUpImageClue.sprite = pickedUpItems[itemNumber].icon;
             clueName.text = pickedUpItems[itemNumber].itemName;
             clueDescription.text = pickedUpItems[itemNumber].description;
             locationClue.text = pickedUpItems[itemNumber].locationFound;
+            currentSelectedItemData = pickedUpItems[itemNumber];
+        }
+    }
+
+    public void ZoomInClueSprite() {
+        if (currentSelectedItemData != null) {
+            zoomInClue.Raise(currentSelectedItemData);
         }
     }
 
