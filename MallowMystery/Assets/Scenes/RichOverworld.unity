@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028331, g: 0.2257133, b: 0.3069217, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.3069224, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1095,52 +1095,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &156905576 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2130041395050595008, guid: 729a8cd5f6db98445a0c43d7ff0ad153,
-    type: 3}
-  m_PrefabInstance: {fileID: 1499971769}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &156905577
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 156905576}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b3867e76b32bc447ab9ce27ae966b70, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Event: {fileID: 11400000, guid: 1fa26152e53e69f419005acb2991c9b9, type: 2}
-  response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 156905579}
-        m_TargetAssemblyTypeName: BackgroundMusicSound, Assembly-CSharp
-        m_MethodName: changeSoundLevel
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &156905579 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6341072588281528486, guid: 729a8cd5f6db98445a0c43d7ff0ad153,
-    type: 3}
-  m_PrefabInstance: {fileID: 1499971769}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 156905576}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f52334ebd2105f048a4dfc5a4cc0d12d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &196471694
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3875,6 +3829,47 @@ PrefabInstance:
       propertyPath: m_Name
       value: SceneSpecificOverworld
       objectReference: {fileID: 0}
+    - target: {fileID: 4178754312792757073, guid: f3bc1e9325217b24bab017ddac854d71,
+        type: 3}
+      propertyPath: ending.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4178754312792757073, guid: f3bc1e9325217b24bab017ddac854d71,
+        type: 3}
+      propertyPath: ending.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4178754312792757073, guid: f3bc1e9325217b24bab017ddac854d71,
+        type: 3}
+      propertyPath: ending.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 11400000, guid: d90621b151f21124cac47d05734453a7,
+        type: 2}
+    - target: {fileID: 4178754312792757073, guid: f3bc1e9325217b24bab017ddac854d71,
+        type: 3}
+      propertyPath: ending.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4178754312792757073, guid: f3bc1e9325217b24bab017ddac854d71,
+        type: 3}
+      propertyPath: ending.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: Raise
+      objectReference: {fileID: 0}
+    - target: {fileID: 4178754312792757073, guid: f3bc1e9325217b24bab017ddac854d71,
+        type: 3}
+      propertyPath: ending.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: ScriptObjects.FadeToBlackEvent, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4178754312792757073, guid: f3bc1e9325217b24bab017ddac854d71,
+        type: 3}
+      propertyPath: ending.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4178754312792757073, guid: f3bc1e9325217b24bab017ddac854d71,
+        type: 3}
+      propertyPath: ending.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 8618962515585856039, guid: f3bc1e9325217b24bab017ddac854d71,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3926,7 +3921,8 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 7346747208578149538, guid: f3bc1e9325217b24bab017ddac854d71, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f3bc1e9325217b24bab017ddac854d71, type: 3}
@@ -6112,11 +6108,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 2130041395050595008, guid: 729a8cd5f6db98445a0c43d7ff0ad153,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 156905577}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 729a8cd5f6db98445a0c43d7ff0ad153, type: 3}
 --- !u!4 &1512278100 stripped
 Transform:
