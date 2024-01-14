@@ -13,16 +13,8 @@ public class TimePlayedTrack : MonoBehaviour, IDataPersistence {
         }
     }
 
-    private void setCurrentSceneName(Scene scene, LoadSceneMode mode) {
-        currentSceneName = scene.name;
-    }
-    
-    private void OnEnable() {
-        SceneManager.sceneLoaded += setCurrentSceneName;
-    }
-
-    private void OnDisable() {
-        SceneManager.sceneLoaded -= setCurrentSceneName;
+    public void setCurrentSceneName() {
+        currentSceneName = SceneManager.GetActiveScene().name;
     }
 
     public void LoadData(GameData data) {
