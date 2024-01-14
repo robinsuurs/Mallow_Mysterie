@@ -49,7 +49,9 @@ public class DataPersistenceManager : MonoBehaviour {
 
     private void OnSceneLoaded (Scene scene, LoadSceneMode mode) {
         if (!SceneManager.GetActiveScene().name.Equals("MainMenu")) {
-            LoadGame();
+            if (startFresh) {
+                LoadGame();   
+            }
             _levelManager.SpawnPlayer(_gameData);
         }
         endLoading.Invoke();
@@ -73,7 +75,8 @@ public class DataPersistenceManager : MonoBehaviour {
     }
 
     public void LoadGame() {
-        if (this._gameData == null || startFresh) {
+        _gameData = dataHandler.Load();
+        if (_gameData == null || startFresh) {
             Debug.Log("No GameData found. A new Game needs to be created");
             NewGame();
         }
