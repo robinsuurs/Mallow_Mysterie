@@ -10,16 +10,11 @@ public class BeerCounter : MonoBehaviour, IDataPersistence {
     [SerializeField] private int beerDrunk = 0;
     [SerializeField] private InputActionAsset input;
     [SerializeField] private AudioSource aud;
-
-    [SerializeField] private UnityEvent _event;
+    
     [SerializeField] private UnityEvent endingEvent;
 
     private bool waitForSound = false;
     private float timer = 0;
-
-    public void askBartender() {
-        _event.Invoke();
-    }
 
     public void beerDrunkAdd() {
         beerDrunk++;
@@ -29,7 +24,6 @@ public class BeerCounter : MonoBehaviour, IDataPersistence {
         input.Disable();
         waitForSound = true;
         aud.Play();
-        
     }
 
     private void Update() {

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028331, g: 0.2257133, b: 0.3069217, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.3069224, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -9744,6 +9744,38 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2575480771585836850, guid: e400d3bd6e0962a4181ceb7cf89ce309,
+        type: 3}
+      propertyPath: response.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2575480771585836850, guid: e400d3bd6e0962a4181ceb7cf89ce309,
+        type: 3}
+      propertyPath: response.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 11400000, guid: e10444a92f7652f478e5f8decfb2daf1,
+        type: 2}
+    - target: {fileID: 2575480771585836850, guid: e400d3bd6e0962a4181ceb7cf89ce309,
+        type: 3}
+      propertyPath: response.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Raise
+      objectReference: {fileID: 0}
+    - target: {fileID: 2575480771585836850, guid: e400d3bd6e0962a4181ceb7cf89ce309,
+        type: 3}
+      propertyPath: response.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: DialogueEvent, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2575480771585836850, guid: e400d3bd6e0962a4181ceb7cf89ce309,
+        type: 3}
+      propertyPath: response.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 11400000, guid: fb949a5b34680624bba5e4dcaa36639e,
+        type: 2}
+    - target: {fileID: 2575480771585836850, guid: e400d3bd6e0962a4181ceb7cf89ce309,
+        type: 3}
+      propertyPath: response.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: Dialogue.RunTime.DialogueContainer, Runtime
+      objectReference: {fileID: 0}
     - target: {fileID: 3923792818153000638, guid: e400d3bd6e0962a4181ceb7cf89ce309,
         type: 3}
       propertyPath: m_Name
