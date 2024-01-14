@@ -30,6 +30,8 @@ namespace ScriptObjects
             foreach (var dataSave in data.itemDataSaves.Where(dataSave => itemName.Equals(dataSave.itemName))) {
                 if (dataSave.hasBeenPickedUp) {
                     setPickUp();
+                } else {
+                    hasBeenPickedUp = false;
                 }
                 pickedUpNumber = dataSave.pickedUpNumber;
                 break;

@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Dialogue.RunTime;
+using SaveAndLoad.Data;
 using ScriptObjects;
 using Subtegral.DialogueSystem.DataContainers;
 using UnityEngine;
@@ -8,6 +9,7 @@ using UnityEngine;
 [System.Serializable] 
 public class GameData {
     public List<ItemDataSave> itemDataSaves = new List<ItemDataSave>();
+    public List<AnswerSave> answerSave = new List<AnswerSave>();
     public List<PermissionCheckSave> PermissionCheckSaves = new List<PermissionCheckSave>();
     public List<string> alreadyHadConversations = new List<string>();
     public float timeRun;
@@ -22,7 +24,8 @@ public class GameData {
     
     //Set start thing when you create a newGame
     public GameData(string leaveEmpty) {
-
+        
+        
         var inventory = Resources.LoadAll("Clues/ClueInventory", typeof(Inventory))
             .Cast<Inventory>().FirstOrDefault(inventoryArray => inventoryArray.name.Equals("ClueInventory"));
         

@@ -25,14 +25,13 @@ public class DialogueHandler : MonoBehaviour {
     [SerializeField] private AudioClip poppingSound;
     [SerializeField] private float textspeed;
     [SerializeField] private ListOfSprites _listOfSprites;
-    [SerializeField] private InputActionAsset _inputAction;
 
     [SerializeField] private GameObject turnOffCutscene;
     [SerializeField] private GameObject cutSceneImageObject;
     [SerializeField] private GameObject cutSceneGameObject;
     [SerializeField] private TextMeshProUGUI cutSceneText;
-    [SerializeField] private FadeToBlackEvent fadeToBlack;
-    [SerializeField] private FadeToBlackEvent fadeToNormal;
+    [SerializeField] private GameEventStandardAdd openUIElement;
+    [SerializeField] private GameEventStandardAdd closeUIElement;
     private TextMeshProUGUI currentUsingTextBox;
 
     private string overwriteGUID;
@@ -61,8 +60,7 @@ public class DialogueHandler : MonoBehaviour {
             var narrativeData = dialogueContainer.NodeLinks.Where(x => x.PortName.Equals("Next")).ToList()[0].TargetNodeGUID;
             ProceedToNarrative(narrativeData);
             inDialogue = true;
-            disableInputActions();
-            fadeToBlack.Raise();
+            openUIElement.Raise();
         }
     }
 
@@ -75,8 +73,7 @@ public class DialogueHandler : MonoBehaviour {
         SpeakerNameBoxLeft.text = "";
         SpeakerNameBoxRight.text = "";
         dialogueCanvas.SetActive(false);
-        enableInputActions();
-        fadeToNormal.Raise();
+        closeUIElement.Raise();
     }
     
     void Update()
@@ -227,14 +224,6 @@ public class DialogueHandler : MonoBehaviour {
             }
             yield return new WaitForSecondsRealtime(textspeed);
         }
-    }
-
-    private void enableInputActions() {
-        _inputAction.Enable();
-    }
-    
-    private void disableInputActions() {
-        _inputAction.Disable();
     }
     
     AudioClip RandomClip()

@@ -42,11 +42,14 @@ public class Question : ScriptableObject, IDataPersistence {
     public void LoadData(GameData data) {
         string answerUID;
         data.questionAnswerDic.TryGetValue(UID, out answerUID);
-        
-        if (answerUID == null) return;
-        
-        foreach (var answer in answers.Where(answer => answer.UID.Equals(answerUID))) {
-            this.chosenAnswer = answer;
+
+        if (answerUID == null) {
+            chosenAnswer = null;
+        }
+        else {
+            foreach (var answer in answers.Where(answer => answer.UID.Equals(answerUID))) {
+                chosenAnswer = answer;
+            }
         }
     }
 

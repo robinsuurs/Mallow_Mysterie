@@ -123,7 +123,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemData: {fileID: 11400000, guid: 9215cb9a8b7f0f743a8a155745d30e7c, type: 2}
-  _inventory: {fileID: 11400000, guid: 9b88e5fd99f1886478c294c52675e601, type: 2}
+  itemDataEvent: {fileID: 11400000, guid: 04ddfae70622f3a429b5933eb8e1961f, type: 2}
+  dontRemoveObject: 0
 --- !u!114 &3076420766470594418
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -142,8 +143,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 3656017671751302619}
         m_TargetAssemblyTypeName: ItemLoadScene, Assembly-CSharp
-        m_MethodName: PickUpObject
-        m_Mode: 6
+        m_MethodName: InteractWithItem
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
