@@ -10,13 +10,28 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: ad456a748fd361a40a02f5c982d58310,
         type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ad456a748fd361a40a02f5c982d58310,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ad456a748fd361a40a02f5c982d58310,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ad456a748fd361a40a02f5c982d58310,
+        type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.64
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ad456a748fd361a40a02f5c982d58310,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.93
+      value: 1.12
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ad456a748fd361a40a02f5c982d58310,
         type: 3}
@@ -57,6 +72,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ad456a748fd361a40a02f5c982d58310,
+        type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: ad456a748fd361a40a02f5c982d58310,
         type: 3}
@@ -155,10 +175,47 @@ MonoBehaviour:
         m_MethodName: Raise
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: 0167c04129a7216468e93553c8293b2b,
+          m_ObjectArgument: {fileID: 11400000, guid: 87b664e88da4df24eaad370e1fc2d565,
             type: 2}
-          m_ObjectArgumentAssemblyTypeName: Subtegral.DialogueSystem.DataContainers.DialogueContainer,
-            Runtime
+          m_ObjectArgumentAssemblyTypeName: Dialogue.RunTime.DialogueContainer, Runtime
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: 92487fe5a328c5f41b1234bea5a1fc9d, type: 2}
+        m_TargetAssemblyTypeName: PermissionCheck, Assembly-CSharp
+        m_MethodName: setPermission
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: 04ddfae70622f3a429b5933eb8e1961f, type: 2}
+        m_TargetAssemblyTypeName: ItemDataEvent, Assembly-CSharp
+        m_MethodName: Raise
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: d0b9c879ed695db49ba3af202e17f858,
+            type: 2}
+          m_ObjectArgumentAssemblyTypeName: ScriptObjects.ItemData, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: 04ddfae70622f3a429b5933eb8e1961f, type: 2}
+        m_TargetAssemblyTypeName: ItemDataEvent, Assembly-CSharp
+        m_MethodName: Raise
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: faa9f1163d4e6cd418badc5d77dd4e44,
+            type: 2}
+          m_ObjectArgumentAssemblyTypeName: ScriptObjects.ItemData, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
