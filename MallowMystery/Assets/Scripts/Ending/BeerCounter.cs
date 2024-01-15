@@ -30,7 +30,7 @@ public class BeerCounter : MonoBehaviour, IDataPersistence {
         if (!waitForSound) return;
         
         timer += Time.deltaTime;
-        if (timer > aud.clip.length) {
+        if (timer > aud.clip.length-4) {
             endingEvent.Invoke();
         }
     }
