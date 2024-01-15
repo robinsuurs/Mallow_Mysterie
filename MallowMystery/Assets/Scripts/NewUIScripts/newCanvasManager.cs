@@ -12,8 +12,7 @@ public class newCanvasManager : MonoBehaviour//, IPointerClickHandler
     [SerializeField] private GameObject canvas;
     [SerializeField] private JournalManager Journal;
     [SerializeField] private UnityEvent closeUI;
-    [SerializeField] private GameEventStandardAdd openUIElement;
-    [SerializeField] private GameEventStandardAdd closeUIElement;
+    
 
     private void Start()
     {
@@ -27,7 +26,6 @@ public class newCanvasManager : MonoBehaviour//, IPointerClickHandler
     {
         canvas.SetActive(true);
         Journal.activate();
-        openUIElement.Raise();
     }
 
     public void DisableCanvas()
@@ -35,7 +33,6 @@ public class newCanvasManager : MonoBehaviour//, IPointerClickHandler
         Journal.closeJournal();
         canvas.SetActive(false);
         closeUI.Invoke();
-        closeUIElement.Raise();
     }
 
     public void openJournalPage(UIPage page)

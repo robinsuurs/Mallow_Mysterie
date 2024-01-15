@@ -17,6 +17,8 @@ public class JournalManager : MonoBehaviour
     [SerializeField] private TabButt deductionButton;
     [SerializeField] private TabButt mapButton;
     [SerializeField] private TabButt settingsButton;
+    [SerializeField] private GameEventStandardAdd openUIElement;
+    [SerializeField] private GameEventStandardAdd closeUIElement;
     public bool isOpen = false;
     public UIPage currentPage;
 
@@ -29,6 +31,10 @@ public class JournalManager : MonoBehaviour
             foreach (var page in pages)
             {
                 page.SetActive(false);
+            }
+
+            if (isOpen) {
+                closeUIElement.Raise();
             }
             isOpen = false;
         }
@@ -49,6 +55,9 @@ public class JournalManager : MonoBehaviour
     public void activate()
     {
         Journal.SetActive(true);
+        if (!isOpen) {
+            openUIElement.Raise();
+        }
         isOpen = true;
     }
 }

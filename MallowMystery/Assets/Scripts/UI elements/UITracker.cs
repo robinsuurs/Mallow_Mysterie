@@ -8,6 +8,7 @@ public class UITracker : MonoBehaviour {
     [SerializeField] private int UIAmountTracker = 0;
     [SerializeField] private FadeToBlackEvent fadeToNormal;
     [SerializeField] private FadeToBlackEvent fadeToBlack;
+    [SerializeField] private GameEventStandardAdd closedLastUI;
     [SerializeField] private InputActionAsset playerInput;
 
     public void RaiseAmount() {
@@ -25,6 +26,7 @@ public class UITracker : MonoBehaviour {
             case <= 0:
                 playerInput.Enable();
                 fadeToNormal.Raise();
+                closedLastUI.Raise();
                 if (UIAmountTracker < 0) {
                     Debug.LogWarning("tracking UI below 0 how?");
                 }
