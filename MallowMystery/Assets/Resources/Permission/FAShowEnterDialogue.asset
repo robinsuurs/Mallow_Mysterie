@@ -10,37 +10,37 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1d4ea1469433f764fa3f45625794a89d, type: 3}
-  m_Name: HasBeenInApartment
+  m_Name: FAShowEnterDialogue
   m_EditorClassIdentifier: 
-  UID: 94c061b0668644d49857ba57c2108920
+  UID: cff2d96094cab8a4c81ecb30f7d3b2a3
   permission: 0
   permitted:
     m_PersistentCalls:
+      m_Calls: []
+  notPermitted:
+    m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11400000, guid: f56d5d60cb88fab41b125ad308c1f9ed, type: 2}
-        m_TargetAssemblyTypeName: GameEventStandardAdd, Assembly-CSharp
+      - m_Target: {fileID: 11400000, guid: e10444a92f7652f478e5f8decfb2daf1, type: 2}
+        m_TargetAssemblyTypeName: DialogueEvent, Assembly-CSharp
         m_MethodName: Raise
-        m_Mode: 1
+        m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgumentAssemblyTypeName: Dialogue.RunTime.DialogueContainer, Runtime
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  notPermitted:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 11400000, guid: 3a3dac14a13c8c74a87147978f1a442d, type: 2}
-        m_TargetAssemblyTypeName: GameEventStandardAdd, Assembly-CSharp
-        m_MethodName: Raise
-        m_Mode: 1
+      - m_Target: {fileID: 11400000}
+        m_TargetAssemblyTypeName: PermissionCheck, Assembly-CSharp
+        m_MethodName: setPermission
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
+          m_BoolArgument: 1
         m_CallState: 2
