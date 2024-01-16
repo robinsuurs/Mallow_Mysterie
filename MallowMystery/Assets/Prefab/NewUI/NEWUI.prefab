@@ -879,15 +879,15 @@ RectTransform:
   m_GameObject: {fileID: 1640122774016095496}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1456143750018951864}
   m_Father: {fileID: 1742036334632726621}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 781.4, y: 377}
+  m_AnchoredPosition: {x: 825.5, y: 415.2}
   m_SizeDelta: {x: 358, y: 316}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1078302424893336372
@@ -918,7 +918,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 32dc562255288de4d9fbe5015bda643f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c65daf16a777bd9429fdc35d2b9b3f4a, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1663,7 +1663,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1456143750018951864
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1673,14 +1673,14 @@ RectTransform:
   m_GameObject: {fileID: 3651554130772999292}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1652282118126049392}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 31, y: -223}
+  m_AnchoredPosition: {x: -231, y: -11}
   m_SizeDelta: {x: 304, y: 327}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4924897706571838197
@@ -1835,6 +1835,7 @@ GameObject:
   - component: {fileID: 547994222469763833}
   - component: {fileID: 3398159477014779679}
   - component: {fileID: 3950295731614355344}
+  - component: {fileID: 8476199351810616}
   m_Layer: 0
   m_Name: CluesManager
   m_TagString: Untagged
@@ -1897,6 +1898,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Event: {fileID: 11400000, guid: 646f95a624865984486d101ff0f52e69, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3398159477014779679}
+        m_TargetAssemblyTypeName: InventoryScreen, Assembly-CSharp
+        m_MethodName: newItemPickUp
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &8476199351810616
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4256952094167109447}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2678692cc9ca39f4180f2995b3001367, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: 04ddfae70622f3a429b5933eb8e1961f, type: 2}
   response:
     m_PersistentCalls:
       m_Calls:

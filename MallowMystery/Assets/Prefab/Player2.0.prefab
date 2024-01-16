@@ -260,8 +260,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: -1, z: 0}
-  m_LocalScale: {x: 6.3651996, y: 6.3651996, z: 6.3652}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1053600862918052598}
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
@@ -306,7 +306,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 6bdc822297aa93e40959ff92621c51d1, type: 3}
+  m_Sprite: {fileID: 21300000, guid: bef2cbc858de8a940a022a13d834d4b3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -683,8 +683,9 @@ MonoBehaviour:
   fadeToNormal: {fileID: 11400000, guid: e02ad884b8c6edd439d9fc8657f897c9, type: 2}
   fadeToBlack: {fileID: 11400000, guid: bdd230c80312f6446812a49e8702efc7, type: 2}
   closedLastUI: {fileID: 11400000, guid: 69eef9cfeddc620419447d75f3aad0b3, type: 2}
-  playerInput: {fileID: -944628639613478452, guid: 59907ebbc6858584b81c7a48c17517a6,
-    type: 3}
+  disables:
+  - {fileID: -4260356882558368234, guid: 59907ebbc6858584b81c7a48c17517a6, type: 3}
+  - {fileID: 5569593711951755824, guid: 59907ebbc6858584b81c7a48c17517a6, type: 3}
 --- !u!114 &9008333726073603676
 MonoBehaviour:
   m_ObjectHideFlags: 0

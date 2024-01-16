@@ -12,18 +12,16 @@ public class TimerQuestionWrong : MonoBehaviour {
     [SerializeField] private UnityEvent ending;
 
     private bool runTimer = false;
-    private bool opendUI = false;
     
     public void startTimer(bool run) {
-        runTimer = !run;
+        runTimer = run;
     }
 
     private void Update() {
         if (runTimer) {
             currentTime += Time.deltaTime;
-            if (currentTime > maxTime && !opendUI) {
+            if (currentTime > maxTime) {
                 unityEvent.Invoke();
-                opendUI = true;
             }
         }
     }

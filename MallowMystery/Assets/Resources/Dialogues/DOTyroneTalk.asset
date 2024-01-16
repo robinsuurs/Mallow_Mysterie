@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78b3fd9154634ebdb8c8a48960b9a16a, type: 3}
   m_Name: DOTyroneTalk
   m_EditorClassIdentifier: 
-  alreadyHadConversation: 0
+  alreadyHadConversation: 1
   NodeLinks:
   - BaseNodeGUID: 41b95868-1ee4-40eb-ace2-6850ca7b3600
     PortName: Next
@@ -86,10 +86,13 @@ MonoBehaviour:
   - BaseNodeGUID: 765becea-0233-40ce-a464-8c993f9b4ed2
     PortName: Option 1
     TargetNodeGUID: 32771dc7-31cc-417d-889f-4dbc41ceacd5
+  - BaseNodeGUID: 070522d6-3c10-4261-835b-537b28be8ad9
+    PortName: Option 1
+    TargetNodeGUID: faede8a4-055c-404e-ae6a-30618b58e935
   DialogueNodeData:
   - nodeGuid: 4f83f30e-cb5a-4ae4-a8bc-c3b8887ce822
     dialogueText: "Oh, you\u2019re still here? Did you want to ask something?"
-    position: {x: 194.5, y: 200}
+    position: {x: 195, y: 200}
     SpeakerName: Tyrone
     SpeakerNameLocation: Speaker Name Right
     SpeakerSpriteLeft: M1
@@ -101,7 +104,7 @@ MonoBehaviour:
     CutSceneImageName: 
   - nodeGuid: 1e9dfc31-3f96-43cd-a528-76bfe0f178c1
     dialogueText: "...So, let\u2019s get this straight."
-    position: {x: 590.5, y: -21.5}
+    position: {x: 591, y: -21}
     SpeakerName: Tyrone
     SpeakerNameLocation: Speaker Name Right
     SpeakerSpriteLeft: M1
@@ -113,7 +116,7 @@ MonoBehaviour:
     CutSceneImageName: 
   - nodeGuid: aa1a2b1a-1f02-41f9-b119-ae5ce78f893a
     dialogueText: 
-    position: {x: 590.5, y: 314.5}
+    position: {x: 591, y: 315}
     SpeakerName: 
     SpeakerNameLocation: Speaker Name Left
     SpeakerSpriteLeft: 
@@ -127,7 +130,7 @@ MonoBehaviour:
     dialogueText: "Well... Cornelia always kept notes on everything. If she knew
       something she definitely would\u2019ve written it down. If we just look in
       her apartment..."
-    position: {x: 5662.5, y: 0}
+    position: {x: 5663, y: 0}
     SpeakerName: Milton
     SpeakerNameLocation: Speaker Name Left
     SpeakerSpriteLeft: M1
@@ -206,23 +209,9 @@ MonoBehaviour:
     SkipPorts: []
     canSkipFromThisPoint: 0
     CutSceneImageName: 
-  - nodeGuid: 070522d6-3c10-4261-835b-537b28be8ad9
-    dialogueText: "Please be careful. And be quick. The police could come back with
-      a search warrant, and I doubt they\u2019d be kind to you, rummaging through
-      a dead person\u2019s house. Good luck."
-    position: {x: 7875, y: 0}
-    SpeakerName: Tyrone
-    SpeakerNameLocation: Speaker Name Right
-    SpeakerSpriteLeft: M1
-    SpeakerSpriteRight: D1
-    ItemPortCombis: []
-    QuestionAnswerPortCombis: []
-    SkipPorts: []
-    canSkipFromThisPoint: 0
-    CutSceneImageName: 
   - nodeGuid: bb840e83-87df-4c27-9b63-d17c07e078a2
     dialogueText: Everything but her face and her hand were covered by a thick tarp...
-    position: {x: 1615, y: -18.5}
+    position: {x: 1615, y: -18}
     SpeakerName: Tyrone
     SpeakerNameLocation: Speaker Name Right
     SpeakerSpriteLeft: M1
@@ -235,7 +224,7 @@ MonoBehaviour:
   - nodeGuid: cff27f5d-d4df-402a-b28b-cf01a0701474
     dialogueText: You were passing by an alleyway next to her house when you noticed
       her, um... dead body surrounded by the police.
-    position: {x: 1289, y: -21.5}
+    position: {x: 1289, y: -21}
     SpeakerName: Tyrone
     SpeakerNameLocation: Speaker Name Right
     SpeakerSpriteLeft: M1
@@ -248,7 +237,7 @@ MonoBehaviour:
   - nodeGuid: 61ab75fe-d672-4e18-b362-c8fcb28a845a
     dialogueText: And her hand had a weird melt scar on it that I had never seen
       before!
-    position: {x: 1978.5, y: -18.5}
+    position: {x: 1979, y: -18}
     SpeakerName: Milton
     SpeakerNameLocation: Speaker Name Left
     SpeakerSpriteLeft: M1
@@ -262,7 +251,7 @@ MonoBehaviour:
     dialogueText: "Weird... very weird. You\u2019re saying that the police told you
       it was a simple robbery, right? But how would a simple crook get their hands
       on something capable of making a melt scar...?"
-    position: {x: 2335, y: -2.5}
+    position: {x: 2335, y: -2}
     SpeakerName: Tyrone
     SpeakerNameLocation: Speaker Name Right
     SpeakerSpriteLeft: M1
@@ -291,7 +280,7 @@ MonoBehaviour:
     dialogueText: "This is frustrating! They were so adamant about this being a simple
       crime, but I know Cornelia couldn\u2019t have lost a fight to some bum with
       a knife! She\u2019s a police investigator, for Crust\u2019s sake. "
-    position: {x: 3082.5, y: -2.5}
+    position: {x: 3083, y: -2}
     SpeakerName: Milton
     SpeakerNameLocation: Speaker Name Left
     SpeakerSpriteLeft: M1
@@ -306,7 +295,7 @@ MonoBehaviour:
       I just don\u2019t believe that there were no leads at all! Have you noticed
       anyone coming into Cornelia\u2019s house, by any chance? It's the one by the
       flower shop."
-    position: {x: 3445, y: -2.5}
+    position: {x: 3445, y: -2}
     SpeakerName: Milton
     SpeakerNameLocation: Speaker Name Left
     SpeakerSpriteLeft: M1
@@ -397,7 +386,7 @@ MonoBehaviour:
   - nodeGuid: 765becea-0233-40ce-a464-8c993f9b4ed2
     dialogueText: "You\u2019re saying that you were supposed to meet up with Cornelia
       this morning."
-    position: {x: 918.5, y: -18.5}
+    position: {x: 919, y: -18}
     SpeakerName: Tyrone
     SpeakerNameLocation: Speaker Name Right
     SpeakerSpriteLeft: M1
@@ -407,7 +396,39 @@ MonoBehaviour:
     SkipPorts: []
     canSkipFromThisPoint: 0
     CutSceneImageName: Zero_final
-  DialogueEndNodeData: []
+  - nodeGuid: 070522d6-3c10-4261-835b-537b28be8ad9
+    dialogueText: "Please be careful. And be quick. The police could come back with
+      a search warrant, and I doubt they\u2019d be kind to you, rummaging through
+      a dead person\u2019s house. Good luck."
+    position: {x: 7888, y: 0}
+    SpeakerName: Tyrone
+    SpeakerNameLocation: Speaker Name Right
+    SpeakerSpriteLeft: M1
+    SpeakerSpriteRight: D1
+    ItemPortCombis: []
+    QuestionAnswerPortCombis: []
+    SkipPorts: []
+    canSkipFromThisPoint: 0
+    CutSceneImageName: 
+  DialogueEndNodeData:
+  - nodeGuid: faede8a4-055c-404e-ae6a-30618b58e935
+    dialogueText: ....
+    position: {x: 8286, y: 0}
+    DialogueEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 11400000, guid: 5cb55667466660842baff47f1a7fcfbb, type: 2}
+          m_TargetAssemblyTypeName: GameEventStandardAdd, Assembly-CSharp
+          m_MethodName: Raise
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   ExposedProperties:
   - PropertyName: Ignore
     PropertyValue: New Value

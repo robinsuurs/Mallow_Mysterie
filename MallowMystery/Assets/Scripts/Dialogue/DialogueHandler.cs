@@ -7,6 +7,7 @@ using Dialogue.RunTime;
 using ScriptObjects;
 using UnityEngine;
 using TMPro;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
@@ -32,6 +33,7 @@ public class DialogueHandler : MonoBehaviour {
     [SerializeField] private TextMeshProUGUI cutSceneText;
     [SerializeField] private GameEventStandardAdd openUIElement;
     [SerializeField] private GameEventStandardAdd closeUIElement;
+    [SerializeField] private List<InputActionReference> inputsToDisable;
     private TextMeshProUGUI currentUsingTextBox;
 
     private string overwriteGUID;
@@ -61,6 +63,9 @@ public class DialogueHandler : MonoBehaviour {
             ProceedToNarrative(narrativeData);
             inDialogue = true;
             openUIElement.Raise();
+            foreach (var disable in inputsToDisable) {
+                disable.action.Disable();
+            }
         }
     }
 
@@ -73,6 +78,9 @@ public class DialogueHandler : MonoBehaviour {
         SpeakerNameBoxLeft.text = "";
         SpeakerNameBoxRight.text = "";
         dialogueCanvas.SetActive(false);
+        foreach (var disable in inputsToDisable) {
+            disable.action.Enable();
+        }
         closeUIElement.Raise();
     }
     
@@ -174,6 +182,8 @@ public class DialogueHandler : MonoBehaviour {
             button.onClick.AddListener(() => ProceedToNarrative(choice.TargetNodeGUID));
             button.onClick.AddListener(() => eventSound.Raise(poppingSound));
         }
+        
+        EventSystem.current.SetSelectedGameObject(buttonContainer.GetComponentsInChildren<Button>()[0].gameObject);
     }
 
     private void EndingNode(string narrativeDataGuid) {

@@ -21,6 +21,8 @@ public class GameData {
 
     public SerializableDictionary<string, string> questionAnswerDic =
         new SerializableDictionary<string, string>();
+
+    public SerializableDictionary<string, bool> nameBoolSaves = new SerializableDictionary<string, bool>();
     
     //Set start thing when you create a newGame
     public GameData(string leaveEmpty) {
@@ -55,6 +57,7 @@ public class GameData {
         }
         
         questionAnswerDic.Clear();
+        nameBoolSaves.Clear();
         timeRun = 0;
 
         cameraHasPanned = false;

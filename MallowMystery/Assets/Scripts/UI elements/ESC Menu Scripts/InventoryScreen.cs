@@ -27,6 +27,12 @@ public class InventoryScreen : MonoBehaviour {
         itemCloseUp(-1);
     }
 
+    public void setItem() {
+        if (currentSelectedItemData == null) {
+            newItemPickUp(pickedUpItems[^1]);
+        }
+    }
+
     public void setInventoryItems(int pageNumber) {
         this.pageNumber = pageNumber;
         pickedUpItems = inventory?.items.Where(itemData => itemData.hasBeenPickedUp).OrderBy(data => data.pickedUpNumber).ToList();
@@ -63,12 +69,13 @@ public class InventoryScreen : MonoBehaviour {
     
     public void itemCloseUp(int clickedItemNumber) {
         if (clickedItemNumber == -1) {
-            closeUpImageClue.sprite = null;
+            closeUpImageClue.gameObject.SetActive(false);
             clueDescription.text = "";
             clueName.text = "";
             locationClue.text = "";
             currentSelectedItemData = null;
         } else {
+            closeUpImageClue.gameObject.SetActive(true);
             int itemNumber = clickedItemNumber + pageNumber * 6;
             closeUpImageClue.sprite = pickedUpItems[itemNumber].icon;
             clueName.text = pickedUpItems[itemNumber].itemName;

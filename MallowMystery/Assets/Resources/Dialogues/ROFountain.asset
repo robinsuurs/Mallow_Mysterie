@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78b3fd9154634ebdb8c8a48960b9a16a, type: 3}
+  m_Name: ROFountain
+  m_EditorClassIdentifier: 
+  alreadyHadConversation: 1
+  NodeLinks:
+  - BaseNodeGUID: 3e6b28bb-ea97-408e-9055-fa0e239f752b
+    PortName: Next
+    TargetNodeGUID: face5163-b5e3-4d0f-8ca1-fcf13ca9ba08
+  DialogueNodeData:
+  - nodeGuid: face5163-b5e3-4d0f-8ca1-fcf13ca9ba08
+    dialogueText: The cola fountain gently fizzles. You and Cornelia used to love
+      spending time here when you were younger.
+    position: {x: 225.5, y: 200}
+    SpeakerName: 
+    SpeakerNameLocation: None
+    SpeakerSpriteLeft: 
+    SpeakerSpriteRight: 
+    ItemPortCombis: []
+    QuestionAnswerPortCombis: []
+    SkipPorts: []
+    canSkipFromThisPoint: 0
+    CutSceneImageName: 
+  DialogueEndNodeData: []
+  ExposedProperties:
+  - PropertyName: Ignore
+    PropertyValue: New Value
+  CommentBlockData: []

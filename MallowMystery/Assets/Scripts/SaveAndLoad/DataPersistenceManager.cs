@@ -48,16 +48,18 @@ public class DataPersistenceManager : MonoBehaviour {
     }
 
     private void OnSceneLoaded (Scene scene, LoadSceneMode mode) {
-        if (!SceneManager.GetActiveScene().name.Equals("MainMenu")) {
-            if (startFresh) {
-                LoadGame();   
+        if (startFresh) {
+            NewGame();
+        }
+        if (!SceneManager.GetActiveScene().name.Equals("MainMenu") && !SceneManager.GetActiveScene().name.Equals("EndingScene")) {
+            foreach (IDataPersistence dataPersistenceObj in FindObjectsOfType<MonoBehaviour>().OfType<IDataPersistence>().ToList()) {
+                dataPersistenceObj.LoadData(_gameData);
             }
             _levelManager.SpawnPlayer(_gameData);
+            SavePlayer();
+            dataHandler.Save(_gameData);
         }
         endLoading.Invoke();
-        if (!SceneManager.GetActiveScene().name.Equals("MainMenu") && !SceneManager.GetActiveScene().name.Equals("DetectiveRoom") && !SceneManager.GetActiveScene().name.Equals("EndingScene")) {
-            Camera.main.gameObject.GetComponent<Follow_Player>().setFollowPlayer();
-        }
     }
 
     private List<IDataPersistence> FindAllDataPersistenceObjects() {
@@ -72,11 +74,13 @@ public class DataPersistenceManager : MonoBehaviour {
 
     public void NewGame() {
         this._gameData = new GameData("");
+        dataHandler.Save(_gameData);
+        LoadGame();
     }
 
     public void LoadGame() {
         _gameData = dataHandler.Load();
-        if (_gameData == null || startFresh) {
+        if (_gameData == null) {
             Debug.Log("No GameData found. A new Game needs to be created");
             NewGame();
         }
@@ -114,11 +118,14 @@ public class DataPersistenceManager : MonoBehaviour {
         }
         
         SaveDialogueStates();
-
-        _gameData.sceneName = SceneManager.GetActiveScene().name;
-        _gameData.playerLocation = GameObject.FindWithTag("Player").transform.position;
+        SavePlayer();
         
         dataHandler.Save(_gameData);
+    }
+
+    private void SavePlayer() {
+        _gameData.sceneName = SceneManager.GetActiveScene().name;
+        _gameData.playerLocation = GameObject.FindWithTag("Player").transform.position;
     }
 
     public bool hasGameData() {
