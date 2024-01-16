@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028331, g: 0.2257133, b: 0.3069217, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -725,8 +725,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 3.7067585, y: 5.853367, z: 2.7866511}
-  m_Center: {x: -0.11402798, y: 2.0776033, z: -1.6221561}
+  m_Size: {x: 3.7067585, y: 5.853367, z: 6.1482654}
+  m_Center: {x: -0.11402798, y: 2.0776033, z: 0.7477524}
 --- !u!1 &147128232
 GameObject:
   m_ObjectHideFlags: 0
@@ -1701,6 +1701,59 @@ Transform:
   - {fileID: 1623288203}
   m_Father: {fileID: 1743684538}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &371973198
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 371973199}
+  - component: {fileID: 371973200}
+  m_Layer: 0
+  m_Name: Invisiblewalls (14)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &371973199
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 371973198}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.0000000015348224, y: 0.10300019, z: -0.000000014821907, w: 0.99468136}
+  m_LocalPosition: {x: -46.248, y: -0.00000017767, z: 66.222}
+  m_LocalScale: {x: 0.13801, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1697031443}
+  m_LocalEulerAnglesHint: {x: 0, y: 11.824, z: 0}
+--- !u!65 &371973200
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 371973198}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 58.143646, y: 20, z: 1}
+  m_Center: {x: 4.8526864, y: 0, z: -0.000003695368}
 --- !u!1001 &395724943
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2198,7 +2251,7 @@ PrefabInstance:
         type: 3}
       propertyPath: backgroundMusic
       value: 
-      objectReference: {fileID: 8300000, guid: cfd00427825873e41be5214a5c86da96, type: 3}
+      objectReference: {fileID: 8300000, guid: 59e0716f9287eef43860b45ea8cc4955, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4214,8 +4267,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 100, y: 20, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 85.86772, y: 20, z: 1}
+  m_Center: {x: 7.06607, y: 1.2551862e-14, z: -0.0000034444615}
 --- !u!4 &958166395
 Transform:
   m_ObjectHideFlags: 0
@@ -6344,8 +6397,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 70, y: 20, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 78.232155, y: 20, z: 1}
+  m_Center: {x: -4.1160774, y: -1.4623245e-14, z: 1.649573e-15}
 --- !u!4 &1378282595
 Transform:
   m_ObjectHideFlags: 0
@@ -6355,7 +6408,7 @@ Transform:
   m_GameObject: {fileID: 1378282593}
   serializedVersion: 2
   m_LocalRotation: {x: 0.000000010536713, y: 0.7071068, z: -0.000000010536713, w: 0.7071068}
-  m_LocalPosition: {x: -49.799786, y: -0, z: 24.65}
+  m_LocalPosition: {x: -49.1, y: -0, z: 24.65}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7508,6 +7561,7 @@ Transform:
   - {fileID: 906473173}
   - {fileID: 1124755799}
   - {fileID: 1001758860}
+  - {fileID: 371973199}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1699204117 stripped
