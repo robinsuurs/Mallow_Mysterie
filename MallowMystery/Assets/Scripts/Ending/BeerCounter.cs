@@ -10,6 +10,7 @@ public class BeerCounter : MonoBehaviour, IDataPersistence {
     [SerializeField] private int beerDrunk = 0;
     [SerializeField] private InputActionAsset input;
     [SerializeField] private AudioSource aud;
+    [SerializeField] private float timeBeforeAudioEndStartEvent;
     
     [SerializeField] private UnityEvent endingEvent;
 
@@ -30,7 +31,7 @@ public class BeerCounter : MonoBehaviour, IDataPersistence {
         if (!waitForSound) return;
         
         timer += Time.deltaTime;
-        if (timer > aud.clip.length-4) {
+        if (timer > aud.clip.length - timeBeforeAudioEndStartEvent) {
             endingEvent.Invoke();
         }
     }
