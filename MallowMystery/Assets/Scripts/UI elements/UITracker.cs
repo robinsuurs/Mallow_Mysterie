@@ -9,7 +9,7 @@ public class UITracker : MonoBehaviour {
     [SerializeField] private FadeToBlackEvent fadeToNormal;
     [SerializeField] private FadeToBlackEvent fadeToBlack;
     [SerializeField] private GameEventStandardAdd closedLastUI;
-    [SerializeField] private InputActionAsset playerInput;
+    [SerializeField] private List<InputActionReference> disables;
 
     public void RaiseAmount() {
         UIAmountTracker++;
@@ -24,7 +24,9 @@ public class UITracker : MonoBehaviour {
     private void CheckAmount() {
         switch (UIAmountTracker) {
             case <= 0:
-                playerInput.Enable();
+                foreach (var disable in disables) {
+                    disable.action.Enable();
+                }
                 fadeToNormal.Raise();
                 closedLastUI.Raise();
                 if (UIAmountTracker < 0) {
@@ -32,7 +34,9 @@ public class UITracker : MonoBehaviour {
                 }
                 break;
             default:
-                playerInput.Disable();
+                foreach (var disable in disables) {
+                    disable.action.Disable();
+                }
                 fadeToBlack.Raise();
                 break;
         }
