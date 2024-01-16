@@ -4,53 +4,44 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class FadeToBlack : MonoBehaviour
 {
-    [SerializeField] private GameObject endCanvas;
-    [SerializeField] private Image blackBackground;
-    [SerializeField] private UnityEvent unityEvent;
-    [SerializeField] private InputActionAsset inputAction;
+    [SerializeField] private GameObject canvasToEnableDisable; 
+    [SerializeField] private CanvasGroup canvasGroup;
+    [SerializeField] private UnityEvent booleanRun;
+    private bool changingToBlack;
 
     private bool changing = false;
 
-    public void FadeToBlackSequence(float fadeSpeed, float opacity, bool goToEndScreen) {
-        endCanvas.SetActive(true);
+    public void FadeToBlackSequence(float fadeSpeed, float opacity, bool runEvent) {
+        canvasToEnableDisable.SetActive(true);
         StartCoroutine(FadeToBlackTime(fadeSpeed, opacity, b => {
-            if (!goToEndScreen || changing) return;
-            inputAction.Enable();
+            if (!runEvent || changing) return;
             changing = true;
-            unityEvent.Invoke();
+            booleanRun.Invoke();
         }));
     }
 
-    public void FadeToNormal(float fadeSpeed, float opacity, bool goToEndScreen) {
+    public void FadeToNormal(float fadeSpeed, float opacity, bool runEvent) {
         StartCoroutine(FadeToNormalTime(fadeSpeed, b => {
             if (b) {
-                endCanvas.SetActive(!b);
+                canvasToEnableDisable.SetActive(!b);
             }
         }));
     }
 
-    public void voidImageAClear() {
-        blackBackground.color = new Color(blackBackground.color.r, blackBackground.color.g, blackBackground.color.b, 0);
-    }
-
     private IEnumerator FadeToBlackTime(float fadeSpeed, float opacity, Action<bool> callback) {
-        Color objectColor = blackBackground.color;
-        float fadeAmount;
-        
-        while (blackBackground.color.a < opacity - 0.000001) {
-            fadeAmount = objectColor.a + (fadeSpeed * Time.deltaTime);
+        while (canvasGroup.alpha < opacity - 0.000001) {
+            var fadeAmount = canvasGroup.alpha + (fadeSpeed * Time.deltaTime);
 
             if (fadeAmount > opacity) {
-                objectColor = new Color(objectColor.r, objectColor.g, objectColor.b, opacity);
-                blackBackground.color = objectColor;
-                
+                canvasGroup.alpha = opacity;
+                break;
             } else {
-                objectColor = new Color(objectColor.r, objectColor.g, objectColor.b, fadeAmount);
-                blackBackground.color = objectColor;
+                canvasGroup.alpha = fadeAmount;
                 yield return null;
             }
         }
@@ -60,14 +51,12 @@ public class FadeToBlack : MonoBehaviour
     }
 
     private IEnumerator FadeToNormalTime(float speed, Action<bool> cal) {
-        Color objectColor = blackBackground.color;
         float fadeAmount;
         
-        while (blackBackground.color.a > 0) {
-            fadeAmount = objectColor.a - (speed * Time.deltaTime);
+        while (canvasGroup.alpha > 0) {
+            fadeAmount = canvasGroup.alpha - (speed * Time.deltaTime);
 
-            objectColor = new Color(objectColor.r, objectColor.g, objectColor.b, fadeAmount);
-            blackBackground.color = objectColor;
+            canvasGroup.alpha = fadeAmount;
             yield return null;
         }
         
