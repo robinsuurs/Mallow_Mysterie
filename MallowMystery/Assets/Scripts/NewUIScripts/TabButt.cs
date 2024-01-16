@@ -14,7 +14,8 @@ public enum JournalPage
     Deduction,
     Map
 }
-public class TabButt : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler
+public class TabButt : MonoBehaviour, IPointerClickHandler, 
+    IPointerEnterHandler, IPointerExitHandler
 {
     public TabGroup tabGroup;
     private Image background;

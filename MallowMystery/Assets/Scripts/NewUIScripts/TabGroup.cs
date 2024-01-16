@@ -8,10 +8,6 @@ using UnityEngine.UI;
 public class TabGroup : MonoBehaviour
 {
     [SerializeField] private List<TabButt> tabButtons;
-    private Color tabIdle;
-    private Color tabHover;
-    private Color tabActive;
-
     private TabButt selectedTab;
 
     [SerializeField] private UnityEvent switchTab;
