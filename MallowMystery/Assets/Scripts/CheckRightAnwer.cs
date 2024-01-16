@@ -13,5 +13,8 @@ public class CheckRightAnwer : MonoBehaviour {
         if (question.getChosenAnswer() != null) {
             boolEvent.Raise(!Equals(question.getChosenAnswer().UID, answer.UID));
         }
+        else {
+            boolEvent.Raise(true);
+        }
     }
 }

@@ -33,6 +33,7 @@ public class DialogueHandler : MonoBehaviour {
     [SerializeField] private TextMeshProUGUI cutSceneText;
     [SerializeField] private GameEventStandardAdd openUIElement;
     [SerializeField] private GameEventStandardAdd closeUIElement;
+    [SerializeField] private List<InputActionReference> inputsToDisable;
     private TextMeshProUGUI currentUsingTextBox;
 
     private string overwriteGUID;
@@ -62,6 +63,9 @@ public class DialogueHandler : MonoBehaviour {
             ProceedToNarrative(narrativeData);
             inDialogue = true;
             openUIElement.Raise();
+            foreach (var disable in inputsToDisable) {
+                disable.action.Disable();
+            }
         }
     }
 
@@ -74,6 +78,9 @@ public class DialogueHandler : MonoBehaviour {
         SpeakerNameBoxLeft.text = "";
         SpeakerNameBoxRight.text = "";
         dialogueCanvas.SetActive(false);
+        foreach (var disable in inputsToDisable) {
+            disable.action.Enable();
+        }
         closeUIElement.Raise();
     }
     
