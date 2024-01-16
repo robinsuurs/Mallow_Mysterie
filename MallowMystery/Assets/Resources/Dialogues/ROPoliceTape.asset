@@ -10,35 +10,37 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 78b3fd9154634ebdb8c8a48960b9a16a, type: 3}
-  m_Name: RODetectiveAp
+  m_Name: ROPoliceTape
   m_EditorClassIdentifier: 
   alreadyHadConversation: 1
   NodeLinks:
-  - BaseNodeGUID: 3f244454-1f3f-4e5b-940c-e63a6454443d
+  - BaseNodeGUID: 31b14cb5-3bc3-47fe-992c-77d52c861575
     PortName: Next
-    TargetNodeGUID: 5822a4ea-f795-4735-9adf-34bcd7dc711d
-  - BaseNodeGUID: 5822a4ea-f795-4735-9adf-34bcd7dc711d
+    TargetNodeGUID: badb65c7-d655-483d-8c5b-df4bca38d7c8
+  - BaseNodeGUID: badb65c7-d655-483d-8c5b-df4bca38d7c8
     PortName: Option 1
-    TargetNodeGUID: 00c7f60e-6471-432b-8892-0ca45c2a6c9c
+    TargetNodeGUID: fd1435a9-8861-4a15-bba4-dc6b4589f0b8
   DialogueNodeData:
-  - nodeGuid: 00c7f60e-6471-432b-8892-0ca45c2a6c9c
-    dialogueText: "Rude.\t"
-    position: {x: 608, y: 200}
-    SpeakerName: Milton
-    SpeakerNameLocation: Speaker Name Left
-    SpeakerSpriteLeft: M1
+  - nodeGuid: fd1435a9-8861-4a15-bba4-dc6b4589f0b8
+    dialogueText: The scene of the crime has been taken care of, and the only thing
+      out of the ordinary is a bright yellow tape. And yet, the afterimage of what
+      you saw this afternoon still flickers in front of your eyes.
+    position: {x: 604, y: 210}
+    SpeakerName: 
+    SpeakerNameLocation: None
+    SpeakerSpriteLeft: 
     SpeakerSpriteRight: 
     ItemPortCombis: []
     QuestionAnswerPortCombis: []
     SkipPorts: []
     canSkipFromThisPoint: 0
     CutSceneImageName: 
-  - nodeGuid: 5822a4ea-f795-4735-9adf-34bcd7dc711d
-    dialogueText: Tyrone seems to have locked the door behind my back.
-    position: {x: 220.5, y: 200}
-    SpeakerName: Milton
-    SpeakerNameLocation: Speaker Name Left
-    SpeakerSpriteLeft: M1
+  - nodeGuid: badb65c7-d655-483d-8c5b-df4bca38d7c8
+    dialogueText: Standing here again, you feel a shiver run down your spine.
+    position: {x: 236, y: 200}
+    SpeakerName: 
+    SpeakerNameLocation: None
+    SpeakerSpriteLeft: 
     SpeakerSpriteRight: 
     ItemPortCombis: []
     QuestionAnswerPortCombis: []
@@ -48,9 +50,5 @@ MonoBehaviour:
   DialogueEndNodeData: []
   ExposedProperties:
   - PropertyName: Ignore
-    PropertyValue: New Value
-  - PropertyName: Sign
-    PropertyValue: New Value
-  - PropertyName: Milton
     PropertyValue: New Value
   CommentBlockData: []
