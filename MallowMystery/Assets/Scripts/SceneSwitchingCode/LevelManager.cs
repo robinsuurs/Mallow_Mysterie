@@ -50,6 +50,7 @@ public class LevelManager : ScriptableObject {
     
     public void LoadNextScene(SceneSwitchData sceneSwitchData)
     {
+        DataPersistenceManager.instance.SaveGame();
         this.sceneSwitchData = sceneSwitchData;
         SceneManager.LoadScene(sceneSwitchData.sceneName);
     }

@@ -12,6 +12,7 @@ public class FadeToBlack : MonoBehaviour
     [SerializeField] private GameObject canvasToEnableDisable; 
     [SerializeField] private CanvasGroup canvasGroup;
     [SerializeField] private UnityEvent booleanRun;
+    private bool changingToBlack;
 
     private bool changing = false;
 
@@ -38,7 +39,7 @@ public class FadeToBlack : MonoBehaviour
 
             if (fadeAmount > opacity) {
                 canvasGroup.alpha = opacity;
-
+                break;
             } else {
                 canvasGroup.alpha = fadeAmount;
                 yield return null;

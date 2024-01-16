@@ -1835,6 +1835,7 @@ GameObject:
   - component: {fileID: 547994222469763833}
   - component: {fileID: 3398159477014779679}
   - component: {fileID: 3950295731614355344}
+  - component: {fileID: 8476199351810616}
   m_Layer: 0
   m_Name: CluesManager
   m_TagString: Untagged
@@ -1897,6 +1898,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Event: {fileID: 11400000, guid: 646f95a624865984486d101ff0f52e69, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3398159477014779679}
+        m_TargetAssemblyTypeName: InventoryScreen, Assembly-CSharp
+        m_MethodName: newItemPickUp
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &8476199351810616
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4256952094167109447}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2678692cc9ca39f4180f2995b3001367, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: 04ddfae70622f3a429b5933eb8e1961f, type: 2}
   response:
     m_PersistentCalls:
       m_Calls:

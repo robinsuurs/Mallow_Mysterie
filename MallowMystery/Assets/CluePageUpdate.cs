@@ -11,5 +11,6 @@ public class CluePageUpdate : MonoBehaviour
     void OnEnable()
     {
         manager.setInventoryItems(0);
+        manager.setItem();
     }
 }

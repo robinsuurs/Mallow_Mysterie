@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.3069224, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028331, g: 0.2257133, b: 0.3069217, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -575,8 +575,45 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1985181536760354831, guid: 312bea23fa0362245a7d0cb42eb217da,
         type: 3}
+      propertyPath: response.m_PersistentCalls.m_Calls.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1985181536760354831, guid: 312bea23fa0362245a7d0cb42eb217da,
+        type: 3}
       propertyPath: response.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1985181536760354831, guid: 312bea23fa0362245a7d0cb42eb217da,
+        type: 3}
+      propertyPath: response.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1985181536760354831, guid: 312bea23fa0362245a7d0cb42eb217da,
+        type: 3}
+      propertyPath: response.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1985181536760354831, guid: 312bea23fa0362245a7d0cb42eb217da,
+        type: 3}
+      propertyPath: response.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 11400000, guid: 8cd868260cb78784fb4e1319c9e36049,
+        type: 2}
+    - target: {fileID: 1985181536760354831, guid: 312bea23fa0362245a7d0cb42eb217da,
+        type: 3}
+      propertyPath: response.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 11400000, guid: a131501bd2c43f04db1c4f3f04801923,
+        type: 2}
+    - target: {fileID: 1985181536760354831, guid: 312bea23fa0362245a7d0cb42eb217da,
+        type: 3}
+      propertyPath: response.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1985181536760354831, guid: 312bea23fa0362245a7d0cb42eb217da,
+        type: 3}
+      propertyPath: response.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1985181536760354831, guid: 312bea23fa0362245a7d0cb42eb217da,
         type: 3}
@@ -585,12 +622,52 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1985181536760354831, guid: 312bea23fa0362245a7d0cb42eb217da,
         type: 3}
+      propertyPath: response.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: setPermission
+      objectReference: {fileID: 0}
+    - target: {fileID: 1985181536760354831, guid: 312bea23fa0362245a7d0cb42eb217da,
+        type: 3}
+      propertyPath: response.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: setPermission
+      objectReference: {fileID: 0}
+    - target: {fileID: 1985181536760354831, guid: 312bea23fa0362245a7d0cb42eb217da,
+        type: 3}
       propertyPath: response.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: PermissionCheck, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 1985181536760354831, guid: 312bea23fa0362245a7d0cb42eb217da,
         type: 3}
+      propertyPath: response.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: PermissionCheck, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1985181536760354831, guid: 312bea23fa0362245a7d0cb42eb217da,
+        type: 3}
+      propertyPath: response.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: PermissionCheck, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1985181536760354831, guid: 312bea23fa0362245a7d0cb42eb217da,
+        type: 3}
+      propertyPath: response.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_BoolArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1985181536760354831, guid: 312bea23fa0362245a7d0cb42eb217da,
+        type: 3}
+      propertyPath: response.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_BoolArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1985181536760354831, guid: 312bea23fa0362245a7d0cb42eb217da,
+        type: 3}
       propertyPath: response.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 1985181536760354831, guid: 312bea23fa0362245a7d0cb42eb217da,
+        type: 3}
+      propertyPath: response.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 1985181536760354831, guid: 312bea23fa0362245a7d0cb42eb217da,
+        type: 3}
+      propertyPath: response.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 4199459121684761797, guid: 312bea23fa0362245a7d0cb42eb217da,
@@ -5282,16 +5359,6 @@ PrefabInstance:
     - target: {fileID: 950788863271735146, guid: 90da51a3f4e823048af2b52f7fce6253,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1967956138881784765, guid: 90da51a3f4e823048af2b52f7fce6253,
-        type: 3}
-      propertyPath: startFresh
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1967956138881784765, guid: 90da51a3f4e823048af2b52f7fce6253,
-        type: 3}
-      propertyPath: encryptData
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4117460809587361749, guid: 90da51a3f4e823048af2b52f7fce6253,
