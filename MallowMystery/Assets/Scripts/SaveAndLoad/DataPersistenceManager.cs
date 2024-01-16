@@ -17,6 +17,7 @@ public class DataPersistenceManager : MonoBehaviour {
     [SerializeField] private LevelManager _levelManager;
     [SerializeField] private EndingStringList endingStringList;
     private GameData _gameData;
+    private GameData currentPlayingGameData;
     private List<IDataPersistence> dataPersistences;
     private FileDataHandler dataHandler;
     public static DataPersistenceManager instance { get; private set; }
@@ -31,8 +32,9 @@ public class DataPersistenceManager : MonoBehaviour {
         instance = this;
         DontDestroyOnLoad(gameObject);
         dataHandler = new FileDataHandler(Application.persistentDataPath, fileName, encryptData);
-        if (_gameData == null) {
-            _gameData = dataHandler.Load();
+        if (currentPlayingGameData == null) {
+            currentPlayingGameData = dataHandler.Load();
+            _gameData = currentPlayingGameData;
         } else {
             NewGame();
         }
@@ -50,14 +52,11 @@ public class DataPersistenceManager : MonoBehaviour {
     private void OnSceneLoaded (Scene scene, LoadSceneMode mode) {
         if (startFresh) {
             NewGame();
+            LoadGame();
         }
         if (!SceneManager.GetActiveScene().name.Equals("MainMenu") && !SceneManager.GetActiveScene().name.Equals("EndingScene")) {
-            foreach (IDataPersistence dataPersistenceObj in FindObjectsOfType<MonoBehaviour>().OfType<IDataPersistence>().ToList()) {
-                dataPersistenceObj.LoadData(_gameData);
-            }
-            _levelManager.SpawnPlayer(_gameData);
-            SavePlayer();
-            dataHandler.Save(_gameData);
+            LoadGame();
+            _levelManager.SpawnPlayer(currentPlayingGameData);
         }
         endLoading.Invoke();
     }
@@ -69,29 +68,38 @@ public class DataPersistenceManager : MonoBehaviour {
     }
 
     private void OnApplicationQuit() {
-        SaveGame();
+        SaveToPc();
     }
 
     public void NewGame() {
-        this._gameData = new GameData("");
-        dataHandler.Save(_gameData);
-        LoadGame();
+        currentPlayingGameData = new GameData("");
+        
+        dataPersistences = FindAllDataPersistenceObjects();
+        foreach (IDataPersistence dataPersistenceObj in dataPersistences) {
+            dataPersistenceObj.LoadData(currentPlayingGameData);
+        }
+
+        LoadDialogueStates();
     }
 
     public void LoadGame() {
-        _gameData = dataHandler.Load();
-        if (_gameData == null) {
+        if (currentPlayingGameData == null) {
             Debug.Log("No GameData found. A new Game needs to be created");
             NewGame();
         }
         else {
             dataPersistences = FindAllDataPersistenceObjects();
             foreach (IDataPersistence dataPersistenceObj in dataPersistences) {
-                dataPersistenceObj.LoadData(_gameData);
+                dataPersistenceObj.LoadData(currentPlayingGameData);
             }
 
             LoadDialogueStates();
         }
+    }
+
+    public void LoadGameFromPc() {
+        currentPlayingGameData = dataHandler.Load();
+        LoadGame();
     }
 
     public void setFromMainMenu () {
@@ -99,11 +107,11 @@ public class DataPersistenceManager : MonoBehaviour {
     }
 
     public string getSceneToLoadForMainMenu() {
-        return _gameData.sceneName;
+        return currentPlayingGameData.sceneName;
     }
 
     public void SaveGame () {
-        if (this._gameData == null) {
+        if (currentPlayingGameData == null) {
             Debug.Log("No GameData found. A new Game needs to be created before being saved");
             return;
         }
@@ -114,18 +122,21 @@ public class DataPersistenceManager : MonoBehaviour {
 
         dataPersistences = FindAllDataPersistenceObjects();
         foreach (IDataPersistence dataPersistenceObj in dataPersistences) {
-            dataPersistenceObj.SaveData(ref _gameData);
+            dataPersistenceObj.SaveData(ref currentPlayingGameData);
         }
         
         SaveDialogueStates();
         SavePlayer();
-        
-        dataHandler.Save(_gameData);
+    }
+
+    public void SaveToPc() {
+        SaveGame();
+        dataHandler.Save(currentPlayingGameData);
     }
 
     private void SavePlayer() {
-        _gameData.sceneName = SceneManager.GetActiveScene().name;
-        _gameData.playerLocation = GameObject.FindWithTag("Player").transform.position;
+        currentPlayingGameData.sceneName = SceneManager.GetActiveScene().name;
+        currentPlayingGameData.playerLocation = GameObject.FindWithTag("Player").transform.position;
     }
 
     public bool hasGameData() {
@@ -134,16 +145,16 @@ public class DataPersistenceManager : MonoBehaviour {
 
     private void SaveDialogueStates() {
         List<DialogueContainer> dialogueContainers = Resources.LoadAll<DialogueContainer>("").ToList();
-        _gameData.alreadyHadConversations.Clear();
+        currentPlayingGameData.alreadyHadConversations.Clear();
 
         foreach (var dialogueContainer in dialogueContainers.Where(dialogueContainer => dialogueContainer.alreadyHadConversation)) {
-            _gameData.alreadyHadConversations.Add(dialogueContainer.name);
+            currentPlayingGameData.alreadyHadConversations.Add(dialogueContainer.name);
         }
     }
     
     private void LoadDialogueStates() {
         List<DialogueContainer> dialogueContainers = Resources.LoadAll<DialogueContainer>("").ToList();
-        foreach (var dialogueContainer in from dialogueContainer in dialogueContainers from name in _gameData.alreadyHadConversations where dialogueContainer.name.Equals(name) select dialogueContainer) {
+        foreach (var dialogueContainer in from dialogueContainer in dialogueContainers from name in currentPlayingGameData.alreadyHadConversations where dialogueContainer.name.Equals(name) select dialogueContainer) {
             dialogueContainer.alreadyHadConversation = true;
         }
     }

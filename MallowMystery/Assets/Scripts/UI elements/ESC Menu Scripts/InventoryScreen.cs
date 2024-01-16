@@ -28,7 +28,7 @@ public class InventoryScreen : MonoBehaviour {
     }
 
     public void setItem() {
-        if (currentSelectedItemData == null) {
+        if (currentSelectedItemData == null && pickedUpItems.Count != 0) {
             newItemPickUp(pickedUpItems[^1]);
         }
     }
