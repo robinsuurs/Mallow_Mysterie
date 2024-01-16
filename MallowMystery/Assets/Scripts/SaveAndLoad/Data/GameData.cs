@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using Dialogue.RunTime;
-using SaveAndLoad.Data;
 using ScriptObjects;
 using Subtegral.DialogueSystem.DataContainers;
 using UnityEngine;
@@ -9,7 +8,6 @@ using UnityEngine;
 [System.Serializable] 
 public class GameData {
     public List<ItemDataSave> itemDataSaves = new List<ItemDataSave>();
-    public List<AnswerSave> answerSave = new List<AnswerSave>();
     public List<PermissionCheckSave> PermissionCheckSaves = new List<PermissionCheckSave>();
     public List<string> alreadyHadConversations = new List<string>();
     public float timeRun;
