@@ -10,21 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 78b3fd9154634ebdb8c8a48960b9a16a, type: 3}
-  m_Name: ROSecondTimeFAp
+  m_Name: PAFish
   m_EditorClassIdentifier: 
   alreadyHadConversation: 0
   NodeLinks:
-  - BaseNodeGUID: 3f244454-1f3f-4e5b-940c-e63a6454443d
+  - BaseNodeGUID: 42b3c6e1-38d8-4cc9-b581-de59db6c24ca
     PortName: Next
-    TargetNodeGUID: 5822a4ea-f795-4735-9adf-34bcd7dc711d
+    TargetNodeGUID: 31a937db-4278-4e48-987a-512be3eef69b
   DialogueNodeData:
-  - nodeGuid: 5822a4ea-f795-4735-9adf-34bcd7dc711d
-    dialogueText: I shouldn't waste more time here. What if the police suddenly decide
-      to show up after all?
-    position: {x: 238.5, y: 200}
-    SpeakerName: Milton
-    SpeakerNameLocation: Speaker Name Left
-    SpeakerSpriteLeft: M1
+  - nodeGuid: 31a937db-4278-4e48-987a-512be3eef69b
+    dialogueText: Ah, the magical eye-watering smell of sun-dried licorice.
+    position: {x: 231, y: 200}
+    SpeakerName: 
+    SpeakerNameLocation: None
+    SpeakerSpriteLeft: 
     SpeakerSpriteRight: 
     ItemPortCombis: []
     QuestionAnswerPortCombis: []
@@ -34,9 +33,5 @@ MonoBehaviour:
   DialogueEndNodeData: []
   ExposedProperties:
   - PropertyName: Ignore
-    PropertyValue: New Value
-  - PropertyName: Sign
-    PropertyValue: New Value
-  - PropertyName: Milton
     PropertyValue: New Value
   CommentBlockData: []

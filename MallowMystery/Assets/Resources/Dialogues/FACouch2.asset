@@ -10,21 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 78b3fd9154634ebdb8c8a48960b9a16a, type: 3}
-  m_Name: ROSecondTimeFAp
+  m_Name: FACouch2
   m_EditorClassIdentifier: 
   alreadyHadConversation: 0
   NodeLinks:
-  - BaseNodeGUID: 3f244454-1f3f-4e5b-940c-e63a6454443d
+  - BaseNodeGUID: f9e8ffde-e5b0-4c2d-9ca4-a4dbb29efedb
     PortName: Next
-    TargetNodeGUID: 5822a4ea-f795-4735-9adf-34bcd7dc711d
+    TargetNodeGUID: e099d2de-7533-4040-ac9a-a206e4d355bd
   DialogueNodeData:
-  - nodeGuid: 5822a4ea-f795-4735-9adf-34bcd7dc711d
-    dialogueText: I shouldn't waste more time here. What if the police suddenly decide
-      to show up after all?
-    position: {x: 238.5, y: 200}
-    SpeakerName: Milton
-    SpeakerNameLocation: Speaker Name Left
-    SpeakerSpriteLeft: M1
+  - nodeGuid: e099d2de-7533-4040-ac9a-a206e4d355bd
+    dialogueText: This is a sofa.
+    position: {x: 221, y: 200}
+    SpeakerName: 
+    SpeakerNameLocation: None
+    SpeakerSpriteLeft: 
     SpeakerSpriteRight: 
     ItemPortCombis: []
     QuestionAnswerPortCombis: []
@@ -34,9 +33,5 @@ MonoBehaviour:
   DialogueEndNodeData: []
   ExposedProperties:
   - PropertyName: Ignore
-    PropertyValue: New Value
-  - PropertyName: Sign
-    PropertyValue: New Value
-  - PropertyName: Milton
     PropertyValue: New Value
   CommentBlockData: []

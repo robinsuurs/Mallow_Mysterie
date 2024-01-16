@@ -10,18 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 78b3fd9154634ebdb8c8a48960b9a16a, type: 3}
-  m_Name: ROSecondTimeFAp
+  m_Name: FAFridge
   m_EditorClassIdentifier: 
   alreadyHadConversation: 0
   NodeLinks:
-  - BaseNodeGUID: 3f244454-1f3f-4e5b-940c-e63a6454443d
+  - BaseNodeGUID: f5682e32-d599-4391-868d-58cf851b5bd1
     PortName: Next
-    TargetNodeGUID: 5822a4ea-f795-4735-9adf-34bcd7dc711d
+    TargetNodeGUID: 9835b3be-fde5-49e1-b775-722bc9905b36
   DialogueNodeData:
-  - nodeGuid: 5822a4ea-f795-4735-9adf-34bcd7dc711d
-    dialogueText: I shouldn't waste more time here. What if the police suddenly decide
-      to show up after all?
-    position: {x: 238.5, y: 200}
+  - nodeGuid: 9835b3be-fde5-49e1-b775-722bc9905b36
+    dialogueText: This fridge contains a concerning amount of instant noodles...
+      Do they even need to be refrigerated???
+    position: {x: 221, y: 200}
     SpeakerName: Milton
     SpeakerNameLocation: Speaker Name Left
     SpeakerSpriteLeft: M1
@@ -34,8 +34,6 @@ MonoBehaviour:
   DialogueEndNodeData: []
   ExposedProperties:
   - PropertyName: Ignore
-    PropertyValue: New Value
-  - PropertyName: Sign
     PropertyValue: New Value
   - PropertyName: Milton
     PropertyValue: New Value
