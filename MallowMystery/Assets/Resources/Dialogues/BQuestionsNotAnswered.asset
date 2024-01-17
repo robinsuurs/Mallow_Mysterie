@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78b3fd9154634ebdb8c8a48960b9a16a, type: 3}
+  m_Name: BQuestionsNotAnswered
+  m_EditorClassIdentifier: 
+  alreadyHadConversation: 1
+  NodeLinks:
+  - BaseNodeGUID: 17c1955a-2e4e-4db1-b79d-27024dea03a1
+    PortName: Next
+    TargetNodeGUID: a5c02939-1899-4637-886c-b94b7243e942
+  - BaseNodeGUID: a5c02939-1899-4637-886c-b94b7243e942
+    PortName: Option 1
+    TargetNodeGUID: 56df1ff4-3ab4-49b4-8846-ccb246af113a
+  DialogueNodeData:
+  - nodeGuid: a5c02939-1899-4637-886c-b94b7243e942
+    dialogueText: I haven't answered all the questions yet Tyrone gave.
+    position: {x: 214, y: 200}
+    SpeakerName: Milton
+    SpeakerNameLocation: Speaker Name Left
+    SpeakerSpriteLeft: M1
+    SpeakerSpriteRight: 
+    ItemPortCombis: []
+    QuestionAnswerPortCombis: []
+    SkipPorts: []
+    canSkipFromThisPoint: 0
+    CutSceneImageName: 
+  DialogueEndNodeData:
+  - nodeGuid: 56df1ff4-3ab4-49b4-8846-ccb246af113a
+    dialogueText: 
+    position: {x: 566, y: 200}
+    DialogueEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 11400000, guid: a708b7c51e830a344a09a5b2664eab14, type: 2}
+          m_TargetAssemblyTypeName: UIEvent, Assembly-CSharp
+          m_MethodName: RaiseDeduction
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  ExposedProperties:
+  - PropertyName: Ignore
+    PropertyValue: New Value
+  - PropertyName: Milton
+    PropertyValue: New Value
+  CommentBlockData: []

@@ -40,8 +40,8 @@ public class UIControls : MonoBehaviour
     {
         OInventoryAction.performed -= openJournalClues;
         OSettingsAction.performed -= openJournalSettings;
-        OMapAction.performed -= openJournalDeduction;
-        ODeductionAction.performed -= openJournalMap;
+        OMapAction.performed -= openJournalMap;
+        ODeductionAction.performed -= openJournalDeduction;
         input.Disable();
     }
 
