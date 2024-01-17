@@ -17,6 +17,13 @@ public class FadeToBlack : MonoBehaviour
 
     private bool changing;
 
+    private void Awake() {
+        canvasGroup.alpha = 0;
+        endingCanvasGroup.alpha = 0;
+        canvasToEnableDisable.SetActive(false);
+        endingCanvasToEnableDisable.SetActive(false);
+    }
+
     public void FadeToBlackSequence(float fadeSpeed, float opacity, bool runEvent) {
         changing = false;
         
