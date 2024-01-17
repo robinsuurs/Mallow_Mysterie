@@ -9982,8 +9982,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 0
   serializedVersion: 3
-  m_Size: {x: 0.0165, y: 0.024, z: 0.012011094}
-  m_Center: {x: -0.0029599601, y: 0.0012047755, z: 0.0089230165}
+  m_Size: {x: 0.0165, y: 0.016212897, z: 0.012011094}
+  m_Center: {x: -0.0029599601, y: -0.0026887825, z: 0.00892302}
 --- !u!33 &3441275454188268916
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -13097,8 +13097,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 0
   serializedVersion: 3
-  m_Size: {x: 0.017, y: 0.023999998, z: 0.012362307}
-  m_Center: {x: -0.0010463055, y: 0.0012047758, z: 0.009098625}
+  m_Size: {x: 0.017, y: 0.019037442, z: 0.012362307}
+  m_Center: {x: -0.0010463059, y: 0.0036860525, z: 0.009098625}
 --- !u!1001 &6670690219168387657
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13161,6 +13161,36 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Case_file_red 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4699157058984982320, guid: d4e099cb00b7fc940af8bc165f61c876,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.07559339
+      objectReference: {fileID: 0}
+    - target: {fileID: 4699157058984982320, guid: d4e099cb00b7fc940af8bc165f61c876,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.055943966
+      objectReference: {fileID: 0}
+    - target: {fileID: 4699157058984982320, guid: d4e099cb00b7fc940af8bc165f61c876,
+        type: 3}
+      propertyPath: m_Size.z
+      value: 2.2239091
+      objectReference: {fileID: 0}
+    - target: {fileID: 4699157058984982320, guid: d4e099cb00b7fc940af8bc165f61c876,
+        type: 3}
+      propertyPath: m_Center.x
+      value: 0.027796965
+      objectReference: {fileID: 0}
+    - target: {fileID: 4699157058984982320, guid: d4e099cb00b7fc940af8bc165f61c876,
+        type: 3}
+      propertyPath: m_Center.y
+      value: -0.022970643
+      objectReference: {fileID: 0}
+    - target: {fileID: 4699157058984982320, guid: d4e099cb00b7fc940af8bc165f61c876,
+        type: 3}
+      propertyPath: m_Center.z
+      value: -0.21368404
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
