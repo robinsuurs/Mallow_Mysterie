@@ -14,7 +14,7 @@ public class TimerQuestionWrong : MonoBehaviour {
     private bool runTimer = false;
     
     public void startTimer(bool run) {
-        runTimer = run;
+        runTimer = !run;
     }
 
     private void Update() {

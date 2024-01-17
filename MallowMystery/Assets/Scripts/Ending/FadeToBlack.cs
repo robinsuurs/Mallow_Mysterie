@@ -14,11 +14,11 @@ public class FadeToBlack : MonoBehaviour
     [SerializeField] private GameObject endingCanvasToEnableDisable;
     [SerializeField] private CanvasGroup endingCanvasGroup;
     [SerializeField] private UnityEvent booleanRun;
-    private bool changingToBlack;
 
-    private bool changing = false;
+    private bool changing;
 
     public void FadeToBlackSequence(float fadeSpeed, float opacity, bool runEvent) {
+        changing = false;
         
         if (runEvent) {
             endingCanvasToEnableDisable.SetActive(true);
@@ -35,7 +35,9 @@ public class FadeToBlack : MonoBehaviour
     }
 
     public void FadeToNormal(float fadeSpeed, float opacity, bool runEvent) {
-          StartCoroutine(FadeToNormalTime(fadeSpeed, b => {
+        changing = false;
+        
+        StartCoroutine(FadeToNormalTime(fadeSpeed, b => {
             if (b) {
                 canvasToEnableDisable.SetActive(!b);
             }
@@ -43,7 +45,9 @@ public class FadeToBlack : MonoBehaviour
     }
 
     private IEnumerator FadeToBlackTime(float fadeSpeed, float opacity, CanvasGroup canvasGroup, Action<bool> callback) {
-        while (canvasGroup.alpha < opacity - 0.000001) {
+        changing = true;
+        
+        while (canvasGroup.alpha < opacity - 0.000001 && changing) {
             var fadeAmount = canvasGroup.alpha + (fadeSpeed * Time.deltaTime);
 
             if (fadeAmount > opacity) {
@@ -60,10 +64,10 @@ public class FadeToBlack : MonoBehaviour
     }
 
     private IEnumerator FadeToNormalTime(float speed, Action<bool> cal) {
-        float fadeAmount;
+        changing = true;
         
-        while (canvasGroup.alpha > 0) {
-            fadeAmount = canvasGroup.alpha - (speed * Time.deltaTime);
+        while (canvasGroup.alpha > 0 && changing) {
+            var fadeAmount = canvasGroup.alpha - (speed * Time.deltaTime);
 
             canvasGroup.alpha = fadeAmount;
             yield return null;
