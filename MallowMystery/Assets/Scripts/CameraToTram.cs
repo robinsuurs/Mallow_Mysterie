@@ -8,7 +8,7 @@ using Object = UnityEngine.Object;
 public class CameraToTram : MonoBehaviour, IDataPersistence {
     [SerializeField] private InputActionAsset _inputAction;
     
-    private bool cameraHasPanned = false;
+    [SerializeField] private bool cameraHasPanned = false;
     [SerializeField] private GameObject tram;
     [SerializeField] private float speed;
     [SerializeField] private float waitTime;
@@ -25,11 +25,14 @@ public class CameraToTram : MonoBehaviour, IDataPersistence {
         
         _inputAction.Disable();
         mainCam = Camera.main;
-        
-        orignalLocation = mainCam.transform.position;
+
+        var position = mainCam.transform.position;
+        orignalLocation = position;
 
         Vector3 offSet = mainCam.GetComponent<Follow_Player>().getCameraOffset();
-        targetLocation = new Vector3(tram.transform.position.x + offSet.x, mainCam.transform.position.y,tram.transform.position.z + offSet.z);
+        var tramPosition = tram.transform.position;
+        targetLocation = new Vector3(tramPosition.x + offSet.x, position.y,tramPosition.z + offSet.z);
+        Debug.Log(targetLocation);
         
         
         mainCam.GetComponent<Follow_Player>().enabled = false;

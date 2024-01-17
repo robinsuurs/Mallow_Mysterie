@@ -9,12 +9,12 @@ public class MainScreen : MonoBehaviour {
     }
 
     public void saveGame() {
-        DataPersistenceManager.instance.SaveGame();
-        }
+        DataPersistenceManager.instance.SaveToPc();
+    }
 
     public void loadGame() {
         DataPersistenceManager.instance.setFromMainMenu();
-        DataPersistenceManager.instance.LoadGame();
+        DataPersistenceManager.instance.LoadGameFromPc();
         SceneManager.LoadSceneAsync(DataPersistenceManager.instance.getSceneToLoadForMainMenu());
     }
 

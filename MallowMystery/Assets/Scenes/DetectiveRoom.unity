@@ -3068,6 +3068,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvasToEnableDisable: {fileID: 1915091574}
   canvasGroup: {fileID: 1915091579}
+  endingCanvasToEnableDisable: {fileID: 0}
+  endingCanvasGroup: {fileID: 0}
   booleanRun:
     m_PersistentCalls:
       m_Calls: []
@@ -5474,7 +5476,7 @@ MonoBehaviour:
         m_MethodName: Raise
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: 67728ea5acabd714c9f25cc5cea503e6,
+          m_ObjectArgument: {fileID: 11400000, guid: 87b664e88da4df24eaad370e1fc2d565,
             type: 2}
           m_ObjectArgumentAssemblyTypeName: Dialogue.RunTime.DialogueContainer, Runtime
           m_IntArgument: 0
@@ -5500,19 +5502,6 @@ MonoBehaviour:
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 11400000, guid: d0b9c879ed695db49ba3af202e17f858,
-            type: 2}
-          m_ObjectArgumentAssemblyTypeName: ScriptObjects.ItemData, Assembly-CSharp
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 11400000, guid: 04ddfae70622f3a429b5933eb8e1961f, type: 2}
-        m_TargetAssemblyTypeName: ItemDataEvent, Assembly-CSharp
-        m_MethodName: Raise
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: faa9f1163d4e6cd418badc5d77dd4e44,
             type: 2}
           m_ObjectArgumentAssemblyTypeName: ScriptObjects.ItemData, Assembly-CSharp
           m_IntArgument: 0
@@ -8069,6 +8058,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvasToEnableDisable: {fileID: 1641970454}
   canvasGroup: {fileID: 1641970459}
+  endingCanvasToEnableDisable: {fileID: 0}
+  endingCanvasGroup: {fileID: 0}
   booleanRun:
     m_PersistentCalls:
       m_Calls: []
@@ -21723,3 +21714,4 @@ SceneRoots:
   - {fileID: 1933930175}
   - {fileID: 74003483}
   - {fileID: 1455485741}
+  - {fileID: 2047258563}

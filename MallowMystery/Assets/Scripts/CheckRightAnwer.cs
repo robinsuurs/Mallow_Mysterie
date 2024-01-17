@@ -10,11 +10,6 @@ public class CheckRightAnwer : MonoBehaviour {
     [SerializeField] private Answer answer;
 
     public void CheckWrongQuestion() {
-        if (question.getChosenAnswer() != null) {
-            boolEvent.Raise(!Equals(question.getChosenAnswer().UID, answer.UID));
-        }
-        else {
-            boolEvent.Raise(true);
-        }
+        boolEvent.Raise(question.getChosenAnswer() != null && Equals(question.getChosenAnswer().UID, answer.UID));
     }
 }
