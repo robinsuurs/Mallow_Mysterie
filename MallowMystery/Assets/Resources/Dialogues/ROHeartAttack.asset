@@ -1,0 +1,54 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78b3fd9154634ebdb8c8a48960b9a16a, type: 3}
+  m_Name: ROHeartAttack
+  m_EditorClassIdentifier: 
+  alreadyHadConversation: 1
+  NodeLinks:
+  - BaseNodeGUID: 7a191e64-7f38-403f-a430-5554b0bdd168
+    PortName: Option 1
+    TargetNodeGUID: 2bd4feb9-e82d-4e03-b065-5f0215fcd0f5
+  - BaseNodeGUID: 680646b9-1245-448b-a3bc-c7911415d993
+    PortName: Next
+    TargetNodeGUID: 7a191e64-7f38-403f-a430-5554b0bdd168
+  DialogueNodeData:
+  - nodeGuid: 7a191e64-7f38-403f-a430-5554b0bdd168
+    dialogueText: LET ME IN, I'M HAVING A HEART ATTACK!!!
+    position: {x: 199.5, y: 200}
+    SpeakerName: Heart woman
+    SpeakerNameLocation: Speaker Name Right
+    SpeakerSpriteLeft: 
+    SpeakerSpriteRight: 
+    ItemPortCombis: []
+    QuestionAnswerPortCombis: []
+    SkipPorts: []
+    canSkipFromThisPoint: 0
+    CutSceneImageName: 
+  - nodeGuid: 2bd4feb9-e82d-4e03-b065-5f0215fcd0f5
+    dialogueText: You awkwardly pretend not to notice her.
+    position: {x: 581.5, y: 200}
+    SpeakerName: 
+    SpeakerNameLocation: None
+    SpeakerSpriteLeft: 
+    SpeakerSpriteRight: 
+    ItemPortCombis: []
+    QuestionAnswerPortCombis: []
+    SkipPorts: []
+    canSkipFromThisPoint: 0
+    CutSceneImageName: 
+  DialogueEndNodeData: []
+  ExposedProperties:
+  - PropertyName: Ignore
+    PropertyValue: New Value
+  - PropertyName: Heart woman
+    PropertyValue: New Value
+  CommentBlockData: []

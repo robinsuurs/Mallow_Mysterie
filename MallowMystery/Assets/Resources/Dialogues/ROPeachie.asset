@@ -1,0 +1,57 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78b3fd9154634ebdb8c8a48960b9a16a, type: 3}
+  m_Name: ROPeachie
+  m_EditorClassIdentifier: 
+  alreadyHadConversation: 0
+  NodeLinks:
+  - BaseNodeGUID: 2eac0bee-6d54-4668-97f6-d795636e4cc9
+    PortName: Option 1
+    TargetNodeGUID: a4736ef2-4cd1-4013-8d5b-064ac6863b74
+  - BaseNodeGUID: e5887f94-ac33-4a43-b627-b26ddad0f21d
+    PortName: Next
+    TargetNodeGUID: 2eac0bee-6d54-4668-97f6-d795636e4cc9
+  DialogueNodeData:
+  - nodeGuid: 2eac0bee-6d54-4668-97f6-d795636e4cc9
+    dialogueText: Mister, mister, please buy a newspaper! Fresh news, yesterday's
+      publishing!
+    position: {x: 214.5, y: 236.5}
+    SpeakerName: Peach boy
+    SpeakerNameLocation: Speaker Name Right
+    SpeakerSpriteLeft: 
+    SpeakerSpriteRight: 
+    ItemPortCombis: []
+    QuestionAnswerPortCombis: []
+    SkipPorts: []
+    canSkipFromThisPoint: 0
+    CutSceneImageName: 
+  - nodeGuid: a4736ef2-4cd1-4013-8d5b-064ac6863b74
+    dialogueText: You know, I think I have enough news for today.
+    position: {x: 593.5, y: 236.5}
+    SpeakerName: Milton
+    SpeakerNameLocation: Speaker Name Left
+    SpeakerSpriteLeft: 
+    SpeakerSpriteRight: 
+    ItemPortCombis: []
+    QuestionAnswerPortCombis: []
+    SkipPorts: []
+    canSkipFromThisPoint: 0
+    CutSceneImageName: 
+  DialogueEndNodeData: []
+  ExposedProperties:
+  - PropertyName: Ignore
+    PropertyValue: New Value
+  - PropertyName: Peach boy
+    PropertyValue: New Value
+  - PropertyName: Milton
+    PropertyValue: New Value
+  CommentBlockData: []
