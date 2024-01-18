@@ -18,7 +18,11 @@ public class CloseToClueTrigger : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         _effectRender.enabled = true;
-        _effectRender.material.SetFloat("_Start_Time", Time.timeSinceLevelLoad);
+        foreach (var var in _effectRender.materials)
+        {
+            var.SetFloat("_Start_Time", Time.timeSinceLevelLoad);
+        }
+        
     }
 
     private void OnTriggerExit(Collider other)
