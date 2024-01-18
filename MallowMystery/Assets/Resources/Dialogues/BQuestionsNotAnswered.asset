@@ -16,14 +16,42 @@ MonoBehaviour:
   NodeLinks:
   - BaseNodeGUID: 17c1955a-2e4e-4db1-b79d-27024dea03a1
     PortName: Next
-    TargetNodeGUID: a5c02939-1899-4637-886c-b94b7243e942
-  - BaseNodeGUID: a5c02939-1899-4637-886c-b94b7243e942
+    TargetNodeGUID: 85b78104-68c7-47cf-98eb-70ef29b7fd89
+  - BaseNodeGUID: 85b78104-68c7-47cf-98eb-70ef29b7fd89
     PortName: Option 1
-    TargetNodeGUID: 56df1ff4-3ab4-49b4-8846-ccb246af113a
+    TargetNodeGUID: c0f9cfc9-eb27-4a68-be88-236deb748823
+  - BaseNodeGUID: c0f9cfc9-eb27-4a68-be88-236deb748823
+    PortName: Option 1
+    TargetNodeGUID: 727e9020-bc39-4baa-ad83-bb630becfaf0
   DialogueNodeData:
-  - nodeGuid: a5c02939-1899-4637-886c-b94b7243e942
-    dialogueText: I haven't answered all the questions yet Tyrone gave.
-    position: {x: 214, y: 200}
+  - nodeGuid: 85b78104-68c7-47cf-98eb-70ef29b7fd89
+    dialogueText: Hey, did'ya want anything?
+    position: {x: 207.5, y: 200}
+    SpeakerName: Lil' Dude
+    SpeakerNameLocation: Speaker Name Right
+    SpeakerSpriteLeft: 
+    SpeakerSpriteRight: L1
+    ItemPortCombis: []
+    QuestionAnswerPortCombis: []
+    SkipPorts: []
+    canSkipFromThisPoint: 0
+    CutSceneImageName: 
+  - nodeGuid: c0f9cfc9-eb27-4a68-be88-236deb748823
+    dialogueText: Uhhh, no, sorry...
+    position: {x: 553.5, y: 200}
+    SpeakerName: Milton
+    SpeakerNameLocation: Speaker Name Left
+    SpeakerSpriteLeft: M3
+    SpeakerSpriteRight: 
+    ItemPortCombis: []
+    QuestionAnswerPortCombis: []
+    SkipPorts: []
+    canSkipFromThisPoint: 0
+    CutSceneImageName: 
+  - nodeGuid: 727e9020-bc39-4baa-ad83-bb630becfaf0
+    dialogueText: (I should probably make some conclusions before I proceed. Looking
+      through the questions Tyrone gave me might be a good idea.)
+    position: {x: 904.5, y: 200}
     SpeakerName: Milton
     SpeakerNameLocation: Speaker Name Left
     SpeakerSpriteLeft: M1
@@ -56,5 +84,7 @@ MonoBehaviour:
   - PropertyName: Ignore
     PropertyValue: New Value
   - PropertyName: Milton
+    PropertyValue: New Value
+  - PropertyName: Lil' Dude
     PropertyValue: New Value
   CommentBlockData: []

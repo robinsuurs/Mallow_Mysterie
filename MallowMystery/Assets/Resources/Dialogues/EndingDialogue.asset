@@ -144,6 +144,9 @@ MonoBehaviour:
   - BaseNodeGUID: 6be61638-f05c-4b3c-8ddd-590239bc5149
     PortName: Option 1
     TargetNodeGUID: f97452ca-a1c8-47f9-b161-7c659c34a474
+  - BaseNodeGUID: 6be61638-f05c-4b3c-8ddd-590239bc5149
+    PortName: Option 7
+    TargetNodeGUID: bd0fa5ae-8802-4dde-8ec5-5d77e9ee56e9
   - BaseNodeGUID: 73548ab9-3e08-4430-b345-ccd4a0a0d584
     PortName: Option 1
     TargetNodeGUID: e3e1d69d-05dd-4bcf-bd53-1722e4ece61f
@@ -190,9 +193,6 @@ MonoBehaviour:
   - BaseNodeGUID: 12089a73-c2fd-4b5c-a0cf-bae1ab42c865
     PortName: Option 1
     TargetNodeGUID: e5afc03a-4bc1-4dd4-9091-87e6bc753e1f
-  - BaseNodeGUID: 6be61638-f05c-4b3c-8ddd-590239bc5149
-    PortName: Option 7
-    TargetNodeGUID: bd0fa5ae-8802-4dde-8ec5-5d77e9ee56e9
   DialogueNodeData:
   - nodeGuid: bbbe3dc2-991c-481f-ba7c-90ac8ac7a178
     dialogueText: Something else, ey? Well, you sure don't look like a rusher, so
@@ -200,8 +200,8 @@ MonoBehaviour:
     position: {x: 1367, y: 268}
     SpeakerName: Sleezy man
     SpeakerNameLocation: Speaker Name Right
-    SpeakerSpriteLeft: M1
-    SpeakerSpriteRight: L1
+    SpeakerSpriteLeft: M3
+    SpeakerSpriteRight: L2
     ItemPortCombis: []
     QuestionAnswerPortCombis: []
     SkipPorts: []
@@ -213,7 +213,7 @@ MonoBehaviour:
     SpeakerName: Milton
     SpeakerNameLocation: Speaker Name Left
     SpeakerSpriteLeft: M1
-    SpeakerSpriteRight: L1
+    SpeakerSpriteRight: L2
     ItemPortCombis: []
     QuestionAnswerPortCombis: []
     SkipPorts: []
@@ -240,8 +240,8 @@ MonoBehaviour:
     position: {x: 2825, y: 387}
     SpeakerName: Sleezy man
     SpeakerNameLocation: Speaker Name Right
-    SpeakerSpriteLeft: M1
-    SpeakerSpriteRight: L1
+    SpeakerSpriteLeft: M2
+    SpeakerSpriteRight: L2
     ItemPortCombis: []
     QuestionAnswerPortCombis: []
     SkipPorts: []
@@ -252,7 +252,7 @@ MonoBehaviour:
     position: {x: 2449, y: 268}
     SpeakerName: Lil' Dude
     SpeakerNameLocation: Speaker Name Right
-    SpeakerSpriteLeft: M1
+    SpeakerSpriteLeft: M3
     SpeakerSpriteRight: L1
     ItemPortCombis: []
     QuestionAnswerPortCombis: []
@@ -266,8 +266,8 @@ MonoBehaviour:
     position: {x: 1004, y: -44}
     SpeakerName: 
     SpeakerNameLocation: None
-    SpeakerSpriteLeft: M1
-    SpeakerSpriteRight: L1
+    SpeakerSpriteLeft: M3
+    SpeakerSpriteRight: L2
     ItemPortCombis: []
     QuestionAnswerPortCombis: []
     SkipPorts: []
@@ -278,8 +278,8 @@ MonoBehaviour:
     position: {x: 1355, y: -44}
     SpeakerName: Sleezy man
     SpeakerNameLocation: Speaker Name Right
-    SpeakerSpriteLeft: M1
-    SpeakerSpriteRight: L1
+    SpeakerSpriteLeft: M3
+    SpeakerSpriteRight: L4
     ItemPortCombis: []
     QuestionAnswerPortCombis: []
     SkipPorts: []
@@ -291,7 +291,7 @@ MonoBehaviour:
     SpeakerName: Sleezy man
     SpeakerNameLocation: Speaker Name Right
     SpeakerSpriteLeft: M1
-    SpeakerSpriteRight: L1
+    SpeakerSpriteRight: L4
     ItemPortCombis: []
     QuestionAnswerPortCombis: []
     SkipPorts: []
@@ -303,8 +303,8 @@ MonoBehaviour:
     position: {x: 2379, y: -41}
     SpeakerName: 
     SpeakerNameLocation: Speaker Name Left
-    SpeakerSpriteLeft: M1
-    SpeakerSpriteRight: L1
+    SpeakerSpriteLeft: M2
+    SpeakerSpriteRight: L2
     ItemPortCombis: []
     QuestionAnswerPortCombis: []
     SkipPorts: []
@@ -318,8 +318,8 @@ MonoBehaviour:
     position: {x: 2736, y: -261}
     SpeakerName: Sleezy man
     SpeakerNameLocation: Speaker Name Right
-    SpeakerSpriteLeft: M1
-    SpeakerSpriteRight: L1
+    SpeakerSpriteLeft: M2
+    SpeakerSpriteRight: L2
     ItemPortCombis: []
     QuestionAnswerPortCombis: []
     SkipPorts: []
@@ -344,7 +344,7 @@ MonoBehaviour:
     position: {x: 1667, y: -497}
     SpeakerName: 
     SpeakerNameLocation: None
-    SpeakerSpriteLeft: M1
+    SpeakerSpriteLeft: M3
     SpeakerSpriteRight: L1
     ItemPortCombis: []
     QuestionAnswerPortCombis: []
@@ -358,7 +358,7 @@ MonoBehaviour:
     SpeakerName: Lil' Dude
     SpeakerNameLocation: Speaker Name Right
     SpeakerSpriteLeft: M1
-    SpeakerSpriteRight: L1
+    SpeakerSpriteRight: L4
     ItemPortCombis: []
     QuestionAnswerPortCombis: []
     SkipPorts: []
@@ -382,8 +382,8 @@ MonoBehaviour:
     position: {x: 2660, y: -933}
     SpeakerName: Lil' Dude
     SpeakerNameLocation: Speaker Name Right
-    SpeakerSpriteLeft: M1
-    SpeakerSpriteRight: L1
+    SpeakerSpriteLeft: M3
+    SpeakerSpriteRight: L2
     ItemPortCombis: []
     QuestionAnswerPortCombis: []
     SkipPorts: []
@@ -394,7 +394,7 @@ MonoBehaviour:
     position: {x: 3688, y: -592}
     SpeakerName: Milton
     SpeakerNameLocation: Speaker Name Left
-    SpeakerSpriteLeft: M1
+    SpeakerSpriteLeft: M2
     SpeakerSpriteRight: L1
     ItemPortCombis: []
     QuestionAnswerPortCombis: []
@@ -408,8 +408,8 @@ MonoBehaviour:
     position: {x: 1004, y: -497}
     SpeakerName: 
     SpeakerNameLocation: None
-    SpeakerSpriteLeft: M1
-    SpeakerSpriteRight: L1
+    SpeakerSpriteLeft: M3
+    SpeakerSpriteRight: L2
     ItemPortCombis: []
     QuestionAnswerPortCombis: []
     SkipPorts: []
@@ -420,7 +420,7 @@ MonoBehaviour:
     position: {x: 3036, y: -593}
     SpeakerName: Milton
     SpeakerNameLocation: Speaker Name Left
-    SpeakerSpriteLeft: M1
+    SpeakerSpriteLeft: M3
     SpeakerSpriteRight: L1
     ItemPortCombis: []
     QuestionAnswerPortCombis: []
@@ -433,8 +433,8 @@ MonoBehaviour:
     position: {x: 987, y: 647}
     SpeakerName: 
     SpeakerNameLocation: None
-    SpeakerSpriteLeft: M1
-    SpeakerSpriteRight: L1
+    SpeakerSpriteLeft: M3
+    SpeakerSpriteRight: L2
     ItemPortCombis: []
     QuestionAnswerPortCombis: []
     SkipPorts: []
@@ -446,8 +446,8 @@ MonoBehaviour:
     position: {x: 1340, y: 647}
     SpeakerName: Sleezy man
     SpeakerNameLocation: Speaker Name Right
-    SpeakerSpriteLeft: M1
-    SpeakerSpriteRight: L1
+    SpeakerSpriteLeft: M3
+    SpeakerSpriteRight: L4
     ItemPortCombis: []
     QuestionAnswerPortCombis: []
     SkipPorts: []
@@ -460,7 +460,7 @@ MonoBehaviour:
     SpeakerName: 
     SpeakerNameLocation: None
     SpeakerSpriteLeft: M1
-    SpeakerSpriteRight: L1
+    SpeakerSpriteRight: L4
     ItemPortCombis: []
     QuestionAnswerPortCombis: []
     SkipPorts: []
@@ -473,8 +473,8 @@ MonoBehaviour:
     position: {x: 1004, y: 299}
     SpeakerName: 
     SpeakerNameLocation: None
-    SpeakerSpriteLeft: M1
-    SpeakerSpriteRight: L1
+    SpeakerSpriteLeft: M3
+    SpeakerSpriteRight: L2
     ItemPortCombis: []
     QuestionAnswerPortCombis: []
     SkipPorts: []
@@ -486,7 +486,7 @@ MonoBehaviour:
     SpeakerName: Milton
     SpeakerNameLocation: Speaker Name Left
     SpeakerSpriteLeft: M1
-    SpeakerSpriteRight: L1
+    SpeakerSpriteRight: L4
     ItemPortCombis: []
     QuestionAnswerPortCombis: []
     SkipPorts: []
@@ -515,22 +515,8 @@ MonoBehaviour:
     position: {x: 3187, y: 387}
     SpeakerName: Sleezy man
     SpeakerNameLocation: Speaker Name Right
-    SpeakerSpriteLeft: M1
-    SpeakerSpriteRight: L1
-    ItemPortCombis: []
-    QuestionAnswerPortCombis: []
-    SkipPorts: []
-    canSkipFromThisPoint: 0
-    CutSceneImageName: 
-  - nodeGuid: a830e72d-ffe0-4266-acd5-1eafcd7d22f7
-    dialogueText: Oh, and don't speak about this ever again to anyone. Or we will
-      find you and we will kill you, 'ya probably know the gist. Now scrum, I've
-      got work to do.
-    position: {x: 3555, y: 387}
-    SpeakerName: Sleezy man
-    SpeakerNameLocation: Speaker Name Right
-    SpeakerSpriteLeft: M1
-    SpeakerSpriteRight: L1
+    SpeakerSpriteLeft: M2
+    SpeakerSpriteRight: L2
     ItemPortCombis: []
     QuestionAnswerPortCombis: []
     SkipPorts: []
@@ -541,8 +527,8 @@ MonoBehaviour:
     position: {x: 8809, y: -469}
     SpeakerName: Lil' Dude
     SpeakerNameLocation: Speaker Name Right
-    SpeakerSpriteLeft: M1
-    SpeakerSpriteRight: L1
+    SpeakerSpriteLeft: M4
+    SpeakerSpriteRight: L4
     ItemPortCombis: []
     QuestionAnswerPortCombis: []
     SkipPorts: []
@@ -554,7 +540,7 @@ MonoBehaviour:
     position: {x: 8483, y: -469}
     SpeakerName: Milton
     SpeakerNameLocation: Speaker Name Left
-    SpeakerSpriteLeft: M1
+    SpeakerSpriteLeft: M4
     SpeakerSpriteRight: L1
     ItemPortCombis: []
     QuestionAnswerPortCombis: []
@@ -580,8 +566,8 @@ MonoBehaviour:
     position: {x: 10141, y: -469}
     SpeakerName: Milton
     SpeakerNameLocation: Speaker Name Left
-    SpeakerSpriteLeft: M1
-    SpeakerSpriteRight: L1
+    SpeakerSpriteLeft: M4
+    SpeakerSpriteRight: L5
     ItemPortCombis: []
     QuestionAnswerPortCombis: []
     SkipPorts: []
@@ -595,7 +581,7 @@ MonoBehaviour:
     position: {x: 10467, y: -469}
     SpeakerName: Lil' Dude
     SpeakerNameLocation: Speaker Name Right
-    SpeakerSpriteLeft: M1
+    SpeakerSpriteLeft: M4
     SpeakerSpriteRight: L1
     ItemPortCombis: []
     QuestionAnswerPortCombis: []
@@ -609,8 +595,8 @@ MonoBehaviour:
     position: {x: 9461, y: -469}
     SpeakerName: Lil' Dude
     SpeakerNameLocation: Speaker Name Right
-    SpeakerSpriteLeft: M1
-    SpeakerSpriteRight: L1
+    SpeakerSpriteLeft: M4
+    SpeakerSpriteRight: L5
     ItemPortCombis: []
     QuestionAnswerPortCombis: []
     SkipPorts: []
@@ -622,8 +608,8 @@ MonoBehaviour:
     position: {x: 9805, y: -473}
     SpeakerName: Lil' Dude
     SpeakerNameLocation: Speaker Name Right
-    SpeakerSpriteLeft: M1
-    SpeakerSpriteRight: L1
+    SpeakerSpriteLeft: M4
+    SpeakerSpriteRight: L5
     ItemPortCombis: []
     QuestionAnswerPortCombis: []
     SkipPorts: []
@@ -647,7 +633,7 @@ MonoBehaviour:
     position: {x: 553, y: 200}
     SpeakerName: Milton
     SpeakerNameLocation: Speaker Name Left
-    SpeakerSpriteLeft: M1
+    SpeakerSpriteLeft: M3
     SpeakerSpriteRight: L1
     ItemPortCombis: []
     QuestionAnswerPortCombis:
@@ -693,7 +679,7 @@ MonoBehaviour:
     position: {x: 4296, y: -1168}
     SpeakerName: Milton
     SpeakerNameLocation: Speaker Name Left
-    SpeakerSpriteLeft: M1
+    SpeakerSpriteLeft: M3
     SpeakerSpriteRight: L1
     ItemPortCombis: []
     QuestionAnswerPortCombis: []
@@ -720,7 +706,7 @@ MonoBehaviour:
     position: {x: 5691, y: -1168}
     SpeakerName: Milton
     SpeakerNameLocation: Speaker Name Left
-    SpeakerSpriteLeft: M1
+    SpeakerSpriteLeft: M3
     SpeakerSpriteRight: L1
     ItemPortCombis: []
     QuestionAnswerPortCombis: []
@@ -734,7 +720,7 @@ MonoBehaviour:
     SpeakerName: Lil' Dude
     SpeakerNameLocation: Speaker Name Right
     SpeakerSpriteLeft: M1
-    SpeakerSpriteRight: L1
+    SpeakerSpriteRight: L2
     ItemPortCombis: []
     QuestionAnswerPortCombis: []
     SkipPorts: []
@@ -748,7 +734,7 @@ MonoBehaviour:
     SpeakerName: 
     SpeakerNameLocation: None
     SpeakerSpriteLeft: M1
-    SpeakerSpriteRight: L1
+    SpeakerSpriteRight: L3
     ItemPortCombis: []
     QuestionAnswerPortCombis: []
     SkipPorts: []
@@ -762,8 +748,8 @@ MonoBehaviour:
     position: {x: 5007, y: -1168}
     SpeakerName: Lil' Dude
     SpeakerNameLocation: Speaker Name Right
-    SpeakerSpriteLeft: M1
-    SpeakerSpriteRight: L1
+    SpeakerSpriteLeft: M3
+    SpeakerSpriteRight: L4
     ItemPortCombis: []
     QuestionAnswerPortCombis: []
     SkipPorts: []
@@ -789,8 +775,8 @@ MonoBehaviour:
     position: {x: 7412, y: -1045}
     SpeakerName: Lil' Dude
     SpeakerNameLocation: Speaker Name Right
-    SpeakerSpriteLeft: M1
-    SpeakerSpriteRight: L1
+    SpeakerSpriteLeft: M3
+    SpeakerSpriteRight: L3
     ItemPortCombis: []
     QuestionAnswerPortCombis: []
     SkipPorts: []
@@ -803,8 +789,8 @@ MonoBehaviour:
     position: {x: 7739, y: -1045}
     SpeakerName: Lil' Dude
     SpeakerNameLocation: Speaker Name Right
-    SpeakerSpriteLeft: M1
-    SpeakerSpriteRight: L1
+    SpeakerSpriteLeft: M3
+    SpeakerSpriteRight: L3
     ItemPortCombis: []
     QuestionAnswerPortCombis: []
     SkipPorts: []
@@ -816,7 +802,7 @@ MonoBehaviour:
     SpeakerName: Lil' Dude
     SpeakerNameLocation: Speaker Name Right
     SpeakerSpriteLeft: M1
-    SpeakerSpriteRight: L1
+    SpeakerSpriteRight: L4
     ItemPortCombis: []
     QuestionAnswerPortCombis: []
     SkipPorts: []
@@ -827,7 +813,7 @@ MonoBehaviour:
     position: {x: 6016, y: -1168}
     SpeakerName: Milton
     SpeakerNameLocation: Speaker Name Left
-    SpeakerSpriteLeft: M1
+    SpeakerSpriteLeft: M3
     SpeakerSpriteRight: L1
     ItemPortCombis: []
     QuestionAnswerPortCombis: []
@@ -841,7 +827,7 @@ MonoBehaviour:
     SpeakerName: 
     SpeakerNameLocation: None
     SpeakerSpriteLeft: M1
-    SpeakerSpriteRight: L1
+    SpeakerSpriteRight: L2
     ItemPortCombis: []
     QuestionAnswerPortCombis: []
     SkipPorts: []
@@ -853,8 +839,22 @@ MonoBehaviour:
     position: {x: 9147, y: -459}
     SpeakerName: 
     SpeakerNameLocation: None
-    SpeakerSpriteLeft: M1
-    SpeakerSpriteRight: L1
+    SpeakerSpriteLeft: M4
+    SpeakerSpriteRight: L5
+    ItemPortCombis: []
+    QuestionAnswerPortCombis: []
+    SkipPorts: []
+    canSkipFromThisPoint: 0
+    CutSceneImageName: 
+  - nodeGuid: a830e72d-ffe0-4266-acd5-1eafcd7d22f7
+    dialogueText: Oh, and don't speak about this ever again to anyone. Or we will
+      find you and we will kill you, 'ya probably know the gist. Now scrum, I've
+      got work to do.
+    position: {x: 3555, y: 387}
+    SpeakerName: Sleezy man
+    SpeakerNameLocation: Speaker Name Right
+    SpeakerSpriteLeft: M2
+    SpeakerSpriteRight: L4
     ItemPortCombis: []
     QuestionAnswerPortCombis: []
     SkipPorts: []
