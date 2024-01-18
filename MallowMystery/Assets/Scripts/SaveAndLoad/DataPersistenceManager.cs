@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 using Dialogue.RunTime;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
 
@@ -12,10 +13,11 @@ public class DataPersistenceManager : MonoBehaviour {
     [SerializeField] private string fileName;
     [SerializeField] private bool startFresh;
     [SerializeField] private bool encryptData;
-    [SerializeField] private GameEventStandardAdd endSceneLoaded;
+    [SerializeField] private UnityEvent endLoading;
     [SerializeField] private LevelManager _levelManager;
     [SerializeField] private EndingStringList endingStringList;
     private GameData _gameData;
+    private GameData currentPlayingGameData;
     private List<IDataPersistence> dataPersistences;
     private FileDataHandler dataHandler;
     public static DataPersistenceManager instance { get; private set; }
@@ -28,8 +30,14 @@ public class DataPersistenceManager : MonoBehaviour {
         }
         
         instance = this;
-        DontDestroyOnLoad(this.gameObject);
-        this.dataHandler = new FileDataHandler(Application.persistentDataPath, fileName, encryptData);
+        DontDestroyOnLoad(gameObject);
+        dataHandler = new FileDataHandler(Application.persistentDataPath, fileName, encryptData);
+        if (currentPlayingGameData == null) {
+            currentPlayingGameData = dataHandler.Load();
+            _gameData = currentPlayingGameData;
+        } else {
+            NewGame();
+        }
         _levelManager.sceneSwitchData = null;
     }
 
@@ -42,11 +50,15 @@ public class DataPersistenceManager : MonoBehaviour {
     }
 
     private void OnSceneLoaded (Scene scene, LoadSceneMode mode) {
-        this.dataPersistences = FindAllDataPersistenceObjects();
-        LoadGame();
-        if (!SceneManager.GetActiveScene().name.Equals("MainMenu") && !SceneManager.GetActiveScene().name.Equals("DetectiveRoom") && !SceneManager.GetActiveScene().name.Equals("EndingScene")) {
-            Camera.main.gameObject.GetComponent<Follow_Player>().setFollowPlayer();
+        if (startFresh) {
+            NewGame();
+            LoadGame();
         }
+        if (!SceneManager.GetActiveScene().name.Equals("MainMenu") && !SceneManager.GetActiveScene().name.Equals("EndingScene")) {
+            LoadGame();
+            _levelManager.SpawnPlayer(currentPlayingGameData);
+        }
+        endLoading.Invoke();
     }
 
     private List<IDataPersistence> FindAllDataPersistenceObjects() {
@@ -56,35 +68,38 @@ public class DataPersistenceManager : MonoBehaviour {
     }
 
     private void OnApplicationQuit() {
-        if (!SceneManager.GetActiveScene().name.Equals("MainMenu")) {
-            SaveGame();
-        }
+        SaveToPc();
     }
 
     public void NewGame() {
-        this._gameData = new GameData("");
+        currentPlayingGameData = new GameData("");
+        
+        dataPersistences = FindAllDataPersistenceObjects();
+        foreach (IDataPersistence dataPersistenceObj in dataPersistences) {
+            dataPersistenceObj.LoadData(currentPlayingGameData);
+        }
+
+        LoadDialogueStates();
     }
 
-    private void LoadGame() {
-        if (this._gameData == null) {
-            this._gameData = dataHandler.Load();
-        }
-        if (this._gameData == null || startFresh) {
+    public void LoadGame() {
+        if (currentPlayingGameData == null) {
             Debug.Log("No GameData found. A new Game needs to be created");
             NewGame();
         }
         else {
+            dataPersistences = FindAllDataPersistenceObjects();
             foreach (IDataPersistence dataPersistenceObj in dataPersistences) {
-                dataPersistenceObj.LoadData(_gameData);
+                dataPersistenceObj.LoadData(currentPlayingGameData);
             }
 
             LoadDialogueStates();
         }
+    }
 
-        if (!SceneManager.GetActiveScene().name.Equals("MainMenu")) {
-            _levelManager.SpawnPlayer(_gameData);
-            endSceneLoaded.Raise();
-        }
+    public void LoadGameFromPc() {
+        currentPlayingGameData = dataHandler.Load();
+        LoadGame();
     }
 
     public void setFromMainMenu () {
@@ -92,25 +107,38 @@ public class DataPersistenceManager : MonoBehaviour {
     }
 
     public string getSceneToLoadForMainMenu() {
-        return _gameData.sceneName;
+        return currentPlayingGameData.sceneName;
     }
 
     public void SaveGame () {
-        if (this._gameData == null) {
+        if (currentPlayingGameData == null) {
             Debug.Log("No GameData found. A new Game needs to be created before being saved");
             return;
         }
-        
+
+        if (SceneManager.GetActiveScene().name.Equals("MainMenu") || SceneManager.GetActiveScene().name.Equals("EndingScene")) {
+            return;
+        }
+
+        dataPersistences = FindAllDataPersistenceObjects();
         foreach (IDataPersistence dataPersistenceObj in dataPersistences) {
-            dataPersistenceObj.SaveData(ref _gameData);
+            dataPersistenceObj.SaveData(ref currentPlayingGameData);
         }
         
         SaveDialogueStates();
+        SavePlayer();
+    }
 
-        _gameData.sceneName = SceneManager.GetActiveScene().name;
-        _gameData.playerLocation = GameObject.FindWithTag("Player").transform.position;
-        
-        dataHandler.Save(_gameData);
+    public void SaveToPc() {
+        SaveGame();
+        dataHandler.Save(currentPlayingGameData);
+    }
+
+    private void SavePlayer() {
+        currentPlayingGameData.sceneName = SceneManager.GetActiveScene().name;
+        if (GameObject.FindWithTag("Player") != null) {
+            currentPlayingGameData.playerLocation = GameObject.FindWithTag("Player").transform.position;
+        }
     }
 
     public bool hasGameData() {
@@ -119,26 +147,22 @@ public class DataPersistenceManager : MonoBehaviour {
 
     private void SaveDialogueStates() {
         List<DialogueContainer> dialogueContainers = Resources.LoadAll<DialogueContainer>("").ToList();
-        _gameData.alreadyHadConversations.Clear();
+        currentPlayingGameData.alreadyHadConversations.Clear();
 
         foreach (var dialogueContainer in dialogueContainers.Where(dialogueContainer => dialogueContainer.alreadyHadConversation)) {
-            _gameData.alreadyHadConversations.Add(dialogueContainer.name);
+            currentPlayingGameData.alreadyHadConversations.Add(dialogueContainer.name);
         }
     }
     
     private void LoadDialogueStates() {
         List<DialogueContainer> dialogueContainers = Resources.LoadAll<DialogueContainer>("").ToList();
-        foreach (var dialogueContainer in from dialogueContainer in dialogueContainers from name in _gameData.alreadyHadConversations where dialogueContainer.name.Equals(name) select dialogueContainer) {
+        foreach (var dialogueContainer in from dialogueContainer in dialogueContainers from name in currentPlayingGameData.alreadyHadConversations where dialogueContainer.name.Equals(name) select dialogueContainer) {
             dialogueContainer.alreadyHadConversation = true;
         }
     }
 
     public void resetToStandardValues() {
         _levelManager.sceneSwitchData = null;
-    }
-
-    public GameData getGameData() {
-        return _gameData;
     }
 
     public void setEndingStringList(EndingStringList endingStringList) {

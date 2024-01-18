@@ -13,15 +13,20 @@ public class GameData {
     public float timeRun;
     public string sceneName;
     public Vector3 playerLocation;
+    public int beerDrunk;
 
     public bool cameraHasPanned;
+    public bool tramMovedInPoor;
 
     public SerializableDictionary<string, string> questionAnswerDic =
         new SerializableDictionary<string, string>();
+
+    public SerializableDictionary<string, bool> nameBoolSaves = new SerializableDictionary<string, bool>();
     
     //Set start thing when you create a newGame
     public GameData(string leaveEmpty) {
-
+        
+        
         var inventory = Resources.LoadAll("Clues/ClueInventory", typeof(Inventory))
             .Cast<Inventory>().FirstOrDefault(inventoryArray => inventoryArray.name.Equals("ClueInventory"));
         
@@ -51,9 +56,13 @@ public class GameData {
         }
         
         questionAnswerDic.Clear();
+        nameBoolSaves.Clear();
         timeRun = 0;
 
         cameraHasPanned = false;
+        tramMovedInPoor = false;
+
+        beerDrunk = 0;
         
         sceneName = "DetectiveRoom";
         playerLocation = new Vector3(-0.5f, 0.2433f, 0.2f);

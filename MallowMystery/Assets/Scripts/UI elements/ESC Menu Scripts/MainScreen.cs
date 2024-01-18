@@ -5,19 +5,17 @@ using UnityEngine.SceneManagement;
 
 public class MainScreen : MonoBehaviour {
     public void backToMainMenu() {
-        Time.timeScale = 1;
         SceneManager.LoadScene("Scenes/MainMenu");
     }
 
     public void saveGame() {
-        DataPersistenceManager.instance.SaveGame();
-        // GameObject.FindWithTag("CanvasManager").gameObject.transform.Find("SettingsScreen").gameObject.GetComponent<SettingsScreenManager>().showSettingsScreen("OpenSettings");
+        DataPersistenceManager.instance.SaveToPc();
     }
 
     public void loadGame() {
         DataPersistenceManager.instance.setFromMainMenu();
+        DataPersistenceManager.instance.LoadGameFromPc();
         SceneManager.LoadSceneAsync(DataPersistenceManager.instance.getSceneToLoadForMainMenu());
-        Time.timeScale = 1;
     }
 
     public void exitgame() {

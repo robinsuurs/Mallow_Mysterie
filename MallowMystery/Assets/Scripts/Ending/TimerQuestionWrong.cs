@@ -7,12 +7,11 @@ using UnityEngine.Events;
 public class TimerQuestionWrong : MonoBehaviour {
     [SerializeField] private float currentTime;
     [SerializeField] private float maxTime;
-    [SerializeField] private GameEventStandardAdd standardEvent;
+    [SerializeField] private UnityEvent unityEvent;
 
     [SerializeField] private UnityEvent ending;
 
     private bool runTimer = false;
-    private bool opendUI = false;
     
     public void startTimer(bool run) {
         runTimer = !run;
@@ -21,9 +20,8 @@ public class TimerQuestionWrong : MonoBehaviour {
     private void Update() {
         if (runTimer) {
             currentTime += Time.deltaTime;
-            if (currentTime > maxTime && !opendUI) {
-                standardEvent.Raise();
-                opendUI = true;
+            if (currentTime > maxTime) {
+                unityEvent.Invoke();
             }
         }
     }

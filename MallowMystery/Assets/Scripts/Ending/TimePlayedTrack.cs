@@ -8,21 +8,13 @@ public class TimePlayedTrack : MonoBehaviour, IDataPersistence {
     private string currentSceneName;
     public static float currentTimeRun;
     private void Update() {
-        if (currentSceneName != "MainMenu") {
+        if (currentSceneName != "MainMenu" && currentSceneName != "EndingScene") {
             currentTimeRun += Time.unscaledDeltaTime;
         }
     }
 
-    private void setCurrentSceneName(Scene scene, LoadSceneMode mode) {
-        currentSceneName = scene.name;
-    }
-    
-    private void OnEnable() {
-        SceneManager.sceneLoaded += setCurrentSceneName;
-    }
-
-    private void OnDisable() {
-        SceneManager.sceneLoaded -= setCurrentSceneName;
+    public void setCurrentSceneName() {
+        currentSceneName = SceneManager.GetActiveScene().name;
     }
 
     public void LoadData(GameData data) {

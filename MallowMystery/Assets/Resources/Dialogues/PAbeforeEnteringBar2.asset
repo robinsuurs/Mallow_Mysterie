@@ -1,0 +1,73 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78b3fd9154634ebdb8c8a48960b9a16a, type: 3}
+  m_Name: PAbeforeEnteringBar2
+  m_EditorClassIdentifier: 
+  alreadyHadConversation: 0
+  NodeLinks:
+  - BaseNodeGUID: f78b132f-17c9-4cac-80ae-b1beaa34cf1e
+    PortName: Next
+    TargetNodeGUID: 5bad8cee-149e-4b79-ac00-0cbca61eb3d6
+  - BaseNodeGUID: 5bad8cee-149e-4b79-ac00-0cbca61eb3d6
+    PortName: Option 1
+    TargetNodeGUID: 3fab5af7-d17e-479a-aaba-f15d82752817
+  DialogueNodeData:
+  - nodeGuid: 5bad8cee-149e-4b79-ac00-0cbca61eb3d6
+    dialogueText: I should check if i correctly answered the question Tyrone made
+      for me.
+    position: {x: 233.6, y: 200}
+    SpeakerName: Milton
+    SpeakerNameLocation: Speaker Name Left
+    SpeakerSpriteLeft: M1
+    SpeakerSpriteRight: 
+    ItemPortCombis: []
+    QuestionAnswerPortCombis: []
+    SkipPorts: []
+    canSkipFromThisPoint: 0
+    CutSceneImageName: 
+  DialogueEndNodeData:
+  - nodeGuid: 3fab5af7-d17e-479a-aaba-f15d82752817
+    dialogueText: 
+    position: {x: 602.4, y: 200}
+    DialogueEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 11400000, guid: a708b7c51e830a344a09a5b2664eab14, type: 2}
+          m_TargetAssemblyTypeName: UIEvent, Assembly-CSharp
+          m_MethodName: RaiseDeduction
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 11400000, guid: 449a79ca8a3afa6469dc7dc55b8fa349, type: 2}
+          m_TargetAssemblyTypeName: PermissionCheck, Assembly-CSharp
+          m_MethodName: setPermission
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+  ExposedProperties:
+  - PropertyName: Ignore
+    PropertyValue: New Value
+  - PropertyName: Milton
+    PropertyValue: New Value
+  CommentBlockData: []

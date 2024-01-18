@@ -1,17 +1,18 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using ScriptObjects;
 using UnityEngine.EventSystems;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 public class newCanvasManager : MonoBehaviour//, IPointerClickHandler
 {
     [SerializeField] private GameObject canvas;
     [SerializeField] private JournalManager Journal;
-    [SerializeField] private GameEventStandardAdd closeUI;
+    [SerializeField] private UnityEvent closeUI;
     
-    [SerializeField] private UIControls ui;
 
     private void Start()
     {
@@ -24,22 +25,20 @@ public class newCanvasManager : MonoBehaviour//, IPointerClickHandler
     public void openJournal()
     {
         canvas.SetActive(true);
-        ui.deactivateInput();
         Journal.activate();
     }
 
     public void DisableCanvas()
     {
         Journal.closeJournal();
-        ui.activateInput();
         canvas.SetActive(false);
-        closeUI.Raise();
+        closeUI.Invoke();
     }
 
     public void openJournalPage(UIPage page)
     {
         canvas.SetActive(true);
-        if (Journal.isOpen && Journal.currentPage == page)
+        if (Journal.isOpen && page == UIPage.Settings)
         {
             DisableCanvas();
             return;

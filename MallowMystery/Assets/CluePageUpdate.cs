@@ -10,7 +10,7 @@ public class CluePageUpdate : MonoBehaviour
 
     void OnEnable()
     {
-        print("Setting up clues");
         manager.setInventoryItems(0);
+        manager.setItem();
     }
 }

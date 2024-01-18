@@ -14,6 +14,7 @@ namespace ScriptObjects
         public string locationFound;
         [Tooltip("Description of the item")] 
         public string description;
+        public string shortDescription;
         public bool hasBeenPickedUp = false;
         public int pickedUpNumber;
         [SerializeField] private List<PickupEvent> _event;
@@ -29,6 +30,8 @@ namespace ScriptObjects
             foreach (var dataSave in data.itemDataSaves.Where(dataSave => itemName.Equals(dataSave.itemName))) {
                 if (dataSave.hasBeenPickedUp) {
                     setPickUp();
+                } else {
+                    hasBeenPickedUp = false;
                 }
                 pickedUpNumber = dataSave.pickedUpNumber;
                 break;

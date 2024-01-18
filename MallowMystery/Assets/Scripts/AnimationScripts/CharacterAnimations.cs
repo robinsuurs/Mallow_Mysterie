@@ -22,6 +22,7 @@ public class CharacterAnimations : MonoBehaviour
     [SerializeField] private GameObject Player;
     [SerializeField] private InputActionAsset inpAsset;
     private InputAction movementAction;
+	
     // private InputSystem input;
 
     private void Awake()
