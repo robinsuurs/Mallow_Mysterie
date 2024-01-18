@@ -15,7 +15,6 @@ public class TramMoveIn : MonoBehaviour, IDataPersistence {
     
     public void Start() {
         if (!tramMoved) {
-            _inputAction.Disable();
             StartCoroutine(TramRide());
         } else {
             tram.transform.position = tramLoc;
@@ -23,6 +22,7 @@ public class TramMoveIn : MonoBehaviour, IDataPersistence {
     }
 
     IEnumerator TramRide() {
+        _inputAction.Disable();
         Vector3 oldTramLoc = tram.transform.position;
         while (tram.transform.position != tramLoc) {
             tram.transform.position = Vector3.MoveTowards(tram.transform.position, tramLoc, Time.deltaTime * tramSpeed);
@@ -38,8 +38,6 @@ public class TramMoveIn : MonoBehaviour, IDataPersistence {
             tram.transform.position = Vector3.MoveTowards(tram.transform.position, oldTramLoc, Time.deltaTime * tramSpeed);
             yield return null;
         }
-        
-        
         
         _inputAction.Enable();
         Camera.main.GetComponent<Follow_Player>().enabled = true;

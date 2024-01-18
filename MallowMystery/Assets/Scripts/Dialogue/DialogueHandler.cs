@@ -190,8 +190,6 @@ public class DialogueHandler : MonoBehaviour {
             button.onClick.AddListener(() => ProceedToNarrative(choice.TargetNodeGUID));
             button.onClick.AddListener(() => eventSound.Raise(poppingSound));
         }
-        
-        EventSystem.current.SetSelectedGameObject(buttonContainer.GetComponentsInChildren<Button>()[0].gameObject);
     }
 
     private void EndingNode(string narrativeDataGuid) {
