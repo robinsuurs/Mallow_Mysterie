@@ -45,6 +45,7 @@ public class DialogueHandler : MonoBehaviour {
     public string currentDialogue;
     private bool singleOption;
     private bool inDialogue;
+    private bool cutScene = false;
     
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioClip[] audioClipArray;
@@ -87,7 +88,8 @@ public class DialogueHandler : MonoBehaviour {
     void Update()
     {
         if (inDialogue && (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Space))) {
-            if (currentUsingTextBox.text == currentDialogue) {
+            if (currentUsingTextBox.text == currentDialogue || cutScene) {
+                cutScene = false;
                 if (!choices.Any()) {
                     EndDialogue();
                 } else if (overwrite) {
@@ -132,7 +134,13 @@ public class DialogueHandler : MonoBehaviour {
                     cutSceneImageObject.SetActive(true);
                     turnOffCutscene.SetActive(false);
                     cutSceneGameObject.SetActive(true);
-                    StartCoroutine(TypeLine());
+                    // StartCoroutine(TypeLine());
+                    if (currentNode.SpeakerName != null) {
+                        cutScene = true;
+                        currentUsingTextBox.text += currentNode.SpeakerName + ": ";
+                    }
+
+                    currentUsingTextBox.text += currentNode.dialogueText;
                     return;
                 }
 
