@@ -16,6 +16,7 @@ public class GameData {
     public int beerDrunk;
 
     public bool cameraHasPanned;
+    public bool tramMovedInPoor;
 
     public SerializableDictionary<string, string> questionAnswerDic =
         new SerializableDictionary<string, string>();
@@ -59,6 +60,7 @@ public class GameData {
         timeRun = 0;
 
         cameraHasPanned = false;
+        tramMovedInPoor = false;
 
         beerDrunk = 0;
         
