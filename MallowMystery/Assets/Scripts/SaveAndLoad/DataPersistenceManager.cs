@@ -136,7 +136,9 @@ public class DataPersistenceManager : MonoBehaviour {
 
     private void SavePlayer() {
         currentPlayingGameData.sceneName = SceneManager.GetActiveScene().name;
-        currentPlayingGameData.playerLocation = GameObject.FindWithTag("Player").transform.position;
+        if (GameObject.FindWithTag("Player") != null) {
+            currentPlayingGameData.playerLocation = GameObject.FindWithTag("Player").transform.position;
+        }
     }
 
     public bool hasGameData() {
