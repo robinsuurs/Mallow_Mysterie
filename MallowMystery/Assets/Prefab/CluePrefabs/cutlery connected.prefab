@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6250655389374707430}
   - component: {fileID: 2331577180925179638}
   - component: {fileID: 7143340182529428680}
+  - component: {fileID: 8659994256983715096}
   m_Layer: 0
   m_Name: Effect
   m_TagString: Untagged
@@ -101,6 +102,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea442ea2fbeb0444cbe140658757d8e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &8659994256983715096
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1444746303198132999}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.4935538, y: 1.1527692, z: 0.65614754}
+  m_Center: {x: -0.09108592, y: -0.45750514, z: -0.23992236}
 --- !u!1001 &7347023627452220745
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -204,6 +226,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: -5908537685391341363}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 1dc4890caa1759c46b37eb34d49581ab,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 867775669432958907}
   m_SourcePrefab: {fileID: 100100000, guid: 1dc4890caa1759c46b37eb34d49581ab, type: 3}
 --- !u!4 &7097504157708083874 stripped
 Transform:
@@ -275,6 +301,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 2331577180925179638}
+        m_TargetAssemblyTypeName: UnityEngine.Renderer, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &-5908537685391341363
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -290,3 +328,24 @@ MonoBehaviour:
   itemData: {fileID: 11400000, guid: c72f05f8187539e4cb1f656912da7c9f, type: 2}
   itemDataEvent: {fileID: 11400000, guid: 04ddfae70622f3a429b5933eb8e1961f, type: 2}
   dontRemoveObject: 1
+--- !u!65 &867775669432958907
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7580885017022969880}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.3922978, y: 0.397815, z: 0.7156168}
+  m_Center: {x: 0.034022518, y: -0.08002804, z: -0.26965696}
