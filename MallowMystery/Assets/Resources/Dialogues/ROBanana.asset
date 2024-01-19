@@ -10,35 +10,36 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 78b3fd9154634ebdb8c8a48960b9a16a, type: 3}
-  m_Name: RODetectiveAp
+  m_Name: ROBanana
   m_EditorClassIdentifier: 
-  alreadyHadConversation: 1
+  alreadyHadConversation: 0
   NodeLinks:
-  - BaseNodeGUID: 3f244454-1f3f-4e5b-940c-e63a6454443d
-    PortName: Next
-    TargetNodeGUID: 5822a4ea-f795-4735-9adf-34bcd7dc711d
-  - BaseNodeGUID: 5822a4ea-f795-4735-9adf-34bcd7dc711d
+  - BaseNodeGUID: ee040981-1573-4571-a6e6-c30997c17673
     PortName: Option 1
-    TargetNodeGUID: 00c7f60e-6471-432b-8892-0ca45c2a6c9c
+    TargetNodeGUID: ed9a59e7-82cb-42c0-9dfe-5f3a7e969130
+  - BaseNodeGUID: d8c1bb49-ce2d-4780-b0ae-ceab988d946f
+    PortName: Next
+    TargetNodeGUID: ee040981-1573-4571-a6e6-c30997c17673
   DialogueNodeData:
-  - nodeGuid: 00c7f60e-6471-432b-8892-0ca45c2a6c9c
-    dialogueText: "Rude.\t"
-    position: {x: 608, y: 200}
-    SpeakerName: Milton
-    SpeakerNameLocation: Speaker Name Left
-    SpeakerSpriteLeft: M2
+  - nodeGuid: ee040981-1573-4571-a6e6-c30997c17673
+    dialogueText: This young man seems to be having a mental breakdown, muttering
+      something about "deadlines" and "reports".
+    position: {x: 199, y: 200}
+    SpeakerName: 
+    SpeakerNameLocation: None
+    SpeakerSpriteLeft: 
     SpeakerSpriteRight: 
     ItemPortCombis: []
     QuestionAnswerPortCombis: []
     SkipPorts: []
     canSkipFromThisPoint: 0
     CutSceneImageName: 
-  - nodeGuid: 5822a4ea-f795-4735-9adf-34bcd7dc711d
-    dialogueText: Tyrone seems to have locked the door behind my back.
-    position: {x: 221, y: 200}
-    SpeakerName: Milton
-    SpeakerNameLocation: Speaker Name Left
-    SpeakerSpriteLeft: M1
+  - nodeGuid: ed9a59e7-82cb-42c0-9dfe-5f3a7e969130
+    dialogueText: You decide to leave him alone.
+    position: {x: 551, y: 200}
+    SpeakerName: 
+    SpeakerNameLocation: None
+    SpeakerSpriteLeft: 
     SpeakerSpriteRight: 
     ItemPortCombis: []
     QuestionAnswerPortCombis: []
@@ -48,9 +49,5 @@ MonoBehaviour:
   DialogueEndNodeData: []
   ExposedProperties:
   - PropertyName: Ignore
-    PropertyValue: New Value
-  - PropertyName: Sign
-    PropertyValue: New Value
-  - PropertyName: Milton
     PropertyValue: New Value
   CommentBlockData: []

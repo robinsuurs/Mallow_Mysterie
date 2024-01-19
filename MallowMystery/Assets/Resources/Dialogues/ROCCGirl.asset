@@ -1,0 +1,86 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78b3fd9154634ebdb8c8a48960b9a16a, type: 3}
+  m_Name: ROCCGirl
+  m_EditorClassIdentifier: 
+  alreadyHadConversation: 0
+  NodeLinks:
+  - BaseNodeGUID: 165e303b-a8b2-4ce8-b95e-54e1e878b4ea
+    PortName: Option 1
+    TargetNodeGUID: 98280aac-c5e7-4937-97ac-75ab324640ad
+  - BaseNodeGUID: 4a537b73-329a-497f-8b5a-95f45575943c
+    PortName: Option 1
+    TargetNodeGUID: 165e303b-a8b2-4ce8-b95e-54e1e878b4ea
+  - BaseNodeGUID: 1aa8ab7b-d8d8-4788-9615-2b4cfe0af3c2
+    PortName: Option 1
+    TargetNodeGUID: 4a537b73-329a-497f-8b5a-95f45575943c
+  - BaseNodeGUID: 0ae76bc2-863b-4d6d-8e66-9de7312ab231
+    PortName: Next
+    TargetNodeGUID: 1aa8ab7b-d8d8-4788-9615-2b4cfe0af3c2
+  DialogueNodeData:
+  - nodeGuid: 1aa8ab7b-d8d8-4788-9615-2b4cfe0af3c2
+    dialogueText: You see the cotton candy girl toss a coin into the fountain.
+    position: {x: 185, y: 200}
+    SpeakerName: 
+    SpeakerNameLocation: None
+    SpeakerSpriteLeft: 
+    SpeakerSpriteRight: 
+    ItemPortCombis: []
+    QuestionAnswerPortCombis: []
+    SkipPorts: []
+    canSkipFromThisPoint: 0
+    CutSceneImageName: 
+  - nodeGuid: 4a537b73-329a-497f-8b5a-95f45575943c
+    dialogueText: I wished for more sweets.
+    position: {x: 537, y: 200}
+    SpeakerName: CC girl
+    SpeakerNameLocation: Speaker Name Right
+    SpeakerSpriteLeft: 
+    SpeakerSpriteRight: 
+    ItemPortCombis: []
+    QuestionAnswerPortCombis: []
+    SkipPorts: []
+    canSkipFromThisPoint: 0
+    CutSceneImageName: 
+  - nodeGuid: 165e303b-a8b2-4ce8-b95e-54e1e878b4ea
+    dialogueText: What is your deepest wish, mister?
+    position: {x: 877, y: 200}
+    SpeakerName: CC girl
+    SpeakerNameLocation: Speaker Name Right
+    SpeakerSpriteLeft: 
+    SpeakerSpriteRight: 
+    ItemPortCombis: []
+    QuestionAnswerPortCombis: []
+    SkipPorts: []
+    canSkipFromThisPoint: 0
+    CutSceneImageName: 
+  - nodeGuid: 98280aac-c5e7-4937-97ac-75ab324640ad
+    dialogueText: ...now that's a loaded question.
+    position: {x: 1222, y: 200}
+    SpeakerName: Milton
+    SpeakerNameLocation: Speaker Name Left
+    SpeakerSpriteLeft: 
+    SpeakerSpriteRight: 
+    ItemPortCombis: []
+    QuestionAnswerPortCombis: []
+    SkipPorts: []
+    canSkipFromThisPoint: 0
+    CutSceneImageName: 
+  DialogueEndNodeData: []
+  ExposedProperties:
+  - PropertyName: Ignore
+    PropertyValue: New Value
+  - PropertyName: CC girl
+    PropertyValue: New Value
+  - PropertyName: Milton
+    PropertyValue: New Value
+  CommentBlockData: []
