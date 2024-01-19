@@ -16,13 +16,14 @@ public class CameraToTram : MonoBehaviour, IDataPersistence {
     [SerializeField] private float waitTime;
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioClip audioClip;
+    [SerializeField] private AudioClip tramIn;
+    [SerializeField] private AudioClip tramOut;
     [SerializeField] private Vector3 camTramView;
     [SerializeField] private Vector3 tramEndLoc;
     [SerializeField] private Vector3 tramLoc;
     [SerializeField] private UnityEvent uEvent;
 
     private Vector3 orignalLocation;
-    private Vector3 targetLocation;
     
     private Camera mainCam;
 
@@ -31,10 +32,6 @@ public class CameraToTram : MonoBehaviour, IDataPersistence {
         
         mainCam = Camera.main;
         orignalLocation = mainCam.transform.position;
-
-        Vector3 offSet = mainCam.GetComponent<Follow_Player>().getCameraOffset();
-        var tramPosition = tram.transform.position;
-        targetLocation = new Vector3(tramPosition.x + offSet.x, orignalLocation.y,tramPosition.z + offSet.z);
         
         StartCoroutine(focusOnTram());
     }
@@ -51,12 +48,13 @@ public class CameraToTram : MonoBehaviour, IDataPersistence {
         orignalLocation.x = playerLocation.x + offset.x;
         orignalLocation.y = playerLocation.y + offset.y;
         orignalLocation.z = playerLocation.z + offset.z;
-        Debug.Log(orignalLocation);
         while (mainCam.transform.position != camTramView) {
             mainCam.transform.position = Vector3.MoveTowards(mainCam.transform.position, camTramView, Time.deltaTime * camSpeed);
             yield return null;
         }
-
+        
+        audioSource.PlayOneShot(tramIn);
+        
         while (tram.transform.position != tramLoc) {
             tram.transform.position = Vector3.MoveTowards(tram.transform.position, tramLoc, Time.deltaTime * tramSpeed);
             yield return null;
@@ -80,6 +78,7 @@ public class CameraToTram : MonoBehaviour, IDataPersistence {
         GameObject.FindWithTag("Player").gameObject.SetActive(false);
         _inputAction.Disable();
         yield return new WaitForSeconds(1);
+        audioSource.PlayOneShot(tramOut);
         while (tram.transform.position != tramEndLoc) {
             tram.transform.position =
                 Vector3.MoveTowards(tram.transform.position, tramEndLoc,Time.deltaTime * tramSpeed);

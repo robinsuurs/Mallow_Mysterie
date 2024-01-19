@@ -14,6 +14,9 @@ public class TramMoveIn : MonoBehaviour, IDataPersistence {
     [SerializeField] private GameObject player;
     [SerializeField] private InputActionAsset _inputAction;
     [SerializeField] private UnityEvent endOfTramRide;
+    [SerializeField] private AudioSource au;
+    [SerializeField] private AudioClip tramIn;
+    [SerializeField] private AudioClip tramOut;
     
     public void Start() {
         if (!tramMoved) {
@@ -25,6 +28,7 @@ public class TramMoveIn : MonoBehaviour, IDataPersistence {
 
     IEnumerator TramRide() {
         Vector3 oldTramLoc = tram.transform.position;
+        au.PlayOneShot(tramIn);
         while (tram.transform.position != tramLoc) {
             tram.transform.position = Vector3.MoveTowards(tram.transform.position, tramLoc, Time.deltaTime * tramSpeed);
             yield return null;
@@ -36,6 +40,7 @@ public class TramMoveIn : MonoBehaviour, IDataPersistence {
         
         yield return new WaitForSeconds(1.5f);
         
+        au.PlayOneShot(tramOut);
         while (tram.transform.position != oldTramLoc) {
             tram.transform.position = Vector3.MoveTowards(tram.transform.position, oldTramLoc, Time.deltaTime * tramSpeed);
             yield return null;
@@ -43,6 +48,7 @@ public class TramMoveIn : MonoBehaviour, IDataPersistence {
         
         Destroy(tram);
         _inputAction.Enable();
+        tramMoved = true;
         Camera.main.GetComponent<Follow_Player>().enabled = true;
         Camera.main.GetComponent<Follow_Player>().setFollowPlayer();
         endOfTramRide.Invoke();
