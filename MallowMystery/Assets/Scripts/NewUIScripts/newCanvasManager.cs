@@ -38,7 +38,7 @@ public class newCanvasManager : MonoBehaviour//, IPointerClickHandler
     public void openJournalPage(UIPage page)
     {
         canvas.SetActive(true);
-        if (Journal.isOpen && page == Journal.currentPage)
+        if (Journal.isOpen && (page == Journal.currentPage || page == UIPage.Settings))
         {
             DisableCanvas();
             return;
