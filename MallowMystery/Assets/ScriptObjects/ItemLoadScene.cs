@@ -11,10 +11,10 @@ public class ItemLoadScene : MonoBehaviour {
     [SerializeField] private ItemData itemData;
     [SerializeField] private ItemDataEvent itemDataEvent;
     [SerializeField] private bool dontRemoveObject;
+    [SerializeField] private UnityEvent dontRemoveObjectEvent;
     
     public void ShowObjectOrNot() {
         if (itemData.hasBeenPickedUp) {
-            itemData.setPickUp();
             CheckShowObject();
         }
     }
@@ -30,6 +30,7 @@ public class ItemLoadScene : MonoBehaviour {
         if (dontRemoveObject) {
             gameObject.GetComponent<GameEventListeners>().enabled = false;
             gameObject.GetComponent<BoxCollider>().enabled = false;
+            dontRemoveObjectEvent.Invoke();
         } else {
             gameObject.SetActive(false);
         }
