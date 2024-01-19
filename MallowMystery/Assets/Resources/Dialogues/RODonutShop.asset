@@ -10,18 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 78b3fd9154634ebdb8c8a48960b9a16a, type: 3}
-  m_Name: ROHospital
+  m_Name: RODonutShop
   m_EditorClassIdentifier: 
   alreadyHadConversation: 0
   NodeLinks:
-  - BaseNodeGUID: 3f244454-1f3f-4e5b-940c-e63a6454443d
+  - BaseNodeGUID: 557ca26f-3085-495f-b189-aeea8ff05d4f
     PortName: Next
-    TargetNodeGUID: 5822a4ea-f795-4735-9adf-34bcd7dc711d
+    TargetNodeGUID: 31e62dae-3b25-4bce-904e-c58b110fc47a
+  - BaseNodeGUID: 31e62dae-3b25-4bce-904e-c58b110fc47a
+    PortName: Option 1
+    TargetNodeGUID: c7cb2d45-e265-49ec-a385-483708f8692d
   DialogueNodeData:
-  - nodeGuid: 5822a4ea-f795-4735-9adf-34bcd7dc711d
-    dialogueText: "I wonder if the hospital might let me look at the results of Cornelia\u2019s
-      autopsy... Oh, who am I kidding?"
-    position: {x: 238.5, y: 200}
+  - nodeGuid: 31e62dae-3b25-4bce-904e-c58b110fc47a
+    dialogueText: I mean, their donuts are quite good, but I wouldn't wait here all
+      night to get some.
+    position: {x: 214, y: 200}
     SpeakerName: Milton
     SpeakerNameLocation: Speaker Name Left
     SpeakerSpriteLeft: M3
@@ -31,11 +34,21 @@ MonoBehaviour:
     SkipPorts: []
     canSkipFromThisPoint: 0
     CutSceneImageName: 
+  - nodeGuid: c7cb2d45-e265-49ec-a385-483708f8692d
+    dialogueText: '*You glance at the policeman beside you.*'
+    position: {x: 571, y: 203}
+    SpeakerName: Milton
+    SpeakerNameLocation: Speaker Name Left
+    SpeakerSpriteLeft: M2
+    SpeakerSpriteRight: 
+    ItemPortCombis: []
+    QuestionAnswerPortCombis: []
+    SkipPorts: []
+    canSkipFromThisPoint: 0
+    CutSceneImageName: 
   DialogueEndNodeData: []
   ExposedProperties:
   - PropertyName: Ignore
-    PropertyValue: New Value
-  - PropertyName: Sign
     PropertyValue: New Value
   - PropertyName: Milton
     PropertyValue: New Value

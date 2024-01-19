@@ -1,0 +1,72 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78b3fd9154634ebdb8c8a48960b9a16a, type: 3}
+  m_Name: ROPoliceman
+  m_EditorClassIdentifier: 
+  alreadyHadConversation: 1
+  NodeLinks:
+  - BaseNodeGUID: 35200b40-6faf-4fa4-876c-a6581dcd9e78
+    PortName: Next
+    TargetNodeGUID: 61e8cefe-7b16-49fe-9258-dbfdd0f32415
+  - BaseNodeGUID: 61e8cefe-7b16-49fe-9258-dbfdd0f32415
+    PortName: Option 1
+    TargetNodeGUID: 8c589f66-6f7e-4287-a574-ecd935855ee4
+  - BaseNodeGUID: 8c589f66-6f7e-4287-a574-ecd935855ee4
+    PortName: Option 1
+    TargetNodeGUID: 42b13c41-157f-4a74-b093-c1a57092e3bd
+  DialogueNodeData:
+  - nodeGuid: 61e8cefe-7b16-49fe-9258-dbfdd0f32415
+    dialogueText: Hey there, young man! Be careful out there, there's been a murder
+      around here just a couple hours ago!
+    position: {x: 207, y: 200}
+    SpeakerName: Policeman
+    SpeakerNameLocation: Speaker Name Right
+    SpeakerSpriteLeft: 
+    SpeakerSpriteRight: 
+    ItemPortCombis: []
+    QuestionAnswerPortCombis: []
+    SkipPorts: []
+    canSkipFromThisPoint: 0
+    CutSceneImageName: 
+  - nodeGuid: 8c589f66-6f7e-4287-a574-ecd935855ee4
+    dialogueText: ...yeah, sure...
+    position: {x: 595, y: 200}
+    SpeakerName: Milton
+    SpeakerNameLocation: Speaker Name Left
+    SpeakerSpriteLeft: 
+    SpeakerSpriteRight: 
+    ItemPortCombis: []
+    QuestionAnswerPortCombis: []
+    SkipPorts: []
+    canSkipFromThisPoint: 0
+    CutSceneImageName: 
+  - nodeGuid: 42b13c41-157f-4a74-b093-c1a57092e3bd
+    dialogueText: (...young man???)
+    position: {x: 951.5, y: 200}
+    SpeakerName: Milton
+    SpeakerNameLocation: Speaker Name Left
+    SpeakerSpriteLeft: 
+    SpeakerSpriteRight: 
+    ItemPortCombis: []
+    QuestionAnswerPortCombis: []
+    SkipPorts: []
+    canSkipFromThisPoint: 0
+    CutSceneImageName: 
+  DialogueEndNodeData: []
+  ExposedProperties:
+  - PropertyName: Ignore
+    PropertyValue: New Value
+  - PropertyName: Policeman
+    PropertyValue: New Value
+  - PropertyName: Milton
+    PropertyValue: New Value
+  CommentBlockData: []

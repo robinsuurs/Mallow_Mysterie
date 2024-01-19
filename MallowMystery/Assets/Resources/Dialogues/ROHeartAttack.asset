@@ -10,37 +10,35 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 78b3fd9154634ebdb8c8a48960b9a16a, type: 3}
-  m_Name: FAShowEnterDialogue
+  m_Name: ROHeartAttack
   m_EditorClassIdentifier: 
-  alreadyHadConversation: 0
+  alreadyHadConversation: 1
   NodeLinks:
-  - BaseNodeGUID: 0effa95a-dd23-4613-91b5-89fe36d9d64f
+  - BaseNodeGUID: 680646b9-1245-448b-a3bc-c7911415d993
     PortName: Next
-    TargetNodeGUID: 5c1cd1d4-fd76-4203-b787-bcf94e9d22e5
-  - BaseNodeGUID: 5c1cd1d4-fd76-4203-b787-bcf94e9d22e5
+    TargetNodeGUID: 399485ec-6bc5-4670-89c6-cdbda32cfd1b
+  - BaseNodeGUID: 399485ec-6bc5-4670-89c6-cdbda32cfd1b
     PortName: Option 1
-    TargetNodeGUID: fdf0cca8-41a0-41b5-911e-96fc3a9ab8f0
+    TargetNodeGUID: 16aa643e-436c-4d06-bc2f-a232526f2b63
   DialogueNodeData:
-  - nodeGuid: 5c1cd1d4-fd76-4203-b787-bcf94e9d22e5
-    dialogueText: Man, I haven't been here in a while. Never would've thought I'd
-      show up here under such circumstances...
-    position: {x: 232, y: 200}
-    SpeakerName: Milton
-    SpeakerNameLocation: Speaker Name Left
-    SpeakerSpriteLeft: M2
+  - nodeGuid: 399485ec-6bc5-4670-89c6-cdbda32cfd1b
+    dialogueText: LET ME IN, I'M HAVING A HEART ATTACK!!!
+    position: {x: 207, y: 211}
+    SpeakerName: Heart lady
+    SpeakerNameLocation: Speaker Name Right
+    SpeakerSpriteLeft: 
     SpeakerSpriteRight: 
     ItemPortCombis: []
     QuestionAnswerPortCombis: []
     SkipPorts: []
     canSkipFromThisPoint: 0
     CutSceneImageName: 
-  - nodeGuid: fdf0cca8-41a0-41b5-911e-96fc3a9ab8f0
-    dialogueText: I don't know what to look for so I should explore every corner.
-      I need every clue I can find.
-    position: {x: 591, y: 200}
-    SpeakerName: Milton
-    SpeakerNameLocation: Speaker Name Left
-    SpeakerSpriteLeft: M1
+  - nodeGuid: 16aa643e-436c-4d06-bc2f-a232526f2b63
+    dialogueText: You awkwardly pretend not to notice her.
+    position: {x: 589, y: 211}
+    SpeakerName: Ignore
+    SpeakerNameLocation: None
+    SpeakerSpriteLeft: 
     SpeakerSpriteRight: 
     ItemPortCombis: []
     QuestionAnswerPortCombis: []
@@ -51,6 +49,6 @@ MonoBehaviour:
   ExposedProperties:
   - PropertyName: Ignore
     PropertyValue: New Value
-  - PropertyName: Milton
+  - PropertyName: Heart lady
     PropertyValue: New Value
   CommentBlockData: []
