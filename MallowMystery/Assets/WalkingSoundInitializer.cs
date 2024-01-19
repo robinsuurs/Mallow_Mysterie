@@ -9,7 +9,6 @@ public class WalkingSoundInitializer : MonoBehaviour
     public void setWalkingSound()
     {
         GameObject Milton = GameObject.Find("Milton4Animations");
-        if (Milton) print("foundHim");
         var comp = Milton.GetComponent<WalkingSound>();
         comp.inside = inside;
     }
