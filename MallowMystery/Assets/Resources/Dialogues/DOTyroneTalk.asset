@@ -41,9 +41,6 @@ MonoBehaviour:
   - BaseNodeGUID: cc91571d-7588-42c9-8efd-060bdd4fa96f
     PortName: Option 1
     TargetNodeGUID: 070522d6-3c10-4261-835b-537b28be8ad9
-  - BaseNodeGUID: 9b26da68-7fa7-4e04-9b60-c8b08bdd4707
-    PortName: Option 1
-    TargetNodeGUID: 267065b2-015d-47c7-b1b2-6ab59492f780
   - BaseNodeGUID: bb840e83-87df-4c27-9b63-d17c07e078a2
     PortName: Option 1
     TargetNodeGUID: 61ab75fe-d672-4e18-b362-c8fcb28a845a
@@ -68,9 +65,6 @@ MonoBehaviour:
   - BaseNodeGUID: 9cefa1e3-8bc5-4fc4-8352-8506acb6beb4
     PortName: Option 1
     TargetNodeGUID: 1309aff7-e20b-4582-bc5d-693411b1b3aa
-  - BaseNodeGUID: 1309aff7-e20b-4582-bc5d-693411b1b3aa
-    PortName: Option 1
-    TargetNodeGUID: baf379ed-ccd5-46e6-b8b1-02e914d3a0da
   - BaseNodeGUID: baf379ed-ccd5-46e6-b8b1-02e914d3a0da
     PortName: Option 1
     TargetNodeGUID: eb0740a3-2f46-4b48-b0bb-9e066b196c05
@@ -89,6 +83,12 @@ MonoBehaviour:
   - BaseNodeGUID: 070522d6-3c10-4261-835b-537b28be8ad9
     PortName: Option 1
     TargetNodeGUID: faede8a4-055c-404e-ae6a-30618b58e935
+  - BaseNodeGUID: 1309aff7-e20b-4582-bc5d-693411b1b3aa
+    PortName: Option 1
+    TargetNodeGUID: baf379ed-ccd5-46e6-b8b1-02e914d3a0da
+  - BaseNodeGUID: 9b26da68-7fa7-4e04-9b60-c8b08bdd4707
+    PortName: Option 1
+    TargetNodeGUID: 267065b2-015d-47c7-b1b2-6ab59492f780
   DialogueNodeData:
   - nodeGuid: 4f83f30e-cb5a-4ae4-a8bc-c3b8887ce822
     dialogueText: "Oh, you\u2019re still here? Did you want to ask something?"
@@ -133,7 +133,7 @@ MonoBehaviour:
     position: {x: 5663, y: 0}
     SpeakerName: Milton
     SpeakerNameLocation: Speaker Name Left
-    SpeakerSpriteLeft: M1
+    SpeakerSpriteLeft: M3
     SpeakerSpriteRight: D1
     ItemPortCombis: []
     QuestionAnswerPortCombis: []
@@ -147,8 +147,8 @@ MonoBehaviour:
     position: {x: 6389, y: 0}
     SpeakerName: Milton
     SpeakerNameLocation: Speaker Name Left
-    SpeakerSpriteLeft: M1
-    SpeakerSpriteRight: D1
+    SpeakerSpriteLeft: M4
+    SpeakerSpriteRight: D3
     ItemPortCombis: []
     QuestionAnswerPortCombis: []
     SkipPorts: []
@@ -161,8 +161,8 @@ MonoBehaviour:
     position: {x: 6747, y: 0}
     SpeakerName: Tyrone
     SpeakerNameLocation: Speaker Name Right
-    SpeakerSpriteLeft: M1
-    SpeakerSpriteRight: D1
+    SpeakerSpriteLeft: M4
+    SpeakerSpriteRight: D4
     ItemPortCombis: []
     QuestionAnswerPortCombis: []
     SkipPorts: []
@@ -177,7 +177,7 @@ MonoBehaviour:
     SpeakerName: Tyrone
     SpeakerNameLocation: Speaker Name Right
     SpeakerSpriteLeft: M1
-    SpeakerSpriteRight: D1
+    SpeakerSpriteRight: D4
     ItemPortCombis: []
     QuestionAnswerPortCombis: []
     SkipPorts: []
@@ -187,19 +187,6 @@ MonoBehaviour:
     dialogueText: "In a couple of minutes, I\u2019m going to leave for a different
       case, so you won\u2019t be able to see me for a bit. "
     position: {x: 7513, y: 0}
-    SpeakerName: Tyrone
-    SpeakerNameLocation: Speaker Name Right
-    SpeakerSpriteLeft: M1
-    SpeakerSpriteRight: D1
-    ItemPortCombis: []
-    QuestionAnswerPortCombis: []
-    SkipPorts: []
-    canSkipFromThisPoint: 0
-    CutSceneImageName: 
-  - nodeGuid: 9b26da68-7fa7-4e04-9b60-c8b08bdd4707
-    dialogueText: Wait, look where?! Are you suggesting we go into her house on our
-      own? Without a search warrant?!
-    position: {x: 6037, y: 0}
     SpeakerName: Tyrone
     SpeakerNameLocation: Speaker Name Right
     SpeakerSpriteLeft: M1
@@ -240,7 +227,7 @@ MonoBehaviour:
     position: {x: 1979, y: -18}
     SpeakerName: Milton
     SpeakerNameLocation: Speaker Name Left
-    SpeakerSpriteLeft: M1
+    SpeakerSpriteLeft: M2
     SpeakerSpriteRight: D1
     ItemPortCombis: []
     QuestionAnswerPortCombis: []
@@ -255,7 +242,7 @@ MonoBehaviour:
     SpeakerName: Tyrone
     SpeakerNameLocation: Speaker Name Right
     SpeakerSpriteLeft: M1
-    SpeakerSpriteRight: D1
+    SpeakerSpriteRight: D2
     ItemPortCombis: []
     QuestionAnswerPortCombis: []
     SkipPorts: []
@@ -270,7 +257,7 @@ MonoBehaviour:
     SpeakerName: Tyrone
     SpeakerNameLocation: Speaker Name Right
     SpeakerSpriteLeft: M1
-    SpeakerSpriteRight: D1
+    SpeakerSpriteRight: D2
     ItemPortCombis: []
     QuestionAnswerPortCombis: []
     SkipPorts: []
@@ -283,7 +270,7 @@ MonoBehaviour:
     position: {x: 3083, y: -2}
     SpeakerName: Milton
     SpeakerNameLocation: Speaker Name Left
-    SpeakerSpriteLeft: M1
+    SpeakerSpriteLeft: M2
     SpeakerSpriteRight: D1
     ItemPortCombis: []
     QuestionAnswerPortCombis: []
@@ -310,20 +297,7 @@ MonoBehaviour:
     position: {x: 4548, y: 0}
     SpeakerName: Tyrone
     SpeakerNameLocation: Speaker Name Right
-    SpeakerSpriteLeft: M1
-    SpeakerSpriteRight: D1
-    ItemPortCombis: []
-    QuestionAnswerPortCombis: []
-    SkipPorts: []
-    canSkipFromThisPoint: 0
-    CutSceneImageName: 
-  - nodeGuid: 1309aff7-e20b-4582-bc5d-693411b1b3aa
-    dialogueText: "I... I don\u2019t think so. She seemed very worried yesterday.
-      Wait, but if she knew... Hmm..."
-    position: {x: 4927, y: 0}
-    SpeakerName: Milton
-    SpeakerNameLocation: Speaker Name Left
-    SpeakerSpriteLeft: M1
+    SpeakerSpriteLeft: M2
     SpeakerSpriteRight: D1
     ItemPortCombis: []
     QuestionAnswerPortCombis: []
@@ -349,7 +323,7 @@ MonoBehaviour:
     position: {x: 4168, y: 0}
     SpeakerName: Milton
     SpeakerNameLocation: Speaker Name Left
-    SpeakerSpriteLeft: M1
+    SpeakerSpriteLeft: M2
     SpeakerSpriteRight: D1
     ItemPortCombis: []
     QuestionAnswerPortCombis: []
@@ -365,7 +339,7 @@ MonoBehaviour:
     SpeakerName: Tyrone
     SpeakerNameLocation: Speaker Name Right
     SpeakerSpriteLeft: M1
-    SpeakerSpriteRight: D1
+    SpeakerSpriteRight: D2
     ItemPortCombis: []
     QuestionAnswerPortCombis: []
     SkipPorts: []
@@ -377,7 +351,7 @@ MonoBehaviour:
     SpeakerName: Tyrone
     SpeakerNameLocation: Speaker Name Right
     SpeakerSpriteLeft: M1
-    SpeakerSpriteRight: D1
+    SpeakerSpriteRight: D2
     ItemPortCombis: []
     QuestionAnswerPortCombis: []
     SkipPorts: []
@@ -404,7 +378,33 @@ MonoBehaviour:
     SpeakerName: Tyrone
     SpeakerNameLocation: Speaker Name Right
     SpeakerSpriteLeft: M1
+    SpeakerSpriteRight: D4
+    ItemPortCombis: []
+    QuestionAnswerPortCombis: []
+    SkipPorts: []
+    canSkipFromThisPoint: 0
+    CutSceneImageName: 
+  - nodeGuid: 1309aff7-e20b-4582-bc5d-693411b1b3aa
+    dialogueText: "I... I don\u2019t think so. She seemed very worried yesterday.
+      Wait, but if she knew... Hmm..."
+    position: {x: 4927, y: 0}
+    SpeakerName: Milton
+    SpeakerNameLocation: Speaker Name Left
+    SpeakerSpriteLeft: M3
     SpeakerSpriteRight: D1
+    ItemPortCombis: []
+    QuestionAnswerPortCombis: []
+    SkipPorts: []
+    canSkipFromThisPoint: 0
+    CutSceneImageName: 
+  - nodeGuid: 9b26da68-7fa7-4e04-9b60-c8b08bdd4707
+    dialogueText: Wait, look where?! Are you suggesting we go into her house on our
+      own? Without a search warrant?!
+    position: {x: 6037, y: 0}
+    SpeakerName: Tyrone
+    SpeakerNameLocation: Speaker Name Right
+    SpeakerSpriteLeft: M3
+    SpeakerSpriteRight: D3
     ItemPortCombis: []
     QuestionAnswerPortCombis: []
     SkipPorts: []
