@@ -14,14 +14,6 @@ public class Question : ScriptableObject, IDataPersistence {
     public List<Answer> getAnswers() {
         return answers;
     }
-    
-    public string getAnswerGUIDBasedOnString(string answer) {
-        return answers.Where(answerList => answerList.getAnswer().Equals(answer)).Select(answerList => answerList.UID).FirstOrDefault();
-    }
-
-    public string getAnswerStringBasedOnGUID(string GUID) {
-        return answers.Where(answerList => answerList.UID.Equals(GUID)).Select(answerList => answerList.getAnswer()).FirstOrDefault();
-    }
 
     public void setChosenAnswer(string answer) {
         chosenAnswer = answer == null ? null : answers.FirstOrDefault(answerList => answerList.getAnswer().Equals(answer));
@@ -29,14 +21,6 @@ public class Question : ScriptableObject, IDataPersistence {
 
     public Answer getChosenAnswer() {
         return chosenAnswer;
-    }
-    
-    private void OnValidate() {
-        #if UNITY_EDITOR
-        if (UID != "") return;
-        UID = GUID.Generate().ToString();
-        UnityEditor.EditorUtility.SetDirty(this);
-        #endif
     }
 
     public void LoadData(GameData data) {
@@ -54,11 +38,14 @@ public class Question : ScriptableObject, IDataPersistence {
     }
 
     public void SaveData(ref GameData data) {
-        if (chosenAnswer != null) {
-            data.questionAnswerDic[UID] = chosenAnswer.UID;
-        } else {
-            data.questionAnswerDic[UID] = null;
-        }
-        
+        data.questionAnswerDic[UID] = chosenAnswer != null ? chosenAnswer.UID : null;
+    }
+    
+    private void OnValidate() {
+#if UNITY_EDITOR
+        if (UID != "") return;
+        UID = GUID.Generate().ToString();
+        UnityEditor.EditorUtility.SetDirty(this);
+#endif
     }
 }

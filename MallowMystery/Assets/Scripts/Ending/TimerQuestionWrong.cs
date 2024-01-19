@@ -12,22 +12,22 @@ public class TimerQuestionWrong : MonoBehaviour {
     [SerializeField] private UnityEvent ending;
 
     private bool runTimer = false;
+    private bool hadWarning = false;
     
     public void startTimer(bool run) {
         runTimer = !run;
     }
 
     private void Update() {
-        if (runTimer) {
-            currentTime += Time.deltaTime;
-            if (currentTime > maxTime) {
-                unityEvent.Invoke();
-            }
-        }
+        if (!runTimer || hadWarning) return;
+        currentTime += Time.deltaTime;
+        if (!(currentTime > maxTime)) return;
+        hadWarning = true;
+        unityEvent.Invoke();
     }
 
-    public void End() {
-        if (runTimer && currentTime > maxTime) {
+    public void End(bool value) {
+        if (hadWarning && value) {
             ending.Invoke();
         }
     }
