@@ -23,6 +23,8 @@ public class TramMoveIn : MonoBehaviour, IDataPersistence {
             StartCoroutine(TramRide());
         } else {
             Destroy(tram);
+            Camera.main.GetComponent<Follow_Player>().enabled = true;
+            Camera.main.GetComponent<Follow_Player>().setFollowPlayer();
         }
     }
 
