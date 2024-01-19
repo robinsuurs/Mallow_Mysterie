@@ -16,6 +16,7 @@ public class DataPersistenceManager : MonoBehaviour {
     [SerializeField] private UnityEvent endLoading;
     [SerializeField] private LevelManager _levelManager;
     [SerializeField] private EndingStringList endingStringList;
+    [SerializeField] private CanvasGroup canvas;
     private GameData _gameData;
     private GameData currentPlayingGameData;
     private List<IDataPersistence> dataPersistences;
@@ -50,6 +51,8 @@ public class DataPersistenceManager : MonoBehaviour {
     }
 
     private void OnSceneLoaded (Scene scene, LoadSceneMode mode) {
+        canvas.alpha = 0;
+        canvas.gameObject.SetActive(false);
         if (startFresh) {
             NewGame();
             LoadGame();
