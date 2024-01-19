@@ -725,13 +725,14 @@ MonoBehaviour:
   unityEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11400000, guid: 7409c3885dce76944937bfb89df4bbf1, type: 2}
-        m_TargetAssemblyTypeName: GameEventStandardAdd, Assembly-CSharp
+      - m_Target: {fileID: 11400000, guid: e10444a92f7652f478e5f8decfb2daf1, type: 2}
+        m_TargetAssemblyTypeName: DialogueEvent, Assembly-CSharp
         m_MethodName: Raise
-        m_Mode: 1
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 11400000, guid: d05a14f72d584924b8d2d8a34192f117,
+            type: 2}
+          m_ObjectArgumentAssemblyTypeName: Dialogue.RunTime.DialogueContainer, Runtime
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1244,8 +1245,19 @@ MonoBehaviour:
     type: 3}
   cameraHasPanned: 0
   tram: {fileID: 0}
-  speed: 10
+  camSpeed: 0
+  tramSpeed: 0
   waitTime: 4
+  audioSource: {fileID: 0}
+  audioClip: {fileID: 0}
+  tramIn: {fileID: 0}
+  tramOut: {fileID: 0}
+  camTramView: {x: 0, y: 0, z: 0}
+  tramEndLoc: {x: 0, y: 0, z: 0}
+  tramLoc: {x: 0, y: 0, z: 0}
+  uEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &4647232487490686413
 MonoBehaviour:
   m_ObjectHideFlags: 0
