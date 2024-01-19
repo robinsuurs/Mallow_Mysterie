@@ -722,9 +722,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   RenderMap: {fileID: 0}
-  ImageMaps: []
+  ImageMaps:
+  - {fileID: 7869317936427723257}
+  - {fileID: 5366320575480975506}
   Marker: {fileID: 7443492644569100150}
-  FixedMap: 0
+  FixedMap: 1
   ImageMapIndex: 0
   MarkerPosision: {x: 0, y: 0}
 --- !u!1 &1155740361519229736
@@ -3345,7 +3347,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &4920081658875628715
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3736,7 +3738,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &7825482799294482975
 RectTransform:
   m_ObjectHideFlags: 0
