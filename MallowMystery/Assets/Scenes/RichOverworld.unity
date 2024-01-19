@@ -582,8 +582,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.7694261, y: 1.0783372, z: 5.0449343}
-  m_Center: {x: 0.0078317905, y: 0.14308573, z: 1.6558622}
+  m_Size: {x: 1.9459369, y: 3.1891901, z: 5.0449343}
+  m_Center: {x: 0.007831812, y: 1.1985122, z: 1.6558621}
 --- !u!1 &46710621 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 3be90789a0ad844a78bdfaa8b9043eed,
@@ -2812,8 +2812,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 2.3573513, y: 3.4228895, z: 1.5941797}
-  m_Center: {x: -0.00000036989096, y: 1.4985586, z: 0.79135334}
+  m_Size: {x: 2.3573513, y: 3.4228895, z: 1.8919349}
+  m_Center: {x: -0.00000037345384, y: 1.4985586, z: 0.9402302}
 --- !u!1001 &466538084
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4231,7 +4231,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 068f8b6df15076aa5b59a6d4a5d8f4d7,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -132.45
+      value: -132
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 068f8b6df15076aa5b59a6d4a5d8f4d7,
         type: 3}
@@ -4241,7 +4241,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 068f8b6df15076aa5b59a6d4a5d8f4d7,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.53537464
+      value: -0.67
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 068f8b6df15076aa5b59a6d4a5d8f4d7,
         type: 3}
@@ -4554,6 +4554,14 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1843448693}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: dc5fce82ce4248d598724d6460435b99,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1843448696}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: dc5fce82ce4248d598724d6460435b99,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1843448695}
   m_SourcePrefab: {fileID: 100100000, guid: dc5fce82ce4248d598724d6460435b99, type: 3}
 --- !u!1 &864326582
 GameObject:
@@ -5703,8 +5711,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 2.51, y: 2.53, z: 2.75}
-  m_Center: {x: -0.1, y: 1.23, z: 0.19}
+  m_Size: {x: 2.6566098, y: 2.5299997, z: 2.9344473}
+  m_Center: {x: -0.10000003, y: 1.23, z: 0.097776435}
 --- !u!95 &963260202
 Animator:
   serializedVersion: 5
@@ -6220,8 +6228,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.024779733, y: 0.022659896, z: 0.107044876}
-  m_Center: {x: 0.00023174561, y: -0.000037121095, z: 0.043522432}
+  m_Size: {x: 0.02224349, y: 0.022659896, z: 0.107044876}
+  m_Center: {x: -0.0010363689, y: -0.00003712103, z: 0.043522432}
 --- !u!4 &1079507313 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4636406591517732082, guid: 12905d508f1f76440b154aca4e1148f6,
@@ -11333,6 +11341,56 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1843448695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1843448691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa55f38c52520ed4ba5e1d921233f98c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: 4ed36360354325242838f9c14d5a3500, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: e10444a92f7652f478e5f8decfb2daf1, type: 2}
+        m_TargetAssemblyTypeName: DialogueEvent, Assembly-CSharp
+        m_MethodName: Raise
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: 0ab9ae9f6bbf93a4f9a08b868f4b0595,
+            type: 2}
+          m_ObjectArgumentAssemblyTypeName: Dialogue.RunTime.DialogueContainer, Runtime
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!65 &1843448696
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1843448691}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.3383694, y: 2.9970837, z: 1.9943465}
+  m_Center: {x: 0.0000028507493, y: 1.6837311, z: 0.98608613}
 --- !u!1001 &1873728922
 PrefabInstance:
   m_ObjectHideFlags: 0
