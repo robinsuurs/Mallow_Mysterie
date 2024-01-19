@@ -22,9 +22,6 @@ public class ItemPopUpManager : MonoBehaviour {
     private ItemData _itemData;
         
     public void showPopUp(ItemData itemData) {
-        if (ItemPopUpScreen.activeSelf) {
-            closePopUp();
-        }
         _itemData = itemData;
         ItemImage.sprite = itemData.icon;
         ItemName.text = itemData.itemName;
