@@ -7408,6 +7408,21 @@ MonoBehaviour:
   player: {fileID: 4720912205891867494, guid: 8c1ac4e036d45db49b8abd17461e4117, type: 3}
   _inputAction: {fileID: -944628639613478452, guid: 59907ebbc6858584b81c7a48c17517a6,
     type: 3}
+  endOfTramRide:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: a6045d3b35e99fe4285071590a8813f5, type: 2}
+        m_TargetAssemblyTypeName: GameEventStandardAdd, Assembly-CSharp
+        m_MethodName: Raise
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!4 &1445782400
 Transform:
   m_ObjectHideFlags: 0
@@ -7887,6 +7902,12 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 699086899}
     m_Modifications:
+    - target: {fileID: 383071967375246189, guid: 5ef43b72b1fbe4d79beb167e4d9cc107,
+        type: 3}
+      propertyPath: Event
+      value: 
+      objectReference: {fileID: 11400000, guid: a6045d3b35e99fe4285071590a8813f5,
+        type: 2}
     - target: {fileID: 2698316656393508016, guid: 5ef43b72b1fbe4d79beb167e4d9cc107,
         type: 3}
       propertyPath: m_Name
@@ -9087,6 +9108,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5291940166917090767, guid: 528fd1b6223d4af37b5c769ac236b1f9,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: -9999
+
     - target: {fileID: 4961604673492128147, guid: 528fd1b6223d4af37b5c769ac236b1f9,
         type: 3}
       propertyPath: RenderMap

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 public class TramMoveIn : MonoBehaviour, IDataPersistence {
@@ -12,17 +13,17 @@ public class TramMoveIn : MonoBehaviour, IDataPersistence {
     [SerializeField] private float tramSpeed;
     [SerializeField] private GameObject player;
     [SerializeField] private InputActionAsset _inputAction;
+    [SerializeField] private UnityEvent endOfTramRide;
     
     public void Start() {
         if (!tramMoved) {
             StartCoroutine(TramRide());
         } else {
-            tram.transform.position = tramLoc;
+            Destroy(tram);
         }
     }
 
     IEnumerator TramRide() {
-        _inputAction.Disable();
         Vector3 oldTramLoc = tram.transform.position;
         while (tram.transform.position != tramLoc) {
             tram.transform.position = Vector3.MoveTowards(tram.transform.position, tramLoc, Time.deltaTime * tramSpeed);
@@ -31,6 +32,7 @@ public class TramMoveIn : MonoBehaviour, IDataPersistence {
         yield return new WaitForSeconds(1.5f);
         
         Instantiate(player, playerSpawnLoc, quaternion.identity);
+        _inputAction.Disable();
         
         yield return new WaitForSeconds(1.5f);
         
@@ -39,9 +41,11 @@ public class TramMoveIn : MonoBehaviour, IDataPersistence {
             yield return null;
         }
         
+        Destroy(tram);
         _inputAction.Enable();
         Camera.main.GetComponent<Follow_Player>().enabled = true;
         Camera.main.GetComponent<Follow_Player>().setFollowPlayer();
+        endOfTramRide.Invoke();
     }
 
     public void LoadData(GameData data) {
