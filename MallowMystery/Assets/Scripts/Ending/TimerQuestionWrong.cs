@@ -8,11 +8,11 @@ public class TimerQuestionWrong : MonoBehaviour {
     [SerializeField] private float currentTime;
     [SerializeField] private float maxTime;
     [SerializeField] private UnityEvent unityEvent;
-
     [SerializeField] private UnityEvent ending;
 
     private bool runTimer = false;
     private bool hadWarning = false;
+    private bool runEvent = false;
     
     public void startTimer(bool run) {
         runTimer = !run;
@@ -27,7 +27,8 @@ public class TimerQuestionWrong : MonoBehaviour {
     }
 
     public void End(bool value) {
-        if (hadWarning && value) {
+        if (hadWarning && !value && !runEvent) {
+            runEvent = true;
             ending.Invoke();
         }
     }
