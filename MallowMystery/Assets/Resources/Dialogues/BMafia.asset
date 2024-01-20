@@ -1,0 +1,102 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78b3fd9154634ebdb8c8a48960b9a16a, type: 3}
+  m_Name: BMafia
+  m_EditorClassIdentifier: 
+  alreadyHadConversation: 1
+  NodeLinks:
+  - BaseNodeGUID: 671712f8-750d-477e-8f97-ba3f21f4a065
+    PortName: Next
+    TargetNodeGUID: 84544469-d582-4d3b-a283-91f7aed40634
+  - BaseNodeGUID: 84544469-d582-4d3b-a283-91f7aed40634
+    PortName: Option 1
+    TargetNodeGUID: 199d9eb7-3931-4067-8ddb-844ba555f2e4
+  - BaseNodeGUID: 199d9eb7-3931-4067-8ddb-844ba555f2e4
+    PortName: Option 1
+    TargetNodeGUID: a55171e7-d7f4-47e7-9ecf-a59ab21615f4
+  - BaseNodeGUID: a55171e7-d7f4-47e7-9ecf-a59ab21615f4
+    PortName: Option 1
+    TargetNodeGUID: 3166b828-09cd-4adb-ba8f-0f0345eca5cd
+  - BaseNodeGUID: 3166b828-09cd-4adb-ba8f-0f0345eca5cd
+    PortName: Option 1
+    TargetNodeGUID: 2341e723-5faf-4e46-8bde-5f2399203e87
+  DialogueNodeData:
+  - nodeGuid: 84544469-d582-4d3b-a283-91f7aed40634
+    dialogueText: Do you have the package?
+    position: {x: 199, y: 200}
+    SpeakerName: Mafia 1
+    SpeakerNameLocation: Speaker Name Left
+    SpeakerSpriteLeft: 
+    SpeakerSpriteRight: 
+    ItemPortCombis: []
+    QuestionAnswerPortCombis: []
+    SkipPorts: []
+    canSkipFromThisPoint: 0
+    CutSceneImageName: 
+  - nodeGuid: 199d9eb7-3931-4067-8ddb-844ba555f2e4
+    dialogueText: Who d'ya take me for? 'Tis right 'ere.
+    position: {x: 561.5, y: 200}
+    SpeakerName: Mafia 2
+    SpeakerNameLocation: Speaker Name Right
+    SpeakerSpriteLeft: 
+    SpeakerSpriteRight: 
+    ItemPortCombis: []
+    QuestionAnswerPortCombis: []
+    SkipPorts: []
+    canSkipFromThisPoint: 0
+    CutSceneImageName: 
+  - nodeGuid: a55171e7-d7f4-47e7-9ecf-a59ab21615f4
+    dialogueText: Now, about the money...
+    position: {x: 915.5, y: 200}
+    SpeakerName: Mafia 1
+    SpeakerNameLocation: Speaker Name Left
+    SpeakerSpriteLeft: 
+    SpeakerSpriteRight: 
+    ItemPortCombis: []
+    QuestionAnswerPortCombis: []
+    SkipPorts: []
+    canSkipFromThisPoint: 0
+    CutSceneImageName: 
+  - nodeGuid: 3166b828-09cd-4adb-ba8f-0f0345eca5cd
+    dialogueText: "Hey, hey, easy there, don' you DARE say you don' have it... Ya'
+      kno' what happen\u2019d to the last guy who tried to fool me."
+    position: {x: 1273.5, y: 200}
+    SpeakerName: Mafia 2
+    SpeakerNameLocation: Speaker Name Right
+    SpeakerSpriteLeft: 
+    SpeakerSpriteRight: 
+    ItemPortCombis: []
+    QuestionAnswerPortCombis: []
+    SkipPorts: []
+    canSkipFromThisPoint: 0
+    CutSceneImageName: 
+  - nodeGuid: 2341e723-5faf-4e46-8bde-5f2399203e87
+    dialogueText: You get away from this table before things go south.
+    position: {x: 1632.5, y: 200}
+    SpeakerName: 
+    SpeakerNameLocation: None
+    SpeakerSpriteLeft: 
+    SpeakerSpriteRight: 
+    ItemPortCombis: []
+    QuestionAnswerPortCombis: []
+    SkipPorts: []
+    canSkipFromThisPoint: 0
+    CutSceneImageName: 
+  DialogueEndNodeData: []
+  ExposedProperties:
+  - PropertyName: Ignore
+    PropertyValue: New Value
+  - PropertyName: Mafia 1
+    PropertyValue: New Value
+  - PropertyName: Mafia 2
+    PropertyValue: New Value
+  CommentBlockData: []
