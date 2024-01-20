@@ -9218,11 +9218,24 @@ PrefabInstance:
     - target: {fileID: 575334120496398, guid: f5bac5a5b98e0984b812fee7ab7c957c, type: 3}
       propertyPath: response.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
+      objectReference: {fileID: 2402242621861639045}
+    - target: {fileID: 575334120496398, guid: f5bac5a5b98e0984b812fee7ab7c957c, type: 3}
+      propertyPath: response.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: InteractWithItem
+      objectReference: {fileID: 0}
+    - target: {fileID: 575334120496398, guid: f5bac5a5b98e0984b812fee7ab7c957c, type: 3}
+      propertyPath: response.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: ItemLoadScene, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 884679938226390662, guid: f5bac5a5b98e0984b812fee7ab7c957c,
         type: 3}
       propertyPath: response.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
+      objectReference: {fileID: 2402242621861639045}
+    - target: {fileID: 884679938226390662, guid: f5bac5a5b98e0984b812fee7ab7c957c,
+        type: 3}
+      propertyPath: response.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ShowObjectOrNot
       objectReference: {fileID: 0}
     - target: {fileID: 2694073473959372083, guid: f5bac5a5b98e0984b812fee7ab7c957c,
         type: 3}
@@ -9340,6 +9353,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2402242621861639041}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2402242621861639045 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5369971725014122737, guid: f5bac5a5b98e0984b812fee7ab7c957c,
+    type: 3}
+  m_PrefabInstance: {fileID: 2402242621861639041}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e69daafb5da4e340ae0ba3c7d0c546b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2438574702389735174
 PrefabInstance:
   m_ObjectHideFlags: 0
