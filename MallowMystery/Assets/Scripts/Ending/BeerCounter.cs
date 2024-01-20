@@ -25,15 +25,15 @@ public class BeerCounter : MonoBehaviour, IDataPersistence {
         input.Disable();
         waitForSound = true;
         aud.Play();
+        StartCoroutine(PlayEnding());
     }
 
-    private void Update() {
-        if (!waitForSound) return;
-        
-        timer += Time.deltaTime;
-        if (timer > aud.clip.length - timeBeforeAudioEndStartEvent) {
-            endingEvent.Invoke();
+    private IEnumerator PlayEnding() {
+        while (timer < aud.clip.length - timeBeforeAudioEndStartEvent) {
+            timer += Time.deltaTime;
+            yield return null;
         }
+        endingEvent.Invoke();
     }
 
     public void LoadData(GameData data) {
