@@ -13,8 +13,7 @@ public class BeerCounter : MonoBehaviour, IDataPersistence {
     [SerializeField] private float timeBeforeAudioEndStartEvent;
     
     [SerializeField] private UnityEvent endingEvent;
-
-    private bool waitForSound = false;
+    
     private float timer = 0;
 
     public void beerDrunkAdd() {
@@ -23,7 +22,6 @@ public class BeerCounter : MonoBehaviour, IDataPersistence {
         if (beerDrunk < 5) return;
         
         input.Disable();
-        waitForSound = true;
         aud.Play();
         StartCoroutine(PlayEnding());
     }
