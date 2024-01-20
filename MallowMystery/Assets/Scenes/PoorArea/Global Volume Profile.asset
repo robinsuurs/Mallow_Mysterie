@@ -12,28 +12,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b2db86121404754db890f4c8dfe81b2, type: 3}
   m_Name: Bloom
   m_EditorClassIdentifier: 
-  active: 1
+  active: 0
   skipIterations:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: 1
   threshold:
-    m_OverrideState: 0
-    m_Value: 0.9
+    m_OverrideState: 1
+    m_Value: 0.85
   intensity:
-    m_OverrideState: 0
-    m_Value: 0
+    m_OverrideState: 1
+    m_Value: 9.43
   scatter:
-    m_OverrideState: 0
-    m_Value: 0.7
+    m_OverrideState: 1
+    m_Value: 0.72
   clamp:
-    m_OverrideState: 0
-    m_Value: 65472
+    m_OverrideState: 1
+    m_Value: 493
   tint:
     m_OverrideState: 0
     m_Value: {r: 1, g: 1, b: 1, a: 1}
   highQualityFiltering:
-    m_OverrideState: 0
-    m_Value: 0
+    m_OverrideState: 1
+    m_Value: 1
   downscale:
     m_OverrideState: 0
     m_Value: 0
@@ -41,12 +41,46 @@ MonoBehaviour:
     m_OverrideState: 0
     m_Value: 6
   dirtTexture:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: {fileID: 0}
     dimension: 1
   dirtIntensity:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: 0
+--- !u!114 &-4896749478593072597
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 558a8e2b6826cf840aae193990ba9f2e, type: 3}
+  m_Name: ShadowsMidtonesHighlights
+  m_EditorClassIdentifier: 
+  active: 1
+  shadows:
+    m_OverrideState: 1
+    m_Value: {x: 1, y: 0.97265077, z: 0.92684495, w: -0.14553013}
+  midtones:
+    m_OverrideState: 1
+    m_Value: {x: 1, y: 0.9739921, z: 0.99958223, w: 0.041580044}
+  highlights:
+    m_OverrideState: 1
+    m_Value: {x: 1, y: 0.9936923, z: 0.9747696, w: -0.14553013}
+  shadowsStart:
+    m_OverrideState: 1
+    m_Value: 0
+  shadowsEnd:
+    m_OverrideState: 1
+    m_Value: 0.81
+  highlightsStart:
+    m_OverrideState: 1
+    m_Value: 1.04
+  highlightsEnd:
+    m_OverrideState: 1
+    m_Value: 1.46
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -61,3 +95,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   components:
   - {fileID: -7049388037441962012}
+  - {fileID: -4896749478593072597}
