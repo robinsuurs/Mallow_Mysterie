@@ -17,12 +17,12 @@ MonoBehaviour:
   - BaseNodeGUID: 710edc09-2afc-4ae1-84cf-216a59831327
     PortName: Next
     TargetNodeGUID: fa7f8848-85b4-49fc-92f1-de7de43acb31
-  - BaseNodeGUID: 1ca6dd4d-954f-4c02-8ffb-564f2ba17eff
-    PortName: Option 1
-    TargetNodeGUID: ff8b6ee0-3534-4018-bee3-470257196e8b
   - BaseNodeGUID: fa7f8848-85b4-49fc-92f1-de7de43acb31
     PortName: Option 1
     TargetNodeGUID: 1ca6dd4d-954f-4c02-8ffb-564f2ba17eff
+  - BaseNodeGUID: 1ca6dd4d-954f-4c02-8ffb-564f2ba17eff
+    PortName: Option 1
+    TargetNodeGUID: ff8b6ee0-3534-4018-bee3-470257196e8b
   DialogueNodeData:
   - nodeGuid: fa7f8848-85b4-49fc-92f1-de7de43acb31
     dialogueText: "Sorry, do you\u2013"
@@ -49,7 +49,7 @@ MonoBehaviour:
     canSkipFromThisPoint: 0
     CutSceneImageName: 
   - nodeGuid: ff8b6ee0-3534-4018-bee3-470257196e8b
-    dialogueText: :(
+    dialogueText: ... Rude
     position: {x: 936, y: 200}
     SpeakerName: Milton
     SpeakerNameLocation: Speaker Name Left
