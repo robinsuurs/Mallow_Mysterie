@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78b3fd9154634ebdb8c8a48960b9a16a, type: 3}
   m_Name: BBouncer
   m_EditorClassIdentifier: 
-  alreadyHadConversation: 0
+  alreadyHadConversation: 1
   NodeLinks:
   - BaseNodeGUID: 710edc09-2afc-4ae1-84cf-216a59831327
     PortName: Next
@@ -49,7 +49,7 @@ MonoBehaviour:
     canSkipFromThisPoint: 0
     CutSceneImageName: 
   - nodeGuid: ff8b6ee0-3534-4018-bee3-470257196e8b
-    dialogueText: ... Rude
+    dialogueText: (...rude.)
     position: {x: 936, y: 200}
     SpeakerName: Milton
     SpeakerNameLocation: Speaker Name Left
